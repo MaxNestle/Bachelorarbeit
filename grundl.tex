@@ -1,0 +1,48 @@
+%Kapitel des Hauptteils
+
+\chapter {Grundlagen}  %Name des Kapitels
+\label{cha:grundlagen} %Label des Kapitels
+
+\section{Unterkapitel} %Unterkapitel
+\label {sec:Unterkapitel} %Label des Unterkapitels
+
+Hier befindet sich ein Beispiel (\gls{BSP}), wie ein Bild\index{Bild} in \LaTeX eingebunden wird.
+\begin{figure}
+ \begin{center}
+  \includegraphics*{bilder/HSLogoWGd}
+  \caption{Logo der HS -- oder nicht?}
+  \label{fig:logo}
+ \end{center}
+\end{figure}
+
+Und es gibt auch ein Beispiel für eine Tabelle\index{Tabelle}.
+\begin{table}
+ \begin{center}
+ \caption{Verwendete Matrizen}
+ \label{matrizen}
+  \begin{tabular}{|l|l|l|}
+   \hline
+   Matrix & Dimension & Symbol \\
+   \hline
+   Systemmatrix & $n \times n$ & ${\bf A}$  \\
+   \hline
+   Ausgangsmatrix & $m \times n$ & ${\bf C}$  \\
+   \hline
+  \end{tabular}
+ \end{center}
+\end{table}
+
+Man beachte: Bilder haben Bild{\bf unter}schriften, 
+Tabellen haben Tabellen{\bf "uber}schriften.
+
+Für jedes Kapitel sollte ein neues \TeX  File erstellt und eingebunden werden. \newline
+
+Ein Symbol wie \gls{symb:Pi} Kann mathematisch korrekt dargestellt werden. Auch \gls{glos:Glossareintrag} zu Abkürzungen wie \gls{AD} können in \LaTeX behandelt werden.
+Zum Demonstrieren wird hier noch eine Webseite von Microsoft zitiert\cite{Mid09}, und noch eine Stelle\cite{Mid09b}
+
+
+ 
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "Bachelorarbeit"
+%%% End: 

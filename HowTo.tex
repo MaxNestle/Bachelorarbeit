@@ -1,0 +1,247 @@
+\documentclass[
+   12pt,                % Schriftgroesse 12pt
+   a4paper,             % Layout fuer Din A4
+   german,              % deutsche Sprache, global   
+%  twoside,             % Layout fuer beidseitigen Druck
+	 oneside,						  % Layout für einseitigen Druck
+   headinclude,         % Kopfzeile wird Seiten-Layouts mit beruecksichtigt
+   headsepline,         % horizontale Linie unter Kolumnentitel
+   plainheadsepline,    % horizontale Linie auch beim plain-Style
+   BCOR12mm,            % Korrektur fuer die Bindung
+   DIV18,               % DIV-Wert fuer die Erstellung des Satzspiegels, siehe scrguide
+   halfparskip,         % Absatzabstand statt Absatzeinzug
+   openany,             % Kapitel können auf geraden und ungeraden Seiten beginnen
+   bibtotoc,            % Literaturverz. wird ins Inhaltsverzeichnis eingetragen
+   pointlessnumbers,    % Kapitelnummern immer ohne Punkt
+   tablecaptionabove,   % korrekte Abstaende bei TabellenUEBERschriften
+   fleqn,               % fleqn: Glgen links (statt mittig)
+%   draft               % Keine Bilder in der Anzeige, overfull hboxes werden angezeigt !Auskommentieren für Test-Compile!
+]{scrbook}[2001/07/30]  % scrbook-Version mind. 2.8j von 2001/07/30
+
+%% Pakete für nützliche Dinge
+\usepackage{color} 							 % Schriftfarben verwenden
+\usepackage{ngerman}             % neue deutsche Rechtschreibung
+\usepackage[ngerman]{translator} % Übersetzung 
+\usepackage[ansinew]{inputenc}   % Input-Encodung: ansinew fuer Windows
+%\usepackage[latin1]{inputenc}   % Input-Encodung: latin1 fuer Unix
+\usepackage[T1]{fontenc}         % T1-kodierte Schriften, korrekte Trennmuster fuer Worte mit Umlauten
+\usepackage{ae}                  % Für PDF-Erstellung
+\usepackage[hang]{caption2}      % mehrzeilige Captions ausrichten
+
+\usepackage[centertags]{amsmath} % AMS-Mathematik, centertags zentriert Nummer bei split
+\usepackage{latexsym}            % verschiedene Symbole
+\usepackage{textcomp}            % verschiedene Symbole
+ \usepackage{microtype}          % bessere Optik     
+\usepackage{graphicx}            % zum Einbinden von Grafiken
+\usepackage{float}               % u.a. genaue Plazierung von Gleitobjekten mit H
+% \usepackage{pstricks}          % PostScript Macros
+% \usepackage{lscape}            % Seite im Querformat bei Erhalt der Kopfzeile
+% \usepackage{verbatim}          % Quellcode einbinden (\verbatiminput)
+% \usepackage{multicol}          % Mehrspaltiger Text 
+
+%%% Literatur und sonstige Referenzen
+\usepackage{cite}              % Sortierte und zusammengefasste Zitatnummern 
+\usepackage{url}							 % URL in Literatur wird unterstützt
+\usepackage{varioref}          % Verbesserte Referenzen
+\usepackage{hyperref}          % Verlinkte Verzeichnisse
+% \usepackage[numbers, sort]{natbib} % DIN Literaturverzeichnis; nicht zusammen mit cite verwenden!
+
+
+
+%% Zeilenabstand
+\usepackage{setspace}            % Zeilenabstand einstellbar
+\onehalfspacing                  % eineinhalbzeilig einstellen
+
+%% Kopf- und Fusszeilen
+\usepackage{scrpage2}                             % Kopf und Fusszeilen-Layout 
+\renewcommand{\headfont}{\normalfont\sffamily}    % Kolumnentitel serifenlos
+\renewcommand{\pnumfont}{\normalfont\sffamily}    % Seitennummern serifenlos
+\pagestyle{scrheadings}
+\ihead[]{\headmark}               % Kolumnentitel immer oben innen
+\chead[]{}                        % oben Mitte
+\ohead[\pagemark]{\pagemark}      % Seitennummern immer oben aussen
+\ofoot[]{}                        % Fusszeile aussen
+\cfoot[]{}                        % Fusszeile Mitte
+\ifoot[]{}                        % Fusszeile innen
+
+%% Fussnotenzähler
+\usepackage{chngcntr}              % Paket um Counter zu steuern
+\counterwithout{footnote}{chapter} % Fussnoten nicht pro Chapter, sondern Global
+\usepackage{threeparttable}        % Tabelle mit Fussnoten
+
+
+%% Schrift mit Serifen auch fuer Ueberschriften benutzen
+%\renewcommand*{\sectfont}{\bfseries}
+%\renewcommand*{\descfont}{\bfseries}
+
+\typearea[current]{current}        % Neuberechnung des Satzspiegels mit alten Werten nach Änderung von Zeilenabstand,etc
+
+
+%%% PDF-Erzeugung: pdflatex statt latex aufrufen!
+%% BEI WINDOWS UND TEXNICCENTER AUSKOMMENTIERT LASSEN !!! 
+%\pdfoutput=1                  % PDF-Ausgabe
+%\usepackage[pdftex, a4paper,  % muss letztes Package sein!
+%     pdftitle={Titel der Arbeit},%
+%     pdfauthor={Name Autor},%
+%     pdfsubject={Studien- bzw. Diplomarbeit},%
+%     pdfkeywords={Stichwort zur Arbeit},%
+%    ]{hyperref} % 
+
+
+
+%\graphicspath{{figs/}{bilder/}}    % Falls texinput nicht gesetzt -> Bildverzeichnisse
+
+%\includeonly{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+\pagenumbering{Roman}           % Nummerierung Römisch start bei I 
+
+\begin{spacing}{1.0}            % Verzeichnisse werden mit einzeiligem Abstand gesetzt
+ \tableofcontents               % Inhaltsverzeichnis
+\end{spacing}
+
+\chapter{Vorspann}
+
+\section{Deckblatt}
+Die Vorlage kann ausgefüllt, und direkt verwendet werden. Ein Deckblatt sollte immer verwendet werden, es rundet die Arbeit ab. Vielfach ist das Deckblatt von der Firma / Hochschule vorgegeben.
+
+\section{Erklärung}
+Diese Erklärung ausfüllen. Es hat sich eingebürgert, die Erklärung auf der zweiten Seite, also direkt nach dem Deckblatt mit in die Arbeit abzuheften.
+Ebenso kann die Erklärung auch als letzte Seite mit abgeheftet werden. Sie sollte jedoch immer fest in die Arbeit abgehefte werden, und nicht lose abgegeben werden.
+Diese Erklärung ist bei allen Exemplaren, die abgegeben werden original zu unterschreiben.
+
+\section{Inhaltsverzeichnis}
+Das Inhaltsverzeichnis wird von \LaTeX automatisch erstellt.
+
+\section{Danksagung}
+Es ist zwar nicht notwendig, eine Danksagung als eine weitere Seite einzufügen, dies gehört jedoch mittlerweile zum "`guten Ton"'. \newline
+Wer bewertet die Arbeit? Der Betreuer der Arbeit im Betrieb sowie der Gutachter der HS sollten als erste in der Danksagung genannt werden. Das Mindeste ist, dass man sich hier für das Ermöglichen der Arbeit (in der Industrie) bedankt. Schließlich dankt man allen weiteren Personen, die maßgeblich zum Erfolg der Arbeit beigetragen haben. Eine halbe Seite ist als Maximum anzusehen. 
+
+\section{Vorwort}
+Im Vorwort (optional) kann die allgemeine Bedeutung der Arbeit erläutert werden. Es wird die Arbeit in Bezug zu einem größeren Rahmen (Fachgebiet, Industriezweig, Volkswirtschaft) dargestellt. 
+
+\section{Kurzfassung}
+Deutscher Teil der Kurzfassung \newline
+
+Die Kurzfassung soll einen Überblick über die Problemstellung geben und die wichtigsten 
+Ergebnisse der Arbeit beinhalten. Sie ist in Deutsch und Englisch abzufassen. 
+Für die Bachelorarbeit ist die Kurzfassung zusätzlich als eigenständiges Dokument abzugeben 
+(möglichst eine, maximal 2  DIN A4 Seiten).
+
+ Eventuell folgt eine Auflistung von Schlüsselworten, die den Inhalt der % Arbeit beschreiben: 
+ \begin{itemize}
+ \item Informationstechnik
+ \item Java
+ \item Projekt
+ \end{itemize}
+
+\section{Abstract}
+Englicher Teil der Kurzfassung\newline
+
+Die Kurzfassung soll einen Überblick über die Problemstellung geben und die wichtigsten 
+Ergebnisse der Arbeit beinhalten. Sie ist in Deutsch und Englisch abzufassen. 
+Für die Bachelorarbeit ist die Kurzfassung zusätzlich als eigenständiges Dokument abzugeben 
+(möglichst eine, maximal 2  DIN A4 Seiten).\newline
+
+ Eventuell folgt eine Auflistung von Schlüsselworten, die den Inhalt der  Arbeit beschreiben: 
+\begin{itemize}
+\item Informationstechnik
+\item Java
+\item Projekt
+\end{itemize}
+
+
+\chapter{Hauptteil}
+
+\section{Einleitung}
+\label{cha:einleitung}
+
+Um den "`roten Faden"' gleich am Anfang aufzunehmen ist neben der Zusammenfassung (am Schluss)  die Einleitung einer der wichtigsten Abschnitte der Arbeit. Aus dieser sollen das Thema, das Ziel, die Aufgabenstellung und die Vorgehensweise klar und strukturiert hervorgehen. Die folgenden Unterkapitel sind ratsam: 
+\begin{itemize}
+	\item Kurzeinführung in das Thema. Die Gesamtproblemstellung wird kurz (maximal eine halbe Seite) skizziert und das Ziel eingeführt.
+	\item Zentrale Fragestellung: "`Worum geht es?"'
+\end{itemize}
+
+\section{Was gehört in den Hauptteil} % Unterkapitel
+\label{sec:wgidht} %Label des Unterkapitels
+
+\subsection{Aufgabenstellung und Zielsetzung} %Unterunterkapitel
+\label{sse:auz} %Label des Unterunterkapitels 
+Die Arbeit steht meist nicht isoliert da. Als nächster Schritt wird kurz der Rahmen, in dem die Arbeit angesiedelt ist, erläutert. Dies kann ein Projekt\index{Projekt} oder ein Themenfeld sein, auf dem bisher bereits gearbeitet wurde, oder weitere Arbeiten, die mit der vorliegenden ein Gesamtkonzept bilden. Je nach Komplexität und Bekanntheitsgrad des Umfelds können hier auch mehrere Seiten in Anspruch genommen werden.
+Zentrale Fragestellung: "`Was ist bekannt und welchen übergeordneten Zielen muss die Arbeit Rechnung tragen?"'
+Ist der Rahmen und das Gesamtziel gesteckt, muss klar hervorgehoben werden, welches die konkrete Aufgabenstellung der Arbeit ist. Hier ist es wichtig, möglichst präzise zu sein und auch Unterziele aufzulisten. Die Erreichung dieser Ziele wird im Schlussteil der Arbeit in der Zusammenfassung skizziert. Damit hat der "`rote Faden"' einen Anfang und ein Ende. Eine kurze und präzise Beschreibung ist gefragt, daher sollte der Umfang eine halbe Seite nicht wesentlich überschreiten. 
+Zentrale Fragestellung: "`Was soll erreicht werden?"'
+
+\subsection{Methoden, Lösungsansatz} 
+Es ist hilfreich für den Leser, wenn er am Anfang ein Gerüst vorgegeben bekommt. Eine Gliederung, die die verwendeten Methoden bzw. den Lösungsansatz beschreibt und aufzeigt, wo Schwerpunkte gesetzt wurden. Vor- und Nachteile bisheriger Lösungen bzw. skizzierter Lösungsansätze sind zu diskutieren und die gewählte Lösung ist zu begründen. Auch wird hier noch einmal klar, welche Kapitel den Kern der eigenen Arbeit darstellen und welche notwendiger "`Rahmen"' sind. 
+Zentrale Fragestellung: "`Wie soll das Ziel erreicht werden?"'
+
+\subsection{Ergebnisse}
+Der praktische Teil der Arbeit, zu dem u. a. softwaretechnische Einzelheiten (nicht im Programm-Detail), Versuchsdurchführungen, Messungen und  Test gehören. Detaillierte Messergebnisse werden hier aufgeführt, falls sie direkt zur Aufgabenstellung und Erläuterung der Ergebnisse beitragen. Ansonsten sind diese im Anhang unterzubringen.
+
+\subsection{Diskussion der Ergebnisse}
+Zur Bewertung gehört ggf. ein Vergleich mit den oben erwähnten bisherigen Arbeiten, in jedem Fall aber eine fundiert begründete Anwendbarkeit auf die gewählte Problemstellung. Hier ist es durchaus möglich und auch ein qualifiziertes Ergebnis der Arbeit, wenn der gewählte Ansatz sich als unzureichend erweist. Die Erkenntnis, dass etwas nicht funktionieren kann, ist nicht geringer zu werten als eine Erfolgsmeldung. Allerdings sollte das Fehlschlagen nicht von vorne herein offensichtlich sein, was jedoch durch den 
+Betreuer im Betrieb und den betreuenden Professor gewährleistet sein sollte, die schließlich die Aufgabenstellung definieren.
+
+\section{Fazit Hauptteil}
+Der Hauptteil umfasst in der Regel nicht nur ein Kapitel. Eine zu feine Untergliederung auf oberster Ebene ist jedoch zu vermeiden, mehr als drei Kapitel sind daher nicht zu empfehlen. Eine mögliche Einteilung besteht in der Untergliederung "`Grundlagen"' und "`X"' wobei "`X"' arbeitsspezifisch ist.  "`X"' wird dann weiter unterteilt, wobei obige Gliederungspunkte als Anhaltspunkt genommen werden können.
+
+\section{Schluss, Fazit}
+Neben einer kurzen Zusammenfassung der wichtigsten Ergebnisse soll in
+diesem Abschnitt auf weitere Fragestellungen oder noch offene, durch
+die Arbeit aufgeworfene Probleme, hingewiesen werden
+(Umfang max. 2-3 Seiten).\newline
+Schlussfolgerungen, Zusammenfassung und Ausblick:
+Der so häufig erwähnte "`rote Faden"' muss hier zu Ende gebracht werden. Dazu werden die Ergebnisse noch einmal in Kurzform zusammengefasst. Wichtig: Schnellleser geben sich oft (zunächst) mit dem Lesen der Einleitung und der Zusammenfassung am Ende zufrieden. Daher sollten diese beiden Teile wie "`Frage"' und "`Antwort"' genau zusammenpassen. D.h. die am Anfang klar formulierten Aufgaben und Ziele 
+werden in der Schlusszusammenfassung einzeln angesprochen und die erzielten Ergebnisse kurz skizziert. Dies ermöglicht dem Leser einen schnellen Überblick über die eigentliche Aussage der Arbeit.
+Meist ist ein Themenfeld durch die vorgelegte Arbeit nicht umfassend abgedeckt und es sind nicht alle Fragen gelöst. Auch lässt der kurze Zeitrahmen der Arbeit nicht die Möglichkeiten, auf alle interessanten Punkte einzugehen. Daher bietet ein "`Ausblick"' die Chance, am Ende der Arbeit auf diese interessanten Fragestellungen hinzuweisen, sowie die Arbeitsergebnisse in den Rahmen zukünftig verfügbarer Technologien zu stellen.
+
+
+
+\chapter{Anhang}
+Im Anhang werden Referenzen, Zeichnungen, Struktogramme, ect. eingefügt. Anhangskapitel vermittel Informationen, die nicht in direktem Zusammenhang mit der Lösung stehen, sondern eher spezielle Informationen die für das Projekt ect. verwendet wurden. Beispielsweise kann hier ein Strukturplan für das spezielle Active Directory abgeheftet werden, so wie es in einer Firma aufgebaut wurde. Um ein Active Directory im allgemeinen aufbauen zu können, ist jedoch die Struktur für die Firma weniger interessant.\newline
+Weiter werden Hier Referenzen ect. abgelegt.\newline
+Anhangskapitel werden von \LaTeX mit Grossbuchstaben nummeriert.
+
+\chapter{Abspann}
+\section{Symbolverzeichnis}
+Das Symbolverzeichnis ist optional. Wenn besonders viele Symbole verwendet wurden, sollte es erstellt werden.
+Die Verwendung der Symbole soll sich, wenn m"oglich, an die für das
+jeweilige Fachgebiet geltenden Normen und Richtlinien anlehnen.
+Die jeweiligen Dimensionen, falls vorhanden, sind hinzuzuf"ugen.
+Es sind, soweit es m"oglich ist, die internationalen SI-Einheiten zu
+verwenden.
+\section{Abkürzungsverzeichnis}
+Das Abkürzungsverzeichnis ist optional. Es sollte verwendet werden, wenn besonders viele Abkürzungen verwendet wurden. MERKE: Hier werden keine Abkürzungen wie "`ect."' oder "`z.B."' aufgeführt, sondern Abkürzungen, die nicht allgemein gültig sind, und für die Arbeit definiert wurden. Diese haben nur für diese Arbeit Gültigkeit, und werden immer in Grossbuchstaben angegeben. Zusätzlich zum Verzeichniseintrag muss beim erste Auftreten die Abkürzung mit dem Wort zusammen aufgeführt werden. Beispielsweise "`Active Directory (AD)"'. Im weiteren Verlauf kann AD verwendet werden. Die Abkürzung muss in "`()"' hinter das Wort gestellt werden.
+\section{Tabellenverzeichnis}
+Das Tabellenverzeichnis ist optional. Wenn besonders viele Tabellen verwendet wurden, sollte es erstellt werden.
+\section{Abbildungsverzeichnis}
+Das Abbildungsverzeichnis ist optional. Wenn besonders viele Bilder verwendet wurden, sollte es erstellt werden.  
+\section{Formelverzeichnis}
+Das Formelverzeichnis ist optional. Wenn besonders viele Formeln verwendet wurden, sollte es erstellt werden.   
+\section{Glossar}
+Der Glossar ist optional. Es empfiehlt sich, einen Glossar anzulegen, und Fachbegriffe ausserhalb der eigentlichen Arbeit im Glossar zu erklären.
+\section{Literaturverzeichnis}
+Das Literaturverzeichnis wird in \LaTeX durch die Einträge im bib-File erstellt. Das bib-File kann mit Citavi erstellt werden. Es werden in der Standardeinstellung nur die im bib-File eingetragenen Quellen aufgelistet, die im Text mit "`cite"' verwendet wurden. Diese Einstellung sollte unbedingt beibehalten werden, da jede verwendete Quelle zu zitieren ist, und allim Literaturverzeichnis angegebenen Quelle auch wirklich zitiert worden sein müssen.
+\section{Stichwortverzeichnis}
+Das Stichwortverzeichnis ist optional. Es erleichtert dem Leser jedoch die Suche nach bestimmten Themen. Eine wissenschaftliche Arbeit, die grösser als 60 Seiten ist, ohne Stichwortverzeichnis ist nicht mehr als Nachschlagewerk geeignet, da der Leser einen enormen Aufwand hat, zu finden, was er sucht.
+
+\chapter{Verwendung der Vorlage}
+\section{Schreiben der Arbeit}
+Bitte unbedingt die Kommentare (hinter \%) berücksichtigen. Sie dienen als Hilfe um die Vorlage optimal nutzen zu können.\newline
+In der Vorlage wurden viele Hauptteilkapitel eingefügt, um die Vorgehensweise zu demonstrieren. Das bedeutet NICHT, dass jede Arbeit genau die Anzahl an Kapiteln haben muss oder soll. Ebenso können auch mehrere Anhangskapitel sinnvoll sein, unter Umständen wird auch kein Anhangskapitel benötigt. \newline
+Aus Demonstrationszwecken wie Verzeichnisse in \LaTeX erstellt und dargestellt werden, wurden alle möglichen Verzeichnisse erstellt. Auch hier soll das NICHT bedeuten, dass jede Arbeit die erstellten Verzeichnisse benötigt.\newline
+Diese Vorlage dient in erster Linie dazu, ein Layout mit Deckblatt zur Verfügung zu stellen, welches bei eigener Entwicklung einige Stunden Zeit in Anspruch nimmt.
+
+\section{Rechtliches}
+Der Autor der Vorlage kann nicht für eventuelle Fehler beim Anwender / Nutzer der Vorlage verantwortlich gemacht werden. Diese Vorlage ist auf den Servern der HS Ravensburg-Weingarten öffentlich zum Download zugänglich. Jeder Interessierte Student, Dozent, Professor oder sonstige Mittarbeiter hat das Recht, die Vorlage zu verwenden, und auch weiterzugeben. Die Vorlage darf auch an Personen weitergegeben werden, die nicht in Zusammenhang mit der HS Ravensburg-Weingarten stehen. (Das bedeutet, die Vorlage kann öffentlich weitergegeben werden, sie ist opensource und freeware.) \newline
+ES IST VERBOTEN, die Vorlage gegen Bezahlung jeglicher Art an Dritte weiterzugeben. \newline
+Erstellt wurde diese Vorlage von Jan-Marc Möhler (2008-2009). Bug-Report oder Verbesserungsvorschläge an: jan.moehler@spray.se
+
+\end{document}
+
+
