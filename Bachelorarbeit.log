@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.7)  12 OCT 2018 08:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.7)  14 OCT 2018 12:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1218,7 +1218,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
 
-<bilder/HSLogoWGd.jpg, id=47, 322.0833pt x 125.5089pt>
+<bilder/HSLogoWGd.jpg, id=51, 322.0833pt x 125.5089pt>
 File: bilder/HSLogoWGd.jpg Graphic file (type jpg)
 <use bilder/HSLogoWGd.jpg>
 Package pdftex.def Info: bilder/HSLogoWGd.jpg  used on input line 16.
@@ -1344,6 +1344,13 @@ chapter without number
 
  (./einleit.tex
 chapter 1.
+LaTeX Font Info:    Try loading font information for TS1+aer on input line 8.
+LaTeX Font Info:    No file TS1aer.fd. on input line 8.
+
+LaTeX Font Warning: Font shape `TS1/aer/m/n' undefined
+(Font)              using `TS1/cmr/m/n' instead
+(Font)              for symbol `textparagraph' on input line 8.
+
 ) [1
 
 
@@ -1624,7 +1631,10 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 190.
 Package rerunfilecheck Info: File `Bachelorarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 0E27A8E89162CE0FF452D35B774046FC;559.
+(rerunfilecheck)             Checksum: E3B524EA500EBB0836DE6A04298A55C1;638.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1632,11 +1642,11 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 190.
  ) 
 Here is how much of TeX's memory you used:
- 18276 strings out of 492642
- 315292 string characters out of 6123663
- 577171 words of memory out of 5000000
- 21470 multiletter control sequences out of 15000+600000
- 56541 words of font info for 180 fonts, out of 8000000 for 9000
+ 18329 strings out of 492642
+ 315807 string characters out of 6123663
+ 577172 words of memory out of 5000000
+ 21484 multiletter control sequences out of 15000+600000
+ 59493 words of font info for 211 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,12n,66p,9160b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{glo:AD} has been referenced but does not exist, r
@@ -1651,26 +1661,28 @@ pdfTeX warning (dest): name{glo:symb:Pi} has been referenced but does not exist
 pdfTeX warning (dest): name{glo:BSP} has been referenced but does not exist, re
 placed by a fixed one
 
-{d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:
-/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
-10.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmbx12.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmcsc10.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmmi12.pfb><d:/Programme_HDD/LaTex/texlive/2018/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/Programme_HDD/LaTex/texl
-ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/Programme_HDD/
-LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/Progr
-amme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pf
+{d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-sup
+er-ts1.enc}{d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/enc/dvips/base
+/8r.enc}<d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmb10.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx12.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmcsc10.pfb><d:/Programme_HDD/LaTex/texlive/2018/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/Programme_HDD/LaTex/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/Programme_HDD
+/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/Pro
+gramme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
 b><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmssbx10.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmti12.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf
--dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/Programme_HDD/LaTex/texlive
-/2018/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Bachelorarbeit.pdf (23 pages, 298696 bytes).
+m/cmss12.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmssbx10.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><d:/Programme_HDD/LaTex/texlive
+/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/Programme_HDD/La
+Tex/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><d:/Progra
+mme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on Bachelorarbeit.pdf (23 pages, 315796 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
- 246 compressed objects within 3 object streams
- 78 named destinations out of 1000 (max. 500000)
- 41578 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 301 PDF objects out of 1000 (max. 8388607)
+ 256 compressed objects within 3 object streams
+ 79 named destinations out of 1000 (max. 500000)
+ 42098 words of extra memory for PDF output out of 42996 (max. 10000000)
 
