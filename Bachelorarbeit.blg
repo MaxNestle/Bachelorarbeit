@@ -56,25 +56,25 @@ The style file: geralpha.bst
 Database file #1: bib.bib
 You've used 2 entries,
             2768 wiz_defined-function locations,
-            626 strings with 5524 characters,
-and the built_in function-call counts, 628 in all, are:
+            627 strings with 5544 characters,
+and the built_in function-call counts, 630 in all, are:
 = -- 64
 > -- 16
 < -- 2
-+ -- 5
++ -- 4
 - -- 4
 * -- 34
-:= -- 104
+:= -- 106
 add.period$ -- 6
 call.type$ -- 2
 change.case$ -- 8
-chr.to.int$ -- 1
+chr.to.int$ -- 2
 cite$ -- 2
 duplicate$ -- 26
 empty$ -- 57
 format.name$ -- 8
 if$ -- 138
-int.to.chr$ -- 2
+int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 0
 newline$ -- 13
@@ -93,6 +93,6 @@ top$ -- 0
 type$ -- 16
 warning$ -- 0
 while$ -- 4
-width$ -- 3
+width$ -- 4
 write$ -- 28
 (There were 8 error messages)

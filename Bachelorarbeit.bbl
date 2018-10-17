@@ -1,18 +1,18 @@
-\begin{thebibliography}{{Mic}09b}
+\begin{thebibliography}{{Die}18}
 
-\bibitem[{Mic}09a]{Mid09}
-{\sc {Microsoft Deutschland GmbH}}: {\em Configuration Manager 2007:
-  Betriebssystembereitstellung}.
+\bibitem[{Die}18]{BfDI}
+{\sc {Die Bundesbeauftragten für den Datenschutz und die Informationssicherheit
+  (BfDI)}}: {\em Was ist Datenschutz?}
 \newblock
-  \url{http://www.microsoft.com/germany/systemcenter/sccm/evaluation/osdeploy.mspx},
-  2009.
-\newblock Abrufdatum: 02.02.2009.
+  \url{https://www.bfdi.bund.de/DE/Datenschutz/Ueberblick/ueberblick-node.html},
+  2018.
+\newblock Abrufdatum: 16.10.2018.
 
-\bibitem[{Mic}09b]{Mid09b}
-{\sc {Microsoft Deutschland GmbH}}: {\em System Center Configuration Manager
-  2007: Aktuelles}.
+\bibitem[{Nic}18]{CIA}
+{\sc {Nico Grundmeier}}: {\em Sicherheitslücken im Internet}.
 \newblock
-  \url{http://www.microsoft.com/germany/systemcenter/sccm/default.mspx}, 2009.
-\newblock Abrufdatum: 02.02.2009.
+  \url{http://www.informatik.uni-oldenburg.de/~iug10/sli/indexd917.html?q=node/19},
+  2018.
+\newblock Abrufdatum: 16.10.2018.
 
 \end{thebibliography}

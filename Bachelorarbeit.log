@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.7)  14 OCT 2018 12:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.8.7)  16 OCT 2018 16:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1218,7 +1218,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
 
-<bilder/HSLogoWGd.jpg, id=51, 322.0833pt x 125.5089pt>
+<bilder/HSLogoWGd.jpg, id=95, 322.0833pt x 125.5089pt>
 File: bilder/HSLogoWGd.jpg Graphic file (type jpg)
 <use bilder/HSLogoWGd.jpg>
 Package pdftex.def Info: bilder/HSLogoWGd.jpg  used on input line 16.
@@ -1344,143 +1344,40 @@ chapter without number
 
  (./einleit.tex
 chapter 1.
-LaTeX Font Info:    Try loading font information for TS1+aer on input line 8.
-LaTeX Font Info:    No file TS1aer.fd. on input line 8.
 
-LaTeX Font Warning: Font shape `TS1/aer/m/n' undefined
-(Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textparagraph' on input line 8.
+Underfull \hbox (badness 10000) in paragraph at lines 16--20
 
-) [1
+ []
+
+[1
 
 
 
 
-]
+]) [2]
 \openout2 = `grundl.aux'.
 
  (./grundl.tex
 chapter 2.
-File: bilder/HSLogoWGd.jpg Graphic file (type jpg)
-<use bilder/HSLogoWGd.jpg>
-Package pdftex.def Info: bilder/HSLogoWGd.jpg  used on input line 12.
-(pdftex.def)             Requested size: 322.0825pt x 125.50858pt.
 
-Class scrbook Warning: deprecated old font command `\bf' used.
-(scrbook)              You should note, that since 1994 LaTeX2e provides a
-(scrbook)              new font selection scheme called NFSS2 with several
-(scrbook)              new, combinable font commands. New KOMA-Script classes
-(scrbook)              defined the old font commands like `\bf' only for
-(scrbook)              compatibility with LaTeX 2.09 document styles of
-(scrbook)              Script 2.0. These commands are deprecated and
-(scrbook)              undocumented at least since 2003. Since 2013,
-(scrbook)              KOMA-Script classes warned about soon removement of
-(scrbook)              these deprecated commands. Now, after two decades of
-(scrbook)              LaTeX2e, NFSS2, and KOMA-Script these commands will
-(scrbook)              not work any longer. If loading a package results in
-(scrbook)              this message you should contact the author of that
-(scrbook)              package and ask him to replace the depracted font
-(scrbook)              command `\bf', e.g., by `\mathbf '.
-(scrbook)              Otherwise you should reconfigure or replace the
-(scrbook)              package. If you have used the old font command
-(scrbook)              `\bf' yourself you should replace it, e.g., by
-(scrbook)              `\mathbf ' on input line 27.
-
-
-Class scrbook Warning: deprecated old font command `\bf' used.
-(scrbook)              You should note, that since 1994 LaTeX2e provides a
-(scrbook)              new font selection scheme called NFSS2 with several
-(scrbook)              new, combinable font commands. New KOMA-Script classes
-(scrbook)              defined the old font commands like `\bf' only for
-(scrbook)              compatibility with LaTeX 2.09 document styles of
-(scrbook)              Script 2.0. These commands are deprecated and
-(scrbook)              undocumented at least since 2003. Since 2013,
-(scrbook)              KOMA-Script classes warned about soon removement of
-(scrbook)              these deprecated commands. Now, after two decades of
-(scrbook)              LaTeX2e, NFSS2, and KOMA-Script these commands will
-(scrbook)              not work any longer. If loading a package results in
-(scrbook)              this message you should contact the author of that
-(scrbook)              package and ask him to replace the depracted font
-(scrbook)              command `\bf', e.g., by `\mathbf '.
-(scrbook)              Otherwise you should reconfigure or replace the
-(scrbook)              package. If you have used the old font command
-(scrbook)              `\bf' yourself you should replace it, e.g., by
-(scrbook)              `\mathbf ' on input line 29.
-
-
-Class scrbook Warning: deprecated old font command `\bf' used.
-(scrbook)              You should note, that since 1994 LaTeX2e provides a
-(scrbook)              new font selection scheme called NFSS2 with several
-(scrbook)              new, combinable font commands. New KOMA-Script classes
-(scrbook)              defined the old font commands like `\bf' only for
-(scrbook)              compatibility with LaTeX 2.09 document styles of
-(scrbook)              Script 2.0. These commands are deprecated and
-(scrbook)              undocumented at least since 2003. Since 2013,
-(scrbook)              KOMA-Script classes warned about soon removement of
-(scrbook)              these deprecated commands. Now, after two decades of
-(scrbook)              LaTeX2e, NFSS2, and KOMA-Script these commands will
-(scrbook)              not work any longer. If loading a package results in
-(scrbook)              this message you should contact the author of that
-(scrbook)              package and ask him to replace the depracted font
-(scrbook)              command `\bf', e.g., by `\normalfont \bfseries '.
-(scrbook)              Otherwise you should reconfigure or replace the
-(scrbook)              package. If you have used the old font command
-(scrbook)              `\bf' yourself you should replace it, e.g., by
-(scrbook)              `\normalfont \bfseries ' on input line 35.
-
-
-Class scrbook Warning: deprecated old font command `\bf' used.
-(scrbook)              You should note, that since 1994 LaTeX2e provides a
-(scrbook)              new font selection scheme called NFSS2 with several
-(scrbook)              new, combinable font commands. New KOMA-Script classes
-(scrbook)              defined the old font commands like `\bf' only for
-(scrbook)              compatibility with LaTeX 2.09 document styles of
-(scrbook)              Script 2.0. These commands are deprecated and
-(scrbook)              undocumented at least since 2003. Since 2013,
-(scrbook)              KOMA-Script classes warned about soon removement of
-(scrbook)              these deprecated commands. Now, after two decades of
-(scrbook)              LaTeX2e, NFSS2, and KOMA-Script these commands will
-(scrbook)              not work any longer. If loading a package results in
-(scrbook)              this message you should contact the author of that
-(scrbook)              package and ask him to replace the depracted font
-(scrbook)              command `\bf', e.g., by `\normalfont \bfseries '.
-(scrbook)              Otherwise you should reconfigure or replace the
-(scrbook)              package. If you have used the old font command
-(scrbook)              `\bf' yourself you should replace it, e.g., by
-(scrbook)              `\normalfont \bfseries ' on input line 36.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
 
  []
 
-) [2
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
+
+ []
+
+[3
 
 
 
-] [3]
+]) [4] [5]
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
 chapter 3.
-) [4
-
-
-
-]
-\openout2 = `hauptteil.aux'.
-
- (./hauptteil.tex
-chapter 4.
-) [5
-
-
-
-]
-\openout2 = `hauptteil.aux'.
-
- (./hauptteil.tex
-chapter 5.
 ) [6
 
 
@@ -1489,7 +1386,7 @@ chapter 5.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 6.
+chapter 4.
 ) [7
 
 
@@ -1498,7 +1395,7 @@ chapter 6.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 7.
+chapter 5.
 ) [8
 
 
@@ -1507,7 +1404,7 @@ chapter 7.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 8.
+chapter 6.
 ) [9
 
 
@@ -1516,7 +1413,7 @@ chapter 8.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 9.
+chapter 7.
 ) [10
 
 
@@ -1525,7 +1422,7 @@ chapter 9.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 10.
+chapter 8.
 ) [11
 
 
@@ -1534,8 +1431,26 @@ chapter 10.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 11.
+chapter 9.
 ) [12
+
+
+
+]
+\openout2 = `hauptteil.aux'.
+
+ (./hauptteil.tex
+chapter 10.
+) [13
+
+
+
+]
+\openout2 = `hauptteil.aux'.
+
+ (./hauptteil.tex
+chapter 11.
+) [14
 
 
 
@@ -1544,7 +1459,7 @@ chapter 11.
 
  (./schluss.tex
 chapter 12.
-) [13
+) [15
 
 
 
@@ -1553,7 +1468,7 @@ chapter 12.
 
  (./anhang.tex
 chapter A.
-) [14
+) [16
 
 
 
@@ -1561,7 +1476,7 @@ chapter A.
 No file Bachelorarbeit.gls.
 No file Bachelorarbeit.acr.
 No file Bachelorarbeit.syi.
-(./Bachelorarbeit.bbl [15
+(./Bachelorarbeit.bbl [17
 
 ]
 chapter without number
@@ -1619,7 +1534,7 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 )
 No file Bachelorarbeit.ind.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
-[16
+[18
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
@@ -1631,10 +1546,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 190.
 Package rerunfilecheck Info: File `Bachelorarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: E3B524EA500EBB0836DE6A04298A55C1;638.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+(rerunfilecheck)             Checksum: 849E063989F87E7D138FF38BB8C392B7;1350.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1642,47 +1554,30 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 190.
  ) 
 Here is how much of TeX's memory you used:
- 18329 strings out of 492642
- 315807 string characters out of 6123663
- 577172 words of memory out of 5000000
- 21484 multiletter control sequences out of 15000+600000
- 59493 words of font info for 211 fonts, out of 8000000 for 9000
+ 18370 strings out of 492642
+ 315981 string characters out of 6123663
+ 579034 words of memory out of 5000000
+ 21468 multiletter control sequences out of 15000+600000
+ 60486 words of font info for 254 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,12n,66p,9160b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{glo:AD} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{glo:glos:Glossareintrag} has been referenced but do
-es not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{glo:symb:Pi} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{glo:BSP} has been referenced but does not exist, re
-placed by a fixed one
-
-{d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-sup
-er-ts1.enc}{d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/enc/dvips/base
-/8r.enc}<d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmb10.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx12.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmcsc10.pfb><d:/Programme_HDD/LaTex/texlive/2018/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/Programme_HDD/LaTex/tex
-live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/Programme_HDD
-/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/Pro
-gramme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
-b><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmss12.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmssbx10.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf
--dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><d:/Programme_HDD/LaTex/texlive
-/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/Programme_HDD/La
-Tex/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><d:/Progra
-mme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Bachelorarbeit.pdf (23 pages, 315796 bytes).
+ 56i,10n,66p,9160b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
+{d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<
+d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mb10.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmcsc10.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/Programme_HDD/LaTex/texlive/2018/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/Programme_HDD/LaTex/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><d:/Programme_HD
+D/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><d:
+/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+i12.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmtt12.pfb><d:/Programme_HDD/LaTex/texlive/2018/texmf-dist/fonts/type1/
+urw/helvetic/uhvr8a.pfb>
+Output written on Bachelorarbeit.pdf (25 pages, 293523 bytes).
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
- 256 compressed objects within 3 object streams
- 79 named destinations out of 1000 (max. 500000)
- 42098 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 337 PDF objects out of 1000 (max. 8388607)
+ 295 compressed objects within 3 object streams
+ 86 named destinations out of 1000 (max. 500000)
+ 39620 words of extra memory for PDF output out of 42996 (max. 10000000)
 

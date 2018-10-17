@@ -3,42 +3,59 @@
 \chapter {Grundlagen}  %Name des Kapitels
 \label{cha:grundlagen} %Label des Kapitels
 
-\section{Unterkapitel} %Unterkapitel
-\label {sec:Unterkapitel} %Label des Unterkapitels
 
-Hier befindet sich ein Beispiel (\gls{BSP}), wie ein Bild\index{Bild} in \LaTeX eingebunden wird.
-\begin{figure}
- \begin{center}
-  \includegraphics*{bilder/HSLogoWGd}
-  \caption{Logo der HS -- oder nicht?}
-  \label{fig:logo}
- \end{center}
-\end{figure}
 
-Und es gibt auch ein Beispiel für eine Tabelle\index{Tabelle}.
-\begin{table}
- \begin{center}
- \caption{Verwendete Matrizen}
- \label{matrizen}
-  \begin{tabular}{|l|l|l|}
-   \hline
-   Matrix & Dimension & Symbol \\
-   \hline
-   Systemmatrix & $n \times n$ & ${\bf A}$  \\
-   \hline
-   Ausgangsmatrix & $m \times n$ & ${\bf C}$  \\
-   \hline
-  \end{tabular}
- \end{center}
-\end{table}
+\section{Datenschutz}
 
-Man beachte: Bilder haben Bild{\bf unter}schriften, 
-Tabellen haben Tabellen{\bf "uber}schriften.
+Der Datenschutz ist ein Überbegriff für das in Gesetzte festgelegten Recht, dass jede Person über die Preisgabe der personenbezogenen Daten bestimmen kann. Die Bundesbeauftragten für den Datenschutz und die Informationssicherheit (BfDI) definieren den Datenschutz wie folgt:\\\\
+\textit{,,Datenschutz garantiert jedem Bürger Schutz vor missbräuchlicher Datenverarbeitung, das Recht auf informationelle Selbstbestimmung und den Schutz der Privatsphäre''}
+ \cite{BfDI}\\\\
+ Das bedeutet, dass jeder der personenbezogene Daten, ohne Zustimmung des Betreffenden speichert oder weiterverarbeitet vor Gericht angeklagt werden kann.
+ Damit dies nicht passiert haben die meisten Institute die mit personenbezogenen Daten umgehen einen Datenschutzbeauftragten, der die Einhaltung dieser Gesetzte überwacht.
+ 
 
-Für jedes Kapitel sollte ein neues \TeX  File erstellt und eingebunden werden. \newline
 
-Ein Symbol wie \gls{symb:Pi} Kann mathematisch korrekt dargestellt werden. Auch \gls{glos:Glossareintrag} zu Abkürzungen wie \gls{AD} können in \LaTeX behandelt werden.
-Zum Demonstrieren wird hier noch eine Webseite von Microsoft zitiert\cite{Mid09}, und noch eine Stelle\cite{Mid09b}
+
+
+\section{Datensicherheit}
+
+Im Gegensatz zu dem Datenschutz bezieht sich die Datensicherheit nicht nur auf die personenbezogenen Daten, sondern auf alle Daten. Die Aufgabe der Datensicherheit werden durch das CIA-Prinzip beschreiben.\\ Zur Datensicherheit gehören nach diesem Prinzip alle Maßnahmen, die die \textbf{C}onfidentiality, \textbf{I}ntegrity und \textbf{A}vailability (Vertraulichkeit, Integrität, Verfügbarkeit) gewährleisten.\cite{CIA}
+Eine zusätzliche Aufgabe ist die Sicherstellung der Authentizität.
+Viele dieser Aufgaben werden mit Hilfe der Kryptographie realisiert und umgesetzt. 
+
+
+\section{Vertraulichkeit}
+Die Vertraulichkeit ist dann gewährleistet, wenn die Daten nicht von unbefugten Personen eingesehen werden können. Es muss also ein System verwendet werden, bei dem sich befugte Benutzer legitimieren können und unbefugte beim Interpretieren gehindert werden. \\
+In den meisten Fällen wird dies durch eine Verschlüsselung (symmetrisch oder asymmetrisch) umgesetzt. Alle legitimierten Benutzter erhalten den Schlüssel. Die Personen ohne Schlüssel können die Informationen nicht entschlüsseln - die Vertraulichkeit ist so garantiert.\\
+Optimal wäre, wenn nicht legitime Benutzer, auch nicht an die verschlüsselten Daten kommen würde.
+
+\section{Integrität} 
+Die Integrität beschäftigt sich damit, dass Daten nicht unbemerkt verändert oder abgefälscht werden. So soll zum Beispiel sichergestellt werden, dass eine Nachricht genau so beim Empfänger ankommt, wie sie abgesendet wurde.\\
+Hierzu können Hash-Funktionen verwendet werden, die beim Verändern der Nachricht einen anderen Wert ergeben würden. Dabei müsste entweder die Hash-Funktion geheim sein oder der Hash-Wert verschlüsselt werden.
+ 
+
+\section{Verfügbarkeit} 
+
+
+\section{Authentizität} 
+Die Authentizität bestätigt, dass Daten auch von einer angegeben Informationsquelle stammen. Es ist ein Identitätsbeweis des Absenders gegenüber dem Empfängers.
+
+
+\section{Kryptographie}
+Kerckhoffs? Prinzip
+
+
+\section{Symmetrische Verschlüsselung}
+
+\section{Asymmetrische Verschlüsselung}
+
+\section{Steganographie}
+
+\section{Internet Protokolle}
+
+
+
+
 
 
  
