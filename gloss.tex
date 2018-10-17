@@ -1,0 +1,44 @@
+%% Symbole:
+%%\newglossaryentry{symb:Name}{name=Symbolname, description={Beschreibung}, sort=alphabetisches Wort für die Einreihung, type=symbolslist}
+\newglossaryentry{symb:Pi}{
+name=$\pi$,
+description={Die Kreiszahl.},
+sort=symbolpi, type=symbolslist
+}
+%%Abkürzungen:
+%%\newacronym{Referenz}{Abkürzung}{Beschreibung}
+\newacronym{BSP}{BSP}{Beispiel}
+
+
+%%Eine Abkürzung mit Glossareintrag:
+%%\newacronym{Referenz}{Abkürzung}{Beschreibung\protect\glsadd{glos:Referenz}}
+\newacronym{AD}{AD}{Active Directory\protect\glsadd{glos:AD}}
+
+%%Glossareintrag:
+%%\newglossaryentry{glos:Referenz}{name=Name, description={Beschreibung}}
+\newglossaryentry{glos:AD}{
+name=Active Directory,
+description={Active Directory ist in einem Windows Server 2000, Windows
+Server 2003, oder Windows Server 2008-Netzwerk der Verzeichnisdienst, 
+der die zentrale Organisation und Verwaltung aller Netzwerkressourcen erlaubt. Es
+ermöglicht den Benutzern über eine einzige zentrale Anmeldung den
+Zugriff auf alle Ressourcen und den Administratoren die zentral
+organisierte Verwaltung, transparent von der Netzwerktopologie und
+den eingesetzten Netzwerkprotokollen. Das dafür benötigte
+Betriebssystem ist entweder Windows Server 2000, 
+Windows Server 2003, oder Windows Server 2008, welches auf dem zentralen
+Domänencontroller installiert wird. Dieser hält alle Daten des
+Active Directory vor, wie z.B. Benutzernamen und
+Kennwörter.}
+}
+
+\newglossaryentry{glos:Glossareintrag}{name=Glossareintrag, description={Erweiterte Informationen zum
+einem Wort oder einer Abkürzung, ähnlich einem Eintrag im Duden.}}
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "Bachelorarbeit"
+%%% End: 

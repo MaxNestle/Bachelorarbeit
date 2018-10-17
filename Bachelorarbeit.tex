@@ -1,0 +1,208 @@
+
+%% Vorlage fuer Studien- und Bachelorarbeiten an der HS Ravensburg-Weingarten
+%% Benoetigt wird KOMA-Skript ab Version 2.8j vom 30.07.2001
+%% Vor der Veraenderung irgendwelcher Einstellungen wird dringend empfohlen
+%% die Anleitung zum KOMA-Skript (scrguide) zu konsultieren !!
+%%
+%% Bilder bitte nicht mit Endung einbinden, so ist die Erzeugung von
+%% DVI, PS und PDF problemlos möglich!
+%% J. Moehler, 2008-12-10 
+
+
+%% Dokumentendefinition
+\documentclass[
+   12pt,                % Schriftgroesse 12pt
+   a4paper,             % Layout fuer Din A4
+   german,              % deutsche Sprache, global   
+%  twoside,             % Layout fuer beidseitigen Druck
+	 oneside,						  % Layout für einseitigen Druck
+   headinclude,         % Kopfzeile wird Seiten-Layouts mit beruecksichtigt
+   headsepline,         % horizontale Linie unter Kolumnentitel
+   plainheadsepline,    % horizontale Linie auch beim plain-Style
+   BCOR12mm,            % Korrektur fuer die Bindung
+   DIV18,               % DIV-Wert fuer die Erstellung des Satzspiegels, siehe scrguide
+   halfparskip,         % Absatzabstand statt Absatzeinzug
+   openany,             % Kapitel können auf geraden und ungeraden Seiten beginnen
+   bibtotoc,            % Literaturverz. wird ins Inhaltsverzeichnis eingetragen
+   pointlessnumbers,    % Kapitelnummern immer ohne Punkt
+   tablecaptionabove,   % korrekte Abstaende bei TabellenUEBERschriften
+   fleqn,               % fleqn: Glgen links (statt mittig)
+%   draft               % Keine Bilder in der Anzeige, overfull hboxes werden angezeigt !Auskommentieren für Test-Compile!
+]{scrbook}[2001/07/30]  % scrbook-Version mind. 2.8j von 2001/07/30
+
+%% Pakete für nützliche Dinge
+\usepackage{color} 							 % Schriftfarben verwenden
+\usepackage{ngerman}             % neue deutsche Rechtschreibung
+\usepackage[ngerman]{translator} % Übersetzung 
+\usepackage[ansinew]{inputenc}   % Input-Encodung: ansinew fuer Windows
+%\usepackage[latin1]{inputenc}   % Input-Encodung: latin1 fuer Unix
+\usepackage[T1]{fontenc}         % T1-kodierte Schriften, korrekte Trennmuster fuer Worte mit Umlauten
+\usepackage{ae}                  % Für PDF-Erstellung
+\usepackage[hang]{caption2}      % mehrzeilige Captions ausrichten
+
+\usepackage[centertags]{amsmath} % AMS-Mathematik, centertags zentriert Nummer bei split
+\usepackage{latexsym}            % verschiedene Symbole
+\usepackage{textcomp}            % verschiedene Symbole
+ \usepackage{microtype}          % bessere Optik     
+\usepackage{graphicx}            % zum Einbinden von Grafiken
+\usepackage{float}               % u.a. genaue Plazierung von Gleitobjekten mit H
+% \usepackage{pstricks}          % PostScript Macros
+% \usepackage{lscape}            % Seite im Querformat bei Erhalt der Kopfzeile
+% \usepackage{verbatim}          % Quellcode einbinden (\verbatiminput)
+% \usepackage{multicol}          % Mehrspaltiger Text 
+
+%%% Literatur und sonstige Referenzen
+\usepackage{cite}              % Sortierte und zusammengefasste Zitatnummern 
+\usepackage{url}							 % URL in Literatur wird unterstützt
+\usepackage{varioref}          % Verbesserte Referenzen
+\usepackage{hyperref}          % Verlinkte Verzeichnisse
+% \usepackage[numbers, sort]{natbib} % DIN Literaturverzeichnis; nicht zusammen mit cite verwenden!
+
+%% Index
+\usepackage{makeidx}						 % Index verwenden
+\makeindex											 % index erstellen
+
+%% Zeilenabstand
+\usepackage{setspace}            % Zeilenabstand einstellbar
+\onehalfspacing                  % eineinhalbzeilig einstellen
+
+%% Kopf- und Fusszeilen
+\usepackage{scrpage2}                             % Kopf und Fusszeilen-Layout 
+\renewcommand{\headfont}{\normalfont\sffamily}    % Kolumnentitel serifenlos
+\renewcommand{\pnumfont}{\normalfont\sffamily}    % Seitennummern serifenlos
+\pagestyle{scrheadings}
+\ihead[]{\headmark}               % Kolumnentitel immer oben innen
+\chead[]{}                        % oben Mitte
+\ohead[\pagemark]{\pagemark}      % Seitennummern immer oben aussen
+\ofoot[]{}                        % Fusszeile aussen
+\cfoot[]{}                        % Fusszeile Mitte
+\ifoot[]{}                        % Fusszeile innen
+
+%% Fussnotenzähler
+\usepackage{chngcntr}              % Paket um Counter zu steuern
+
+\usepackage{threeparttable}        % Tabelle mit Fussnoten
+
+%% Namen von Verzeichnissen definieren
+\renewcommand{\bibname}{Literatur}               % Literaturverzeichnis wird zu Literatur
+\renewcommand{\figurename}{Bild}                 % Abbildung wird zu Bild
+\renewcommand{\listfigurename}{Bildverzeichnis}
+\renewcommand{\indexname}{Stichwortverzeichnis}
+
+%% Schrift mit Serifen auch fuer Ueberschriften benutzen
+%\renewcommand*{\sectfont}{\bfseries}
+%\renewcommand*{\descfont}{\bfseries}
+
+\typearea[current]{current}        % Neuberechnung des Satzspiegels mit alten Werten nach Änderung von Zeilenabstand,etc
+
+% -- Glossar --
+\usepackage[toc, acronym]{glossaries} % Glossareinträge, muss nach hyperref (insofern dies verwendet wird) geladen werden
+% (aufgrund der Seitenzahlverlinkung im Glossarverzeichnis), (benötigt die Packete
+% "xkeyval" und "supertabular", welche dann automatisch eingebunden werden)
+\newglossary[slg]{symbolslist}{syi}{syg}{Symbolverzeichnis} %Ein eigenes Symbolverzeichnis erstellen
+\renewcommand*{\glspostdescription}{} %Den Punkt am Ende jeder Beschreibung deaktivieren
+\makeglossaries % erstellt ein Glossar (Verzeichnis für Begriffserklärungen,
+% z.B.: Abkürzungen)
+% Glossareinträge (MUSS für JEDEN Glossareintrag überarbeitet werden):
+\include{gloss}
+
+%%% PDF-Erzeugung: pdflatex statt latex aufrufen!
+%% BEI WINDOWS UND TEXNICCENTER AUSKOMMENTIERT LASSEN !!! 
+%\pdfoutput=1                  % PDF-Ausgabe
+%\usepackage[pdftex, a4paper,  % muss letztes Package sein!
+%     pdftitle={Titel der Arbeit},%
+%     pdfauthor={Name Autor},%
+%     pdfsubject={Studien- bzw. Diplomarbeit},%
+%     pdfkeywords={Stichwort zur Arbeit},%
+%    ]{hyperref} % 
+
+
+
+%\graphicspath{{figs/}{bilder/}}    % Falls texinput nicht gesetzt -> Bildverzeichnisse
+
+%\includeonly{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\pagenumbering{Roman}           % Nummerierung Römisch Start bei I
+
+\include{DeckHS}                % Deckblatt Nummerierung unterdrückt (In Deckblatt festgelegt)
+%%\cleardoubleemptypage         % Die Eidesstattliche Erklaerung auf einer rechten Seite beginnen
+\include{eidHS}                 % Eidesstattliche Erklaerung Nummerierung unterdrückt
+%%\cleardoubleemptypage         % Das Inhaltsverzeichnis auf einer rechten Seite beginnen
+
+\pagenumbering{Roman}           % Nummerierung Römisch start bei I 
+
+\begin{spacing}{1.0}            % Verzeichnisse werden mit einzeiligem Abstand gesetzt
+ \tableofcontents               % Inhaltsverzeichnis
+\end{spacing}
+%%% Vorbemerkungen %%%  Nummerierung unterdrückt durch *
+\include{kurzfass}             % Kurzfassung der Arbeit
+\include{abstract}             % Abstract der Arbeit (englische Kurzfassung der Arbeit)
+\include{dasa}								  % Danksagung (optional)
+\include{vowo}							    % Vorwort (optional)
+
+%%% Hauptteil %%%       Nummerierung beginnend bei 1
+%%\cleardoubleplainpage         % Das erste Kapitel des Hauptteils auf einer rechten Seite beginnen
+\mainmatter                     % den Hauptteil beginnen
+\include{einleit}               % Einleitung
+\include{grundl}                % Ein Kapitel des Hauptteils
+\include{hauptteil}						  % Ein weiteres Kapitel des Hauptteils
+\include{hauptteil}					  	% Die unterschiedlichen Kapitel
+\include{hauptteil}					    % des Hauptteils
+\include{hauptteil}					    % sollten hier in der
+\include{hauptteil}				  	  % Masterdatei einen sinnvollen
+\include{hauptteil}				  	  % Kommentar erhalten
+\include{hauptteil}				  	  % z.B. den Titel des Kapitels
+\include{hauptteil}				  	  % um für Korrekturen oder Umstellungen
+\include{hauptteil}			  		  % leichter gefunden zu werden
+\include{schluss}               % Schluss
+
+%%% Anhang %%%          Nummerierung beginnend bei A
+\appendix                       % Anhang
+ \include{anhang}               % Erstes Kapitel des Anhangs
+
+%%% Verzeichnisse %%%
+\begin{spacing}{1.0}            % Verzeichnisse werden mit einzeiligem Abstand gesetzt
+
+% \listoffigures                   % Abbildungsverzeichnis (optional)
+% \listoftables                    % Tabellenverzeichnis (optional)
+
+%Glossar ausgeben
+\printglossary[style=altlist,title=Glossar]
+
+%Abkürzungen ausgeben
+\renewcommand{\acronymname}{Abkürzungsverzeichnis}
+\printglossary[type=\acronymtype,style=long]
+
+%Symbole ausgeben
+\printglossary[type=symbolslist,style=long]
+
+\bibliographystyle{geralpha}       % Look&Feel vom Literaturverzeichnis
+\bibliography{bib}                 % Literaturverzeichnis
+\addcontentsline {toc}{chapter}{Stichwortverzeichnis} % Stichwortverzeichnis soll im Inhaltsverzeichnis auftauchen (optional)
+\printindex % Stichwortverzeichnis endgueltig anzeigen
+
+\end{spacing}
+
+\end{document}
+
+%%% WICHTIG:
+%% Um den Glossareintrag (Abkürzungsverzeichnis richtig darstellen zu können, muss makeindex mit dem Parameter "-s Bachelorarbeit.ist -t Bachelorarbeit.alg -o
+%% Bachelorarbeit.acr Bachelorarbeit.acn" aufgerufen werden --> Einstellung im TeXnicCenter unter Ausgabe -> Ausgabeprofil definieren -> LaTeX=>PDF -> Nachbearbeitung
+%% Unter Postprozessoren neuen Eintrag anlegen, z.B. Makeindex1. Unter Anwendung makeindex.exe auswählen. (c:\programme\miktex2.7\miktex\bin\makeindex.exe)
+%% unter Argumente die obige Parameterzeile eintragen. Bei anderer TeX-Distri makeindex suchen. Unter Linux ein shell-script erstellen, das makeindex mit 
+%% den Parametern aufruft.
+%% makeindex erneut starten mit folgender Parameterzeile:  " -s Bachelorarbeit.ist -t Bachelorarbeit.glg -o Bachelorarbeit.gls Bachelorarbeit.glo"
+%% Analog zu oben im TeXnicCenter einen weiteren Eintrag Makeindex2 erstellen. In Linux einen weiteren makeindex-Aufruf im Script hinzufügen.
+%% makeindex erneut starten mit folgender Parameterzeile:  " -s Bachelorarbeit.ist -t Bachelorarbeit.slg -o Bachelorarbeit.syi Bachelorarbeit.syg"
+%% Analog zu oben im TeXnicCenter einen weiteren Eintrag Makeindex3 erstellen. In Linux einen weiteren makeindex-Aufruf im Script hinzufügen.
+
+%% Bachelorarbeit muss durch den Namen der Hauptdatei ausgetauscht werden. Hauptdatei unter Windows mindestens 5 Mal compilieren, dann betrachten
+
+%% Local Variables:
+%% mode: latex
+%% TeX-master:
+%% End:

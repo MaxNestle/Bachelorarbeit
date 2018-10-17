@@ -1,0 +1,98 @@
+This is BibTeX, Version 0.99d (TeX Live 2018/W32TeX)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Bachelorarbeit.aux
+A level-1 auxiliary file: DeckHS.aux
+A level-1 auxiliary file: eidHS.aux
+A level-1 auxiliary file: kurzfass.aux
+A level-1 auxiliary file: abstract.aux
+A level-1 auxiliary file: dasa.aux
+A level-1 auxiliary file: vowo.aux
+A level-1 auxiliary file: einleit.aux
+A level-1 auxiliary file: grundl.aux
+A level-1 auxiliary file: hauptteil.aux
+Already encountered file hauptteil.aux
+---line 37 of file Bachelorarbeit.aux
+ : \@input{hauptteil.aux
+ :                      }
+I'm skipping whatever remains of this command
+Already encountered file hauptteil.aux
+---line 38 of file Bachelorarbeit.aux
+ : \@input{hauptteil.aux
+ :                      }
+I'm skipping whatever remains of this command
+Already encountered file hauptteil.aux
+---line 39 of file Bachelorarbeit.aux
+ : \@input{hauptteil.aux
+ :                      }
+I'm skipping whatever remains of this command
+Already encountered file hauptteil.aux
+---line 40 of file Bachelorarbeit.aux
+ : \@input{hauptteil.aux
+ :                      }
+I'm skipping whatever remains of this command
+Already encountered file hauptteil.aux
+---line 41 of file Bachelorarbeit.aux
+ : \@input{hauptteil.aux
+ :                      }
+I'm skipping whatever remains of this command
+Already encountered file hauptteil.aux
+---line 42 of file Bachelorarbeit.aux
+ : \@input{hauptteil.aux
+ :                      }
+I'm skipping whatever remains of this command
+Already encountered file hauptteil.aux
+---line 43 of file Bachelorarbeit.aux
+ : \@input{hauptteil.aux
+ :                      }
+I'm skipping whatever remains of this command
+Already encountered file hauptteil.aux
+---line 44 of file Bachelorarbeit.aux
+ : \@input{hauptteil.aux
+ :                      }
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: schluss.aux
+A level-1 auxiliary file: anhang.aux
+The style file: geralpha.bst
+Database file #1: bib.bib
+You've used 2 entries,
+            2768 wiz_defined-function locations,
+            627 strings with 5544 characters,
+and the built_in function-call counts, 630 in all, are:
+= -- 64
+> -- 16
+< -- 2
++ -- 4
+- -- 4
+* -- 34
+:= -- 106
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 8
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 26
+empty$ -- 57
+format.name$ -- 8
+if$ -- 138
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 13
+num.names$ -- 6
+pop$ -- 18
+preamble$ -- 1
+purify$ -- 12
+quote$ -- 0
+skip$ -- 24
+stack$ -- 0
+substring$ -- 14
+swap$ -- 6
+text.length$ -- 2
+text.prefix$ -- 2
+top$ -- 0
+type$ -- 16
+warning$ -- 0
+while$ -- 4
+width$ -- 4
+write$ -- 28
+(There were 8 error messages)
