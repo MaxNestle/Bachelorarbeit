@@ -24,22 +24,21 @@ Eine zusätzliche Aufgabe ist die Sicherstellung der Authentizität.
 Viele dieser Aufgaben werden mit Hilfe der Kryptographie realisiert und umgesetzt. 
 
 
-\section{Vertraulichkeit}
+\subsection{Vertraulichkeit}
 Die Vertraulichkeit ist dann gewährleistet, wenn die Daten nicht von unbefugten Personen eingesehen werden können. Es muss also ein System verwendet werden, bei dem sich befugte Benutzer legitimieren können und unbefugte beim Interpretieren gehindert werden. \\
 In den meisten Fällen wird dies durch eine Verschlüsselung (symmetrisch oder asymmetrisch) umgesetzt. Alle legitimierten Benutzter erhalten den Schlüssel. Die Personen ohne Schlüssel können die Informationen nicht entschlüsseln - die Vertraulichkeit ist so garantiert.\\
 Optimal wäre, wenn nicht legitime Benutzer, auch nicht an die verschlüsselten Daten kommen würde.
 
-\section{Integrität} 
+\subsection{Integrität} 
 Die Integrität beschäftigt sich damit, dass Daten nicht unbemerkt verändert oder abgefälscht werden. So soll zum Beispiel sichergestellt werden, dass eine Nachricht genau so beim Empfänger ankommt, wie sie abgesendet wurde.\\
 Hierzu können Hash-Funktionen verwendet werden, die beim Verändern der Nachricht einen anderen Wert ergeben würden. Dabei müsste entweder die Hash-Funktion geheim sein oder der Hash-Wert verschlüsselt werden.
  
 
-\section{Verfügbarkeit} 
+\subsection{Verfügbarkeit} 
+Außerdem soll die Verfügbarkeit der Dateien und Programme gewährleistet werden. 
 
-
-\section{Authentizität} 
-Die Authentizität bestätigt, dass Daten auch von einer angegeben Informationsquelle stammen. Es ist ein Identitätsbeweis des Absenders gegenüber dem Empfängers.
-
+\subsection{Authentizität} 
+Die Authentizität bestätigt, dass Daten von der angegeben Informationsquelle stammen. Es ist ein Identitätsbeweis des Absenders gegenüber dem Empfängers.\\ Dies kann zum Beispiel mit einer Public-Key Verschlüsselung realisiert werden. So kann der Sender die Nachrichten mit seinem Public-Key verschlüsseln und jeder im Besitz des Public-Keys kann bestätigen, dass die Nachricht genau von dieser Person kommt.
 
 \section{Kryptographie}
 Kerckhoffs? Prinzip
