@@ -14,9 +14,6 @@ Der Datenschutz ist ein Überbegriff für das in Gesetzte festgelegten Recht, dass
  Damit dies nicht passiert haben die meisten Institute die mit personenbezogenen Daten umgehen einen Datenschutzbeauftragten, der die Einhaltung dieser Gesetzte überwacht.
  
 
-
-
-
 \section{Datensicherheit}
 
 Im Gegensatz zu dem Datenschutz bezieht sich die Datensicherheit nicht nur auf die personenbezogenen Daten, sondern auf alle Daten. Die Aufgabe der Datensicherheit werden durch das CIA-Prinzip beschreiben.\\ Zur Datensicherheit gehören nach diesem Prinzip alle Maßnahmen, die die \textbf{C}onfidentiality, \textbf{I}ntegrity und \textbf{A}vailability (Vertraulichkeit, Integrität, Verfügbarkeit) gewährleisten.\cite{CIA}
@@ -35,13 +32,15 @@ Hierzu können Hash-Funktionen verwendet werden, die beim Verändern der Nachricht
  
 
 \subsection{Verfügbarkeit} 
-Außerdem soll die Verfügbarkeit der Dateien und Programme gewährleistet werden. 
+Der Dritte Punkt ist die Verfügbarkeit. Es soll immer sichergestellt wer, dass Daten aber auch Programm immer abrufbar sind. Hierzu gehören Mechanismen zur Vermeidung von DoS (Denial of Service) Angriffen. Diese Angriffe würden beispielsweise einen Server so überfordern, dass dieser keine Dateien mehr ausliefern kann - die Verfügbarkeit ist dann nicht mehr gewährleistet.
 
 \subsection{Authentizität} 
 Die Authentizität bestätigt, dass Daten von der angegeben Informationsquelle stammen. Es ist ein Identitätsbeweis des Absenders gegenüber dem Empfängers.\\ Dies kann zum Beispiel mit einer Public-Key Verschlüsselung realisiert werden. So kann der Sender die Nachrichten mit seinem Public-Key verschlüsseln und jeder im Besitz des Public-Keys kann bestätigen, dass die Nachricht genau von dieser Person kommt.
 
 \section{Kryptographie}
-Kerckhoffs? Prinzip
+Kryptographie bedeutet ,,wörtlich: Die Lehre vom Geheimen schreiben'' \cite{hellmann2018sicherheit} und beschäftigt sich mit der mathematischen Verschlüsselung von Informationen. Dabei gibt es zwei große Verschlüsselungsarten - die Symmetrischen und die Asymmetrischen Verschlüsselungen. Bei beiden Verfahren wird durch einen Schlüssel (meistens eine Zahl) und einem Algorithmus aus einer lesbaren Information eine Unlesbare.
+Um dies wieder Rückgängig zu machen wird ebenfalls ein Schlüssel und ein Algorithmus benötigt.
+Eine der Grundprinzipien der Kryptographie wurde bereits im 19. Jahrhundert von A.Kerkhoffs aufgestellt. 
 
 
 \section{Symmetrische Verschlüsselung}
