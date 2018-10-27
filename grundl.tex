@@ -40,12 +40,37 @@ Die Authentizität bestätigt, dass Daten von der angegeben Informationsquelle sta
 \section{Kryptographie}
 Kryptographie bedeutet ,,wörtlich: Die Lehre vom Geheimen schreiben'' \cite{hellmann2018sicherheit} und beschäftigt sich mit der mathematischen Verschlüsselung von Informationen. Dabei gibt es zwei große Verschlüsselungsarten - die Symmetrischen und die Asymmetrischen Verschlüsselungen. Bei beiden Verfahren wird durch einen Schlüssel (meistens eine Zahl) und einem Algorithmus aus einer lesbaren Information eine Unlesbare.
 Um dies wieder Rückgängig zu machen wird ebenfalls ein Schlüssel und ein Algorithmus benötigt.\\
-Eine der Grundprinzipien der Kryptographie wurde bereits im 19. Jahrhundert von A.Kerkhoffs aufgestellt. 
-
+Eine der wichtigsten Grundprinzipien der Kryptographie wurde bereits im 19. Jahrhundert von A.Kerkhoffs aufgestellt. Eine der wichtigsten Ausagen hierbei ist, dass die Sicherheit einer Verschlüsselung nicht von dem Verschlüsselungsalgorithmus, sondern allein von dem Schlüssel abhängig sein soll. Das heißt, dass ein guter Verschlüsselungsalgorithmus öffentlich gemacht werden kann, ohne die Sicherheit zu gefährden.
+Ein Beispiel ist der RSA Algorithmus. Dies ist einer der heute verbreitetsten Algorithmen. Der Algorithmus ist für jeden öffentlich zugänglich, dies hat aber keine Auswirkung auf die Sicherheit, da die Sicherheit allein auf der Geheimhaltung des Passwortes basiert.\\
+Dies hat zum Beispiel auch den Vorteil, dass bei einem Personalwechsel nicht der ganze Algorithmus ausgetauscht werden muss, sondern nur das Password. 
 
 \section{Symmetrische Verschlüsselung}
 
+Bei der symmetrischen Verschlüsselung wird zum Verschlüsseln und Entschlüsseln der gleiche Schlüssel verwendet.\\
+
+$E_k(M) = C$\\
+$D_k(C) = M$
+
+\cite{ertel2001angewandte}
+
+Der Schlüssel K wird dazu verwendet die Nachricht zu verschlüsseln und Entschlüsseln. Das Problem bei symmetrischen Verschlüsselungen ist die Schlüsselübertragung, die auf jeden Fall geheim stattfinden muss.
+Bekannte Beispiele sind der DES und AES.
+
 \section{Asymmetrische Verschlüsselung}
+
+Bei einer asymmetrisch Verschlüsselung hat man zum verschlüsseln einen anderen Schlüssel wie zum entschlüsseln. Dieses System wird ,,Public-Key-Kryptographie'' genannt, da es einen öffentlichen (K1) und einen privaten Schlüssel (K2) gibt. Dabei wird der K1 zum Verschlüsseln verwendet und K2 zum Entschlüsseln.
+
+$E_{k1} (M) = C$\\
+$D_{k2}(C) = M$
+
+\cite{ertel2001angewandte}
+
+
+Dieses System löst das Problem der Schlüsselübergabe, da der öffentliche Schlüssel ohne Bedenke an den Kommunikationspartner übertragen werden kann. Bei einem Möglichen Angriff kann der Angreifer mit dem Schlüssel nichts anfangen, da er mit ihm nicht entschlüsseln kann. Nur der private Schlüssel, der geheim bleibt und nicht versendet wird, kann dann die Entschlüsselte Nachricht dechiffrieren.\\
+Diese Art von Algorithmus kann so auch zur Authentifizierung eingesetzt werden.
+Bekannte Asymmetrische Verschlüsselungen sind der RSA-Algorithmus, der Algorithmus von Diffi und Hellmann oder Algorithmus von ElGamal.
+
+
 
 \section{Steganographie}
 
