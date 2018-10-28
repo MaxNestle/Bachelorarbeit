@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  27 OCT 2018 13:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  28 OCT 2018 12:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1258,20 +1258,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
-[5]) [6]
+[5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
+
+ []
+
+) [7]
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
 chapter 3.
-) [7
-
-
-
-]
-\openout2 = `hauptteil.aux'.
-
- (./hauptteil.tex
-chapter 4.
 ) [8
 
 
@@ -1280,7 +1276,7 @@ chapter 4.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 5.
+chapter 4.
 ) [9
 
 
@@ -1289,7 +1285,7 @@ chapter 5.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 6.
+chapter 5.
 ) [10
 
 
@@ -1298,7 +1294,7 @@ chapter 6.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 7.
+chapter 6.
 ) [11
 
 
@@ -1307,7 +1303,7 @@ chapter 7.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 8.
+chapter 7.
 ) [12
 
 
@@ -1316,7 +1312,7 @@ chapter 8.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 9.
+chapter 8.
 ) [13
 
 
@@ -1325,7 +1321,7 @@ chapter 9.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 10.
+chapter 9.
 ) [14
 
 
@@ -1334,8 +1330,17 @@ chapter 10.
 \openout2 = `hauptteil.aux'.
 
  (./hauptteil.tex
-chapter 11.
+chapter 10.
 ) [15
+
+
+
+]
+\openout2 = `hauptteil.aux'.
+
+ (./hauptteil.tex
+chapter 11.
+) [16
 
 
 
@@ -1344,7 +1349,7 @@ chapter 11.
 
  (./schluss.tex
 chapter 12.
-) [16
+) [17
 
 
 
@@ -1353,7 +1358,7 @@ chapter 12.
 
  (./anhang.tex
 chapter A.
-) [17
+) [18
 
 
 
@@ -1361,7 +1366,7 @@ chapter A.
 No file Bachelorarbeit.gls.
 No file Bachelorarbeit.acr.
 No file Bachelorarbeit.syi.
-(./Bachelorarbeit.bbl [18
+(./Bachelorarbeit.bbl [19
 
 ]
 chapter without number
@@ -1458,10 +1463,52 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              `\sc' yourself you should replace it, e.g., by
 (scrbook)              `\normalfont \scshape ' on input line 20.
 
+
+Class scrbook Warning: deprecated old font command `\sc' used.
+(scrbook)              You should note, that since 1994 LaTeX2e provides a
+(scrbook)              new font selection scheme called NFSS2 with several
+(scrbook)              new, combinable font commands. New KOMA-Script classes
+(scrbook)              defined the old font commands like `\sc' only for
+(scrbook)              compatibility with LaTeX 2.09 document styles of
+(scrbook)              Script 2.0. These commands are deprecated and
+(scrbook)              undocumented at least since 2003. Since 2013,
+(scrbook)              KOMA-Script classes warned about soon removement of
+(scrbook)              these deprecated commands. Now, after two decades of
+(scrbook)              LaTeX2e, NFSS2, and KOMA-Script these commands will
+(scrbook)              not work any longer. If loading a package results in
+(scrbook)              this message you should contact the author of that
+(scrbook)              package and ask him to replace the depracted font
+(scrbook)              command `\sc', e.g., by `\normalfont \scshape '.
+(scrbook)              Otherwise you should reconfigure or replace the
+(scrbook)              package. If you have used the old font command
+(scrbook)              `\sc' yourself you should replace it, e.g., by
+(scrbook)              `\normalfont \scshape ' on input line 24.
+
+
+Class scrbook Warning: deprecated old font command `\sc' used.
+(scrbook)              You should note, that since 1994 LaTeX2e provides a
+(scrbook)              new font selection scheme called NFSS2 with several
+(scrbook)              new, combinable font commands. New KOMA-Script classes
+(scrbook)              defined the old font commands like `\sc' only for
+(scrbook)              compatibility with LaTeX 2.09 document styles of
+(scrbook)              Script 2.0. These commands are deprecated and
+(scrbook)              undocumented at least since 2003. Since 2013,
+(scrbook)              KOMA-Script classes warned about soon removement of
+(scrbook)              these deprecated commands. Now, after two decades of
+(scrbook)              LaTeX2e, NFSS2, and KOMA-Script these commands will
+(scrbook)              not work any longer. If loading a package results in
+(scrbook)              this message you should contact the author of that
+(scrbook)              package and ask him to replace the depracted font
+(scrbook)              command `\sc', e.g., by `\normalfont \scshape '.
+(scrbook)              Otherwise you should reconfigure or replace the
+(scrbook)              package. If you have used the old font command
+(scrbook)              `\sc' yourself you should replace it, e.g., by
+(scrbook)              `\normalfont \scshape ' on input line 31.
+
 )
 No file Bachelorarbeit.ind.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
-[19
+[20
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
@@ -1481,11 +1528,11 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 190.
  ) 
 Here is how much of TeX's memory you used:
- 18515 strings out of 492982
- 313587 string characters out of 6134895
- 562523 words of memory out of 5000000
- 21242 multiletter control sequences out of 15000+600000
- 64337 words of font info for 296 fonts, out of 8000000 for 9000
+ 18555 strings out of 492982
+ 313944 string characters out of 6134895
+ 562599 words of memory out of 5000000
+ 21244 multiletter control sequences out of 15000+600000
+ 67289 words of font info for 326 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,10n,66p,8892b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
@@ -1501,10 +1548,10 @@ b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Bachelorarbeit.pdf (26 pages, 326282 bytes).
+Output written on Bachelorarbeit.pdf (27 pages, 335175 bytes).
 PDF statistics:
- 359 PDF objects out of 1000 (max. 8388607)
- 312 compressed objects within 4 object streams
- 89 named destinations out of 1000 (max. 500000)
+ 368 PDF objects out of 1000 (max. 8388607)
+ 320 compressed objects within 4 object streams
+ 92 named destinations out of 1000 (max. 500000)
  39620 words of extra memory for PDF output out of 42996 (max. 10000000)
 

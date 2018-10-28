@@ -54,45 +54,45 @@ A level-1 auxiliary file: schluss.aux
 A level-1 auxiliary file: anhang.aux
 The style file: geralpha.bst
 Database file #1: bib.bib
-You've used 4 entries,
+You've used 6 entries,
             2768 wiz_defined-function locations,
-            636 strings with 5758 characters,
-and the built_in function-call counts, 1188 in all, are:
-= -- 116
-> -- 32
-< -- 4
-+ -- 8
-- -- 8
-* -- 66
-:= -- 190
-add.period$ -- 9
-call.type$ -- 4
-change.case$ -- 16
-chr.to.int$ -- 4
-cite$ -- 4
-duplicate$ -- 56
-empty$ -- 112
-format.name$ -- 16
-if$ -- 260
+            650 strings with 6151 characters,
+and the built_in function-call counts, 1784 in all, are:
+= -- 174
+> -- 48
+< -- 6
++ -- 13
+- -- 12
+* -- 103
+:= -- 287
+add.period$ -- 13
+call.type$ -- 6
+change.case$ -- 24
+chr.to.int$ -- 6
+cite$ -- 6
+duplicate$ -- 89
+empty$ -- 165
+format.name$ -- 24
+if$ -- 387
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 2
-newline$ -- 20
-num.names$ -- 12
-pop$ -- 37
+missing$ -- 6
+newline$ -- 28
+num.names$ -- 18
+pop$ -- 49
 preamble$ -- 1
-purify$ -- 24
+purify$ -- 36
 quote$ -- 0
-skip$ -- 49
+skip$ -- 73
 stack$ -- 0
-substring$ -- 28
-swap$ -- 11
-text.length$ -- 4
-text.prefix$ -- 4
+substring$ -- 49
+swap$ -- 15
+text.length$ -- 6
+text.prefix$ -- 6
 top$ -- 0
-type$ -- 28
+type$ -- 40
 warning$ -- 0
-while$ -- 8
-width$ -- 6
-write$ -- 48
+while$ -- 13
+width$ -- 9
+write$ -- 71
 (There were 8 error messages)

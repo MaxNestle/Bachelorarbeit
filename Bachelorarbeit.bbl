@@ -9,12 +9,16 @@
 \newblock Abrufdatum: 16.10.2018.
 
 \bibitem[Ert01]{ertel2001angewandte}
-{\sc Ertel, Wolfgang}: {\em Angewandte Kryptographie. Fachbuchverlag Leipzig},
-  2001.
+{\sc Ertel, Wolfgang}: {\em Angewandte Kryptographie. Fachbuchverlag Leipzig}.
+\newblock Carl Hanser Verlag), ISBN, 2001.
 
 \bibitem[Hel18]{hellmann2018sicherheit}
 {\sc Hellmann, Roland}: {\em IT-Sicherheit: eine Einf{\"u}hrung}.
 \newblock Walter de Gruyter GmbH \& Co KG, 2018.
+
+\bibitem[Kes15]{Steg}
+{\sc Kessler, Gary~C.}: {\em An Overview of Steganography for the Computer
+  Forensics Examiner (Updated Version, February 2015)}, 2015.
 
 \bibitem[{Nic}18]{CIA}
 {\sc {Nico Grundmeier}}: {\em Sicherheitslücken im Internet}.
@@ -22,5 +26,10 @@
   \url{http://www.informatik.uni-oldenburg.de/~iug10/sli/indexd917.html?q=node/19},
   2018.
 \newblock Abrufdatum: 16.10.2018.
+
+\bibitem[Pur10]{purgathofer2010kurze}
+{\sc Purgathofer, Peter}: {\em Eine kurze Geschichte der Steganographie}.
+\newblock Die Funktion verdeckter Kommunikation: Impulse f{\"u}r eine
+  Technikfolgenabsch{\"a}tzung zur Steganographie, 9:65, 2010.
 
 \end{thebibliography}
