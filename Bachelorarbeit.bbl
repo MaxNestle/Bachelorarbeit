@@ -12,6 +12,11 @@
 {\sc Ertel, Wolfgang}: {\em Angewandte Kryptographie. Fachbuchverlag Leipzig}.
 \newblock Carl Hanser Verlag), ISBN, 2001.
 
+\bibitem[Gol03]{goltz2003covert}
+{\sc Goltz, James~P.}: {\em Under the radar:A look at three covert
+  communications channels}.
+\newblock 2003.
+
 \bibitem[Hel18]{hellmann2018sicherheit}
 {\sc Hellmann, Roland}: {\em IT-Sicherheit: eine Einf{\"u}hrung}.
 \newblock Walter de Gruyter GmbH \& Co KG, 2018.
@@ -31,5 +36,8 @@
 {\sc Purgathofer, Peter}: {\em Eine kurze Geschichte der Steganographie}.
 \newblock Die Funktion verdeckter Kommunikation: Impulse f{\"u}r eine
   Technikfolgenabsch{\"a}tzung zur Steganographie, 9:65, 2010.
+
+\bibitem[Zis13]{zisler2013computer}
+{\sc Zisler, Harald}: {\em Computer-Netzwerke}, 2013.
 
 \end{thebibliography}

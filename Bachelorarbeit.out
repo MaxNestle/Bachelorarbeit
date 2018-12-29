@@ -17,7 +17,12 @@
 \BOOKMARK [1][-]{section.2.5}{Asymmetrische Verschl\374sselung}{chapter.2}% 17
 \BOOKMARK [1][-]{section.2.6}{Steganographie}{chapter.2}% 18
 \BOOKMARK [1][-]{section.2.7}{Internet Protokolle}{chapter.2}% 19
-\BOOKMARK [0][-]{chapter.12}{Schlussbemerkungen und Ausblick}{}% 20
-\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 21
-\BOOKMARK [0][-]{chapter*.16}{Literatur}{}% 22
-\BOOKMARK [0][-]{chapter*.16}{Stichwortverzeichnis}{}% 23
+\BOOKMARK [2][-]{subsection.2.7.1}{Sicherungsschicht/Data Link Layer \(Schicht 2\)}{section.2.7}% 20
+\BOOKMARK [2][-]{subsection.2.7.2}{Vermittlungsschicht/Network Layer \(Schicht 3\)}{section.2.7}% 21
+\BOOKMARK [2][-]{subsection.2.7.3}{Transportschicht/ Transport Layer \(Schicht 4\)}{section.2.7}% 22
+\BOOKMARK [2][-]{subsection.2.7.4}{Kommunikationsschicht/Session Layer \(Schicht 5\)}{section.2.7}% 23
+\BOOKMARK [1][-]{section.2.8}{Covert-Channel}{chapter.2}% 24
+\BOOKMARK [0][-]{chapter.12}{Schlussbemerkungen und Ausblick}{}% 25
+\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 26
+\BOOKMARK [0][-]{chapter*.19}{Literatur}{}% 27
+\BOOKMARK [0][-]{chapter*.19}{Stichwortverzeichnis}{}% 28

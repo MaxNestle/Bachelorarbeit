@@ -91,7 +91,38 @@ Die Steganographie hat in der Geschichte eine relativ einfache aber sichere Meth
 
 \section{Internet Protokolle}
 
+Im den folgenden Kapiteln soll kurz das OSI-Schichtenmodell, auf welches das heutige Internet aufbaut, erklärt werden. \\
+Es werden nur die Schichten betrachtet, die für dieses Projekt relevant sind. 
 
+
+\subsection{Sicherungsschicht/Data Link Layer (Schicht 2)}
+
+\subsubsection{Ethernet}
+
+Den Transport der Daten in dieser Schicht über nimmt das Ethernet-Protokoll. Dazu werden die Daten in Ethernet Pakete zerteilt. Diese können dann zwischen den Geräten im Netzwerk verschickt werden. Dabei ist das Ethernet-Protokoll immer nur im jeweiligen Netzwerksegment gültig. Die Adressierung wird mit Hilfe der MAC-Adressen realisiert. Diese Adresse ist einmalig und wird jedem netzwerkfähigem Gerät vom Hersteller zugeordnet.
+
+\includegraphics*[height=2.7cm]{bilder/Ethernet.png}
+
+Erweiterter Ethernet-Frame nach IEEE 802.1Q
+
+\cite{zisler2013computer}
+
+
+\subsection{ Vermittlungsschicht/Network Layer (Schicht 3)}
+
+\subsubsection{IPv4}
+
+\subsubsection{IPv6}
+
+
+\subsection{ Transportschicht/ Transport Layer (Schicht 4)}
+
+
+\subsection{ Kommunikationsschicht/Session Layer (Schicht 5)}
+
+
+\section{Covert-Channel}
+Covert-Channels sind Netzwerk Kanäle, die nicht offen praktiziert, erklärt, engagiert, angesammelt oder gezeigt werden. \cite{goltz2003covert}
 
 
  
