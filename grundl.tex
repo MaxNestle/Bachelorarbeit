@@ -91,15 +91,16 @@ Die Steganographie hat in der Geschichte eine relativ einfache aber sichere Meth
 
 \section{Internet Protokolle}
 
-Im den folgenden Kapiteln soll kurz das OSI-Schichtenmodell, auf welches das heutige Internet aufbaut, erklärt werden. \\
-Es werden nur die Schichten betrachtet, die für dieses Projekt relevant sind. 
-
+Im den folgenden Kapiteln soll kurz das OSI-Schichtenmodell, auf welches das heutige Internet aufbaut, erklärt werden. Dabei repräsentiert jede Schicht eine Protokoll, das für die Kommunikation im Internet nötig ist. \\
+Es werden nur die Protokolle betrachtet, die für dieses Projekt relevant sind. 
 
 \subsection{Sicherungsschicht/Data Link Layer (Schicht 2)}
 
+Diese Schicht beinhaltet Protokolle, welche einen weitestgehend fehlerfreie Datenübertragung garantieren sollen. Außerdem wird der Zugriff auf das Übertragungsmedium garantiert.
+
 \subsubsection{Ethernet}
 
-Den Transport der Daten in dieser Schicht über nimmt das Ethernet-Protokoll. Dazu werden die Daten in Ethernet Pakete zerteilt. Diese können dann zwischen den Geräten im Netzwerk verschickt werden. Dabei ist das Ethernet-Protokoll immer nur im jeweiligen Netzwerksegment gültig. Die Adressierung wird mit Hilfe der MAC-Adressen realisiert. Diese Adresse ist einmalig und wird jedem netzwerkfähigem Gerät vom Hersteller zugeordnet.
+Beim Ethernet-Protokoll werden die Daten in Pakete zerteilt. Diese können dann zwischen den Geräten im Netzwerk verschickt werden. Dabei ist das Ethernet-Protokoll immer nur im jeweiligen Netzwerksegment gültig. Die Adressierung wird mit Hilfe der MAC-Adressen realisiert. Diese Adresse ist einmalig und wird jedem netzwerkfähigem Gerät vom Hersteller zugeordnet.
 
 \includegraphics*[height=2.7cm]{bilder/Ethernet.png}
 
@@ -110,9 +111,25 @@ Erweiterter Ethernet-Frame nach IEEE 802.1Q
 
 \subsection{ Vermittlungsschicht/Network Layer (Schicht 3)}
 
+Die Protokolle dieser Schicht werden verwendet, um über Netzwerkgrenzen hinaus Nachrichten zu versenden. Dieses Protokoll liegt innerhalb der Nutzdaten des Ethernet-Pakets.
+
 \subsubsection{IPv4}
 
+Zur Adressierung werden IPv4 Adressen verwendet, die 32 bit (4 Byte) lang sind. Vergeben werden die Adressen von der IANA (Internet Assigned Numbers Authority). Jeder der aus dem Internet erreichbar sein will, muss sich bei der IANA oder einer untergeordneten Organisation eine IP-Adresse oder Adressbereich geben lassen.\\
+
+Das Internet Protokoll wird wie in folgender Abbildung gezeigt in das Ethernet Paket eingebettet.
+
+
+
+
 \subsubsection{IPv6}
+
+Da die IPv4 langsam knapp werden, wurde das IPv6 Protokoll erstellt, welches über Adressen mit 6 Byte Länge verfügt. Dies bedeutet, dass deutlich mehr Adressen erstellt und vergen werden können.
+Die Funktion ist aber mehr oder weniger die gleiche.
+
+Das IPv6 Internet Protokoll ist in folgender Abbildung gezeigt.
+
+
 
 
 \subsection{ Transportschicht/ Transport Layer (Schicht 4)}
