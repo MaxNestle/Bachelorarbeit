@@ -96,22 +96,26 @@ Es werden nur die Protokolle betrachtet, die für dieses Projekt relevant sind.
 
 \subsection{Sicherungsschicht/Data Link Layer (Schicht 2)}
 
-Diese Schicht beinhaltet Protokolle, welche einen weitestgehend fehlerfreie Datenübertragung garantieren sollen. Außerdem wird der Zugriff auf das Übertragungsmedium garantiert.
+Diese Schicht beinhaltet Protokolle, welche einen weitestgehend fehlerfreie Datenübertragung garantieren sollen. Außerdem wird der Zugriff auf das Übertragungsmedium ermöglicht.\cite{wiki:osi}
 
 \subsubsection{Ethernet}
 
-Beim Ethernet-Protokoll werden die Daten in Pakete zerteilt. Diese können dann zwischen den Geräten im Netzwerk verschickt werden. Dabei ist das Ethernet-Protokoll immer nur im jeweiligen Netzwerksegment gültig. Die Adressierung wird mit Hilfe der MAC-Adressen realisiert. Diese Adresse ist einmalig und wird jedem netzwerkfähigem Gerät vom Hersteller zugeordnet.
+Beim Ethernet-Protokoll werden die Daten in Pakete zerteilt. Diese können dann zwischen den Geräten im Netzwerk verschickt werden. Dabei ist das Ethernet-Protokoll immer nur im jeweiligen Netzwerksegment gültig.\cite{zisler2013computer} Die Adressierung wird mit Hilfe der MAC-Adressen realisiert. Diese Adresse ist einmalig und wird jedem netzwerkfähigem Gerät vom Hersteller zugeordnet.
 
-\includegraphics*[height=2.7cm]{bilder/Ethernet.png}
 
-Erweiterter Ethernet-Frame nach IEEE 802.1Q
 
-\cite{zisler2013computer}
+\begin{figure}[ht]
+	\centering
+	\includegraphics*[height=2.7cm]{bilder/Ethernet.png}
+	\caption{Erweiterter Ethernet-Frame nach IEEE 802.1Q \cite{zisler2013computer}}
+	\label{fig1}
+\end{figure}
+
 
 
 \subsection{ Vermittlungsschicht/Network Layer (Schicht 3)}
 
-Die Protokolle dieser Schicht werden verwendet, um über Netzwerkgrenzen hinaus Nachrichten zu versenden. Dieses Protokoll liegt innerhalb der Nutzdaten des Ethernet-Pakets.
+Die Protokolle dieser Schicht werden verwendet, um über Netzwerkgrenzen hinaus Nachrichten zu versenden.\cite{zisler2013computer} Dieses Protokoll liegt innerhalb der Nutzdaten des Ethernet-Pakets.
 
 \subsubsection{IPv4}
 
@@ -119,6 +123,12 @@ Zur Adressierung werden IPv4 Adressen verwendet, die 32 bit (4 Byte) lang sind. 
 
 Das Internet Protokoll wird wie in folgender Abbildung gezeigt in das Ethernet Paket eingebettet.
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics*[height=6cm]{bilder/ipv4.png}
+	\caption{IPv4 Header \cite{zisler2013computer}}
+	\label{fig2}
+\end{figure}
 
 
 
@@ -128,6 +138,14 @@ Da die IPv4 langsam knapp werden, wurde das IPv6 Protokoll erstellt, welches übe
 Die Funktion ist aber mehr oder weniger die gleiche.
 
 Das IPv6 Internet Protokoll ist in folgender Abbildung gezeigt.
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics*[height=5cm]{bilder/ipv6.png}
+	\caption{IPv6 Header \cite{zisler2013computer}}
+	\label{fig3}
+\end{figure}
 
 
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{{Die}18}
+\begin{thebibliography}{{Wik}18}
 
 \bibitem[{Die}18]{BfDI}
 {\sc {Die Bundesbeauftragten für den Datenschutz und die Informationssicherheit
@@ -36,6 +36,12 @@
 {\sc Purgathofer, Peter}: {\em Eine kurze Geschichte der Steganographie}.
 \newblock Die Funktion verdeckter Kommunikation: Impulse f{\"u}r eine
   Technikfolgenabsch{\"a}tzung zur Steganographie, 9:65, 2010.
+
+\bibitem[{Wik}18]{wiki:osi}
+{\sc {Wikipedia contributors}}: {\em OSI-Modell --- {W}ikipedia{,} The Free
+  Encyclopedia}.
+\newblock \url{https://de.wikipedia.org/wiki/OSI-Modell}, 2018.
+\newblock Abrufdatum: 03.01.2019.
 
 \bibitem[Zis13]{zisler2013computer}
 {\sc Zisler, Harald}: {\em Computer-Netzwerke}, 2013.
