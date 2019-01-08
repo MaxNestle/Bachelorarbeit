@@ -1,7 +1,7 @@
-\contentsline {chapter}{\nonumberline Kurzfassung}{II}{chapter*.3}
-\contentsline {chapter}{\nonumberline Abstract}{III}{chapter*.4}
-\contentsline {chapter}{\nonumberline Danksagung}{IV}{chapter*.5}
-\contentsline {chapter}{\nonumberline Vorwort}{V}{chapter*.6}
+\contentsline {chapter}{\nonumberline Kurzfassung}{III}{chapter*.3}
+\contentsline {chapter}{\nonumberline Abstract}{IV}{chapter*.4}
+\contentsline {chapter}{\nonumberline Danksagung}{V}{chapter*.5}
+\contentsline {chapter}{\nonumberline Vorwort}{VI}{chapter*.6}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Aufgabenstellung und Zielsetzung}{1}{section.1.2}
@@ -25,7 +25,13 @@
 \contentsline {subsection}{\numberline {2.7.3}Transportschicht/ Transport Layer (Schicht 4)}{10}{subsection.2.7.3}
 \contentsline {subsection}{\numberline {2.7.4}Kommunikationsschicht/Session Layer (Schicht 5)}{10}{subsection.2.7.4}
 \contentsline {section}{\numberline {2.8}Covert-Channel}{10}{section.2.8}
-\contentsline {chapter}{\numberline {12}Schlussbemerkungen und Ausblick}{20}{chapter.12}
-\contentsline {chapter}{\numberline {A}Ein Kapitel des Anhangs}{21}{appendix.A}
-\contentsline {chapter}{\nonumberline Literatur}{23}{chapter*.19}
-\contentsline {chapter}{Stichwortverzeichnis}{23}{chapter*.19}
+\contentsline {chapter}{\numberline {3}Was zeichnend einen guten Covert-Channel aus?}{11}{chapter.3}
+\contentsline {chapter}{\numberline {4}M\"ogliche steganografische Covert-Channel}{12}{chapter.4}
+\contentsline {section}{\numberline {4.1}Zeitabh\"angiger Covert-Chanel}{12}{section.4.1}
+\contentsline {section}{\numberline {4.2}Benutzung verschiedener Protokolle}{12}{section.4.2}
+\contentsline {section}{\numberline {4.3}Benutzung von unbenutzten Bits in Protokoll-Headern}{12}{section.4.3}
+\contentsline {section}{\numberline {4.4}Verwendung der Paketgr\"o\IeC {\ss }e}{12}{section.4.4}
+\contentsline {chapter}{\numberline {5}Schlussbemerkungen und Ausblick}{13}{chapter.5}
+\contentsline {chapter}{\numberline {A}Ein Kapitel des Anhangs}{14}{appendix.A}
+\contentsline {chapter}{\nonumberline Literatur}{16}{chapter*.10}
+\contentsline {chapter}{Stichwortverzeichnis}{16}{chapter*.10}

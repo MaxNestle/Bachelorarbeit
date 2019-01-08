@@ -22,7 +22,13 @@
 \BOOKMARK [2][-]{subsection.2.7.3}{Transportschicht/ Transport Layer \(Schicht 4\)}{section.2.7}% 22
 \BOOKMARK [2][-]{subsection.2.7.4}{Kommunikationsschicht/Session Layer \(Schicht 5\)}{section.2.7}% 23
 \BOOKMARK [1][-]{section.2.8}{Covert-Channel}{chapter.2}% 24
-\BOOKMARK [0][-]{chapter.12}{Schlussbemerkungen und Ausblick}{}% 25
-\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 26
-\BOOKMARK [0][-]{chapter*.19}{Literatur}{}% 27
-\BOOKMARK [0][-]{chapter*.19}{Stichwortverzeichnis}{}% 28
+\BOOKMARK [0][-]{chapter.3}{Was zeichnend einen guten Covert-Channel aus?}{}% 25
+\BOOKMARK [0][-]{chapter.4}{M\366gliche steganografische Covert-Channel}{}% 26
+\BOOKMARK [1][-]{section.4.1}{Zeitabh\344ngiger Covert-Chanel}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.2}{Benutzung verschiedener Protokolle}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.3}{Benutzung von unbenutzten Bits in Protokoll-Headern}{chapter.4}% 29
+\BOOKMARK [1][-]{section.4.4}{Verwendung der Paketgr\366\337e}{chapter.4}% 30
+\BOOKMARK [0][-]{chapter.5}{Schlussbemerkungen und Ausblick}{}% 31
+\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 32
+\BOOKMARK [0][-]{chapter*.10}{Literatur}{}% 33
+\BOOKMARK [0][-]{chapter*.10}{Stichwortverzeichnis}{}% 34

@@ -10,46 +10,6 @@ A level-1 auxiliary file: vowo.aux
 A level-1 auxiliary file: einleit.aux
 A level-1 auxiliary file: grundl.aux
 A level-1 auxiliary file: hauptteil.aux
-Already encountered file hauptteil.aux
----line 37 of file Bachelorarbeit.aux
- : \@input{hauptteil.aux
- :                      }
-I'm skipping whatever remains of this command
-Already encountered file hauptteil.aux
----line 38 of file Bachelorarbeit.aux
- : \@input{hauptteil.aux
- :                      }
-I'm skipping whatever remains of this command
-Already encountered file hauptteil.aux
----line 39 of file Bachelorarbeit.aux
- : \@input{hauptteil.aux
- :                      }
-I'm skipping whatever remains of this command
-Already encountered file hauptteil.aux
----line 40 of file Bachelorarbeit.aux
- : \@input{hauptteil.aux
- :                      }
-I'm skipping whatever remains of this command
-Already encountered file hauptteil.aux
----line 41 of file Bachelorarbeit.aux
- : \@input{hauptteil.aux
- :                      }
-I'm skipping whatever remains of this command
-Already encountered file hauptteil.aux
----line 42 of file Bachelorarbeit.aux
- : \@input{hauptteil.aux
- :                      }
-I'm skipping whatever remains of this command
-Already encountered file hauptteil.aux
----line 43 of file Bachelorarbeit.aux
- : \@input{hauptteil.aux
- :                      }
-I'm skipping whatever remains of this command
-Already encountered file hauptteil.aux
----line 44 of file Bachelorarbeit.aux
- : \@input{hauptteil.aux
- :                      }
-I'm skipping whatever remains of this command
 A level-1 auxiliary file: schluss.aux
 A level-1 auxiliary file: anhang.aux
 The style file: geralpha.bst
@@ -96,4 +56,4 @@ warning$ -- 1
 while$ -- 19
 width$ -- 11
 write$ -- 103
-(There were 8 error messages)
+(There was 1 warning)
