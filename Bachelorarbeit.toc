@@ -22,16 +22,18 @@
 \contentsline {subsection}{\numberline {2.7.2}Vermittlungsschicht/Network Layer (Schicht 3)}{8}{subsection.2.7.2}
 \contentsline {subsubsection}{\nonumberline IPv4}{9}{section*.8}
 \contentsline {subsubsection}{\nonumberline IPv6}{9}{section*.9}
-\contentsline {subsection}{\numberline {2.7.3}Transportschicht/ Transport Layer (Schicht 4)}{10}{subsection.2.7.3}
-\contentsline {subsection}{\numberline {2.7.4}Kommunikationsschicht/Session Layer (Schicht 5)}{10}{subsection.2.7.4}
-\contentsline {section}{\numberline {2.8}Covert-Channel}{10}{section.2.8}
-\contentsline {chapter}{\numberline {3}Was zeichnend einen guten Covert-Channel aus?}{11}{chapter.3}
-\contentsline {chapter}{\numberline {4}M\"ogliche steganografische Covert-Channel}{12}{chapter.4}
-\contentsline {section}{\numberline {4.1}Zeitabh\"angiger Covert-Chanel}{12}{section.4.1}
-\contentsline {section}{\numberline {4.2}Benutzung verschiedener Protokolle}{12}{section.4.2}
-\contentsline {section}{\numberline {4.3}Benutzung von unbenutzten Bits in Protokoll-Headern}{12}{section.4.3}
-\contentsline {section}{\numberline {4.4}Verwendung der Paketgr\"o\IeC {\ss }e}{12}{section.4.4}
-\contentsline {chapter}{\numberline {5}Schlussbemerkungen und Ausblick}{13}{chapter.5}
-\contentsline {chapter}{\numberline {A}Ein Kapitel des Anhangs}{14}{appendix.A}
-\contentsline {chapter}{\nonumberline Literatur}{16}{chapter*.10}
-\contentsline {chapter}{Stichwortverzeichnis}{16}{chapter*.10}
+\contentsline {subsection}{\numberline {2.7.3}Transportschicht/ Transport Layer (Schicht 4)}{9}{subsection.2.7.3}
+\contentsline {subsection}{\numberline {2.7.4}Kommunikationsschicht/Session Layer (Schicht 5)}{9}{subsection.2.7.4}
+\contentsline {chapter}{\numberline {3}Was ist ein Covert-Channel?}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Definition}{11}{section.3.1}
+\contentsline {section}{\numberline {3.2}Was zeichnend einen guten Covert-Channel aus?}{11}{section.3.2}
+\contentsline {section}{\numberline {3.3}Wozu sind Covert-Channels nicht geeignet?}{12}{section.3.3}
+\contentsline {chapter}{\numberline {4}M\"ogliche steganografische Covert-Channel}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Zeitabh\"angiger Covert-Chanel}{13}{section.4.1}
+\contentsline {section}{\numberline {4.2}Benutzung verschiedener Protokolle}{13}{section.4.2}
+\contentsline {section}{\numberline {4.3}Benutzung von unbenutzten Bits in Protokoll-Headern}{13}{section.4.3}
+\contentsline {section}{\numberline {4.4}Verwendung der Paketgr\"o\IeC {\ss }e}{13}{section.4.4}
+\contentsline {chapter}{\numberline {5}Schlussbemerkungen und Ausblick}{14}{chapter.5}
+\contentsline {chapter}{\numberline {A}Ein Kapitel des Anhangs}{15}{appendix.A}
+\contentsline {chapter}{\nonumberline Literatur}{17}{chapter*.10}
+\contentsline {chapter}{Stichwortverzeichnis}{17}{chapter*.10}

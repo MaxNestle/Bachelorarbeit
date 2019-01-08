@@ -1,7 +1,35 @@
 
-\chapter{Was zeichnend einen guten Covert-Channel aus?}
-\label{cha:CoCH-Eigenschaften} %Label des Kapitels
 
+\chapter{Was ist ein Covert-Channel?}
+\label{cha:Was ist ein Covert-Channel?} %Label des Kapitels
+
+\section{Definition}
+%TODO
+Covert-Channels sind Netzwerk Kanäle, die nicht offen praktiziert, erklärt, engagiert, angesammelt oder gezeigt werden. \cite{goltz2003covert}
+
+Hierbei kann ein Kanal eine beliebige Methode sein Informationen zischen zwei Geräten über ein Netzwerk auszutauschen.
+Bei Covert-Channels wird sich die größtmöglich Mühe gegeben, diesen Informationskanal vor Dritten unbemerkt zu halten.\\
+Bei steganografischen Covert-Channels werden Methoden aus der Steganografie verwendet um diesen Kanal zu verbergen.
+
+In dieser Arbeit handelt es sich bei Covert-Channel immer um Kanäle, die mit einem steganografischem Verfahren verschlüsselt werden.
+
+\section{Was zeichnend einen guten Covert-Channel aus?}
+
+
+Bei den weit verbreiteten mathematischen Verschlüsselungen muss sich meistens keine sorgen gemachen werden, ob der Datenaustausch von Dritten entdeckt werden kann, da hier die Daten ohne richtigen Key nutzlos sind.\\
+Bei den Covert-Chanels ist dies problematischer, da ein entdeckter Kanal in der Regel direkt interpretiert werden kann. Ein Covert-Channel lebt, wie der Name auch schon verrät, davon wie gut dieser versteckt ist.\\ 
+Dabei besitzt die Steganografie einen großen Vorteil: Ist das Verfahren zum Verstecken der Daten nicht bekannt, so ist es nahezu unmöglich den Covert-Channel zu finden, da nicht klar ist wo und nach was gesucht werden muss (Security by Obscurity).\\
+Ist hingegen klar, um welches Verfahren es sich handelt und besteht die Vermutung, dass eine Kommunikation über einen versteckten Kanal stattfindet so kommt man leicht an die Informationen.\\
+Um einen Covert-Channel zu Bewerten müssen folgende Aspekte betrachtet werden:\\
+
+Der erste ist die Fähigkeit, wie einfach sich ein Kanal verstecken lässt. Hier fließt zum Einen die Allgemeine Unauffälligkeit des Covert-Channels ein. Aber auch die Eigenschaften des bereits herrschenden Netzwerkverkehrs, in den der Channel eingebettet werden soll.\\
+Der zweite Aspekt ist die allgemeine Unbekanntheit des Verfahrens, sodass nicht nach einem möglichen versteckten Kanal gesucht werden kann. Hier kann einen Methode zur individuellen Gestaltung des Channels eine Verbesserung bringen.\\
+Natürlich muss auch die Datenübertragungsrate betrachtet. Diese ist meistens sehr gering aber hier gibt es auch große Unterschiede zwischen den einzelnen Verfahren. \\
+Die Daten sollten
+
+\section{Wozu sind Covert-Channels nicht geeignet?}
+
+Hohe Datenübertragung
 
 \chapter{Mögliche steganografische Covert-Channel}
 \label{cha:Covert-Channel} %Label des Kapitels
