@@ -30,9 +30,11 @@
 \contentsline {section}{\numberline {3.3}Wozu sind Covert-Channels nicht geeignet?}{12}{section.3.3}
 \contentsline {chapter}{\numberline {4}M\"ogliche steganografische Covert-Channel}{13}{chapter.4}
 \contentsline {section}{\numberline {4.1}Zeitabh\"angiger Covert-Chanel}{13}{section.4.1}
-\contentsline {section}{\numberline {4.2}Benutzung verschiedener Protokolle}{13}{section.4.2}
-\contentsline {section}{\numberline {4.3}Benutzung von unbenutzten Bits in Protokoll-Headern}{13}{section.4.3}
-\contentsline {section}{\numberline {4.4}Verwendung der Paketgr\"o\IeC {\ss }e}{13}{section.4.4}
+\contentsline {section}{\numberline {4.2}Benutzung verschiedener Protokolle Reihenfolge}{13}{section.4.2}
+\contentsline {section}{\numberline {4.3}Benutzung verschiedener Ports}{13}{section.4.3}
+\contentsline {section}{\numberline {4.4}Benutzung von unbenutzten Bits in Protokoll-Headern}{13}{section.4.4}
+\contentsline {section}{\numberline {4.5}Verwendung der Paketgr\"o\IeC {\ss }e}{13}{section.4.5}
+\contentsline {section}{\numberline {4.6}Verstecken der in den Nutzdaten}{13}{section.4.6}
 \contentsline {chapter}{\numberline {5}Schlussbemerkungen und Ausblick}{14}{chapter.5}
 \contentsline {chapter}{\numberline {A}Ein Kapitel des Anhangs}{15}{appendix.A}
 \contentsline {chapter}{\nonumberline Literatur}{17}{chapter*.10}

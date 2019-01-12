@@ -27,10 +27,12 @@
 \BOOKMARK [1][-]{section.3.3}{Wozu sind Covert-Channels nicht geeignet?}{chapter.3}% 27
 \BOOKMARK [0][-]{chapter.4}{M\366gliche steganografische Covert-Channel}{}% 28
 \BOOKMARK [1][-]{section.4.1}{Zeitabh\344ngiger Covert-Chanel}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.2}{Benutzung verschiedener Protokolle}{chapter.4}% 30
-\BOOKMARK [1][-]{section.4.3}{Benutzung von unbenutzten Bits in Protokoll-Headern}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.4}{Verwendung der Paketgr\366\337e}{chapter.4}% 32
-\BOOKMARK [0][-]{chapter.5}{Schlussbemerkungen und Ausblick}{}% 33
-\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 34
-\BOOKMARK [0][-]{chapter*.10}{Literatur}{}% 35
-\BOOKMARK [0][-]{chapter*.10}{Stichwortverzeichnis}{}% 36
+\BOOKMARK [1][-]{section.4.2}{Benutzung verschiedener Protokolle Reihenfolge}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.3}{Benutzung verschiedener Ports}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.4}{Benutzung von unbenutzten Bits in Protokoll-Headern}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.5}{Verwendung der Paketgr\366\337e}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.6}{Verstecken der in den Nutzdaten}{chapter.4}% 34
+\BOOKMARK [0][-]{chapter.5}{Schlussbemerkungen und Ausblick}{}% 35
+\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 36
+\BOOKMARK [0][-]{chapter*.10}{Literatur}{}% 37
+\BOOKMARK [0][-]{chapter*.10}{Stichwortverzeichnis}{}% 38
