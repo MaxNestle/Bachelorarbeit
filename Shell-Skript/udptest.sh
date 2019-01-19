@@ -1,20 +1,24 @@
 #!/bin/bash
 
-echo "This is my data" > /dev/udp/127.0.0.1/3001
-echo "This is my data" > /dev/udp/127.0.0.1/3005
-echo "This is my data" > /dev/udp/127.0.0.1/3002
-echo "This is my data" > /dev/udp/127.0.0.1/3005
-echo "This is my data" > /dev/udp/127.0.0.1/3003
-echo "This is my data" > /dev/udp/127.0.0.1/3003
-echo "This is my data" > /dev/udp/127.0.0.1/3000
-echo "This is my data" > /dev/udp/127.0.0.1/3000
-echo "This is my data" > /dev/udp/127.0.0.1/3000
+
+echo "This is my data" > /dev/udp/127.0.0.1/30000
+
+#echo "This is my data" > /dev/udp/127.0.0.1/30000
+#echo "This is my data" > /dev/udp/127.0.0.1/30000
+#echo "This is my data" > /dev/udp/127.0.0.1/30000
+#echo "This is my data" > /dev/udp/127.0.0.1/30010
+#echo "This is my data" > /dev/udp/127.0.0.1/30050
+#echo "This is my data" > /dev/udp/127.0.0.1/30020
+#echo "This is my data" > /dev/udp/127.0.0.1/30050
+#echo "This is my data" > /dev/udp/127.0.0.1/30030
+#echo "This is my data" > /dev/udp/127.0.0.1/30030
+
 
 
 sleep 11
 
 
-echo "This is my data" > /dev/udp/127.0.0.1/3000
-echo "This is my data" > /dev/udp/127.0.0.1/3000
-echo "This is my data" > /dev/udp/127.0.0.1/3000
-
+echo "This is my data" > /dev/udp/127.0.0.1/30001
+echo "This is my data" > /dev/udp/127.0.0.1/30001
+echo "This is my data" > /dev/udp/127.0.0.1/30001
+echo "This is my data" > /dev/udp/127.0.0.1/30001
