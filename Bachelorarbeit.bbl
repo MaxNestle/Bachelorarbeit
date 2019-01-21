@@ -25,6 +25,11 @@
 {\sc Kessler, Gary~C.}: {\em An Overview of Steganography for the Computer
   Forensics Examiner (Updated Version, February 2015)}, 2015.
 
+\bibitem[KP00]{katzenbeisser2000information}
+{\sc Katzenbeisser, Stefan} \btxandlong{}\ {\sc Fabien Petitcolas}: {\em
+  Information hiding techniques for steganography and digital watermarking}.
+\newblock Artech house, 2000.
+
 \bibitem[{Nic}18]{CIA}
 {\sc {Nico Grundmeier}}: {\em Sicherheitslücken im Internet}.
 \newblock

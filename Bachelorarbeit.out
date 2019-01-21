@@ -5,38 +5,41 @@
 \BOOKMARK [0][-]{chapter.1}{Einleitung}{}% 5
 \BOOKMARK [1][-]{section.1.1}{Motivation}{chapter.1}% 6
 \BOOKMARK [1][-]{section.1.2}{Aufgabenstellung und Zielsetzung}{chapter.1}% 7
-\BOOKMARK [0][-]{chapter.2}{Grundlagen}{}% 8
-\BOOKMARK [1][-]{section.2.1}{Datenschutz}{chapter.2}% 9
-\BOOKMARK [1][-]{section.2.2}{Datensicherheit}{chapter.2}% 10
-\BOOKMARK [2][-]{subsection.2.2.1}{Vertraulichkeit}{section.2.2}% 11
-\BOOKMARK [2][-]{subsection.2.2.2}{Integrit\344t}{section.2.2}% 12
-\BOOKMARK [2][-]{subsection.2.2.3}{Verf\374gbarkeit}{section.2.2}% 13
-\BOOKMARK [2][-]{subsection.2.2.4}{Authentizit\344t}{section.2.2}% 14
-\BOOKMARK [1][-]{section.2.3}{Kryptographie}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.4}{Symmetrische Verschl\374sselung}{chapter.2}% 16
-\BOOKMARK [1][-]{section.2.5}{Asymmetrische Verschl\374sselung}{chapter.2}% 17
-\BOOKMARK [1][-]{section.2.6}{Steganographie}{chapter.2}% 18
-\BOOKMARK [1][-]{section.2.7}{Internet Protokolle}{chapter.2}% 19
-\BOOKMARK [2][-]{subsection.2.7.1}{Sicherungsschicht/Data Link Layer \(Schicht 2\)}{section.2.7}% 20
-\BOOKMARK [2][-]{subsection.2.7.2}{Vermittlungsschicht/Network Layer \(Schicht 3\)}{section.2.7}% 21
-\BOOKMARK [2][-]{subsection.2.7.3}{Transportschicht/ Transport Layer \(Schicht 4\)}{section.2.7}% 22
-\BOOKMARK [2][-]{subsection.2.7.4}{Kommunikationsschicht/Session Layer \(Schicht 5\)}{section.2.7}% 23
-\BOOKMARK [0][-]{chapter.3}{Was ist ein Covert-Channel?}{}% 24
-\BOOKMARK [1][-]{section.3.1}{Definition}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.2}{Was zeichnend einen guten Covert-Channel aus?}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.3}{Wozu sind Covert-Channels nicht geeignet?}{chapter.3}% 27
-\BOOKMARK [0][-]{chapter.4}{M\366gliche steganografische Covert-Channel}{}% 28
-\BOOKMARK [1][-]{section.4.1}{Zeitabh\344ngiger Covert-Chanel}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.2}{Benutzung verschiedener Protokolle Reihenfolge}{chapter.4}% 30
-\BOOKMARK [1][-]{section.4.3}{Benutzung verschiedener Ports}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.4}{Benutzung von unbenutzten Bits in Protokoll-Headern}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.5}{Verwendung der Paketgr\366\337e}{chapter.4}% 33
-\BOOKMARK [1][-]{section.4.6}{Verstecken der in den Nutzdaten}{chapter.4}% 34
-\BOOKMARK [0][-]{chapter.5}{Bewertung der Methoden}{}% 35
-\BOOKMARK [0][-]{chapter.6}{Welcher Kanal ist geeignet}{}% 36
-\BOOKMARK [0][-]{chapter.7}{Projekt Umsetzung}{}% 37
-\BOOKMARK [0][-]{chapter.8}{Etische Aspekte}{}% 38
-\BOOKMARK [0][-]{chapter.9}{Schlussbemerkungen und Ausblick}{}% 39
-\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 40
-\BOOKMARK [0][-]{chapter*.10}{Literatur}{}% 41
-\BOOKMARK [0][-]{chapter*.10}{Stichwortverzeichnis}{}% 42
+\BOOKMARK [1][-]{section.1.3}{Aufbau}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.4}{Eigene Leistung}{chapter.1}% 9
+\BOOKMARK [0][-]{chapter.2}{Grundlagen}{}% 10
+\BOOKMARK [1][-]{section.2.1}{Datenschutz}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.2}{Datensicherheit}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.1}{Vertraulichkeit}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.2}{Integrit\344t}{section.2.2}% 14
+\BOOKMARK [2][-]{subsection.2.2.3}{Verf\374gbarkeit}{section.2.2}% 15
+\BOOKMARK [2][-]{subsection.2.2.4}{Authentizit\344t}{section.2.2}% 16
+\BOOKMARK [1][-]{section.2.3}{Kryptographie}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.4}{Symmetrische Verschl\374sselung}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.5}{Asymmetrische Verschl\374sselung}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.6}{Steganographie}{chapter.2}% 20
+\BOOKMARK [1][-]{section.2.7}{Internet Protokolle}{chapter.2}% 21
+\BOOKMARK [2][-]{subsection.2.7.1}{Sicherungsschicht/Data Link Layer \(Schicht 2\)}{section.2.7}% 22
+\BOOKMARK [2][-]{subsection.2.7.2}{Vermittlungsschicht/Network Layer \(Schicht 3\)}{section.2.7}% 23
+\BOOKMARK [2][-]{subsection.2.7.3}{Transportschicht/ Transport Layer \(Schicht 4\)}{section.2.7}% 24
+\BOOKMARK [2][-]{subsection.2.7.4}{Kommunikationsschicht/Session Layer \(Schicht 5\)}{section.2.7}% 25
+\BOOKMARK [0][-]{chapter.3}{Was ist ein Covert-Channel?}{}% 26
+\BOOKMARK [1][-]{section.3.1}{Definition}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.2}{Was zeichnend einen guten Covert-Channel aus?}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.3}{Wozu sind Covert-Channels nicht geeignet?}{chapter.3}% 29
+\BOOKMARK [0][-]{chapter.4}{M\366gliche steganografische Covert-Channel}{}% 30
+\BOOKMARK [1][-]{section.4.1}{Zeitabh\344ngiger Covert-Chanel}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.2}{Benutzung verschiedener Protokolle Reihenfolge}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.3}{Benutzung verschiedener Ports}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.4}{Benutzung von unbenutzten Bits in Protokoll-Headern}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.5}{Verwendung der Paketgr\366\337e}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.6}{Verstecken der Informationen in den Nutzdaten}{chapter.4}% 36
+\BOOKMARK [2][-]{subsection.4.6.1}{Verwenung von Bilddateien}{section.4.6}% 37
+\BOOKMARK [0][-]{chapter.5}{Bewertung der Methoden}{}% 38
+\BOOKMARK [0][-]{chapter.6}{Welcher Kanal ist geeignet}{}% 39
+\BOOKMARK [0][-]{chapter.7}{Projekt Umsetzung}{}% 40
+\BOOKMARK [0][-]{chapter.8}{Etische Aspekte}{}% 41
+\BOOKMARK [0][-]{chapter.9}{Schlussbemerkungen und Ausblick}{}% 42
+\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 43
+\BOOKMARK [0][-]{chapter*.10}{Literatur}{}% 44
+\BOOKMARK [0][-]{chapter*.10}{Stichwortverzeichnis}{}% 45
