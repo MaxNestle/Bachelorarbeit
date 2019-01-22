@@ -64,7 +64,29 @@ Hohe Datenübertragung
 \section{Verstecken der Informationen in den Nutzdaten}
 
 \subsection{Verwenung von Bilddateien}
-\cite{katzenbeisser2000information}
+
+
+\subsubsection{RGB Basierende Formate}
+
+Bildformate die auf die RGB Formate basieren sind zum Beispiel BMP (Windows Bitmap) oder auch GIF (Graphics Interchange Format). Diese Formate geben die Pixelfarbe basierend auf dem \textbf{R}ot-, \textbf{G}rün- und \textbf{B}lauwert. In diesen Werten können Daten versteckt werden.\cite{katzenbeisser2000information} So können beispielsweise die letzten beiden Bits manipuliert werden. Diese Veränderung ist für das menschliche Auge nicht zu erkennen, da die letzten Bits kaum eine Auswirkung auf die Höhe der Zahl haben.\\
+Bei einer Farbtiefe von 24 Bit beträgt die maximale Änderung der Farbwerte nur 3 Farbstufen von insgesamt 256 möglichen.
+
+00000000 (0) 		-> 00000011 (3)\\
+11111111 (255)		-> 11111100	(252)
+
+Auf diese Weise lassen sich 6 Bit pro Pixel übertragen. In einem unkomprimierten HD Bild mit einer Auflösung von 1280x720 Pixeln (ca. 22 MByte) lassen sich 0,6912 Mbyte Daten übertragen.
+
+In Abbildung \ref{fig:fig4} wird dieses System veranschaulicht:
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics*[height=10cm]{bilder/stgRGB.jpg}
+	\caption{Codierung in den 2 letzten Bits \cite{Black2018Slash}}
+	\label{fig4}
+\end{figure}
+
+\subsubsection{Bildformate mit alpha Kanal}
+
 
 \chapter{Bewertung der Methoden}
 

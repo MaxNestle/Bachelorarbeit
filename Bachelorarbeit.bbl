@@ -42,6 +42,14 @@
 \newblock Die Funktion verdeckter Kommunikation: Impulse f{\"u}r eine
   Technikfolgenabsch{\"a}tzung zur Steganographie, 9:65, 2010.
 
+\bibitem[{Use}18]{Black2018Slash}
+{\sc {User: Black Slash}}: {\em How to Hide Secret Data Inside an Image or
+  Audio File in Seconds}.
+\newblock
+  \url{https://null-byte.wonderhowto.com/how-to/steganography-hide-secret-data-inside-image-audio-file-seconds-0180936/},
+  2018.
+\newblock Abrufdatum: 22.01.2019.
+
 \bibitem[{Wik}18]{wiki:osi}
 {\sc {Wikipedia contributors}}: {\em OSI-Modell --- {W}ikipedia{,} The Free
   Encyclopedia}.

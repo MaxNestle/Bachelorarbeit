@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  21 JAN 2019 16:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  22 JAN 2019 16:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -677,7 +677,7 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 12.0pt
 (typearea)              \footskip       = 62.9806pt
 (typearea)              \baselineskip   = 17.99446pt
-(typearea)              on input line 97.
+(typearea)              on input line 99.
 
 (/usr/share/texlive/texmf-dist/tex/latex/glossaries/base/glossaries.sty
 Package: glossaries 2017/11/14 v4.35 (NLCT)
@@ -868,17 +868,17 @@ Package: glossary-tree 2017/11/14 v4.35 (NLCT)
 \openout5 = `Bachelorarbeit.glo'.
 
 Package glossaries Info: Writing glossary file Bachelorarbeit.glo on input line
- 105.
+ 107.
 \glo@acronym@file=\write6
 \openout6 = `Bachelorarbeit.acn'.
 
 Package glossaries Info: Writing glossary file Bachelorarbeit.acn on input line
- 105.
+ 107.
 \glo@symbolslist@file=\write7
 \openout7 = `Bachelorarbeit.syg'.
 
 Package glossaries Info: Writing glossary file Bachelorarbeit.syg on input line
- 105.
+ 107.
 
 \@input{gloss.aux}
 \openout2 = `gloss.aux'.
@@ -888,28 +888,28 @@ Package glossaries Info: Writing glossary file Bachelorarbeit.syg on input line
 (./grundl.aux) (./hauptteil.aux) (./schluss.aux) (./anhang.aux))
 \openout1 = `Bachelorarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 128.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 128.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 130.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 130.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -943,7 +943,7 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 128.
+LaTeX Info: Redefining \microtypecontext on input line 130.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -959,7 +959,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 \AtBeginShipoutBox=\box39
-Package hyperref Info: Link coloring OFF on input line 128.
+Package hyperref Info: Link coloring OFF on input line 130.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -970,15 +970,15 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 \c@section@level=\count149
 LaTeX Info: Redefining \Ref on input line 515.
 )
-LaTeX Info: Redefining \ref on input line 128.
-LaTeX Info: Redefining \pageref on input line 128.
-LaTeX Info: Redefining \nameref on input line 128.
+LaTeX Info: Redefining \ref on input line 130.
+LaTeX Info: Redefining \pageref on input line 130.
+LaTeX Info: Redefining \nameref on input line 130.
 
 (./Bachelorarbeit.out) (./Bachelorarbeit.out)
 \@outlinefile=\write8
 \openout8 = `Bachelorarbeit.out'.
 
-LaTeX Info: Redefining \Ref on input line 128.
+LaTeX Info: Redefining \Ref on input line 130.
 \openout2 = `DeckHS.aux'.
 
  (./DeckHS.tex
@@ -1045,7 +1045,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
 ]
 Package tocbasic Info: character protrusion at toc deactivated on input line 14
-0.
+2.
  (./Bachelorarbeit.tocpdfTeX warning (ext4): destination with the same identifi
 er (name{page.I}) has been already used, duplicate ignored
 <to be read again> 
@@ -1062,7 +1062,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.II}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.143 \include{kurzfass}
+l.145 \include{kurzfass}
                                      % Kurzfassung der Arbeit [2]
 \openout2 = `kurzfass.aux'.
 
@@ -1205,27 +1205,41 @@ chapter 4.
 [13
 
 ]
-chapter 5.
-[14
 
-]
-chapter 6.
+LaTeX Warning: Reference `fig:fig4' on page 14 undefined on input line 79.
+
+<bilder/stgRGB.jpg, id=373, 994.71625pt x 597.23125pt>
+File: bilder/stgRGB.jpg Graphic file (type jpg)
+<use bilder/stgRGB.jpg>
+Package pdftex.def Info: bilder/stgRGB.jpg  used on input line 83.
+(pdftex.def)             Requested size: 473.89151pt x 284.52756pt.
+
+Overfull \hbox (4.42097pt too wide) in paragraph at lines 83--84
+ [][] 
+ []
+
+[14 <./bilder/stgRGB.jpg>]
+chapter 5.
 [15
 
 ]
-chapter 7.
+chapter 6.
 [16
 
 ]
+chapter 7.
+[17
+
+]
 chapter 8.
-) [17
+) [18
 
 ]
 \openout2 = `schluss.aux'.
 
  (./schluss.tex
 chapter 9.
-) [18
+) [19
 
 
 
@@ -1234,7 +1248,7 @@ chapter 9.
 
  (./anhang.tex
 chapter A.
-) [19
+) [20
 
 
 
@@ -1242,7 +1256,7 @@ chapter A.
 No file Bachelorarbeit.gls.
 No file Bachelorarbeit.acr.
 No file Bachelorarbeit.syi.
-(./Bachelorarbeit.bbl [20
+(./Bachelorarbeit.bbl [21
 
 ]
 chapter without number
@@ -1475,6 +1489,24 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              `\normalfont \scshape ' on input line 46.
 
 
+Underfull \hbox (badness 3492) in paragraph at lines 46--52
+[]\T1/aer/m/sc/12 (+20) User: Black Slash\T1/aer/m/n/12 (+20) : \T1/aer/m/it/12
+ (+20) How to Hi-de Se-cret Da-ta In-si-de an Image or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--52
+\T1/aer/m/it/12 (+20) Au-dio Fi-le in Se-conds\T1/aer/m/n/12 (+20) .  []$\T1/ae
+tt/m/n/12 https : / / null-[]byte . wonderhowto . com / how-[]to /
+ []
+
+
+Overfull \hbox (20.1503pt too wide) in paragraph at lines 46--52
+\T1/aett/m/n/12 steganography-[]hide-[]secret-[]data-[]inside-[]image-[]audio-[
+]file-[]seconds-[]0180936/$[]\T1/aer/m/n/12 (-20) ,
+ []
+
+
 Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              You should note, that since 1994 LaTeX2e provides a
 (scrbook)              new font selection scheme called NFSS2 with several
@@ -1493,49 +1525,83 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              Otherwise you should reconfigure or replace the
 (scrbook)              package. If you have used the old font command
 (scrbook)              `\sc' yourself you should replace it, e.g., by
-(scrbook)              `\normalfont \scshape ' on input line 52.
+(scrbook)              `\normalfont \scshape ' on input line 54.
+
+
+Class scrbook Warning: deprecated old font command `\sc' used.
+(scrbook)              You should note, that since 1994 LaTeX2e provides a
+(scrbook)              new font selection scheme called NFSS2 with several
+(scrbook)              new, combinable font commands. New KOMA-Script classes
+(scrbook)              defined the old font commands like `\sc' only for
+(scrbook)              compatibility with LaTeX 2.09 document styles of
+(scrbook)              Script 2.0. These commands are deprecated and
+(scrbook)              undocumented at least since 2003. Since 2013,
+(scrbook)              KOMA-Script classes warned about soon removement of
+(scrbook)              these deprecated commands. Now, after two decades of
+(scrbook)              LaTeX2e, NFSS2, and KOMA-Script these commands will
+(scrbook)              not work any longer. If loading a package results in
+(scrbook)              this message you should contact the author of that
+(scrbook)              package and ask him to replace the depracted font
+(scrbook)              command `\sc', e.g., by `\normalfont \scshape '.
+(scrbook)              Otherwise you should reconfigure or replace the
+(scrbook)              package. If you have used the old font command
+(scrbook)              `\sc' yourself you should replace it, e.g., by
+(scrbook)              `\normalfont \scshape ' on input line 60.
 
 )
 No file Bachelorarbeit.ind.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 184.
-[21
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 186.
+[22
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 184.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 186.
  (./Bachelorarbeit.aux (./DeckHS.aux) (./eidHS.aux) (./kurzfass.aux)
 (./abstract.aux) (./dasa.aux) (./vowo.aux) (./einleit.aux) (./grundl.aux)
 (./hauptteil.aux) (./schluss.aux) (./anhang.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 184.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 184.
-Package rerunfilecheck Info: File `Bachelorarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 78681A10E1F928F2299003411BA6EEC3;3093.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 184.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 186.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 186.
+
+
+Package rerunfilecheck Warning: File `Bachelorarbeit.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Bachelorarbeit.out':
+(rerunfilecheck)             Before: 1F8BAAAA2B64D954886963935AE4403D;3093
+(rerunfilecheck)             After:  80245F16FA7D42DC958EC35DB0352240;3093.
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 186.
  ) 
 Here is how much of TeX's memory you used:
- 18562 strings out of 492982
- 314110 string characters out of 6134895
- 564969 words of memory out of 5000000
- 21288 multiletter control sequences out of 15000+600000
+ 18576 strings out of 492982
+ 314308 string characters out of 6134895
+ 565087 words of memory out of 5000000
+ 21295 multiletter control sequences out of 15000+600000
  67948 words of font info for 336 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,10n,66p,8892b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Bachelorarbeit.pdf (29 pages, 510652 bytes).
+pdfTeX warning (dest): name{chapter*.11} has been referenced but does not exi
+st, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on Bachelorarbeit.pdf (30 pages, 565744 bytes).
 PDF statistics:
- 478 PDF objects out of 1000 (max. 8388607)
- 421 compressed objects within 5 object streams
- 90 named destinations out of 1000 (max. 500000)
- 39829 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 494 PDF objects out of 1000 (max. 8388607)
+ 434 compressed objects within 5 object streams
+ 96 named destinations out of 1000 (max. 500000)
+ 39840 words of extra memory for PDF output out of 42996 (max. 10000000)
 
