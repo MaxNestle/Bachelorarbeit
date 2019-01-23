@@ -39,12 +39,13 @@
 \contentsline {section}{\numberline {4.6}Verstecken der Informationen in den Nutzdaten}{13}{section.4.6}
 \contentsline {subsection}{\numberline {4.6.1}Verwenung von Bilddateien}{13}{subsection.4.6.1}
 \contentsline {subsubsection}{\nonumberline RGB Basierende Formate}{13}{section*.10}
-\contentsline {subsubsection}{\nonumberline Bildformate mit alpha Kanal}{14}{section*.11}
-\contentsline {chapter}{\numberline {5}Bewertung der Methoden}{15}{chapter.5}
-\contentsline {chapter}{\numberline {6}Welcher Kanal ist geeignet}{16}{chapter.6}
-\contentsline {chapter}{\numberline {7}Projekt Umsetzung}{17}{chapter.7}
-\contentsline {chapter}{\numberline {8}Etische Aspekte}{18}{chapter.8}
-\contentsline {chapter}{\numberline {9}Schlussbemerkungen und Ausblick}{19}{chapter.9}
-\contentsline {chapter}{\numberline {A}Ein Kapitel des Anhangs}{20}{appendix.A}
-\contentsline {chapter}{\nonumberline Literatur}{22}{chapter*.12}
-\contentsline {chapter}{Stichwortverzeichnis}{22}{chapter*.12}
+\contentsline {subsubsection}{\nonumberline Bildformate mit Alpha Kanal}{14}{section*.11}
+\contentsline {subsubsection}{\nonumberline Verwendung von ,,Shamir's Secret Sharing'' Methode}{15}{section*.12}
+\contentsline {chapter}{\numberline {5}Bewertung der Methoden}{17}{chapter.5}
+\contentsline {chapter}{\numberline {6}Welcher Kanal ist geeignet}{18}{chapter.6}
+\contentsline {chapter}{\numberline {7}Projekt Umsetzung}{19}{chapter.7}
+\contentsline {chapter}{\numberline {8}Etische Aspekte}{20}{chapter.8}
+\contentsline {chapter}{\numberline {9}Schlussbemerkungen und Ausblick}{21}{chapter.9}
+\contentsline {chapter}{\numberline {A}Ein Kapitel des Anhangs}{22}{appendix.A}
+\contentsline {chapter}{\nonumberline Literatur}{24}{chapter*.13}
+\contentsline {chapter}{Stichwortverzeichnis}{24}{chapter*.13}

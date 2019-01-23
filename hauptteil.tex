@@ -85,7 +85,46 @@ In Abbildung \ref{fig:fig4} wird dieses System veranschaulicht:
 	\label{fig4}
 \end{figure}
 
-\subsubsection{Bildformate mit alpha Kanal}
+\subsubsection{Bildformate mit Alpha Kanal}
+Bildformate wie PNG (Portable Network Graphics) können zusätzlich zu den RGB Kanälen auch auch einen Alpha Kanal besitzen. Dies ist ein zusätzlicher Wert der die Transparenz des jeweiligen Pixel angibt.
+Bei einem Wert von 0 ist der Pixel ,,unsichtbar'' und bei 255 ist der Pixel komplett sichtbar.
+Hier könnte man die Daten wie oben in den letzten beiden Werten speichern.\\
+Da die Transparenz keine direkte Auswirkung auf die Farbe der Pixel hat, kann man jedoch auch mehr Daten speichern.
+
+
+\subsubsection{Verwendung von ,,Shamir's Secret Sharing'' Methode}
+
+Die Shamir's Secret Sharing Methode ist ein mathematisches Verfahren, das es möglich macht, ein Geheimnis auf mehrere Instanzen aufzuteilen. Dabei sind das Geheimnis und die dabei einstehenden ,,Shares'' Integer-Werte.\\  Die einzelnen Instanzen können dabei keine Rückschlüsse auf das Geheimnis schließen. Allein wenn man den Großteil der ,,Shares'' besitzt kann man das Geheimnis rekonstruieren.\\
+
+Verschlüsseln:\\
+Verwendet wird ein Geheimnis d, eine Anzahl von n Instanzen und eine Schwelle k < n.
+
+1. Es wird eine Primzahl p zufällig gewählt.
+
+2. Es werden k-1 Werte $c_1,c_2....,c_{k-1}$ mit den Werten zwischen 0 und p-1 vergeben.
+
+3. Für $x_1,x_2..,x_n$ jeweils eine eindeutige reale Zahl wählen.
+
+4. Mit Hilfe einer Polynomgleichung mit dem Grad k-1 werden nun n Gleichungen und somit auch Werte berechnet. $i = 1,2,...,n$
+
+\begin{center}
+$F(x_i) = (d+c_1x_i+c_2x_i^2+...+c_{k-1}x_i^{k-1})mod(p)$
+\end{center}
+
+5. Nun können die n Shares erstellt werden. Diese sind wie folgt Aufgebaut $(x_i,F(x_i)) $
+
+
+Das Geheimnis ist nun in einer Funktion ,,abgespeichert''. Die Shares sind Punkte, die auf dieser Funktion liegen. Damit die Funktion wieder rekonstruiert werden kann, müssen mindestens k der n Shares vorhanden.
+
+
+Entschlüsseln:\\
+
+Um die Nachrichten zu entschlüsseln müssen k Shares in die Formel oben eingesetzt werden.\\
+Das hierdurch entstandene Gleichungssystem mit den Unbekannten $d$ und $c_1$ bis $c_{k-1}$, kann zum Beispiel mit dem Gaußsches Eliminationsverfahren oder durch die Lagrangesche Interpolationsformel gelöst werden.
+
+Dieses Verfahren kann man dazu verwenden, um Nachrichten unauffällig in den alpha Kanal eines PNG Bildes zu integrieren.\\
+Die zu übertragende Nachricht $M$ wird hierzu in Segmente von $t$ Bit, mit $t=3$ unterteilt. Bei einer Umwandlung der Segmente in Dezimalzahlen entsteht so ein neues Array $M'=d_1,d_2...$ bei dem die Werte zwischen 0 und 7 liegen.
+
 
 
 \chapter{Bewertung der Methoden}
