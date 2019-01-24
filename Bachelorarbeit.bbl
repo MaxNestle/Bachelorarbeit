@@ -1,5 +1,11 @@
 \begin{thebibliography}{{Wik}18}
 
+\bibitem[CBS04]{cabuk2004ip}
+{\sc Cabuk, Serdar}, {\sc Carla~E Brodley} \btxandlong{}\ {\sc Clay Shields}:
+  {\em IP covert timing channels: design and detection}.
+\newblock \Btxinlong{}\ {\em Proceedings of the 11th ACM conference on Computer
+  and communications security}, \btxpageslong{}\ 178--187. ACM, 2004.
+
 \bibitem[{Die}18]{BfDI}
 {\sc {Die Bundesbeauftragten für den Datenschutz und die Informationssicherheit
   (BfDI)}}: {\em Was ist Datenschutz?}
@@ -29,6 +35,18 @@
 {\sc Katzenbeisser, Stefan} \btxandlong{}\ {\sc Fabien Petitcolas}: {\em
   Information hiding techniques for steganography and digital watermarking}.
 \newblock Artech house, 2000.
+
+\bibitem[LC17]{lockwood2017text}
+{\sc Lockwood, Robert} \btxandlong{}\ {\sc Kevin Curran}: {\em Text based
+  steganography}.
+\newblock International Journal of Information Privacy, Security and Integrity,
+  3(2):134--153, 2017.
+
+\bibitem[LT10]{lee2010new}
+{\sc Lee, Che-Wei} \btxandlong{}\ {\sc Wen-Hsiang Tsai}: {\em A new
+  steganographic method based on information sharing via PNG images}.
+\newblock \Btxinlong{}\ {\em 2nd International Conference on Computer and
+  Automation Engineering (ICCAE)}, 2010.
 
 \bibitem[{Nic}18]{CIA}
 {\sc {Nico Grundmeier}}: {\em Sicherheitslücken im Internet}.

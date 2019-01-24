@@ -41,9 +41,22 @@ Hohe Datenübertragung
 
 \section{Klassische textbasierende Verfahren}
 
+Botschaften in Texten teilweise einzubetten ist mit der Steganographie möglich.\\
+Gängig unter Textmanipulatoren ist die gezielte Wahl des ersten Buchstaben des Wortes, wobei die Aneinanderreihung dieser Buchstaben ein neues Wort ergibt. \\
+Bei einem wissenschaftlich erarbeiteten Rückblick treten einige, nicht zu unterschätzende, Sicherheitslücken auf, wenn diese Art der Verschlüsselung angewendet wird.\\
+
+Eine weitere Methode ist die Satzzeichen zu verwenden um Informationen zu kodieren. So kann zum Beispiel ein Punkt 00, ein Komma 01, ein Fragezeichen 10 und ein Ausrufezeichen 11 bedeuten.\cite{lockwood2017text}
+
+
 \section{Zeitabhängiger Covert-Chanel}
 
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics*[height=10cm]{bilder/timing.png}
+	\caption{Kommunikation über einen Zeitabhängigen Kanal \cite{cabuk2004ip}}
+	\label{fig5}
+\end{figure}
 
 \section{Benutzung verschiedener Protokolle Reihenfolge}
 
@@ -55,7 +68,7 @@ Hohe Datenübertragung
 
 \section{Benutzung von unbenutzten Bits in Protokoll-Headern}
 
-
+traffic normalizers
 
 \section{Verwendung der Paketgröße}
 
@@ -98,6 +111,8 @@ Da die Transparenz keine direkte Auswirkung auf die Farbe der Pixel hat, kann ma
 
 Die Shamir's Secret Sharing Methode ist ein mathematisches Verfahren, das es möglich macht, ein Geheimnis auf mehrere Instanzen aufzuteilen. Dabei sind das Geheimnis und die dabei einstehenden ,,Shares'' Integer-Werte.\\  Die einzelnen Instanzen können dabei keine Rückschlüsse auf das Geheimnis schließen. Allein wenn man den Großteil der ,,Shares'' besitzt kann man das Geheimnis rekonstruieren.\\
 
+Der folgende Abschnitt basiert auf dieser Literatur: \cite{lee2010new}
+
 Verschlüsseln:\\
 Verwendet wird ein Geheimnis d, eine Anzahl von n Instanzen und eine Schwelle k < n.
 
@@ -129,6 +144,8 @@ Die zu übertragende Nachricht $M$ wird hierzu in Segmente von $t$ Bit, mit $t=3$
 
 Im Gegensatz zu dem original Algorithmus greift man hier zusätzlich auf die Werte $c_1$, $c_2$ und $c_3$ zurück um hier Ebenfalls ein ,,Geheimnis'' einzubetten. Zusammen mit $d$ können nun $k$ Werte integriert werden.
 
+
+
 So ergibt sich:
 
 $d = m_1 , c_1 = m_2 , c_2 = m_3 ,  c_3 = m_4$
@@ -149,7 +166,11 @@ $q_3 = F(x_3 ) = (m_1 + m_2 x_3 + m_3 {x_3}^2 + m_4 {x_3}^3 ) mod(p)$\\
 $q_4 = F(x_4 ) = (m_1 + m_2 x_4 + m_3 {x_4}^2 + m_4 {x_4}^3 ) mod(p)$\\
 
 Die Werte $q_1$ bis $q_4$ können nun beispielsweise in den alpha Kanal eines PNG Bildes eingefügt werden.
-Durch die modulo 
+Durch die modulo Funktion entstehen so entstehen Werte zwischen 0 und 10. Damit das Bild eine möglichst niedrige Transparenz bekommt muss der alpha Wert so groß wie möglich sein. Deshalb wird zu $q$ jeweils der Wert 245 addiert, um so nah wie möglich an 255 zu kommen.\\
+Die neu entstandenen Werte $q'_1$ bis $q'_4$ kann man nun in den alpha Kanal einfügen und über eine sensible Datenverbindung übertragen.\\
+
+Zum Entschlüsseln muss man nun wieder 245 von den Werten des alpha Chanel subtrahieren. Durch das Erstellen und Lösen des Gleichungssystems, mit den oben gezeigten Formeln, können die Wert $m_1$ bis $m_4$ wieder berechnet werden.
+
 
 \chapter{Bewertung der Methoden}
 
