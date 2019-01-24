@@ -28,18 +28,19 @@
 \BOOKMARK [1][-]{section.3.2}{Was zeichnend einen guten Covert-Channel aus?}{chapter.3}% 28
 \BOOKMARK [1][-]{section.3.3}{Wozu sind Covert-Channels nicht geeignet?}{chapter.3}% 29
 \BOOKMARK [0][-]{chapter.4}{M\366gliche steganografische Covert-Channel}{}% 30
-\BOOKMARK [1][-]{section.4.1}{Zeitabh\344ngiger Covert-Chanel}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.2}{Benutzung verschiedener Protokolle Reihenfolge}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.3}{Benutzung verschiedener Ports}{chapter.4}% 33
-\BOOKMARK [1][-]{section.4.4}{Benutzung von unbenutzten Bits in Protokoll-Headern}{chapter.4}% 34
-\BOOKMARK [1][-]{section.4.5}{Verwendung der Paketgr\366\337e}{chapter.4}% 35
-\BOOKMARK [1][-]{section.4.6}{Verstecken der Informationen in den Nutzdaten}{chapter.4}% 36
-\BOOKMARK [2][-]{subsection.4.6.1}{Verwenung von Bilddateien}{section.4.6}% 37
-\BOOKMARK [0][-]{chapter.5}{Bewertung der Methoden}{}% 38
-\BOOKMARK [0][-]{chapter.6}{Welcher Kanal ist geeignet}{}% 39
-\BOOKMARK [0][-]{chapter.7}{Projekt Umsetzung}{}% 40
-\BOOKMARK [0][-]{chapter.8}{Etische Aspekte}{}% 41
-\BOOKMARK [0][-]{chapter.9}{Schlussbemerkungen und Ausblick}{}% 42
-\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 43
-\BOOKMARK [0][-]{chapter*.13}{Literatur}{}% 44
-\BOOKMARK [0][-]{chapter*.13}{Stichwortverzeichnis}{}% 45
+\BOOKMARK [1][-]{section.4.1}{Klassische textbasierende Verfahren}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.2}{Zeitabh\344ngiger Covert-Chanel}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.3}{Benutzung verschiedener Protokolle Reihenfolge}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.4}{Benutzung verschiedener Ports}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.5}{Benutzung von unbenutzten Bits in Protokoll-Headern}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.6}{Verwendung der Paketgr\366\337e}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.7}{Verstecken der Informationen in den Nutzdaten}{chapter.4}% 37
+\BOOKMARK [2][-]{subsection.4.7.1}{Verwenung von Bilddateien}{section.4.7}% 38
+\BOOKMARK [0][-]{chapter.5}{Bewertung der Methoden}{}% 39
+\BOOKMARK [0][-]{chapter.6}{Welcher Kanal ist geeignet}{}% 40
+\BOOKMARK [0][-]{chapter.7}{Projekt Umsetzung}{}% 41
+\BOOKMARK [0][-]{chapter.8}{Etische Aspekte}{}% 42
+\BOOKMARK [0][-]{chapter.9}{Schlussbemerkungen und Ausblick}{}% 43
+\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 44
+\BOOKMARK [0][-]{chapter*.13}{Literatur}{}% 45
+\BOOKMARK [0][-]{chapter*.13}{Stichwortverzeichnis}{}% 46

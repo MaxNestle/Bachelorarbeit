@@ -39,6 +39,8 @@ Hohe Datenübertragung
 \chapter{Mögliche steganografische Covert-Channel}
 \label{cha:Covert-Channel} %Label des Kapitels
 
+\section{Klassische textbasierende Verfahren}
+
 \section{Zeitabhängiger Covert-Chanel}
 
 
@@ -123,9 +125,31 @@ Um die Nachrichten zu entschlüsseln müssen k Shares in die Formel oben eingesetz
 Das hierdurch entstandene Gleichungssystem mit den Unbekannten $d$ und $c_1$ bis $c_{k-1}$, kann zum Beispiel mit dem Gaußsches Eliminationsverfahren oder durch die Lagrangesche Interpolationsformel gelöst werden.
 
 Dieses Verfahren kann man dazu verwenden, um Nachrichten unauffällig in den alpha Kanal eines PNG Bildes zu integrieren.\\
-Die zu übertragende Nachricht $M$ wird hierzu in Segmente von $t$ Bit, mit $t=3$ unterteilt. Bei einer Umwandlung der Segmente in Dezimalzahlen entsteht so ein neues Array $M'=d_1,d_2...$ bei dem die Werte zwischen 0 und 7 liegen.
+Die zu übertragende Nachricht $M$ wird hierzu in Segmente von $t$ Bit, mit $t=3$ unterteilt. Bei der Umwandlung der Segmente in Dezimalzahlen entsteht so ein neues Array $M'=d_1,d_2...$ bei dem die Werte zwischen 0 und 7 liegen.
+
+Im Gegensatz zu dem original Algorithmus greift man hier zusätzlich auf die Werte $c_1$, $c_2$ und $c_3$ zurück um hier Ebenfalls ein ,,Geheimnis'' einzubetten. Zusammen mit $d$ können nun $k$ Werte integriert werden.
+
+So ergibt sich:
+
+$d = m_1 , c_1 = m_2 , c_2 = m_3 ,  c_3 = m_4$
 
 
+Folgende Werte werden definiert:
+
+$p = 11$\\
+$x_1=1,x_2=2,x_3=3,x_4=4$
+
+x kann hier eine beliebige Zahl annehmen und so als eine Art Verschlüsselung dienen. Fraglich ist, ob es sich dann noch um reine Steganografie handelt.
+
+Die Werte von $q_1$ bis $q_4$ erben sich dann durch Einsetzten in sie Polynomgleichung.
+
+$q_1 = F(x_1 ) = (m_1 + m_2 x_1 + m_3 {x_1}^2 + m_4 {x_1}^3 ) mod(p)$\\
+$q_2 = F(x_2 ) = (m_1 + m_2 x_2 + m_3 {x_2}^2 + m_4 {x_2}^3 ) mod(p)$\\
+$q_3 = F(x_3 ) = (m_1 + m_2 x_3 + m_3 {x_3}^2 + m_4 {x_3}^3 ) mod(p)$\\
+$q_4 = F(x_4 ) = (m_1 + m_2 x_4 + m_3 {x_4}^2 + m_4 {x_4}^3 ) mod(p)$\\
+
+Die Werte $q_1$ bis $q_4$ können nun beispielsweise in den alpha Kanal eines PNG Bildes eingefügt werden.
+Durch die modulo 
 
 \chapter{Bewertung der Methoden}
 
