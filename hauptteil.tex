@@ -15,8 +15,6 @@ In dieser Arbeit handelt es sich bei Covert-Channel immer um Kanäle, die mit ein
 
 
 
-
-
 \section{Was zeichnend einen guten Covert-Channel aus?}
 
 
@@ -37,20 +35,24 @@ Hohe Datenübertragung
 Authenzität
 
 \chapter{Mögliche steganografische Covert-Channel}
-\label{cha:Covert-Channel} %Label des Kapitels
+\label{cha:Covert-Channel} %Label des Kapitelsne bereit
+
+Im folgenden Kapitel werden verschiedene, bereits existierende steganografische Covert-Channel betrachtet, die für das Erreichen der Zielsetzung in Frage kommen.
 
 \section{Klassische textbasierende Verfahren}
 
 Botschaften in Texten teilweise einzubetten ist mit der Steganographie möglich.\\
 Gängig unter Textmanipulatoren ist die gezielte Wahl des ersten Buchstaben des Wortes, wobei die Aneinanderreihung dieser Buchstaben ein neues Wort ergibt. \\
-Bei einem wissenschaftlich erarbeiteten Rückblick treten einige, nicht zu unterschätzende, Sicherheitslücken auf, wenn diese Art der Verschlüsselung angewendet wird.\\
+Bei einem wissenschaftlich erarbeiteten Rückblick treten einige, nicht zu unterschätzende, Sicherheitslücken auf, wenn diese Art der Verschlüsselung angewendet wird.
 
 (Im oberen Text ist zur Veranschaulichung eine Nachricht an einen potentiellen Prüfer eingebettet)
 
 Eine weitere Methode ist die Satzzeichen zu verwenden um Informationen zu kodieren. So kann zum Beispiel ein Punkt 00, ein Komma 01, ein Fragezeichen 10 und ein Ausrufezeichen 11 bedeuten.\cite{lockwood2017text}
 
+Durch diese Verfahren lassen sich Covert-Channel konstruieren indem ein solcher Text beispielsweise per E-Mail versendet wird.
 
 \section{Zeitabhängige Covert-Chanel}
+
 Bei zeitabhängigen Covert-Channel werden die Daten so versendet, dass der Absendezeitpunkt oder der Abstand zwischen den Paketen die Information enthält. Dabei ähnelt dieses Verfahren dem in der Vergangenheit oft eingesetzten Morse Code. Hingegen beschränkt man sich bei diesen Covert-Channel meistens auf Binärdaten.\\
 In der Abbildung unten sieht man einen beispielhaften Aufbau dieses Versteckten Kanals.
 
@@ -85,17 +87,60 @@ Der Ersteller dieser Grafik\cite{cabuk2004ip} hat ebenfalls einen einen Wert $k$
 
 Bei dieser Art von Covert-Channel kann jedes beliebige Protokoll eingesetzt werden. Es aber bietet sich an die Protokolle auf den umliegenden Netzwerkverkehr anzupassen um ihn so unauffällig wie möglich zu machen.
 
-\section{Benutzung verschiedener Protokolle Reihenfolge}
-
-
-
-\section{Benutzung verschiedener Ports}
-
-
 
 \section{Benutzung von unbenutzten Bits in Protokoll-Headern}
 
+
+\subsection{Ethernet}
+
+
+\subsection{IPv4}
+
+
+\subsection{IPv6}
+
+
+\subsection{TCP}
+
+\subsection{UDP}
+
+\subsection{ICMP}
+
 traffic normalizers
+
+
+
+\section{Benutzung verschiedener Protokolle}
+
+Covert-Channel können durch die Verwendung verschiedener Protokollee realisiert werden. Hier kann man zwischen Protocol Hopping Covert Channels und Protocol Channels unterscheiden. \cite{wendzel2012tunnel}
+
+\subsection{Protocol Channels}
+
+Bei Protocol Channel werden die Daten mit Hilfe mehrere Protokolle kodiert.
+Eine mögliche Kodierung könnte zum folgende sein:
+
+HTTP -> 00 \tab
+DNS  -> 01\\
+ICMP -> 10\tab
+POP  -> 11\\
+ \cite{wendzel2012tunnel}
+
+So ist man in der Lage binäre Daten mit vier Protokolle zu versenden. In Abbildung 4.3 ist dieses Prinzip veranschaulicht.
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics*[height=9cm]{bilder/protoChannel.png}
+	\caption{Protokol Channel \cite{wendzel2012tunnel}}
+	\label{fig7}
+\end{figure}
+
+Die Wahl der Protokolle ist hier abhängig von den im Netzwerk verwendeten Protokollen. Natürlich funktioniert dieses Prinzip auch mit zwei Protokollen. Denkbar wäre hier die Verwendung von IPv4 und IPv6 da diese Protokolle unter Umständen unterschiedliche Wege durchs Internet nehmen und so noch unauffälliger werden.
+Wie auch bei den zeitabhängigen Covert-Channel beträgt hier die Übertragungsrate 1 Bit pro Paket. Die Übertragungsgeschwindigkeit wir nur durch die Netzwerkgeschwindigkeit eingeschränkt.
+
+\subsection{Protocol Hopping Covert Channels}
+
+
 
 \section{Verwendung der Paketgröße}
 
@@ -198,6 +243,8 @@ Die neu entstandenen Werte $q'_1$ bis $q'_4$ kann man nun in den alpha Kanal ein
 
 Zum Entschlüsseln muss man nun wieder 245 von den Werten des alpha Chanel subtrahieren. Durch das Erstellen und Lösen des Gleichungssystems, mit den oben gezeigten Formeln, können die Wert $m_1$ bis $m_4$ wieder berechnet werden.
 
+
+\subsection{Verwenung von PDF Dateien}
 
 \chapter{Bewertung der Methoden}
 

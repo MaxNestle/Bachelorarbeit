@@ -30,17 +30,25 @@
 \BOOKMARK [0][-]{chapter.4}{M\366gliche steganografische Covert-Channel}{}% 30
 \BOOKMARK [1][-]{section.4.1}{Klassische textbasierende Verfahren}{chapter.4}% 31
 \BOOKMARK [1][-]{section.4.2}{Zeitabh\344ngige Covert-Chanel}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.3}{Benutzung verschiedener Protokolle Reihenfolge}{chapter.4}% 33
-\BOOKMARK [1][-]{section.4.4}{Benutzung verschiedener Ports}{chapter.4}% 34
-\BOOKMARK [1][-]{section.4.5}{Benutzung von unbenutzten Bits in Protokoll-Headern}{chapter.4}% 35
-\BOOKMARK [1][-]{section.4.6}{Verwendung der Paketgr\366\337e}{chapter.4}% 36
-\BOOKMARK [1][-]{section.4.7}{Verstecken der Informationen in den Nutzdaten}{chapter.4}% 37
-\BOOKMARK [2][-]{subsection.4.7.1}{Verwenung von Bilddateien}{section.4.7}% 38
-\BOOKMARK [0][-]{chapter.5}{Bewertung der Methoden}{}% 39
-\BOOKMARK [0][-]{chapter.6}{Welcher Kanal ist geeignet}{}% 40
-\BOOKMARK [0][-]{chapter.7}{Projekt Umsetzung}{}% 41
-\BOOKMARK [0][-]{chapter.8}{Etische Aspekte}{}% 42
-\BOOKMARK [0][-]{chapter.9}{Schlussbemerkungen und Ausblick}{}% 43
-\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 44
-\BOOKMARK [0][-]{chapter*.13}{Literatur}{}% 45
-\BOOKMARK [0][-]{chapter*.13}{Stichwortverzeichnis}{}% 46
+\BOOKMARK [1][-]{section.4.3}{Benutzung von unbenutzten Bits in Protokoll-Headern}{chapter.4}% 33
+\BOOKMARK [2][-]{subsection.4.3.1}{Ethernet}{section.4.3}% 34
+\BOOKMARK [2][-]{subsection.4.3.2}{IPv4}{section.4.3}% 35
+\BOOKMARK [2][-]{subsection.4.3.3}{IPv6}{section.4.3}% 36
+\BOOKMARK [2][-]{subsection.4.3.4}{TCP}{section.4.3}% 37
+\BOOKMARK [2][-]{subsection.4.3.5}{UDP}{section.4.3}% 38
+\BOOKMARK [2][-]{subsection.4.3.6}{ICMP}{section.4.3}% 39
+\BOOKMARK [1][-]{section.4.4}{Benutzung verschiedener Protokolle}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.4.1}{Protocol Channels}{section.4.4}% 41
+\BOOKMARK [2][-]{subsection.4.4.2}{Protocol Hopping Covert Channels}{section.4.4}% 42
+\BOOKMARK [1][-]{section.4.5}{Verwendung der Paketgr\366\337e}{chapter.4}% 43
+\BOOKMARK [1][-]{section.4.6}{Verstecken der Informationen in den Nutzdaten}{chapter.4}% 44
+\BOOKMARK [2][-]{subsection.4.6.1}{Verwenung von Bilddateien}{section.4.6}% 45
+\BOOKMARK [2][-]{subsection.4.6.2}{Verwenung von PDF Dateien}{section.4.6}% 46
+\BOOKMARK [0][-]{chapter.5}{Bewertung der Methoden}{}% 47
+\BOOKMARK [0][-]{chapter.6}{Welcher Kanal ist geeignet}{}% 48
+\BOOKMARK [0][-]{chapter.7}{Projekt Umsetzung}{}% 49
+\BOOKMARK [0][-]{chapter.8}{Etische Aspekte}{}% 50
+\BOOKMARK [0][-]{chapter.9}{Schlussbemerkungen und Ausblick}{}% 51
+\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 52
+\BOOKMARK [0][-]{chapter*.13}{Literatur}{}% 53
+\BOOKMARK [0][-]{chapter*.13}{Stichwortverzeichnis}{}% 54
