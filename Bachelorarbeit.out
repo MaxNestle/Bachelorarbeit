@@ -29,7 +29,7 @@
 \BOOKMARK [1][-]{section.3.3}{Wozu sind Covert-Channels nicht geeignet?}{chapter.3}% 29
 \BOOKMARK [0][-]{chapter.4}{M\366gliche steganografische Covert-Channel}{}% 30
 \BOOKMARK [1][-]{section.4.1}{Klassische textbasierende Verfahren}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.2}{Zeitabh\344ngiger Covert-Chanel}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.2}{Zeitabh\344ngige Covert-Chanel}{chapter.4}% 32
 \BOOKMARK [1][-]{section.4.3}{Benutzung verschiedener Protokolle Reihenfolge}{chapter.4}% 33
 \BOOKMARK [1][-]{section.4.4}{Benutzung verschiedener Ports}{chapter.4}% 34
 \BOOKMARK [1][-]{section.4.5}{Benutzung von unbenutzten Bits in Protokoll-Headern}{chapter.4}% 35

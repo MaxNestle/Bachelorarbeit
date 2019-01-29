@@ -34,7 +34,7 @@ Die Integrität der Daten müssen die Channels ebenfalls gewährleisten.
 \section{Wozu sind Covert-Channels nicht geeignet?}
 
 Hohe Datenübertragung
-
+Authenzität
 
 \chapter{Mögliche steganografische Covert-Channel}
 \label{cha:Covert-Channel} %Label des Kapitels
@@ -44,12 +44,14 @@ Hohe Datenübertragung
 Botschaften in Texten teilweise einzubetten ist mit der Steganographie möglich.\\
 Gängig unter Textmanipulatoren ist die gezielte Wahl des ersten Buchstaben des Wortes, wobei die Aneinanderreihung dieser Buchstaben ein neues Wort ergibt. \\
 Bei einem wissenschaftlich erarbeiteten Rückblick treten einige, nicht zu unterschätzende, Sicherheitslücken auf, wenn diese Art der Verschlüsselung angewendet wird.\\
+(Im oberen Text ist zu Veranschaulichung eine Nachricht eingebettet)
 
 Eine weitere Methode ist die Satzzeichen zu verwenden um Informationen zu kodieren. So kann zum Beispiel ein Punkt 00, ein Komma 01, ein Fragezeichen 10 und ein Ausrufezeichen 11 bedeuten.\cite{lockwood2017text}
 
 
-\section{Zeitabhängiger Covert-Chanel}
-
+\section{Zeitabhängige Covert-Chanel}
+Bei zeitabhängigen Covert-Channel werden die Daten so versendet, dass der Absendezeitpunkt oder der Abstand zwischen den Paketen die Information enthält. Dabei ähnelt dieses Verfahren dem in der Vergangenheit oft eingesetzten Morse Code. Hingegen beschränkt man sich bei diesen Covert-Channel meistens auf Binärdaten.\\
+In der Abbildung unten sieht man einen beispielhaften Aufbau dieses Versteckten Kanals.
 
 \begin{figure}[ht]
 	\centering
@@ -57,6 +59,13 @@ Eine weitere Methode ist die Satzzeichen zu verwenden um Informationen zu kodier
 	\caption{Kommunikation über einen Zeitabhängigen Kanal \cite{cabuk2004ip}}
 	\label{fig5}
 \end{figure}
+
+Bei dem in Abbildung 4.1 dargestellte Covert Channel wird mit einem festen Zeitintervall gearbeitet. Dieses Zeitintervall muss sowohl dem Sender sowie dem Empfänger bekannt sein und muss vor dem Senden festgelegt werden. Wichtig ist ebenfalls die Synchronisation von Sender und Empfänger. Dazu muss entweder ein fixer Startzeitpunkt gewählt werden, oder ein bestimmtes Paket als Start der Übertragung festgelegt werden.
+
+
+Da die Datenübertragung sehr stark von der Netzwerkgeschwindigkeit ist, muss man zusätzlich ein Verfahren zur Sicherstellung der Integrität implementieren.\\ 
+Das zusätzlich Versenden des Hasswertes, der über einen bestimmten Anteil der Nachricht gebildet wird, könnte die Integrität garantieren.
+Eine andere Methode bei der die Integrität jedoch nicht vollständig garantiert, aber simpler umzusetzen ist, ist die Verwendung eines Paritätsbit.\cite{cabuk2004ip}
 
 \section{Benutzung verschiedener Protokolle Reihenfolge}
 
