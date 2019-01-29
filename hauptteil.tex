@@ -44,7 +44,8 @@ Authenzität
 Botschaften in Texten teilweise einzubetten ist mit der Steganographie möglich.\\
 Gängig unter Textmanipulatoren ist die gezielte Wahl des ersten Buchstaben des Wortes, wobei die Aneinanderreihung dieser Buchstaben ein neues Wort ergibt. \\
 Bei einem wissenschaftlich erarbeiteten Rückblick treten einige, nicht zu unterschätzende, Sicherheitslücken auf, wenn diese Art der Verschlüsselung angewendet wird.\\
-(Im oberen Text ist zu Veranschaulichung eine Nachricht eingebettet)
+
+(Im oberen Text ist zur Veranschaulichung eine Nachricht an einen potentiellen Prüfer eingebettet)
 
 Eine weitere Methode ist die Satzzeichen zu verwenden um Informationen zu kodieren. So kann zum Beispiel ein Punkt 00, ein Komma 01, ein Fragezeichen 10 und ein Ausrufezeichen 11 bedeuten.\cite{lockwood2017text}
 
@@ -60,12 +61,29 @@ In der Abbildung unten sieht man einen beispielhaften Aufbau dieses Versteckten 
 	\label{fig5}
 \end{figure}
 
-Bei dem in Abbildung 4.1 dargestellte Covert Channel wird mit einem festen Zeitintervall gearbeitet. Dieses Zeitintervall muss sowohl dem Sender sowie dem Empfänger bekannt sein und muss vor dem Senden festgelegt werden. Wichtig ist ebenfalls die Synchronisation von Sender und Empfänger. Dazu muss entweder ein fixer Startzeitpunkt gewählt werden, oder ein bestimmtes Paket als Start der Übertragung festgelegt werden.
+Bei dem in Abbildung 4.1 dargestellte Covert Channel wird mit einem festen Zeitintervall gearbeitet. Dieses Zeitintervall muss sowohl dem Sender sowie dem Empfänger bekannt sein und muss vor dem Senden festgelegt werden. Wichtig ist ebenfalls die Synchronisation von Sender und Empfänger. Dazu muss entweder ein fixer Startzeitpunkt gewählt werden, oder ein bestimmtes Paket als Start der Übertragung festgelegt werden.\cite{cabuk2004ip}
 
+Sind dieses Parameter mit beiden Seiten abgeklärt, so kann die Datenübertragung starten. Dabei wird einen Datenpaket innerhalb des Zeitintervalls als 1 interpretiert, falls kein Paket gesendet wird als 0.
+So lassen sich beliebige Daten betragen.\cite{cabuk2004ip}
 
-Da die Datenübertragung sehr stark von der Netzwerkgeschwindigkeit ist, muss man zusätzlich ein Verfahren zur Sicherstellung der Integrität implementieren.\\ 
-Das zusätzlich Versenden des Hasswertes, der über einen bestimmten Anteil der Nachricht gebildet wird, könnte die Integrität garantieren.
+Da die Datenübertragung sehr stark von der Netzwerkgeschwindigkeit abhängig ist, muss man zusätzlich ein Verfahren zur Sicherstellung der Integrität implementieren.\\ 
+Das zusätzlich Versenden des Hashwertes, der über einen bestimmten Anteil der Nachricht gebildet wird, könnte die Integrität garantieren.\\
 Eine andere Methode bei der die Integrität jedoch nicht vollständig garantiert, aber simpler umzusetzen ist, ist die Verwendung eines Paritätsbit.\cite{cabuk2004ip}
+
+Die Datenübertragung über diesen Channel ist mit einem Bit einem Bit pro Paket relativ gering. Die Datenübertragung ist hier aber auch direkt vom verwendeten Zeitintervall abhängig. Deshalb gilt es einen möglichst kleinen Zeitintervall zu wählen und diesen variabel optimal an die herrschenden Netzwerkbedingungen anzupassen. \\
+Die Problematik ist hier, mit der Reduzierung des Netzwerkhinteralls die Fehleranfälligkeit ebenfalls zunimmt.
+
+Abbildung 4.2 zeigt, wie das gewählte Zeitintervall und die Genauigkeit zusammenhängen. So lässt sich ab einer langsamen Datenübertragung mit einem Intervall von 0.05 Sekunden eine Genauigkeit von ca. 100 Prozent garantieren. Wobei diese Zahlen mit Vorsicht zu genießen  sind da sie sehr stark vom jeweiligen Netzwerk abhängig sind.
+Der Ersteller dieser Grafik\cite{cabuk2004ip} hat ebenfalls einen einen Wert $k$ in seine Implementierung eingebaut, der die Länge einer Pause angibt, die bei einer Übertragungsverzögerung eingelegt werden kann. Diese Verbessert zwar die Genauigkeit der Datenübertragung die Geschwindigkeit wird aber erheblich reduziert.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics*[height=10cm]{bilder/Zeitacuracyzusammenhang.png}
+	\caption{Zusammenhang zwischen Zeitintervall und Genauigkeit \cite{cabuk2004ip}}
+	\label{fig6}
+\end{figure}
+
+Bei dieser Art von Covert-Channel kann jedes beliebige Protokoll eingesetzt werden. Es aber bietet sich an die Protokolle auf den umliegenden Netzwerkverkehr anzupassen um ihn so unauffällig wie möglich zu machen.
 
 \section{Benutzung verschiedener Protokolle Reihenfolge}
 

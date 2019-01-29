@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  29 JAN 2019 12:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  29 JAN 2019 13:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1250,69 +1250,81 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--28
 
 ] [14]
 chapter 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--47
+
+ []
+
 <bilder/timing.png, id=380, 1198.4775pt x 823.075pt>
 File: bilder/timing.png Graphic file (type png)
 <use bilder/timing.png>
-Package pdftex.def Info: bilder/timing.png  used on input line 58.
+Package pdftex.def Info: bilder/timing.png  used on input line 59.
 (pdftex.def)             Requested size: 414.29811pt x 284.52756pt.
 [15
 
-] [16 <./bilder/timing.png (PNG copy)>] [17]
+] [16 <./bilder/timing.png (PNG copy)>]
+<bilder/Zeitacuracyzusammenhang.png, id=399, 1270.7475pt x 869.2475pt>
+File: bilder/Zeitacuracyzusammenhang.png Graphic file (type png)
+<use bilder/Zeitacuracyzusammenhang.png>
+Package pdftex.def Info: bilder/Zeitacuracyzusammenhang.png  used on input line
+ 81.
+(pdftex.def)             Requested size: 415.95471pt x 284.52756pt.
+ [17] [18 <./bilder/Zeitacuracyzusammenhang.png (PNG copy)>]
 
-LaTeX Warning: Reference `fig:fig4' on page 18 undefined on input line 103.
+LaTeX Warning: Reference `fig:fig4' on page 19 undefined on input line 121.
 
-<bilder/stgRGB.jpg, id=404, 994.71625pt x 597.23125pt>
+<bilder/stgRGB.jpg, id=414, 994.71625pt x 597.23125pt>
 File: bilder/stgRGB.jpg Graphic file (type jpg)
 <use bilder/stgRGB.jpg>
-Package pdftex.def Info: bilder/stgRGB.jpg  used on input line 107.
+Package pdftex.def Info: bilder/stgRGB.jpg  used on input line 125.
 (pdftex.def)             Requested size: 473.89151pt x 284.52756pt.
 
-Overfull \hbox (20.92325pt too wide) in paragraph at lines 107--108
+Overfull \hbox (20.92325pt too wide) in paragraph at lines 125--126
  [][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
-
- []
-
-[18 <./bilder/stgRGB.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
-
- []
-
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 172--176
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+
+ []
+
+[20 <./bilder/stgRGB.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 190--194
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--180
+Underfull \hbox (badness 10000) in paragraph at lines 195--198
 
  []
 
-[20] [21]
+[22]
 chapter 5.
-[22
-
-]
-chapter 6.
 [23
 
 ]
-chapter 7.
+chapter 6.
 [24
 
 ]
+chapter 7.
+[25
+
+]
 chapter 8.
-) [25
+) [26
 
 ]
 \openout2 = `schluss.aux'.
 
  (./schluss.tex
 chapter 9.
-) [26
+) [27
 
 
 
@@ -1321,7 +1333,7 @@ chapter 9.
 
  (./anhang.tex
 chapter A.
-) [27
+) [28
 
 
 
@@ -1329,7 +1341,7 @@ chapter A.
 No file Bachelorarbeit.gls.
 No file Bachelorarbeit.acr.
 No file Bachelorarbeit.syi.
-(./Bachelorarbeit.bbl [28
+(./Bachelorarbeit.bbl [29
 
 ]
 chapter without number
@@ -1741,7 +1753,7 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              `\sc' yourself you should replace it, e.g., by
 (scrbook)              `\normalfont \scshape ' on input line 59.
 
-[29
+[30
 
 ]
 
@@ -1828,7 +1840,7 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 )
 No file Bachelorarbeit.ind.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 188.
-[30]
+[31]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 188.
  (./Bachelorarbeit.aux (./DeckHS.aux) (./eidHS.aux) (./kurzfass.aux)
 (./abstract.aux) (./dasa.aux) (./vowo.aux) (./einleit.aux) (./grundl.aux)
@@ -1844,10 +1856,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 188.
  ) 
 Here is how much of TeX's memory you used:
- 19182 strings out of 492982
- 322309 string characters out of 6134895
- 575716 words of memory out of 5000000
- 21751 multiletter control sequences out of 15000+600000
+ 19190 strings out of 492982
+ 322514 string characters out of 6134895
+ 575809 words of memory out of 5000000
+ 21756 multiletter control sequences out of 15000+600000
  78731 words of font info for 450 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,11n,66p,8892b,567s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1865,10 +1877,10 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Bachelorarbeit.pdf (38 pages, 837205 bytes).
+Output written on Bachelorarbeit.pdf (39 pages, 902571 bytes).
 PDF statistics:
- 554 PDF objects out of 1000 (max. 8388607)
- 483 compressed objects within 5 object streams
- 109 named destinations out of 1000 (max. 500000)
- 39859 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 566 PDF objects out of 1000 (max. 8388607)
+ 492 compressed objects within 5 object streams
+ 111 named destinations out of 1000 (max. 500000)
+ 39870 words of extra memory for PDF output out of 42996 (max. 10000000)
 
