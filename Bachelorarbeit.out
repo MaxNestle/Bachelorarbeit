@@ -30,7 +30,7 @@
 \BOOKMARK [0][-]{chapter.4}{M\366gliche steganografische Covert-Channel}{}% 30
 \BOOKMARK [1][-]{section.4.1}{Klassische textbasierende Verfahren}{chapter.4}% 31
 \BOOKMARK [1][-]{section.4.2}{Zeitabh\344ngige Covert-Chanel}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.3}{Benutzung von unbenutzten Bits in Protokoll-Headern}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.3}{Storage Channel}{chapter.4}% 33
 \BOOKMARK [2][-]{subsection.4.3.1}{Ethernet}{section.4.3}% 34
 \BOOKMARK [2][-]{subsection.4.3.2}{IPv4}{section.4.3}% 35
 \BOOKMARK [2][-]{subsection.4.3.3}{IPv6}{section.4.3}% 36

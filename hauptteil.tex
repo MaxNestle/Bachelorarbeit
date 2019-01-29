@@ -88,7 +88,7 @@ Der Ersteller dieser Grafik\cite{cabuk2004ip} hat ebenfalls einen einen Wert $k$
 Bei dieser Art von Covert-Channel kann jedes beliebige Protokoll eingesetzt werden. Es aber bietet sich an die Protokolle auf den umliegenden Netzwerkverkehr anzupassen um ihn so unauffällig wie möglich zu machen.
 
 
-\section{Benutzung von unbenutzten Bits in Protokoll-Headern}
+\section{Storage Channel}
 
 
 \subsection{Ethernet}
@@ -107,8 +107,6 @@ Bei dieser Art von Covert-Channel kann jedes beliebige Protokoll eingesetzt werd
 \subsection{ICMP}
 
 traffic normalizers
-
-
 
 \section{Benutzung verschiedener Protokolle}
 
@@ -136,17 +134,22 @@ So ist man in der Lage binäre Daten mit vier Protokolle zu versenden. In Abbildu
 \end{figure}
 
 Die Wahl der Protokolle ist hier abhängig von den im Netzwerk verwendeten Protokollen. Natürlich funktioniert dieses Prinzip auch mit zwei Protokollen. Denkbar wäre hier die Verwendung von IPv4 und IPv6 da diese Protokolle unter Umständen unterschiedliche Wege durchs Internet nehmen und so noch unauffälliger werden.
-Wie auch bei den zeitabhängigen Covert-Channel beträgt hier die Übertragungsrate 1 Bit pro Paket. Die Übertragungsgeschwindigkeit wir nur durch die Netzwerkgeschwindigkeit eingeschränkt.
+Wie auch bei den zeitabhängigen Covert-Channel beträgt hier die Übertragungsrate 1 oder 2 Bit pro Paket. Die Übertragungsgeschwindigkeit wir nur durch die Netzwerkgeschwindigkeit eingeschränkt.
 
 \subsection{Protocol Hopping Covert Channels}
 
+Dieser Kanal ist eine Mischung des Protocl-Channels und des Storage Channel. Dabei werden verschiedene Storage-Channels zu einem zusammengefasst und abwechseln Daten übertragen.
 
+In Abbildung 4.4 wird dargestellt wie dies realisiert werden kann. Die Binärdaten werden hier über zufällig gewählte Storage-Chanel übertragen. Dadurch wird bewirkt, dass Kanal unauffälliger wird.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics*[height=9cm]{bilder/protoHopingChan.png}
+	\caption{Protokol Hoping Covert Channel \cite{wendzel2012tunnel}}
+	\label{fig8}
+\end{figure}
 
 \section{Verwendung der Paketgröße}
-
-
-
-
 
 \section{Verstecken der Informationen in den Nutzdaten}
 
