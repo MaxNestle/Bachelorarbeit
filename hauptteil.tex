@@ -129,7 +129,7 @@ Dem Ip Header können Optionen hinzugefügt werden, in die sich ebenfalls Daten ei
 Die durch das IHL Feld angegebene Headerlänge muss ein vielfaches von 4 Byte erreicht werden. Durch die Verwendung von Options wird diese Länge nicht immer erreicht und wird deshalb mit Padding aufgefüllt. Dieses Padding lässt sich theoretisch auch umwandeln und zur Datenübertragung verwenden.
 
 \subsection{IPv6}
-Bei IPv6 kann man in der Regel die S
+Bei IPv6 kann man in der Regel die äquivalenten Speicherattribute verwenden, wie bei IPv4. Hier unterscheidet sich meistens nur die Namensgebung. \cite{wendzel2012tunnel}
 
 \subsection{TCP}
 
@@ -139,7 +139,12 @@ Bei IPv6 kann man in der Regel die S
 
 \subsection{ICMP}
 
+
 \subsection{Traffic Normalizers}
+Storage Channels haben einen großen Schwachpunkt, der ihnen das Leben schwer macht. Traffic Normalizer schreiben die oben beschriebenen Headerattribute gezielt um oder verwerfen diese wenn auffällige Werte gesetzt sind. \\
+Ein Traffic Normalizer auf IP Ebene könnte zum Beispiel das TTL Feld manipulieren, die Flags ,,Don't Fragment'' und ,,Reserved'' auf 0 senzen, die Options löschen oder Pakete bei denen das IHL Feld größer als 5 ist verwerfen. \cite{wendzel2012problem}\\
+Außerdem denkbar ist, dass Padding und die ungenutzten Bits des Type of Service Feldes auf 0 gesetzt werden.\\
+Ein solches System ,in ähnlicher Weise auf alle Netzwerkschichten angewendet, ist eine sehr effektive Methode um gegen Storage Channels vorzugehen. 
 
 
 
@@ -188,12 +193,15 @@ Im Beispiel unten werden jeweils 4 Bit an den Storage Channel übergeben und an d
 	\label{fig8}
 \end{figure}
 
-\section{Verwendung der Paketgröße}
+\section{Verwendung der Nutzdatengröße}
+Die Größe des Pakets lässt sich über die Versendung unterschiedlicher Daten einfach manipulieren. Daraus ergeben sich etliche Varianten um einen Covert Channel zu Erschaffen. Beispielsweise kann zwischen großen/kleinen Paketen oder Gerade/Ungerade Datenanzahl unterschieden werden und so binär Daten übertragen.\\
+Aber auch direkt in die Größe der Nutzdaten können Informationen versteckt werden:\\
+Will man 8 Bit pro Paket übertragen, benötigt man die Werte von 0 bis 255. Nun muss die Größe der Nutzdaten so angepasst werden, dass sie jeweils den zu übertragenden Werten entspricht. Da Nutzdaten von null oder einem Byte relativ selten sind, empfiehlt sich die Verwendung eines statischen oder flexiblen Offset der addiert wird um die Paketgröße anzuheben.\\
+Diese Kanal lässt sich auf alle Protokolle, die zur Datenübertragung fähig sind, anwenden.
 
 \section{Verstecken der Informationen in den Nutzdaten}
 
 \subsection{Verwenung von Bilddateien}
-
 
 \subsubsection{RGB Basierende Formate}
 

@@ -68,7 +68,13 @@
   2018.
 \newblock Abrufdatum: 22.01.2019.
 
-\bibitem[Wen12]{wendzel2012tunnel}
+\bibitem[Wen12a]{wendzel2012problem}
+{\sc Wendzel, Steffen}: {\em The Problem of Traffic Normalization Within a
+  Covert Channel's Network Environment Learning Phase.}
+\newblock \Btxinlong{}\ {\em Sicherheit}, \btxvolumelong{}~12, \btxpageslong{}\
+  149--161, 2012.
+
+\bibitem[Wen12b]{wendzel2012tunnel}
 {\sc Wendzel, Steffen}: {\em Tunnel und verdeckte Kan{\"a}le im Netz:
   Grundlagen, Protokolle, Sicherheit und Methoden}.
 \newblock Springer-Verlag, 2012.
