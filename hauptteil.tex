@@ -4,7 +4,12 @@
 \label{cha:Was ist ein Covert-Channel?} %Label des Kapitels
 
 \section{Definition}
-%TODO
+
+%Covert channels are used for the secret transfer of information. Encryption only protects communication from being decoded by unauthorised parties, whereas covert channels aim to hide the very existence of the communication. Initially, covert channels were identified as a security threat on monolithic systems i.e. mainframes. More recently focus has shifted towards covert channels in computer network protocols. The huge amount of data and vast number of different protocols in the Internet seems ideal as a high-bandwidth vehicle for covert communication. This article is a survey of the existing techniques for creating covert channels in widely deployed network and application protocols. We also give an overview of common methods for their detection, elimination, and capacity limitation, required to improve security in future computer networks.
+
+%A covert channel is a communication channel that violates a security policy by using shared resources in ways for which they were not initially designed. In this article we address network covert channels in which the timing of packet arrivals encodes the message; an arrival within a certain in-terval indicates a high bit, and the absence of an arrival a low bit. To utilize this channel, Eve must be able to modify the transmission times of packets departing from th
+
+%TODO definition von tunel buch
 Covert-Channels sind Netzwerk Kanäle, die nicht offen praktiziert, erklärt, engagiert, angesammelt oder gezeigt werden. \cite{goltz2003covert}
 
 Hierbei kann ein Kanal eine beliebige Methode sein Informationen zischen zwei Geräten über ein Netzwerk auszutauschen.
@@ -72,12 +77,6 @@ Da die Datenübertragung sehr stark von der Netzwerkgeschwindigkeit abhängig ist,
 Das zusätzlich Versenden des Hashwertes, der über einen bestimmten Anteil der Nachricht gebildet wird, könnte die Integrität garantieren.\\
 Eine andere Methode bei der die Integrität jedoch nicht vollständig garantiert, aber simpler umzusetzen ist, ist die Verwendung eines Paritätsbit.\cite{cabuk2004ip}
 
-Die Datenübertragung über diesen Channel ist mit einem Bit einem Bit pro Paket relativ gering. Die Datenübertragung ist hier aber auch direkt vom verwendeten Zeitintervall abhängig. Deshalb gilt es einen möglichst kleinen Zeitintervall zu wählen und diesen variabel optimal an die herrschenden Netzwerkbedingungen anzupassen. \\
-Die Problematik ist hier, mit der Reduzierung des Netzwerkhinteralls die Fehleranfälligkeit ebenfalls zunimmt.
-
-Abbildung 4.2 zeigt, wie das gewählte Zeitintervall und die Genauigkeit zusammenhängen. So lässt sich ab einer langsamen Datenübertragung mit einem Intervall von 0.05 Sekunden eine Genauigkeit von ca. 100 Prozent garantieren. Wobei diese Zahlen mit Vorsicht zu genießen  sind da sie sehr stark vom jeweiligen Netzwerk abhängig sind.
-Der Ersteller dieser Grafik\cite{cabuk2004ip} hat ebenfalls einen einen Wert $k$ in seine Implementierung eingebaut, der die Länge einer Pause angibt, die bei einer Übertragungsverzögerung eingelegt werden kann. Diese Verbessert zwar die Genauigkeit der Datenübertragung die Geschwindigkeit wird aber erheblich reduziert.
-
 \begin{figure}[ht]
 	\centering
 	\includegraphics*[height=10cm]{bilder/Zeitacuracyzusammenhang.png}
@@ -85,28 +84,64 @@ Der Ersteller dieser Grafik\cite{cabuk2004ip} hat ebenfalls einen einen Wert $k$
 	\label{fig6}
 \end{figure}
 
-Bei dieser Art von Covert-Channel kann jedes beliebige Protokoll eingesetzt werden. Es aber bietet sich an die Protokolle auf den umliegenden Netzwerkverkehr anzupassen um ihn so unauffällig wie möglich zu machen.
+Die Datenübertragung über diesen Channel ist mit einem Bit einem Bit pro Paket relativ gering. Die Datenübertragung ist hier aber auch direkt vom verwendeten Zeitintervall abhängig. Deshalb gilt es einen möglichst kleinen Zeitintervall zu wählen und diesen variabel optimal an die herrschenden Netzwerkbedingungen anzupassen. \\
+Die Problematik ist hier, mit der Reduzierung des Netzwerkhinteralls die Fehleranfälligkeit ebenfalls zunimmt.
+
+Abbildung 4.2 zeigt, wie das gewählte Zeitintervall und die Genauigkeit zusammenhängen. So lässt sich ab einer langsamen Datenübertragung mit einem Intervall von 0.05 Sekunden eine Genauigkeit von ca. 100 Prozent garantieren. Wobei diese Zahlen mit Vorsicht zu genießen  sind da sie sehr stark vom jeweiligen Netzwerk abhängig sind.
+Der Ersteller dieser Grafik\cite{cabuk2004ip} hat ebenfalls einen einen Wert $k$ in seine Implementierung eingebaut, der die Länge einer Pause angibt, die bei einer Übertragungsverzögerung eingelegt werden kann. Diese Verbessert zwar die Genauigkeit der Datenübertragung die Geschwindigkeit wird aber erheblich reduziert.
+
+Bei dieser Art von Covert-Channel kann jedes beliebige Protokoll eingesetzt werden. Es bietet sich aber an die Protokolle auf den umliegenden Netzwerkverkehr anzupassen um ihn so unauffällig wie möglich zu machen.
 
 
 \section{Storage Channel}
 
-
-\subsection{Ethernet}
+Bei Storage Channels benutzt man Speicherattribute\cite{wendzel2012tunnel} im Protokollheadern, um unbemerkt Daten zu übertragen. Hier wird beim Internet Protokoll angefangen, da in dieser Arbeit über Netzwerkgrenzen hinaus kommuniziert werden soll.
 
 
 \subsection{IPv4}
 
+Der IPv4 Header bietet einige Möglichkeiten Daten in Speicherattribute zu verstecken.
+(Header in Kapitel Grundlagen)
+
+\textbf{Type of Service} \\
+Die letzten beiden Bits diese Feldes sind unbenutzt und können so zur Datenübertragung verwendet werden. (2 Bits)
+
+\textbf{Identification} \\
+Bietet 16 Bits die theoretisch frei wählbar sind. (16 Bits)
+
+\textbf{Reserved Flag} \\
+Das erste Bit der Flags ist für zukünftige Benutzung reserviert und ist derzeit noch unbenutzt. (1 Bit)
+
+\textbf{Fragment Offset} \\
+Der Fragment Offset wird dazu verwendet um Pakete nach einer Fragmentierung wieder zusammenzusetzen. Geht man davon aus, dass die Paket Fragmente sich frei konfigurieren lassen bietet sich die Chance 13 Bit zu verwenden. Dies ist aber fast unmöglich zu realisieren. (< 13 Bit)
+
+\textbf{Time to Live} \\
+Dieses 8 Bit Feld lässt sich frei wählen. Jedoch muss man bei der Benutzung wissen, wie viele Netzwerkstationen, die dieses Feld herunterzählen, auf dem Weg liegen. Auch ein zu kleiner Wert kann dazu führen, dass die Nachricht nicht ankommt.
+(< 8 Bit)
+
+\textbf{Total Length} \\
+Die Gesamtlänge des Pakets lässt sich natürlich auch manipulieren. Diese Länge wird mit einem 16 Bit Wert angegeben. Jedoch ist dieser Wert durch die Mindestgröße eingeschränkt. Durch Fragmentierung des Pakets oder das Hinzufügen von Optionen ändert sich dieser Wert. (< 16 Bit)
+
+\textbf{Options} \\
+Dem Ip Header können Optionen hinzugefügt werden, in die sich ebenfalls Daten einbetten lassen.
+
+\textbf{Padding} \\
+Die durch das IHL Feld angegebene Headerlänge muss ein vielfaches von 4 Byte erreicht werden. Durch die Verwendung von Options wird diese Länge nicht immer erreicht und wird deshalb mit Padding aufgefüllt. Dieses Padding lässt sich theoretisch auch umwandeln und zur Datenübertragung verwenden.
 
 \subsection{IPv6}
-
+Bei IPv6 kann man in der Regel die S
 
 \subsection{TCP}
 
+
 \subsection{UDP}
+
 
 \subsection{ICMP}
 
-traffic normalizers
+\subsection{Traffic Normalizers}
+
+
 
 \section{Benutzung verschiedener Protokolle}
 
@@ -134,13 +169,17 @@ So ist man in der Lage binäre Daten mit vier Protokolle zu versenden. In Abbildu
 \end{figure}
 
 Die Wahl der Protokolle ist hier abhängig von den im Netzwerk verwendeten Protokollen. Natürlich funktioniert dieses Prinzip auch mit zwei Protokollen. Denkbar wäre hier die Verwendung von IPv4 und IPv6 da diese Protokolle unter Umständen unterschiedliche Wege durchs Internet nehmen und so noch unauffälliger werden.
-Wie auch bei den zeitabhängigen Covert-Channel beträgt hier die Übertragungsrate 1 oder 2 Bit pro Paket. Die Übertragungsgeschwindigkeit wir nur durch die Netzwerkgeschwindigkeit eingeschränkt.
+Wie auch bei den zeitabhängigen Covert-Channel beträgt hier die Übertragungsrate 1 oder 2 Bit pro Paket. Die Übertragungsgeschwindigkeit wir nur durch die Netzwerkgeschwindigkeit eingeschränkt.\\
+
+Eine denkbare Unterart dieses Kanals ist die Verwendung verschiedener Options im Header wodurch die Codierung realisiert wird.
 
 \subsection{Protocol Hopping Covert Channels}
 
 Dieser Kanal ist eine Mischung des Protocl-Channels und des Storage Channel. Dabei werden verschiedene Storage-Channels zu einem zusammengefasst und abwechseln Daten übertragen.
 
-In Abbildung 4.4 wird dargestellt wie dies realisiert werden kann. Die Binärdaten werden hier über zufällig gewählte Storage-Chanel übertragen. Dadurch wird bewirkt, dass Kanal unauffälliger wird.
+In Abbildung 4.4 wird dargestellt wie dies realisiert werden kann. Die Binärdaten werden hier über zufällig gewählte Storage-Chanel übertragen. Dadurch wird bewirkt, dass der Kanal unauffälliger wird, da man ein reales Netzwerk simulieren lässt.
+
+Im Beispiel unten werden jeweils 4 Bit an den Storage Channel übergeben und an den Empfänger weitergeleitete.
 
 \begin{figure}[ht]
 	\centering

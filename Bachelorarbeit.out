@@ -31,12 +31,12 @@
 \BOOKMARK [1][-]{section.4.1}{Klassische textbasierende Verfahren}{chapter.4}% 31
 \BOOKMARK [1][-]{section.4.2}{Zeitabh\344ngige Covert-Chanel}{chapter.4}% 32
 \BOOKMARK [1][-]{section.4.3}{Storage Channel}{chapter.4}% 33
-\BOOKMARK [2][-]{subsection.4.3.1}{Ethernet}{section.4.3}% 34
-\BOOKMARK [2][-]{subsection.4.3.2}{IPv4}{section.4.3}% 35
-\BOOKMARK [2][-]{subsection.4.3.3}{IPv6}{section.4.3}% 36
-\BOOKMARK [2][-]{subsection.4.3.4}{TCP}{section.4.3}% 37
-\BOOKMARK [2][-]{subsection.4.3.5}{UDP}{section.4.3}% 38
-\BOOKMARK [2][-]{subsection.4.3.6}{ICMP}{section.4.3}% 39
+\BOOKMARK [2][-]{subsection.4.3.1}{IPv4}{section.4.3}% 34
+\BOOKMARK [2][-]{subsection.4.3.2}{IPv6}{section.4.3}% 35
+\BOOKMARK [2][-]{subsection.4.3.3}{TCP}{section.4.3}% 36
+\BOOKMARK [2][-]{subsection.4.3.4}{UDP}{section.4.3}% 37
+\BOOKMARK [2][-]{subsection.4.3.5}{ICMP}{section.4.3}% 38
+\BOOKMARK [2][-]{subsection.4.3.6}{Traffic Normalizers}{section.4.3}% 39
 \BOOKMARK [1][-]{section.4.4}{Benutzung verschiedener Protokolle}{chapter.4}% 40
 \BOOKMARK [2][-]{subsection.4.4.1}{Protocol Channels}{section.4.4}% 41
 \BOOKMARK [2][-]{subsection.4.4.2}{Protocol Hopping Covert Channels}{section.4.4}% 42

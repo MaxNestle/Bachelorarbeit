@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  29 JAN 2019 17:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  31 JAN 2019 16:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1244,7 +1244,7 @@ Package pdftex.def Info: bilder/ipv6.png  used on input line 145.
  (./hauptteil.tex
 chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--26
+Underfull \hbox (badness 10000) in paragraph at lines 26--31
 
  []
 
@@ -1260,84 +1260,88 @@ chapter 4.
 <bilder/timing.png, id=425, 1198.4775pt x 823.075pt>
 File: bilder/timing.png Graphic file (type png)
 <use bilder/timing.png>
-Package pdftex.def Info: bilder/timing.png  used on input line 61.
+Package pdftex.def Info: bilder/timing.png  used on input line 66.
 (pdftex.def)             Requested size: 414.29811pt x 284.52756pt.
  [16 <./bilder/timing.png (PNG copy)>]
-<bilder/Zeitacuracyzusammenhang.png, id=439, 1270.7475pt x 869.2475pt>
+<bilder/Zeitacuracyzusammenhang.png, id=438, 1270.7475pt x 869.2475pt>
 File: bilder/Zeitacuracyzusammenhang.png Graphic file (type png)
 <use bilder/Zeitacuracyzusammenhang.png>
 Package pdftex.def Info: bilder/Zeitacuracyzusammenhang.png  used on input line
- 83.
+ 82.
 (pdftex.def)             Requested size: 415.95471pt x 284.52756pt.
- [17] [18 <./bilder/Zeitacuracyzusammenhang.png (PNG copy)>] [19]
-<bilder/protoChannel.png, id=461, 1155.31625pt x 831.105pt>
+ [17 <./bilder/Zeitacuracyzusammenhang.png (PNG copy)>] [18] [19]
+<bilder/protoChannel.png, id=462, 1155.31625pt x 831.105pt>
 File: bilder/protoChannel.png Graphic file (type png)
 <use bilder/protoChannel.png>
-Package pdftex.def Info: bilder/protoChannel.png  used on input line 131.
+Package pdftex.def Info: bilder/protoChannel.png  used on input line 166.
 (pdftex.def)             Requested size: 355.95839pt x 256.0748pt.
- [20 <./bilder/protoChannel.png (PNG copy)>]
-<bilder/protoHopingChan.png, id=470, 1348.03625pt x 851.18pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--173
+
+ []
+
+[20] [21 <./bilder/protoChannel.png (PNG copy)>]
+<bilder/protoHopingChan.png, id=475, 1348.03625pt x 851.18pt>
 File: bilder/protoHopingChan.png Graphic file (type png)
 <use bilder/protoHopingChan.png>
-Package pdftex.def Info: bilder/protoHopingChan.png  used on input line 147.
+Package pdftex.def Info: bilder/protoHopingChan.png  used on input line 186.
 (pdftex.def)             Requested size: 405.54532pt x 256.0748pt.
+ [22 <./bilder/protoHopingChan.png (PNG copy)>]
 
-[21 <./bilder/protoHopingChan.png (PNG copy)>]
+LaTeX Warning: Reference `fig:fig4' on page 23 undefined on input line 208.
 
-LaTeX Warning: Reference `fig:fig4' on page 22 undefined on input line 169.
-
-<bilder/stgRGB.jpg, id=481, 994.71625pt x 597.23125pt>
+<bilder/stgRGB.jpg, id=486, 994.71625pt x 597.23125pt>
 File: bilder/stgRGB.jpg Graphic file (type jpg)
 <use bilder/stgRGB.jpg>
-Package pdftex.def Info: bilder/stgRGB.jpg  used on input line 173.
+Package pdftex.def Info: bilder/stgRGB.jpg  used on input line 212.
 (pdftex.def)             Requested size: 473.89151pt x 284.52756pt.
 
-Overfull \hbox (20.92325pt too wide) in paragraph at lines 173--174
+Overfull \hbox (20.92325pt too wide) in paragraph at lines 212--213
  [][] 
  []
 
-[22 <./bilder/stgRGB.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
-
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 238--242
+[23 <./bilder/stgRGB.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 243--246
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--281
 
  []
 
 [25]
-chapter 5.
-[26
+Underfull \hbox (badness 10000) in paragraph at lines 282--285
 
-]
-chapter 6.
+ []
+
+[26]
+chapter 5.
 [27
 
 ]
-chapter 7.
+chapter 6.
 [28
 
 ]
+chapter 7.
+[29
+
+]
 chapter 8.
-) [29
+) [30
 
 ]
 \openout2 = `schluss.aux'.
 
  (./schluss.tex
 chapter 9.
-) [30
+) [31
 
 
 
@@ -1346,7 +1350,7 @@ chapter 9.
 
  (./anhang.tex
 chapter A.
-) [31
+) [32
 
 
 
@@ -1354,7 +1358,7 @@ chapter A.
 No file Bachelorarbeit.gls.
 No file Bachelorarbeit.acr.
 No file Bachelorarbeit.syi.
-(./Bachelorarbeit.bbl [32
+(./Bachelorarbeit.bbl [33
 
 ]
 chapter without number
@@ -1766,7 +1770,7 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              `\sc' yourself you should replace it, e.g., by
 (scrbook)              `\normalfont \scshape ' on input line 59.
 
-[33
+[34
 
 ]
 
@@ -1874,7 +1878,7 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 )
 No file Bachelorarbeit.ind.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 188.
-[34]
+[35]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 188.
  (./Bachelorarbeit.aux (./DeckHS.aux) (./eidHS.aux) (./kurzfass.aux)
 (./abstract.aux) (./dasa.aux) (./vowo.aux) (./einleit.aux) (./grundl.aux)
@@ -1882,7 +1886,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 188.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 188.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 188.
 Package rerunfilecheck Info: File `Bachelorarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 569D6D0CF74018E23CDE0470F341CF64;3636.
+(rerunfilecheck)             Checksum: 95AFFF0A1FDF671BEAF3FB02F5087626;3647.
 
 
 LaTeX Warning: There were undefined references.
@@ -1890,8 +1894,8 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 188.
  ) 
 Here is how much of TeX's memory you used:
- 19266 strings out of 492982
- 323748 string characters out of 6134895
+ 19267 strings out of 492982
+ 323755 string characters out of 6134895
  576388 words of memory out of 5000000
  21798 multiletter control sequences out of 15000+600000
  79967 words of font info for 462 fonts, out of 8000000 for 9000
@@ -1911,10 +1915,10 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Bachelorarbeit.pdf (42 pages, 1184403 bytes).
+Output written on Bachelorarbeit.pdf (43 pages, 1192297 bytes).
 PDF statistics:
- 634 PDF objects out of 1000 (max. 8388607)
- 552 compressed objects within 6 object streams
- 125 named destinations out of 1000 (max. 500000)
+ 640 PDF objects out of 1000 (max. 8388607)
+ 557 compressed objects within 6 object streams
+ 126 named destinations out of 1000 (max. 500000)
  39956 words of extra memory for PDF output out of 42996 (max. 10000000)
 
