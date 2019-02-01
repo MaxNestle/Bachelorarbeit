@@ -259,7 +259,6 @@ $F(x_i) = (d+c_1x_i+c_2x_i^2+...+c_{k-1}x_i^{k-1})mod(p)$
 
 Das Geheimnis ist nun in einer Funktion ,,abgespeichert''. Die Shares sind Punkte, die auf dieser Funktion liegen. Damit die Funktion wieder rekonstruiert werden kann, müssen mindestens k der n Shares vorhanden.
 
-
 Entschlüsseln:\\
 
 Um die Nachrichten zu entschlüsseln müssen k Shares in die Formel oben eingesetzt werden.\\
@@ -303,10 +302,26 @@ Zum Entschlüsseln muss man nun wieder 245 von den Werten des alpha Chanel subtra
 Auch in PDF Dateien können Daten versteckt eingebettet werden. Das PDF Format setzt sich aus einer Reihe von Befehlen zusammen in der die Formatierung der Seite angegeben wird. So können Elemente zur Positionierung von Texten eingesetzt werden um Informationen einzubetten.\cite{zhong2007data}
 Open Source Programme machen es für jeden möglich auf diese Weise Daten zu verstecken.
 
-\chapter{Bewertung der Methoden}
+\chapter{Bewertung der Covert Channel}
+In diesem Kapitel wird sich damit beschäftigt, welcher der im vorhergehenden Kapitel vorgestellten Covert Channel für unsere Problemstellung geeignet ist. Es soll nun der optimale Kanal gefunden werden, der das Problem der Kommunikation zwischen Polizeipräsidium und Informant lösen kann.
 
+Betrachtet man die \textbf{Textbasierenden Verfahren} etwas genauer wird schnell klar, dass diese nicht für größere Datenmengen geeignet sind und sich auch sehr schwierig als Algorithmen darstellen lassen.
 
-\chapter{Welcher Kanal ist geeignet}
+Die \textbf{Zeitabhängigen Verfahren} sind sehr unauffällig da die Datenpakete nicht direkt manipuliert werden müssen. Es muss sich jedoch um die Integrität der Daten gekümmert werden da der Kanal sehr stark von den Netzwerkbedingungen abhängt. Die Übertragungsgeschwindigkeit mit einem Bit pro Paket ist sehr gering und deshalb für diese Projekt eher ungeeignet, wenn zum Beispiel große Bilddateien verschickt werden sollen.
+
+\textbf{Storage Channel} sind relativ auffällig, vor allem wenn die Pakete genauer angeschaut werden. Zudem gibt es das Problem der Netzwerk Normalisierung, die den Storage Channel stark einschränken würde.
+Die Methode bei der die TCP Sequence Number manipuliert wird ist hingegen für dieses Projekt denkbar, da sie nicht durch die Normalisierung verändert werden kann und pro Paket 32 Bit übertragen kann. Bei einer sehr genaueren Analyse kann hier aber ebenfalls auffallen, dass die Nummern nicht in der richtigen Reihenfolge versendet werden.
+
+\textbf{Protocol Channel} sind im Gegensatz zu Zeitabhängigen Verfahren nicht von den Netzwerkbedingungen abhängig machen so eine Verfahren gegen Integritätsverlust überflüssig. Mit den Verschiedenen Protokollen lässt sich ein realen Netzwerkverkehr simulieren.
+Die Datenübertragung ist hier aber auch relativ gering, ist aber durch seine Unauffälligkeit und die Tatsache, dass die Pakete an sich nicht verändert werden müssen ein für diese Projekt geeignet.
+
+\textbf{Projekt Hopping Channels} haben die gleichen negativen Eigenschaften wie die Storage Channels und kommen deshalb nicht für diese Projekt in frage.
+
+Die Verwendung der \textbf{Nutzdatengröße} für die Datenübertragung ist sehr unauffällig und lässt sich gut umsetzten. Die Pakete bleiben bis auf die Nutzdaten regulär und ziehen so fast keine Aufmerksamkeit auf sich. Der Kanal ist nicht von Netzwerkbedingungen abhängig und die Datenübertragung kann 8 Bit pro Paket betragen.
+Es muss jedoch eine unauffällige Methode ausgearbeitet werden, bei der es möglich ist variable Datenpakete zu versenden. Es ist hier ebenfalls nicht möglich den Kanal passiv zu gestalten.
+
+Werden \textbf{Bilddateien} zum Einbetten verwendet,
+
 
 \chapter{Projekt Umsetzung}]
 
