@@ -27,6 +27,12 @@
 {\sc Hellmann, Roland}: {\em IT-Sicherheit: eine Einf{\"u}hrung}.
 \newblock Walter de Gruyter GmbH \& Co KG, 2018.
 
+\bibitem[{Inf}81]{TCP_RFC}
+{\sc {Information Sciences Institute University of Southern California}}: {\em
+  TRANSMISSION CONTROL PROTOCOL DARPA INTERNET PROGRAM PROTOCOL SPECIFICATION}.
+\newblock \url{https://tools.ietf.org/html/rfc793}, 1981.
+\newblock Abrufdatum: 01.02.2019.
+
 \bibitem[Kes15]{Steg}
 {\sc Kessler, Gary~C.}: {\em An Overview of Steganography for the Computer
   Forensics Examiner (Updated Version, February 2015)}, 2015.
@@ -84,6 +90,11 @@
   Encyclopedia}.
 \newblock \url{https://de.wikipedia.org/wiki/OSI-Modell}, 2018.
 \newblock Abrufdatum: 03.01.2019.
+
+\bibitem[ZCC07]{zhong2007data}
+{\sc Zhong, Shangping}, {\sc Xueqi Cheng} \btxandlong{}\ {\sc Tierui Chen}:
+  {\em Data Hiding in a Kind of PDF Texts for Secret Communication.}
+\newblock IJ Network Security, 4(1):17--26, 2007.
 
 \bibitem[Zis13]{zisler2013computer}
 {\sc Zisler, Harald}: {\em Computer-Netzwerke}, 2013.

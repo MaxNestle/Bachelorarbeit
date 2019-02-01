@@ -29,25 +29,24 @@
 \contentsline {chapter}{\numberline {3}Was ist ein Covert-Channel?}{13}{chapter.3}
 \contentsline {section}{\numberline {3.1}Definition}{13}{section.3.1}
 \contentsline {section}{\numberline {3.2}Was zeichnend einen guten Covert-Channel aus?}{13}{section.3.2}
-\contentsline {section}{\numberline {3.3}Wozu sind Covert-Channels nicht geeignet?}{14}{section.3.3}
-\contentsline {chapter}{\numberline {4}M\"ogliche steganografische Covert-Channel}{15}{chapter.4}
+\contentsline {section}{\numberline {3.3}Aktive und Passive Covert Channels}{14}{section.3.3}
+\contentsline {section}{\numberline {3.4}Wozu sind Covert Channels nicht geeignet?}{14}{section.3.4}
+\contentsline {chapter}{\numberline {4}M\"ogliche steganografische Covert Channel}{15}{chapter.4}
 \contentsline {section}{\numberline {4.1}Klassische textbasierende Verfahren}{15}{section.4.1}
 \contentsline {section}{\numberline {4.2}Zeitabh\"angige Covert-Chanel}{16}{section.4.2}
 \contentsline {section}{\numberline {4.3}Storage Channel}{18}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}IPv4}{18}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}IPv6}{19}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}TCP}{20}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}UDP}{20}{subsection.4.3.4}
-\contentsline {subsection}{\numberline {4.3.5}ICMP}{20}{subsection.4.3.5}
-\contentsline {subsection}{\numberline {4.3.6}Traffic Normalizers}{20}{subsection.4.3.6}
+\contentsline {subsection}{\numberline {4.3.4}Traffic Normalizers}{20}{subsection.4.3.4}
 \contentsline {section}{\numberline {4.4}Benutzung verschiedener Protokolle}{20}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Protocol Channels}{20}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.1}Protocol Channels}{21}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Protocol Hopping Covert Channels}{22}{subsection.4.4.2}
-\contentsline {section}{\numberline {4.5}Verwendung der Nutzdatengr\"o\IeC {\ss }e}{23}{section.4.5}
+\contentsline {section}{\numberline {4.5}Verwendung der Nutzdatengr\"o\IeC {\ss }e}{22}{section.4.5}
 \contentsline {section}{\numberline {4.6}Verstecken der Informationen in den Nutzdaten}{23}{section.4.6}
 \contentsline {subsection}{\numberline {4.6.1}Verwenung von Bilddateien}{23}{subsection.4.6.1}
 \contentsline {subsubsection}{\nonumberline RGB Basierende Formate}{23}{section*.10}
-\contentsline {subsubsection}{\nonumberline Bildformate mit Alpha Kanal}{24}{section*.11}
+\contentsline {subsubsection}{\nonumberline Bildformate mit Alpha Kanal}{25}{section*.11}
 \contentsline {subsubsection}{\nonumberline Verwendung von ,,Shamir's Secret Sharing'' Methode}{25}{section*.12}
 \contentsline {subsection}{\numberline {4.6.2}Verwenung von PDF Dateien}{27}{subsection.4.6.2}
 \contentsline {chapter}{\numberline {5}Bewertung der Methoden}{28}{chapter.5}

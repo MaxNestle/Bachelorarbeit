@@ -34,12 +34,16 @@ Der zweite Aspekt ist die Unbekanntheit des Verfahrens, sodass nicht nach einem 
 Natürlich muss auch die Datenübertragungsrate betrachtet. Diese ist meistens sehr gering aber hier gibt es auch große Unterschiede zwischen den einzelnen Verfahren. \\
 Die Integrität der Daten müssen die Channels ebenfalls gewährleisten.
 
-\section{Wozu sind Covert-Channels nicht geeignet?}
+
+\section{Aktive und Passive Covert Channels }
+
+
+\section{Wozu sind Covert Channels nicht geeignet?}
 
 Hohe Datenübertragung
 Authenzität
 
-\chapter{Mögliche steganografische Covert-Channel}
+\chapter{Mögliche steganografische Covert Channel}
 \label{cha:Covert-Channel} %Label des Kapitelsne bereit
 
 Im folgenden Kapitel werden verschiedene, bereits existierende steganografische Covert-Channel betrachtet, die für das Erreichen der Zielsetzung in Frage kommen.
@@ -132,12 +136,12 @@ Die durch das IHL Feld angegebene Headerlänge muss ein vielfaches von 4 Byte err
 Bei IPv6 kann man in der Regel die äquivalenten Speicherattribute verwenden, wie bei IPv4. Hier unterscheidet sich meistens nur die Namensgebung. \cite{wendzel2012tunnel}
 
 \subsection{TCP}
+Im TCP Protokoll bieten sich ebenfalls Möglichkeiten Daten unbemerkt zu transportieren. So kann der Source Port zur Codierung verwendet werden. Ebenfalls möglich ist die Benutzung des optionalen des TCP Timestamp bei dem zum Beipiel die letzten Bits manipuliert werden.
+\cite{wendzel2012tunnel}
 
-
-\subsection{UDP}
-
-
-\subsection{ICMP}
+Ein weiter Möglichkeit ist das Manipulieren der Sequence Number.\cite{wendzel2012tunnel} Diese Nummer gibt die Reihenfolge der Datenpakete an.
+Dabei wird sie am Anfang der Datenübertragung vom Sender errechnet und dann alle 4 Mikrosekunden um eins hochgezählt. Sollte diese 32 Bit Nummer überlaufen so wird sie wieder auf null zurückgesetzt. So wird Sichergestellt, dass jedes Paket eine einzigartige Sequence Number bekommt\cite{TCP_RFC}
+Um diese Nummer nun zu Verändern muss eine Übersetzungsschicht eingebaut werden die, die übertragenen Geheimdaten abfängt und wieder mit der Richtigen Sequence Number ersetzt.\cite{wendzel2012tunnel}
 
 
 \subsection{Traffic Normalizers}
@@ -197,7 +201,7 @@ Im Beispiel unten werden jeweils 4 Bit an den Storage Channel übergeben und an d
 Die Größe des Pakets lässt sich über die Versendung unterschiedlicher Daten einfach manipulieren. Daraus ergeben sich etliche Varianten um einen Covert Channel zu Erschaffen. Beispielsweise kann zwischen großen/kleinen Paketen oder Gerade/Ungerade Datenanzahl unterschieden werden und so binär Daten übertragen.\\
 Aber auch direkt in die Größe der Nutzdaten können Informationen versteckt werden:\\
 Will man 8 Bit pro Paket übertragen, benötigt man die Werte von 0 bis 255. Nun muss die Größe der Nutzdaten so angepasst werden, dass sie jeweils den zu übertragenden Werten entspricht. Da Nutzdaten von null oder einem Byte relativ selten sind, empfiehlt sich die Verwendung eines statischen oder flexiblen Offset der addiert wird um die Paketgröße anzuheben.\\
-Diese Kanal lässt sich auf alle Protokolle, die zur Datenübertragung fähig sind, anwenden.
+Dieser Kanal lässt sich auf alle Protokolle, die zur Datenübertragung fähig sind, anwenden.
 
 \section{Verstecken der Informationen in den Nutzdaten}
 
@@ -295,6 +299,9 @@ Zum Entschlüsseln muss man nun wieder 245 von den Werten des alpha Chanel subtra
 
 
 \subsection{Verwenung von PDF Dateien}
+
+Auch in PDF Dateien können Daten versteckt eingebettet werden. Das PDF Format setzt sich aus einer Reihe von Befehlen zusammen in der die Formatierung der Seite angegeben wird. So können Elemente zur Positionierung von Texten eingesetzt werden um Informationen einzubetten.\cite{zhong2007data}
+Open Source Programme machen es für jeden möglich auf diese Weise Daten zu verstecken.
 
 \chapter{Bewertung der Methoden}
 
