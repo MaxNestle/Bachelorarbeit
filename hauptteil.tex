@@ -303,27 +303,69 @@ Auch in PDF Dateien können Daten versteckt eingebettet werden. Das PDF Format se
 Open Source Programme machen es für jeden möglich auf diese Weise Daten zu verstecken.
 
 \chapter{Bewertung der Covert Channel}
-In diesem Kapitel wird sich damit beschäftigt, welcher der im vorhergehenden Kapitel vorgestellten Covert Channel für unsere Problemstellung geeignet ist. Es soll nun der optimale Kanal gefunden werden, der das Problem der Kommunikation zwischen Polizeipräsidium und Informant lösen kann.
+In diesem Kapitel wird sich damit beschäftigt, welcher der im vorhergehenden Kapitel vorgestellten Covert Channel für die Problemstellung geeignet ist. Es soll nun der optimale Kanal gefunden werden, der das Problem der Kommunikation zwischen Polizeipräsidium und Informant lösen kann.
 
 Betrachtet man die \textbf{Textbasierenden Verfahren} etwas genauer wird schnell klar, dass diese nicht für größere Datenmengen geeignet sind und sich auch sehr schwierig als Algorithmen darstellen lassen.
 
-Die \textbf{Zeitabhängigen Verfahren} sind sehr unauffällig da die Datenpakete nicht direkt manipuliert werden müssen. Es muss sich jedoch um die Integrität der Daten gekümmert werden da der Kanal sehr stark von den Netzwerkbedingungen abhängt. Die Übertragungsgeschwindigkeit mit einem Bit pro Paket ist sehr gering und deshalb für diese Projekt eher ungeeignet, wenn zum Beispiel große Bilddateien verschickt werden sollen.
+Die \textbf{Zeitabhängigen Verfahren} sind sehr unauffällig da die Datenpakete nicht direkt manipuliert werden müssen. Es muss sich jedoch um die Integrität der Daten gekümmert werden da der Kanal sehr stark von den Netzwerkbedingungen abhängt. Die Übertragungsgeschwindigkeit ist mit einem Bit pro Paket ist sehr gering, jedoch lässt sich dieser Kanal sehr gut als passiver Covert-Channel realisieren.
 
 \textbf{Storage Channel} sind relativ auffällig, vor allem wenn die Pakete genauer angeschaut werden. Zudem gibt es das Problem der Netzwerk Normalisierung, die den Storage Channel stark einschränken würde.
 Die Methode bei der die TCP Sequence Number manipuliert wird ist hingegen für dieses Projekt denkbar, da sie nicht durch die Normalisierung verändert werden kann und pro Paket 32 Bit übertragen kann. Bei einer sehr genaueren Analyse kann hier aber ebenfalls auffallen, dass die Nummern nicht in der richtigen Reihenfolge versendet werden.
 
-\textbf{Protocol Channel} sind im Gegensatz zu Zeitabhängigen Verfahren nicht von den Netzwerkbedingungen abhängig machen so eine Verfahren gegen Integritätsverlust überflüssig. Mit den Verschiedenen Protokollen lässt sich ein realen Netzwerkverkehr simulieren.
+\textbf{Protocol Channel} sind im Gegensatz zu Zeitabhängigen Verfahren nicht von den Netzwerkbedingungen abhängig machen so eine Verfahren gegen Integritätsverlust überflüssig. Es ist durch  schwierig einen realen Netzwerkkanal zu realisieren 
 Die Datenübertragung ist hier aber auch relativ gering, ist aber durch seine Unauffälligkeit und die Tatsache, dass die Pakete an sich nicht verändert werden müssen ein für diese Projekt geeignet.
 
 \textbf{Projekt Hopping Channels} haben die gleichen negativen Eigenschaften wie die Storage Channels und kommen deshalb nicht für diese Projekt in frage.
 
-Die Verwendung der \textbf{Nutzdatengröße} für die Datenübertragung ist sehr unauffällig und lässt sich gut umsetzten. Die Pakete bleiben bis auf die Nutzdaten regulär und ziehen so fast keine Aufmerksamkeit auf sich. Der Kanal ist nicht von Netzwerkbedingungen abhängig und die Datenübertragung kann 8 Bit pro Paket betragen.
+Die Verwendung der \textbf{Nutzdatengröße} für die Datenübertragung ist sehr unauffällig. Die Pakete bleiben bis auf die Nutzdaten regulär und ziehen so fast keine Aufmerksamkeit auf sich. Der Kanal ist nicht von Netzwerkbedingungen abhängig und die Datenübertragung kann 8 Bit pro Paket betragen.
 Es muss jedoch eine unauffällige Methode ausgearbeitet werden, bei der es möglich ist variable Datenpakete zu versenden. Es ist hier ebenfalls nicht möglich den Kanal passiv zu gestalten.
 
-Werden \textbf{Bilddateien} zum Einbetten verwendet,
+Werden \textbf{Bilddateien} zum Einbetten der Daten verwendet, muss sich überlegt werden wie die Übertragung der Bilder stattfinden soll. Hier muss eine unauffällige Möglichkeit gefunden werden, um diesen Austausch zu realisieren.
+Es lassen sich viele Daten übertragen.
+
+%TODO                                                       
+
+Da der zeitabhängigen Covert-Channel die Pakete nicht manipulieren muss und da beim Netzwerkverkehr, bis auf den zeitlichen Offset, keine Veränderung vorgenommen werden muss soll dieses Projekt mit diesem Kanal durchgeführt werden. Zudem ist die Möglichkeit den Channel passiv zu realisieren ein weiterer positiver Aspekt.
+
+\chapter{Projekt Umsetzung}
+
+\section{Konstruktion des Covert Channel}
+
+Wie in den Grundlagen schon beschrieben, kann man einen steganografischen Kanal mit folgender Formel veranschaulichen:
+
+\textit{Steganographischer Covert Channel = Geheime Daten + Trägerkanal + Steganografischer Schlüssel}\\
+ 
+\subsection{Geheime Daten}
+Die geheimen Daten beinhalten die Information, welche versteckt übertragen werden. Diese sollen in jedes beliebige Format annehmen können. Zum Senden werden die Daten in ihre binären Form übertragen. So muss sich keine Sorge um das Datenformat gemacht werden.\\ Da ein sehr geringe Übertragungsgeschwindigkeit erwartet wird ist es hilfreich, wenn diese Daten so klein wie möglich ausfallen.\\
+Zum Entwickeln wird hierzu die Datei $test.txt$ verwendet die als Inhalt den String ,,Hallo Welt'' besitzt.
 
 
-\chapter{Projekt Umsetzung}]
+\subsection{Steganografischer Schlüssel}
+Der steganografische Schlüssel bildet sich aus dem im vorhergehenden Kapitel gewählten Covert Channel. Er bestimmt auf welche Art die Daten in den Träger infiltriert und später exfiltriert werden.\\
+Aufgrund der Wahl des zeitabhängigen Covert-Channel können folgende Schlüssel definiert werden. 
+
+Schlüssel zur Dateneinfiltration:
+
+\textbf{Manipuliere den Datenstrom des Trägerkanals so, dass die geheimen Daten kodiert werden.}
+
+Schlüssel zur Datenexfiltration:
+
+\textbf{Lese die Zeitabstände der Datenpakete im Trägerkanal und dekodiere diese.}
+
+
+\subsection{Trägerkanal}
+Es wird ein Träger Kanal benötigt in diesen die geheimen Nachrichten eingebettet werden sollen. 
+
+\subsubsection{Mögliche Trägerkanäle}
+
+tcp, udp konstanter strom passiv manipulierbar 
+
+
+\subsubsection{Bewertung der Trägerkanale}
+ 
+ udp skype 
+
+
 
 
 
