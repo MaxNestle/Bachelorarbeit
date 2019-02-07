@@ -337,11 +337,11 @@ Wie in den Grundlagen schon beschrieben, kann man einen steganografischen Kanal 
  
 \subsection{Geheime Daten}
 Die geheimen Daten beinhalten die Information, welche versteckt übertragen werden. Diese sollen in jedes beliebige Format annehmen können. Zum Senden werden die Daten in ihre binären Form übertragen. So muss sich keine Sorge um das Datenformat gemacht werden.\\ Da ein sehr geringe Übertragungsgeschwindigkeit erwartet wird ist es hilfreich, wenn diese Daten so klein wie möglich ausfallen.\\
-Zum Entwickeln wird hierzu die Datei $test.txt$ verwendet die als Inhalt den String ,,Hallo Welt'' besitzt.
+Zum Entwickeln wird hierzu die Datei $test.txt$ verwendet, die als Inhalt den String ,,Hallo Welt'' besitzt.
 
 
 \subsection{Steganografischer Schlüssel}
-Der steganografische Schlüssel bildet sich aus dem im vorhergehenden Kapitel gewählten Covert Channel. Er bestimmt auf welche Art die Daten in den Träger infiltriert und später exfiltriert werden.\\
+Der steganografische Schlüssel bildet sich aus dem, im vorhergehenden Kapitel gewählten, Covert Channel. Er bestimmt auf welche Art die Daten in den Träger infiltriert und später exfiltriert werden.\\
 Aufgrund der Wahl des zeitabhängigen Covert-Channel können folgende Schlüssel definiert werden. 
 
 Schlüssel zur Dateneinfiltration:
@@ -354,16 +354,17 @@ Schlüssel zur Datenexfiltration:
 
 
 \subsection{Trägerkanal}
-Es wird ein Träger Kanal benötigt in diesen die geheimen Nachrichten eingebettet werden sollen. 
+Es wird ein Träger Kanal benötigt in diesen die geheimen Nachrichten eingebettet werden sollen.\\
+Für den gewählten Covert Channel kann prinzipiell jedes Netzwerkprotokoll verwendet werden. Da die Übertragung über Netzwerkgrenzen hinaus stattfinden soll muss mindestens das Internet Protokoll verwendet werden. 
+Die Verwendung von ICMP Paketen ist durch die Filterung von Firewalls nicht geeignet. Die verbleibenden und sinnvollen Möglichkeiten sind demnach entweder TCP oder UDP. Da immer nur ein Bit durch ein Datenpaket übertragen wird wird ein Datenstrom (Stream) mit vielen Datenpaketen benötigt.\\
+Die Entscheidung Beschränkt sich nun auf einen UDP oder TCP Stream. UDP hat das Problem das es sich hierbei um eine verbindungsloses Protokoll handelt und man nicht sicher sein kann, dass die Daten in der Richtigen Reihenfolge oder überhaupt ankommen. Durch die Verwendung eines zeitlichen Covert Channel muss zwingend ein System zur Sicherstellung der Integrität implementiert werden. Dies würde auch das Problem mit dem UDP Stream regeln.\\
+Bei einem TCP Stream wird ausschließlich TLS verwendet, wobei die Daten verschlüsselt werden. In dieser Arbeit, wo die Sicherheit nur durch die Steganographie garantiert werden soll, wäre so einen Verschlüsselung unnötig und würde auch eher Aufmerksamkeit auf sich lenken.\\
+Deshalb wird in diesem Projekt ein UDP Stream als Trägerkanal verwendet.
 
-\subsubsection{Mögliche Trägerkanäle}
-
-tcp, udp konstanter strom passiv manipulierbar 
 
 
-\subsubsection{Bewertung der Trägerkanale}
- 
- udp skype 
+
+
 
 
 

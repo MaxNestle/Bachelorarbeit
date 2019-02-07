@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  4 FEB 2019 18:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  7 FEB 2019 14:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1333,16 +1333,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 336--337
 
 [30
 
-] [31]
+] [31] [32]
 chapter 7.
-) [32
+) [33
 
 ]
 \openout2 = `schluss.aux'.
 
  (./schluss.tex
 chapter 8.
-) [33
+) [34
 
 
 
@@ -1351,7 +1351,7 @@ chapter 8.
 
  (./anhang.tex
 chapter A.
-) [34
+) [35
 
 
 
@@ -1359,7 +1359,7 @@ chapter A.
 No file Bachelorarbeit.gls.
 No file Bachelorarbeit.acr.
 No file Bachelorarbeit.syi.
-(./Bachelorarbeit.bbl [35
+(./Bachelorarbeit.bbl [36
 
 ]
 chapter without number
@@ -1771,7 +1771,7 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              `\sc' yourself you should replace it, e.g., by
 (scrbook)              `\normalfont \scshape ' on input line 58.
 
-[36
+[37
 
 ]
 
@@ -2020,7 +2020,7 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 )
 No file Bachelorarbeit.ind.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 188.
-[37]
+[38]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 188.
  (./Bachelorarbeit.aux (./DeckHS.aux) (./eidHS.aux) (./kurzfass.aux)
 (./abstract.aux) (./dasa.aux) (./vowo.aux) (./einleit.aux) (./grundl.aux)
@@ -2028,7 +2028,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 188.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 188.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 188.
 Package rerunfilecheck Info: File `Bachelorarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 10E21EEB76586BFA3347EC37C4C86933;3858.
+(rerunfilecheck)             Checksum: ACCA7740A7805312F35C7D1072B199F3;3858.
 
 
 LaTeX Warning: There were undefined references.
@@ -2036,8 +2036,8 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 188.
  ) 
 Here is how much of TeX's memory you used:
- 19288 strings out of 492982
- 324020 string characters out of 6134895
+ 19287 strings out of 492982
+ 324005 string characters out of 6134895
  576508 words of memory out of 5000000
  21803 multiletter control sequences out of 15000+600000
  80637 words of font info for 468 fonts, out of 8000000 for 9000
@@ -2057,10 +2057,10 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Bachelorarbeit.pdf (45 pages, 1210415 bytes).
+Output written on Bachelorarbeit.pdf (46 pages, 1212378 bytes).
 PDF statistics:
- 673 PDF objects out of 1000 (max. 8388607)
- 588 compressed objects within 6 object streams
- 135 named destinations out of 1000 (max. 500000)
+ 675 PDF objects out of 1000 (max. 8388607)
+ 589 compressed objects within 6 object streams
+ 134 named destinations out of 1000 (max. 500000)
  39972 words of extra memory for PDF output out of 42996 (max. 10000000)
 
