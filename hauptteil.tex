@@ -346,29 +346,49 @@ Aufgrund der Wahl des zeitabhängigen Covert-Channel können folgende Schlüssel de
 
 Schlüssel zur Dateneinfiltration:
 
-\textbf{Manipuliere den Datenstrom des Trägerkanals so, dass die geheimen Daten kodiert werden.}
+\textit{Manipuliere den Datenstrom des Trägerkanals so, dass die geheimen Daten kodiert werden.}
 
 Schlüssel zur Datenexfiltration:
 
-\textbf{Lese die Zeitabstände der Datenpakete im Trägerkanal und dekodiere diese.}
+\textit{Lese die Zeitabstände der Datenpakete im Trägerkanal und dekodiere diese.}
 
 
 \subsection{Trägerkanal}
 Es wird ein Träger Kanal benötigt in diesen die geheimen Nachrichten eingebettet werden sollen.\\
 Für den gewählten Covert Channel kann prinzipiell jedes Netzwerkprotokoll verwendet werden. Da die Übertragung über Netzwerkgrenzen hinaus stattfinden soll muss mindestens das Internet Protokoll verwendet werden. 
 Die Verwendung von ICMP Paketen ist durch die Filterung von Firewalls nicht geeignet. Die verbleibenden und sinnvollen Möglichkeiten sind demnach entweder TCP oder UDP. Da immer nur ein Bit durch ein Datenpaket übertragen wird wird ein Datenstrom (Stream) mit vielen Datenpaketen benötigt.\\
-Die Entscheidung Beschränkt sich nun auf einen UDP oder TCP Stream. UDP hat das Problem das es sich hierbei um eine verbindungsloses Protokoll handelt und man nicht sicher sein kann, dass die Daten in der Richtigen Reihenfolge oder überhaupt ankommen. Durch die Verwendung eines zeitlichen Covert Channel muss zwingend ein System zur Sicherstellung der Integrität implementiert werden. Dies würde auch das Problem mit dem UDP Stream regeln.\\
-Bei einem TCP Stream wird ausschließlich TLS verwendet, wobei die Daten verschlüsselt werden. In dieser Arbeit, wo die Sicherheit nur durch die Steganographie garantiert werden soll, wäre so einen Verschlüsselung unnötig und würde auch eher Aufmerksamkeit auf sich lenken.\\
-Deshalb wird in diesem Projekt ein UDP Stream als Trägerkanal verwendet.
+Die Entscheidung Beschränkt sich nun auf einen UDP oder TCP Stream. UDP hat das Problem, dass es sich hierbei um eine verbindungsloses Protokoll handelt und man nicht sicher sein kann, dass die Daten in der Richtigen Reihenfolge oder überhaupt ankommen. Durch die Verwendung eines zeitlichen Covert Channel muss aber sowieso ein System zur Sicherstellung der Integrität implementiert werden.\\
+Auf der anderen Seite sind UDP Pakete selten geworden, da HTTP und somit die Webserver auf TCP aufbauen. Die Streams von Firmen wie Netflix oder YouTube basieren heute alle auf dem TCP/IP Stack.\\
+So ist die Verwendung eines TCP Streams die Beste Lösung, wobei die verbindungsorientierte Datenübertragung von TCP sich zusätzlich positiv auf die Zuverlässigkeit des Datenkanals auswirken wird.
 
 
 
+\section{Aufbau des Systems}
+
+In diesem Kapitel sollen die einzelnen Bausteine, die im vorhergehenden Abschnitt beschriebenen wurden, zu einem kompletten System zusammengefügt werden. Der Aufbau diesen Systems dient dann später als Struktur bei der Programmierung.\\
+Im allgemeinen können hier zwei Systeme entstehen, entweder ein System mit einem aktiven oder passiven Covert-Channel.
+
+\subsection{Aktiv}
+Soll ein aktiver Covert Channel erstellt werden, so ist der Sender gleichzeitig als Server realisiert. Dieser sendet aktiv Datenpakete an den Empfänger. Durch die Codierung, der geheimen Nachricht in die Zeitabstände zwischen den Paketen, gelangt die Information zum Empfänger.\\
 
 
+\subsection{Passiv}
+Bei der passiven Alternative verbindet sich der Empfänger über einen Proxy mit einem beliebigen Webserver, der einen konstanten Datenstrom generiert. Dies könnte zum Beispiel ein Video- oder Audiostream sein.\\
+Dieser Datenstrom läuft über den Proxy, der nun die Möglichkeit hat den Datenstrom zu manipulieren. Der Sender der geheimen Nachrichten nimmt in diesem System die Rolle des Proxys ein. Er muss die Daten nicht verändern sondern nur verzögern.
 
+\section{Kodierung und Dekodierung}
 
+\section{Wahrung der Integrität}
 
+\section{Optimierung}
 
+\section{Implementierung}
+
+\subsection{Aktiv}
+
+\subsection{Passiv}
+
+\section{Bewertung der Ergebnisse}
 
 \chapter{Etische Aspekte}
-
+vieleicht hinter Grundlagen 

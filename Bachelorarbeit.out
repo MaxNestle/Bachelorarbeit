@@ -49,8 +49,18 @@
 \BOOKMARK [2][-]{subsection.6.1.1}{Geheime Daten}{section.6.1}% 49
 \BOOKMARK [2][-]{subsection.6.1.2}{Steganografischer Schl\374ssel}{section.6.1}% 50
 \BOOKMARK [2][-]{subsection.6.1.3}{Tr\344gerkanal}{section.6.1}% 51
-\BOOKMARK [0][-]{chapter.7}{Etische Aspekte}{}% 52
-\BOOKMARK [0][-]{chapter.8}{Schlussbemerkungen und Ausblick}{}% 53
-\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 54
-\BOOKMARK [0][-]{chapter*.13}{Literatur}{}% 55
-\BOOKMARK [0][-]{chapter*.13}{Stichwortverzeichnis}{}% 56
+\BOOKMARK [1][-]{section.6.2}{Aufbau des Systems}{chapter.6}% 52
+\BOOKMARK [2][-]{subsection.6.2.1}{Aktiv}{section.6.2}% 53
+\BOOKMARK [2][-]{subsection.6.2.2}{Passiv}{section.6.2}% 54
+\BOOKMARK [1][-]{section.6.3}{Kodierung und Dekodierung}{chapter.6}% 55
+\BOOKMARK [1][-]{section.6.4}{Wahrung der Integrit\344t}{chapter.6}% 56
+\BOOKMARK [1][-]{section.6.5}{Optimierung}{chapter.6}% 57
+\BOOKMARK [1][-]{section.6.6}{Implementierung}{chapter.6}% 58
+\BOOKMARK [2][-]{subsection.6.6.1}{Aktiv}{section.6.6}% 59
+\BOOKMARK [2][-]{subsection.6.6.2}{Passiv}{section.6.6}% 60
+\BOOKMARK [1][-]{section.6.7}{Bewertung der Ergebnisse}{chapter.6}% 61
+\BOOKMARK [0][-]{chapter.7}{Etische Aspekte}{}% 62
+\BOOKMARK [0][-]{chapter.8}{Schlussbemerkungen und Ausblick}{}% 63
+\BOOKMARK [0][-]{appendix.A}{Ein Kapitel des Anhangs}{}% 64
+\BOOKMARK [0][-]{chapter*.13}{Literatur}{}% 65
+\BOOKMARK [0][-]{chapter*.13}{Stichwortverzeichnis}{}% 66

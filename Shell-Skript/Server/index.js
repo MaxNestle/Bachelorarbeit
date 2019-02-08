@@ -66,21 +66,24 @@ function getDataFromFile(){
 async function sendTime(){
 	while(1){
    		await sleep(1000);
-      console.log(timestaps);
 			for (i = 0; i < socken.length; i++) {
 				socken[i].emit('time', getTimeString());
 			}
 		}
 	}
 
+//checks every minute the timstaps for receiver
 async function checkTimestamps(){
   var min = getMinute();
   	while(1){
      		await sleep(1000);
-
         if (parseInt(getMinute()) == parseInt(min) + 1){
           min = getMinute();
           console.log("Checking timestaps");
+          for (i = 0; i < timestaps.length; i++) {
+            if(timestaps[i].time )
+            console.log(timestaps[i].time);
+          }
         }
   		}
 }
