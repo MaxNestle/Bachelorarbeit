@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  8 FEB 2019 12:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  8 FEB 2019 19:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -883,52 +883,52 @@ Package glossaries Info: Writing glossary file Bachelorarbeit.syg on input line
 \@input{gloss.aux}
 \openout2 = `gloss.aux'.
 
-(./gloss.tex) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(./gloss.tex) (/usr/share/texlive/texmf-dist/tex/latex/tabto-ltx/tabto.sty
+Package: tabto 2013/03/25  v 1.3  Another tabbing mechanism
+\CurrentLineWidth=\dimen142
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@cnth=\count143
 \Gm@cntv=\count144
 \c@Gm@tempcnt=\count145
-\Gm@bindingoffset=\dimen142
-\Gm@wd@mp=\dimen143
-\Gm@odd@mp=\dimen144
-\Gm@even@mp=\dimen145
-\Gm@layoutwidth=\dimen146
-\Gm@layoutheight=\dimen147
-\Gm@layouthoffset=\dimen148
-\Gm@layoutvoffset=\dimen149
+\Gm@bindingoffset=\dimen143
+\Gm@wd@mp=\dimen144
+\Gm@odd@mp=\dimen145
+\Gm@even@mp=\dimen146
+\Gm@layoutwidth=\dimen147
+\Gm@layoutheight=\dimen148
+\Gm@layouthoffset=\dimen149
+\Gm@layoutvoffset=\dimen150
 \Gm@dimlist=\toks36
-)
-(/usr/share/texlive/texmf-dist/tex/latex/tabto-ltx/tabto.sty
-Package: tabto 2013/03/25  v 1.3  Another tabbing mechanism
-\CurrentLineWidth=\dimen150
 )
 (./Bachelorarbeit.aux (./DeckHS.aux) (./eidHS.aux) (./kurzfass.aux)
 (./abstract.aux) (./dasa.aux) (./vowo.aux) (./einleit.aux) (./grundl.aux)
 (./hauptteil.aux) (./schluss.aux) (./anhang.aux))
 \openout1 = `Bachelorarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 132.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 132.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 133.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 133.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -962,7 +962,7 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 132.
+LaTeX Info: Redefining \microtypecontext on input line 133.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -978,7 +978,7 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 \AtBeginShipoutBox=\box39
-Package hyperref Info: Link coloring OFF on input line 132.
+Package hyperref Info: Link coloring OFF on input line 133.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -989,15 +989,15 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 \c@section@level=\count152
 LaTeX Info: Redefining \Ref on input line 515.
 )
-LaTeX Info: Redefining \ref on input line 132.
-LaTeX Info: Redefining \pageref on input line 132.
-LaTeX Info: Redefining \nameref on input line 132.
+LaTeX Info: Redefining \ref on input line 133.
+LaTeX Info: Redefining \pageref on input line 133.
+LaTeX Info: Redefining \nameref on input line 133.
 
 (./Bachelorarbeit.out) (./Bachelorarbeit.out)
 \@outlinefile=\write8
 \openout8 = `Bachelorarbeit.out'.
 
-LaTeX Info: Redefining \Ref on input line 132.
+LaTeX Info: Redefining \Ref on input line 133.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1049,7 +1049,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
 
-<bilder/HSLogoWGd.jpg, id=268, 322.0833pt x 125.5089pt>
+<bilder/HSLogoWGd.jpg, id=280, 322.0833pt x 125.5089pt>
 File: bilder/HSLogoWGd.jpg Graphic file (type jpg)
 <use bilder/HSLogoWGd.jpg>
 Package pdftex.def Info: bilder/HSLogoWGd.jpg  used on input line 16.
@@ -1098,7 +1098,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
 ]
 Package tocbasic Info: character protrusion at toc deactivated on input line 14
-4.
+5.
  (./Bachelorarbeit.tocpdfTeX warning (ext4): destination with the same identifi
 er (name{page.I}) has been already used, duplicate ignored
 <to be read again> 
@@ -1111,7 +1111,7 @@ l.32 ... Passive Covert Channels}{14}{section.3.3}
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.71 ...{\nonumberline Literatur}{38}{chapter*.13}
+l.72 ...ssbemerkungen und Ausblick}{38}{chapter.8}
                                                    [2])
 \tf@toc=\write9
 \openout9 = `Bachelorarbeit.toc'.
@@ -1216,7 +1216,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 87--89
  []
 
 [9]
-<bilder/Ethernet.png, id=440, 1376.14125pt x 248.93pt>
+<bilder/Ethernet.png, id=455, 1376.14125pt x 248.93pt>
 File: bilder/Ethernet.png Graphic file (type png)
 <use bilder/Ethernet.png>
 Package pdftex.def Info: bilder/Ethernet.png  used on input line 109.
@@ -1226,13 +1226,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
  []
 
-<bilder/ipv4.png, id=444, 1559.8275pt x 807.015pt>
+<bilder/ipv4.png, id=459, 1559.8275pt x 807.015pt>
 File: bilder/ipv4.png Graphic file (type png)
 <use bilder/ipv4.png>
 Package pdftex.def Info: bilder/ipv4.png  used on input line 128.
 (pdftex.def)             Requested size: 329.95355pt x 170.71652pt.
 [10 <./bilder/Ethernet.png (PNG copy)>]
-<bilder/ipv6.png, id=457, 1544.77126pt x 636.3775pt>
+<bilder/ipv6.png, id=473, 1544.77126pt x 636.3775pt>
 File: bilder/ipv6.png Graphic file (type png)
 <use bilder/ipv6.png>
 Package pdftex.def Info: bilder/ipv6.png  used on input line 145.
@@ -1256,20 +1256,20 @@ chapter 4.
 [15
 
 ]
-<bilder/timing.png, id=490, 1198.4775pt x 823.075pt>
+<bilder/timing.png, id=505, 1198.4775pt x 823.075pt>
 File: bilder/timing.png Graphic file (type png)
 <use bilder/timing.png>
 Package pdftex.def Info: bilder/timing.png  used on input line 70.
 (pdftex.def)             Requested size: 414.29811pt x 284.52756pt.
  [16 <./bilder/timing.png (PNG copy)>]
-<bilder/Zeitacuracyzusammenhang.png, id=504, 1270.7475pt x 869.2475pt>
+<bilder/Zeitacuracyzusammenhang.png, id=519, 1270.7475pt x 869.2475pt>
 File: bilder/Zeitacuracyzusammenhang.png Graphic file (type png)
 <use bilder/Zeitacuracyzusammenhang.png>
 Package pdftex.def Info: bilder/Zeitacuracyzusammenhang.png  used on input line
  86.
 (pdftex.def)             Requested size: 415.95471pt x 284.52756pt.
  [17 <./bilder/Zeitacuracyzusammenhang.png (PNG copy)>] [18] [19] [20]
-<bilder/protoChannel.png, id=538, 1155.31625pt x 831.105pt>
+<bilder/protoChannel.png, id=553, 1155.31625pt x 831.105pt>
 File: bilder/protoChannel.png Graphic file (type png)
 <use bilder/protoChannel.png>
 Package pdftex.def Info: bilder/protoChannel.png  used on input line 175.
@@ -1280,7 +1280,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 180--182
  []
 
 [21 <./bilder/protoChannel.png (PNG copy)>]
-<bilder/protoHopingChan.png, id=547, 1348.03625pt x 851.18pt>
+<bilder/protoHopingChan.png, id=562, 1348.03625pt x 851.18pt>
 File: bilder/protoHopingChan.png Graphic file (type png)
 <use bilder/protoHopingChan.png>
 Package pdftex.def Info: bilder/protoHopingChan.png  used on input line 195.
@@ -1289,7 +1289,7 @@ Package pdftex.def Info: bilder/protoHopingChan.png  used on input line 195.
 
 LaTeX Warning: Reference `fig:fig4' on page 24 undefined on input line 220.
 
-<bilder/stgRGB.jpg, id=564, 994.71625pt x 597.23125pt>
+<bilder/stgRGB.jpg, id=580, 994.71625pt x 597.23125pt>
 File: bilder/stgRGB.jpg Graphic file (type jpg)
 <use bilder/stgRGB.jpg>
 Package pdftex.def Info: bilder/stgRGB.jpg  used on input line 224.
@@ -1337,16 +1337,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 372--373
 
  []
 
-[32] [33]
+<bilder/Activ.png, id=626, 1927.2pt x 1084.05pt>
+File: bilder/Activ.png Graphic file (type png)
+<use bilder/Activ.png>
+Package pdftex.def Info: bilder/Activ.png  used on input line 376.
+(pdftex.def)             Requested size: 404.63573pt x 227.62204pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<bilder/Passiv.png, id=628, 1927.2pt x 1084.05pt>
+File: bilder/Passiv.png Graphic file (type png)
+<use bilder/Passiv.png>
+Package pdftex.def Info: bilder/Passiv.png  used on input line 390.
+(pdftex.def)             Requested size: 404.63573pt x 227.62204pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[32] [33 <./bilder/Activ.png> <./bilder/Passiv.png>]
+<bilder/Raster.png, id=643, 1927.2pt x 1084.05pt>
+File: bilder/Raster.png Graphic file (type png)
+<use bilder/Raster.png>
+Package pdftex.def Info: bilder/Raster.png  used on input line 413.
+(pdftex.def)             Requested size: 404.63573pt x 227.62204pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<bilder/Morse.png, id=645, 1725.44624pt x 716.6775pt>
+File: bilder/Morse.png Graphic file (type png)
+<use bilder/Morse.png>
+Package pdftex.def Info: bilder/Morse.png  used on input line 427.
+(pdftex.def)             Requested size: 411.00883pt x 170.71652pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[34] [35 <./bilder/Raster.png> <./bilder/Morse.png (PNG copy)>] [36]
 chapter 7.
-) [34
+) [37
 
 ]
 \openout2 = `schluss.aux'.
 
  (./schluss.tex
 chapter 8.
-) [35
+) [38
 
 
 
@@ -1355,7 +1389,7 @@ chapter 8.
 
  (./anhang.tex
 chapter A.
-) [36
+) [39
 
 
 
@@ -1363,7 +1397,7 @@ chapter A.
 No file Bachelorarbeit.gls.
 No file Bachelorarbeit.acr.
 No file Bachelorarbeit.syi.
-(./Bachelorarbeit.bbl [37
+(./Bachelorarbeit.bbl [40
 
 ]
 chapter without number
@@ -1775,7 +1809,7 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              `\sc' yourself you should replace it, e.g., by
 (scrbook)              `\normalfont \scshape ' on input line 58.
 
-[38
+[41
 
 ]
 
@@ -2023,27 +2057,27 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 
 )
 No file Bachelorarbeit.ind.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 188.
-[39]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 188.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 189.
+[42]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 189.
  (./Bachelorarbeit.aux (./DeckHS.aux) (./eidHS.aux) (./kurzfass.aux)
 (./abstract.aux) (./dasa.aux) (./vowo.aux) (./einleit.aux) (./grundl.aux)
 (./hauptteil.aux) (./schluss.aux) (./anhang.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 188.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 188.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 189.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 189.
 Package rerunfilecheck Info: File `Bachelorarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 9FE49676A78EFE7C01D1E585E27FDDDA;4496.
+(rerunfilecheck)             Checksum: 8C828028D481C6A1175B398C655D2A42;4738.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 188.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 189.
  ) 
 Here is how much of TeX's memory you used:
- 19316 strings out of 492982
- 324356 string characters out of 6134895
- 578508 words of memory out of 5000000
- 21813 multiletter control sequences out of 15000+600000
+ 19353 strings out of 492982
+ 324924 string characters out of 6134895
+ 578740 words of memory out of 5000000
+ 21836 multiletter control sequences out of 15000+600000
  81307 words of font info for 474 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,11n,66p,8892b,567s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2061,10 +2095,10 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Bachelorarbeit.pdf (48 pages, 1216080 bytes).
+Output written on Bachelorarbeit.pdf (51 pages, 1363420 bytes).
 PDF statistics:
- 737 PDF objects out of 1000 (max. 8388607)
- 648 compressed objects within 7 object streams
- 146 named destinations out of 1000 (max. 500000)
- 40052 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 783 PDF objects out of 1000 (max. 8388607)
+ 683 compressed objects within 7 object streams
+ 156 named destinations out of 1000 (max. 500000)
+ 40120 words of extra memory for PDF output out of 42996 (max. 10000000)
 

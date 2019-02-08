@@ -369,14 +369,68 @@ In diesem Kapitel sollen die einzelnen Bausteine, die im vorhergehenden Abschnit
 Im allgemeinen können hier zwei Systeme entstehen, entweder ein System mit einem aktiven oder passiven Covert-Channel.
 
 \subsection{Aktiv}
-Soll ein aktiver Covert Channel erstellt werden, so ist der Sender gleichzeitig als Server realisiert. Dieser sendet aktiv Datenpakete an den Empfänger. Durch die Codierung, der geheimen Nachricht in die Zeitabstände zwischen den Paketen, gelangt die Information zum Empfänger.\\
+Soll ein aktiver Covert Channel erstellt werden, so ist der Sender gleichzeitig als Server realisiert. Dieser sendet aktiv Datenpakete an den Empfänger. Durch die Codierung, der geheimen Nachricht in die Zeitabstände zwischen den Paketen, gelangt die Information zum Empfänger. In \textit{Abbildung 6.1} wird dieses System vereinfacht dargestellt.\\
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=8cm]{bilder/Activ.png}
+	\caption{Aufbau eines aktiven Systems}
+	\label{fig9}
+\end{figure}
 
 
 \subsection{Passiv}
+
+
 Bei der passiven Alternative verbindet sich der Empfänger über einen Proxy mit einem beliebigen Webserver, der einen konstanten Datenstrom generiert. Dies könnte zum Beispiel ein Video- oder Audiostream sein.\\
 Dieser Datenstrom läuft über den Proxy, der nun die Möglichkeit hat den Datenstrom zu manipulieren. Der Sender der geheimen Nachrichten nimmt in diesem System die Rolle des Proxys ein. Er muss die Daten nicht verändern sondern nur verzögern.
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=8cm]{bilder/Passiv.png}
+	\caption{Aufbau eines passiven Systems}
+	\label{fig10}
+\end{figure}
+
+
+
 \section{Kodierung und Dekodierung}
+
+Der folgende Abschnitt beschäftigt sich damit, wie die Daten in den Trägerkanal codiert werden können indem nur der Zeitpunk des Versendens manipuliert wird.\\
+Folgend werden zwei Methoden vorgestellt, die zur Kodierung der Binärdaten in frage kommen.
+
+
+\subsection{Mit festen Zeitrastern}
+
+Das in \cite{cabuk2004ip} vorgestellte Verfahren basiert auf einer Generierung von Zeitintervallen. Diese werden sowohl beim Sender und Empfänger erstellt. Dabei haben die Intervalle des Empfängers einen zeitlichen Offset der ungefähr der Übertragungsdauer entspricht. Dies dient dazu, dass Pakete die vom Sender abgesendet werden beim Empfänger im gleichen Intervall ankommen.
+Nachdem Sender und Empfänger synchronisiert sind, kann man mit der Datenübertragung starten.
+Dabei wird ein Paket, dass in einem Zeitintervall ankommt als binäre 1 interpretiert. Kommt kein Paket so wird eine 0 geschrieben.
+Durch die Wahl längerer Zeitintervalle kann die Fehleranfälligkeit verringert werden, wobei jedoch die Übertragungsgeschwindigkeit ebenfalls abnimmt.\\
+Für diese Art der Codierung ist es unabdingbar, dass die Uhren von Sender und Empfänger möglichst genau übereinstimmen.\\ Zur Veranschaulichung ist die Kodierung in \textit{Abbildung 6.3} dargestellt.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=8cm]{bilder/Raster.png}
+	\caption{Kodierung mit festen Zeitrastern}
+	\label{fig11}
+\end{figure}
+
+
+\subsection{Basierend auf den Paketabständen}
+
+Zur Kodierung kann ebenso die Veränderung der Paketabstände benutzt werden. Hierzu wird zwischen einer kleinen oder großen Pause zwischen zwei Nachrichten unterschieden. Eine große Pause wird als binäre 1 interpretiert eine kleine Pause als 0.\\
+Je nachdem wie gut die Netzwerkbedingungen sind kann hier durch eine gezielte Verkleinerung der Pausen eine Erhöhung der Übertragungsgeschwindigkeit generiert werden. Durch eine Verlängerung dieser Pausend sinkt jedoch die Fehleranfälligkeit.\\
+Zu sehen ist diese Art der Kodierung in \textit{Abbildung 6.4}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=6cm]{bilder/Morse.png}
+	\caption{Kodierung anhand der Paketabständen}
+	\label{fig12}
+\end{figure}
+
+\subsection{Bewertung der Kodierung}
+Bei der Kodierung mit Zeitrastern muss sich um die Synchronisierung gekümmert werden. Außerdem gilt es den Offset passend zu wählen. Diese Methode hat ebenfalls den Vorteil, dass zum Senden einer 0 keine Nachricht benötigt wird. Kommt es jedoch zu Fehlern im Offset oder zu plötzlichen Übertragungsschwankung ist dieses System sehr Anfällig da die Nachrichten in andere Zeitintervalle hineingeraten.
 
 \section{Wahrung der Integrität}
 
