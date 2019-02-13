@@ -3,12 +3,15 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var fs = require('fs');
 var bits = require('buffer-bits');
+var hammingCode = require('hamming-code');
 var socken = [];
 var proxySocket = '';
 var receiverSocket = '';
 var timestaps = [];
 var dataBits;
 
+console.log("Encode 10111011: ", hammingCode.encode("10111011"));
+console.log("Decode 001101111011: ", hammingCode.decode("001101101011"))
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
