@@ -35,7 +35,9 @@ Hierzu können Hash-Funktionen verwendet werden, die beim Verändern der Nachricht
 Der Dritte Punkt ist die Verfügbarkeit. Es soll immer sichergestellt wer, dass Daten aber auch Programm immer abrufbar sind. Hierzu gehören Mechanismen zur Vermeidung von DoS (Denial of Service) Angriffen. Diese Angriffe würden beispielsweise einen Server so überfordern, dass dieser keine Dateien mehr ausliefern kann - die Verfügbarkeit ist dann nicht mehr gewährleistet.
 
 \subsection{Authentizität} 
-Die Authentizität bestätigt, dass Daten von der angegeben Informationsquelle stammen. Es ist ein Identitätsbeweis des Absenders gegenüber dem Empfängers.\\ Dies kann zum Beispiel mit einer Public-Key Verschlüsselung realisiert werden. So kann der Sender die Nachrichten mit seinem Public-Key verschlüsseln und jeder im Besitz des Public-Keys kann bestätigen, dass die Nachricht genau von dieser Person kommt.
+Die Authentizität bestätigt, dass Daten von der angegeben Informationsquelle stammen. Es ist ein Identitätsbeweis des Absenders gegenüber dem Empfängers.\\ Dies kann zum Beispiel mit einer Public-Key Verschlüsselung realisiert werden. So kann der Sender die Nachrichten mit seinem Private-Key verschlüsseln und jeder im Besitz des Public-Keys kann bestätigen, dass die Nachricht genau von dieser Person kommt.
+
+%TODO public private key
 
 \section{Kryptographie}
 Kryptographie bedeutet ,,wörtlich: Die Lehre vom Geheimen schreiben'' \cite{hellmann2018sicherheit} und beschäftigt sich mit der mathematischen Verschlüsselung von Informationen. Dabei gibt es zwei große Verschlüsselungsarten - die Symmetrischen und die Asymmetrischen Verschlüsselungen. Bei beiden Verfahren wird durch einen Schlüssel (meistens eine Zahl) und einem Algorithmus aus einer lesbaren Information eine Unlesbare.
@@ -43,6 +45,8 @@ Um dies wieder Rückgängig zu machen wird ebenfalls ein Schlüssel und ein Algorit
 Eine der wichtigsten Grundprinzipien der Kryptographie wurde bereits im 19. Jahrhundert von A.Kerkhoffs aufgestellt. Eine der wichtigsten Ausagen hierbei ist, dass die Sicherheit einer Verschlüsselung nicht von dem Verschlüsselungsalgorithmus, sondern allein von dem Schlüssel abhängig sein soll. Das heißt, dass ein guter Verschlüsselungsalgorithmus öffentlich gemacht werden kann, ohne die Sicherheit zu gefährden.
 Ein Beispiel ist der RSA Algorithmus. Dies ist einer der heute verbreitetsten Algorithmen. Der Algorithmus ist für jeden öffentlich zugänglich, dies hat aber keine Auswirkung auf die Sicherheit, da die Sicherheit allein auf der Geheimhaltung des Passwortes basiert.\\
 Dies hat zum Beispiel auch den Vorteil, dass bei einem Personalwechsel nicht der ganze Algorithmus ausgetauscht werden muss, sondern nur das Password. 
+
+%TODO kerkhoff quelle
 
 \section{Symmetrische Verschlüsselung}
 
@@ -53,12 +57,12 @@ $D_k(C) = M$
 
 \cite{ertel2001angewandte}
 
-Der Schlüssel K wird dazu verwendet die Nachricht zu verschlüsseln und Entschlüsseln. Das Problem bei symmetrischen Verschlüsselungen ist die Schlüsselübertragung, die auf jeden Fall geheim stattfinden muss.
+Der Schlüssel $k$ wird dazu verwendet die Nachricht zu ver- und entschlüsseln. Das Problem bei symmetrischen Verschlüsselungen ist die Schlüsselübertragung, die auf jeden Fall geheim stattfinden muss.
 Bekannte Beispiele sind der DES und AES.
 
 \section{Asymmetrische Verschlüsselung}
 
-Bei einer asymmetrisch Verschlüsselung hat man zum verschlüsseln einen anderen Schlüssel wie zum entschlüsseln. Dieses System wird ,,Public-Key-Kryptographie'' genannt, da es einen öffentlichen (K1) und einen privaten Schlüssel (K2) gibt. Dabei wird der K1 zum Verschlüsseln verwendet und K2 zum Entschlüsseln.
+Bei einer asymmetrisch Verschlüsselung hat man zum verschlüsseln einen anderen Schlüssel wie zum entschlüsseln. Dieses System wird ,,Public-Key-Kryptographie'' genannt, da es einen öffentlichen ($k1$) und einen privaten Schlüssel ($k2$) gibt. Dabei wird der $k1$ zum Verschlüsseln verwendet und $k2$ zum Entschlüsseln.
 
 $E_{k1} (M) = C$\\
 $D_{k2}(C) = M$
@@ -68,30 +72,31 @@ $D_{k2}(C) = M$
 
 Dieses System löst das Problem der Schlüsselübergabe, da der öffentliche Schlüssel ohne Bedenke an den Kommunikationspartner übertragen werden kann. Bei einem Möglichen Angriff kann der Angreifer mit dem Schlüssel nichts anfangen, da er mit ihm nicht entschlüsseln kann. Nur der private Schlüssel, der geheim bleibt und nicht versendet wird, kann dann die Entschlüsselte Nachricht dechiffrieren.\\
 Diese Art von Algorithmus kann so auch zur Authentifizierung eingesetzt werden.
-Bekannte Asymmetrische Verschlüsselungen sind der RSA-Algorithmus, der Algorithmus von Diffi und Hellmann oder Algorithmus von ElGamal.
+Bekannte Asymmetrische Verschlüsselungen sind der RSA-Algorithmus, der Algorithmus von Diffi und Hellmann oder der Algorithmus von ElGamal.
 
 
 
 \section{Steganographie}
 
 Die Steganographie ist die Kunst vom verborgenem Schreiben. Je nachdem welche Literatur man verwendet wird die Steganographie als Unterpunkt der Kryptographie oder als einen eigene Disziplin gesehen. In dieser Arbeit wird die Steganographie eigenständig betrachtet und als alternative zur Kryptographie gesehen.\\
-Beide, die Kryptographie und die Steganographie, sind Möglichkeiten Informationen geheim und von Dritten ungesehen zu übertragen. Wie bereits oben beschrieben beschäftigt sich die Kryptographie mit dem verschlüsseltem Schreiben. Die Steganographie hingegen benutzt keine Verschlüsselung, sondern versucht die geheime Information in einem unauffälligem oder legitimiertem Informationskanal zu verstecken.\\
+Beide, die Kryptographie und die Steganographie, sind Möglichkeiten Informationen geheim und von Dritten ungesehen zu übertragen. Wie bereits oben beschrieben beschäftigt sich die Kryptographie mit dem verschlüsseltem Schreiben. Die Steganographie hingegen benutzt keine Verschlüsselung, sondern versucht die geheime Information in einem unauffälligem oder legitimiertem Informationskanal zu verstecken.\\\\
 Wie von Peter Purgathofer \cite{purgathofer2010kurze} beschrieben hat die Steganographie eine große Bedeutung in der Geschichte, denn die Menschen waren gerade in Kriegszeiten schon immer auf der Suche nach einem sicher Weg Informationen zu übertragen.\\ So hat zum Beispiel der griechisch Spion Demaratos Wachstafeln dazu benutzt um Informationen zu verschicken. Nur hat er die nicht ins Wachs geschrieben sondern in das darunterliegende Holz.\\
 Ebenfalls soll Histiaeus, der Tyrann von Milet, seine geheimen Nachrichten auf die Schädel der Sklaven tätowiert haben. Die Haare wuchsen nach und die Nachricht war verborgen.\\
-Es gibt noch viele andere Beispiel Angefangen von unsichtbarer Tinte bis hin zu Morsezeichen in Gemälden, aber vor allem Künstlern wurde oft vorgeworfen, mit Hilfe von Steganographie Geheime Nachrichten zu verbreiten. So wurde zu Beispiel Mozart immer wieder beschuldigt freibeuterische Nachrichten  in der ,,Zauberflöte'' versteckt zu haben.\\
-Die Beispiele der Geschichte zeigen deutlich wie die Steganographie funktioniert: Es gibt immer eine unauffällige Trägernachricht (Wachstafel, Sklave, Gemälde, Musikstück... ).\\ In diese Trägernachricht wie die geheime Nachricht versteckt (Unter Wach oder Haaren, Blickwinkel auf das Gemälde, Notenreihenfolge...)\\ Um die Nachricht zu entschlüsseln benötigt der Empfänger nur die Information wo sich die Nachricht befindet beziehungsweise wie sie versteckt wird.
+Es gibt noch viele andere Beispiel Angefangen von unsichtbarer Tinte bis hin zu Morsezeichen in Gemälden, aber vor allem Künstlern wurde oft vorgeworfen, mit Hilfe von Steganographie Geheime Nachrichten zu verbreiten. So wurde zum Beispiel Mozart immer wieder beschuldigt freibeuterische Nachrichten  in der ,,Zauberflöte'' versteckt zu haben.\\
+
+Die Beispiele der Geschichte zeigen deutlich wie die Steganographie funktioniert: Es gibt immer eine unauffällige Trägernachricht (Wachstafel, Sklave, Gemälde, Musikstück... ).\\ In diese Trägernachricht wie die geheime Nachricht versteckt (Unter Wachs oder Haaren, Blickwinkel auf das Gemälde, Notenreihenfolge...)\\ Um die Nachricht zu entschlüsseln benötigt der Empfänger nur die Information wo sich die Nachricht befindet beziehungsweise wie sie versteckt wird.
 Das Schema von Gary C. Kessler \cite{Steg} macht dieses Prinzip sehr anschaulich:
 
  \textit{Steganographisches Medium = Geheime Nachricht + Träger Nachricht + Steganografischer Schlüssel}\\
  
 Dabei darf der Steganografische Schlüssel nicht mit dem aus der Kryptographie verwechselt werden. Es handelt sich hier mehr um das Wissen wo und wie die geheime Nachricht verborgen ist.\\
-Dabei bedient sich die Steganographie der ,,Security by Obscurity'' (Sicherheit durch Unwissenheit), was bedeutet, dass die Sicherheit allein davon abhängt, ob das Geheimhaltungsverfahren unbekannt bleibt. Übrigens gehören kryptographische Verfahren die nicht unter Kerkhoffs Prinzip fallen auch zu ,,Security by Obscurity''. Will man also ein solches System sicherer machen muss man dafür sorgen, dass das Verfahren so abwegig beziehungsweise obskur gestalten wird sodass nie jemand auf die Idee kommt nach einer geheimen Nachricht zu suchen\\
+Dabei bedient sich die Steganographie der ,,Security by Obscurity'' (Sicherheit durch Unwissenheit), was bedeutet, dass die Sicherheit allein davon abhängt, ob das Geheimhaltungsverfahren unbekannt bleibt. Übrigens gehören kryptographische Verfahren die nicht unter Kerkhoffs Prinzip fallen auch zu ,,Security by Obscurity''. Will man also ein solches System sicherer machen muss man dafür sorgen, dass das Verfahren so abwegig beziehungsweise obskur gestalten wird, sodass nie jemand auf die Idee kommt nach einer geheimen Nachricht zu suchen\\
 
-Die Steganographie hat in der Geschichte eine relativ einfache aber sichere Methode geboten Nachrichten zu übertragen. Aber auch heute mit dem Internet sind wir nahezu immer von Datenkanälen umgeben die sich für die steganographische Datenübertragung eignen. Der Vorteil hierbei ist, dass meistens unter den ganzen kryptographisch verschlüsselten Datenpaketen die Steganographie vergessen wird.
+Die Steganographie hat in der Geschichte eine relativ einfache aber sichere Methode geboten Nachrichten zu übertragen. Aber auch heute im Internet sind wir nahezu immer von Datenkanälen umgeben, die sich für die steganographische Datenübertragung eignen. Der Vorteil hierbei ist, dass meistens unter den ganzen kryptographisch verschlüsselten Datenpaketen die Steganographie vergessen wird.
 
 \section{Internet Protokolle}
 
-Im den folgenden Kapiteln soll kurz das OSI-Schichtenmodell, auf welches das heutige Internet aufbaut, erklärt werden. Dabei repräsentiert jede Schicht eine Protokoll, das für die Kommunikation im Internet nötig ist. \\
+In den folgenden Kapiteln soll kurz das OSI-Schichtenmodell, auf welches das heutige Internet aufbaut, erklärt werden. Dabei repräsentiert jede Schicht eine Protokoll, das für die Kommunikation im Internet nötig ist. \\
 Es werden nur die Protokolle betrachtet, die für dieses Projekt relevant sind. 
 
 \subsection{Sicherungsschicht/Data Link Layer (Schicht 2)}
@@ -134,13 +139,13 @@ Das Internet Protokoll wird wie in folgender Abbildung gezeigt in das Ethernet P
 
 \subsubsection{IPv6}
 
-Da die IPv4 langsam knapp werden, wurde das IPv6 Protokoll erstellt, welches über Adressen mit 6 Byte Länge verfügt. Dies bedeutet, dass deutlich mehr Adressen erstellt und vergen werden können.
+Da die IPv4 Adressen langsam knapp werden, wurde das IPv6 Protokoll erstellt, welches über Adressen mit 6 Byte Länge verfügt. Dies bedeutet, dass deutlich mehr Adressen erstellt und vergeben werden können.
 Die Funktion ist aber mehr oder weniger die gleiche.
 
-Das IPv6 Internet Protokoll ist in folgender Abbildung gezeigt.
+Der Header des IPv6 Protokolls ist in folgender Abbildung gezeigt.
 
 
-\begin{figure}[ht]
+\begin{figure}[h!]
 	\centering
 	\includegraphics*[height=5cm]{bilder/ipv6.png}
 	\caption{IPv6 Header \cite{zisler2013computer}}

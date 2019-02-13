@@ -15,45 +15,45 @@ A level-1 auxiliary file: anhang.aux
 The style file: geralpha.bst
 Database file #1: bib.bib
 Warning--empty journal in goltz2003covert
-You've used 18 entries,
+You've used 19 entries,
             2768 wiz_defined-function locations,
-            717 strings with 8123 characters,
-and the built_in function-call counts, 6319 in all, are:
-= -- 644
-> -- 211
-< -- 16
-+ -- 66
-- -- 62
-* -- 412
-:= -- 965
-add.period$ -- 40
-call.type$ -- 18
-change.case$ -- 79
-chr.to.int$ -- 17
-cite$ -- 19
-duplicate$ -- 302
-empty$ -- 550
-format.name$ -- 93
-if$ -- 1391
+            724 strings with 8400 characters,
+and the built_in function-call counts, 6619 in all, are:
+= -- 676
+> -- 219
+< -- 17
++ -- 68
+- -- 64
+* -- 428
+:= -- 1010
+add.period$ -- 43
+call.type$ -- 19
+change.case$ -- 83
+chr.to.int$ -- 18
+cite$ -- 20
+duplicate$ -- 315
+empty$ -- 578
+format.name$ -- 97
+if$ -- 1459
 int.to.chr$ -- 2
 int.to.str$ -- 0
 missing$ -- 19
-newline$ -- 78
-num.names$ -- 54
-pop$ -- 142
+newline$ -- 83
+num.names$ -- 57
+pop$ -- 151
 preamble$ -- 1
-purify$ -- 115
+purify$ -- 121
 quote$ -- 0
-skip$ -- 262
+skip$ -- 274
 stack$ -- 0
-substring$ -- 243
-swap$ -- 75
-text.length$ -- 16
-text.prefix$ -- 13
+substring$ -- 250
+swap$ -- 78
+text.length$ -- 17
+text.prefix$ -- 14
 top$ -- 0
-type$ -- 128
+type$ -- 136
 warning$ -- 1
-while$ -- 52
-width$ -- 21
-write$ -- 212
+while$ -- 54
+width$ -- 22
+write$ -- 225
 (There was 1 warning)

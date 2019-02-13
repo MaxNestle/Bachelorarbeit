@@ -63,7 +63,7 @@ Durch diese Verfahren lassen sich Covert-Channel konstruieren indem ein solcher 
 \section{Zeitabhängige Covert-Chanel}
 
 Bei zeitabhängigen Covert-Channel werden die Daten so versendet, dass der Absendezeitpunkt oder der Abstand zwischen den Paketen die Information enthält. Dabei ähnelt dieses Verfahren dem in der Vergangenheit oft eingesetzten Morse Code. Hingegen beschränkt man sich bei diesen Covert-Channel meistens auf Binärdaten.\\
-In der Abbildung unten sieht man einen beispielhaften Aufbau dieses Versteckten Kanals.
+In der Abbildung unten sieht man einen beispielhaften Aufbau dieses versteckten Kanals.
 
 \begin{figure}[ht]
 	\centering
@@ -88,11 +88,11 @@ Eine andere Methode bei der die Integrität jedoch nicht vollständig garantiert, 
 	\label{fig6}
 \end{figure}
 
-Die Datenübertragung über diesen Channel ist mit einem Bit einem Bit pro Paket relativ gering. Die Datenübertragung ist hier aber auch direkt vom verwendeten Zeitintervall abhängig. Deshalb gilt es einen möglichst kleinen Zeitintervall zu wählen und diesen variabel optimal an die herrschenden Netzwerkbedingungen anzupassen. \\
-Die Problematik ist hier, mit der Reduzierung des Netzwerkhinteralls die Fehleranfälligkeit ebenfalls zunimmt.
+Die Datenübertragung über diesen Channel ist mit einem Bit pro Paket relativ gering. Die Datenübertragung ist hier aber auch direkt vom verwendeten Zeitintervall abhängig. Deshalb gilt es einen möglichst kleinen Zeitintervall zu wählen und diesen variabel, optimal an die herrschenden Netzwerkbedingungen anzupassen. \\
+Die Problematik ist hier, dass mit der Reduzierung des Netzwerkhinteralls die Fehleranfälligkeit ebenfalls zunimmt.
 
 Abbildung 4.2 zeigt, wie das gewählte Zeitintervall und die Genauigkeit zusammenhängen. So lässt sich ab einer langsamen Datenübertragung mit einem Intervall von 0.05 Sekunden eine Genauigkeit von ca. 100 Prozent garantieren. Wobei diese Zahlen mit Vorsicht zu genießen  sind da sie sehr stark vom jeweiligen Netzwerk abhängig sind.
-Der Ersteller dieser Grafik\cite{cabuk2004ip} hat ebenfalls einen einen Wert $k$ in seine Implementierung eingebaut, der die Länge einer Pause angibt, die bei einer Übertragungsverzögerung eingelegt werden kann. Diese Verbessert zwar die Genauigkeit der Datenübertragung die Geschwindigkeit wird aber erheblich reduziert.
+Der Ersteller dieser Grafik\cite{cabuk2004ip} hat ebenfalls einen Wert $k$ in seine Implementierung eingebaut, der die Länge einer Pause angibt, die bei einer Übertragungsverzögerung eingelegt werden kann. Diese Verbessert zwar die Genauigkeit der Datenübertragung die Geschwindigkeit wird aber erheblich reduziert.
 
 Bei dieser Art von Covert-Channel kann jedes beliebige Protokoll eingesetzt werden. Es bietet sich aber an die Protokolle auf den umliegenden Netzwerkverkehr anzupassen um ihn so unauffällig wie möglich zu machen.
 
@@ -117,14 +117,14 @@ Bietet 16 Bits die theoretisch frei wählbar sind. (16 Bits)
 Das erste Bit der Flags ist für zukünftige Benutzung reserviert und ist derzeit noch unbenutzt. (1 Bit)
 
 \textbf{Fragment Offset} \\
-Der Fragment Offset wird dazu verwendet um Pakete nach einer Fragmentierung wieder zusammenzusetzen. Geht man davon aus, dass die Paket Fragmente sich frei konfigurieren lassen bietet sich die Chance 13 Bit zu verwenden. Dies ist aber fast unmöglich zu realisieren. (< 13 Bit)
+Der Fragment Offset wird dazu verwendet, um Pakete nach einer Fragmentierung wieder zusammenzusetzen. Geht man davon aus, dass die Paket Fragmente sich frei konfigurieren lassen bietet sich die Chance 13 Bit zu verwenden. Dies ist aber fast unmöglich zu realisieren. (< 13 Bit)
 
 \textbf{Time to Live} \\
 Dieses 8 Bit Feld lässt sich frei wählen. Jedoch muss man bei der Benutzung wissen, wie viele Netzwerkstationen, die dieses Feld herunterzählen, auf dem Weg liegen. Auch ein zu kleiner Wert kann dazu führen, dass die Nachricht nicht ankommt.
 (< 8 Bit)
 
 \textbf{Total Length} \\
-Die Gesamtlänge des Pakets lässt sich natürlich auch manipulieren. Diese Länge wird mit einem 16 Bit Wert angegeben. Jedoch ist dieser Wert durch die Mindestgröße eingeschränkt. Durch Fragmentierung des Pakets oder das Hinzufügen von Optionen ändert sich dieser Wert. (< 16 Bit)
+Die Gesamtlänge des Pakets lässt sich auch manipulieren. Diese Länge wird mit einem 16 Bit Wert angegeben. Jedoch ist dieser Wert durch die Mindestgröße eingeschränkt. Durch Fragmentierung des Pakets oder das Hinzufügen von Optionen ändert sich dieser Wert. (< 16 Bit)
 
 \textbf{Options} \\
 Dem Ip Header können Optionen hinzugefügt werden, in die sich ebenfalls Daten einbetten lassen.
@@ -136,11 +136,11 @@ Die durch das IHL Feld angegebene Headerlänge muss ein vielfaches von 4 Byte err
 Bei IPv6 kann man in der Regel die äquivalenten Speicherattribute verwenden, wie bei IPv4. Hier unterscheidet sich meistens nur die Namensgebung. \cite{wendzel2012tunnel}
 
 \subsection{TCP}
-Im TCP Protokoll bieten sich ebenfalls Möglichkeiten Daten unbemerkt zu transportieren. So kann der Source Port zur Codierung verwendet werden. Ebenfalls möglich ist die Benutzung des optionalen des TCP Timestamp bei dem zum Beipiel die letzten Bits manipuliert werden.
+Im TCP Protokoll bieten sich ebenfalls Möglichkeiten Daten unbemerkt zu transportieren. So kann der Source Port zur Codierung verwendet werden. Ebenfalls möglich ist die Benutzung des optionalen TCP Timestamps, bei dem zum Beipiel die letzten Bits manipuliert werden.
 \cite{wendzel2012tunnel}
 
 Ein weiter Möglichkeit ist das Manipulieren der Sequence Number.\cite{wendzel2012tunnel} Diese Nummer gibt die Reihenfolge der Datenpakete an.
-Dabei wird sie am Anfang der Datenübertragung vom Sender errechnet und dann alle 4 Mikrosekunden um eins hochgezählt. Sollte diese 32 Bit Nummer überlaufen so wird sie wieder auf null zurückgesetzt. So wird Sichergestellt, dass jedes Paket eine einzigartige Sequence Number bekommt\cite{TCP_RFC}
+Dabei wird sie am Anfang der Datenübertragung vom Sender errechnet und dann alle 4 Mikrosekunden um eins hochgezählt. Sollte diese 32 Bit Nummer überlaufen so wird sie wieder auf null zurückgesetzt. So wird Sichergestellt, dass jedes Paket eine einzigartige Sequence Number bekommt\cite{TCP_RFC}\\
 Um diese Nummer nun zu Verändern muss eine Übersetzungsschicht eingebaut werden die, die übertragenen Geheimdaten abfängt und wieder mit der Richtigen Sequence Number ersetzt.\cite{wendzel2012tunnel}
 
 
@@ -148,18 +148,18 @@ Um diese Nummer nun zu Verändern muss eine Übersetzungsschicht eingebaut werden 
 Storage Channels haben einen großen Schwachpunkt, der ihnen das Leben schwer macht. Traffic Normalizer schreiben die oben beschriebenen Headerattribute gezielt um oder verwerfen diese wenn auffällige Werte gesetzt sind. \\
 Ein Traffic Normalizer auf IP Ebene könnte zum Beispiel das TTL Feld manipulieren, die Flags ,,Don't Fragment'' und ,,Reserved'' auf 0 senzen, die Options löschen oder Pakete bei denen das IHL Feld größer als 5 ist verwerfen. \cite{wendzel2012problem}\\
 Außerdem denkbar ist, dass Padding und die ungenutzten Bits des Type of Service Feldes auf 0 gesetzt werden.\\
-Ein solches System ,in ähnlicher Weise auf alle Netzwerkschichten angewendet, ist eine sehr effektive Methode um gegen Storage Channels vorzugehen. 
+Ein solches System, in ähnlicher Weise auf alle Netzwerkschichten angewendet, ist eine sehr effektive Methode um gegen Storage Channels vorzugehen. 
 
 
 
 \section{Benutzung verschiedener Protokolle}
 
-Covert-Channel können durch die Verwendung verschiedener Protokollee realisiert werden. Hier kann man zwischen Protocol Hopping Covert Channels und Protocol Channels unterscheiden. \cite{wendzel2012tunnel}
+Covert-Channel können durch die Verwendung verschiedener Protokolle realisiert werden. Hier kann man zwischen Protocol Hopping Covert Channels und Protocol Channels unterscheiden. \cite{wendzel2012tunnel}
 
 \subsection{Protocol Channels}
 
 Bei Protocol Channel werden die Daten mit Hilfe mehrere Protokolle kodiert.
-Eine mögliche Kodierung könnte zum folgende sein:
+Eine mögliche Kodierung könnte Folgende sein:
 
 HTTP -> 00 \tab
 DNS  -> 01\\
@@ -178,7 +178,7 @@ So ist man in der Lage binäre Daten mit vier Protokolle zu versenden. In Abbildu
 \end{figure}
 
 Die Wahl der Protokolle ist hier abhängig von den im Netzwerk verwendeten Protokollen. Natürlich funktioniert dieses Prinzip auch mit zwei Protokollen. Denkbar wäre hier die Verwendung von IPv4 und IPv6 da diese Protokolle unter Umständen unterschiedliche Wege durchs Internet nehmen und so noch unauffälliger werden.
-Wie auch bei den zeitabhängigen Covert-Channel beträgt hier die Übertragungsrate 1 oder 2 Bit pro Paket. Die Übertragungsgeschwindigkeit wir nur durch die Netzwerkgeschwindigkeit eingeschränkt.\\
+Wie auch bei den zeitabhängigen Covert-Channel beträgt hier die Übertragungsrate 1 oder 2 Bit pro Paket. Die Übertragungsgeschwindigkeit wir durch die Netzwerkgeschwindigkeit eingeschränkt.\\
 
 Eine denkbare Unterart dieses Kanals ist die Verwendung verschiedener Options im Header wodurch die Codierung realisiert wird.
 
@@ -186,7 +186,7 @@ Eine denkbare Unterart dieses Kanals ist die Verwendung verschiedener Options im
 
 Dieser Kanal ist eine Mischung des Protocl-Channels und des Storage Channel. Dabei werden verschiedene Storage-Channels zu einem zusammengefasst und abwechseln Daten übertragen.
 
-In Abbildung 4.4 wird dargestellt wie dies realisiert werden kann. Die Binärdaten werden hier über zufällig gewählte Storage-Chanel übertragen. Dadurch wird bewirkt, dass der Kanal unauffälliger wird, da man ein reales Netzwerk simulieren lässt.
+In Abbildung 4.4 wird dargestellt wie dies realisiert werden kann. Die Binärdaten werden hier über zufällig gewählte Storage-Chanel übertragen. Dadurch wird bewirkt, dass der Kanal unauffälliger wird, da sich ein reales Netzwerk simulieren lässt.
 
 Im Beispiel unten werden jeweils 4 Bit an den Storage Channel übergeben und an den Empfänger weitergeleitete.
 
@@ -307,13 +307,14 @@ In diesem Kapitel wird sich damit beschäftigt, welcher der im vorhergehenden Kap
 
 Betrachtet man die \textbf{Textbasierenden Verfahren} etwas genauer wird schnell klar, dass diese nicht für größere Datenmengen geeignet sind und sich auch sehr schwierig als Algorithmen darstellen lassen.
 
-Die \textbf{Zeitabhängigen Verfahren} sind sehr unauffällig da die Datenpakete nicht direkt manipuliert werden müssen. Es muss sich jedoch um die Integrität der Daten gekümmert werden da der Kanal sehr stark von den Netzwerkbedingungen abhängt. Die Übertragungsgeschwindigkeit ist mit einem Bit pro Paket ist sehr gering, jedoch lässt sich dieser Kanal sehr gut als passiver Covert-Channel realisieren.
+Die \textbf{Zeitabhängigen Verfahren} sind sehr unauffällig da die Datenpakete nicht direkt manipuliert werden müssen. Es muss sich jedoch um die Integrität der Daten gekümmert werden, da der Kanal sehr stark von den Netzwerkbedingungen abhängt. Die Übertragungsgeschwindigkeit ist mit einem Bit pro Paket ist sehr gering, jedoch lässt sich dieser Kanal sehr gut als passiver Covert-Channel realisieren.
 
 \textbf{Storage Channel} sind relativ auffällig, vor allem wenn die Pakete genauer angeschaut werden. Zudem gibt es das Problem der Netzwerk Normalisierung, die den Storage Channel stark einschränken würde.
 Die Methode bei der die TCP Sequence Number manipuliert wird ist hingegen für dieses Projekt denkbar, da sie nicht durch die Normalisierung verändert werden kann und pro Paket 32 Bit übertragen kann. Bei einer sehr genaueren Analyse kann hier aber ebenfalls auffallen, dass die Nummern nicht in der richtigen Reihenfolge versendet werden.
 
-\textbf{Protocol Channel} sind im Gegensatz zu Zeitabhängigen Verfahren nicht von den Netzwerkbedingungen abhängig machen so eine Verfahren gegen Integritätsverlust überflüssig. Es ist durch  schwierig einen realen Netzwerkkanal zu realisieren 
-Die Datenübertragung ist hier aber auch relativ gering, ist aber durch seine Unauffälligkeit und die Tatsache, dass die Pakete an sich nicht verändert werden müssen ein für diese Projekt geeignet.
+\textbf{Protocol Channel} sind im Gegensatz zu zeitabhängigen Verfahren nicht von den Netzwerkbedingungen abhängig und machen so eine Verfahren gegen Integritätsverlust überflüssig.\\
+Es ist schwierig einen realen Netzwerkkanal zu realisieren, da die Reihenfolge der Pakete/Protokolle zufällig ist. Dies ist bei realen Netzwerken nicht der Fall. So kommen zum Beispiel DNS Anfragen viel seltener vor als TCP Pakete.\\
+Die Veränderung der Pakete ist bei diesem Covert Channel nicht nötig. Eine implementierung als passiver Channel ist aber nicht möglich  
 
 \textbf{Projekt Hopping Channels} haben die gleichen negativen Eigenschaften wie die Storage Channels und kommen deshalb nicht für diese Projekt in frage.
 
@@ -321,11 +322,10 @@ Die Verwendung der \textbf{Nutzdatengröße} für die Datenübertragung ist sehr una
 Es muss jedoch eine unauffällige Methode ausgearbeitet werden, bei der es möglich ist variable Datenpakete zu versenden. Es ist hier ebenfalls nicht möglich den Kanal passiv zu gestalten.
 
 Werden \textbf{Bilddateien} zum Einbetten der Daten verwendet, muss sich überlegt werden wie die Übertragung der Bilder stattfinden soll. Hier muss eine unauffällige Möglichkeit gefunden werden, um diesen Austausch zu realisieren.
-Es lassen sich viele Daten übertragen.
+Hier lassen sich viele Daten auf einmal überragen. Hingegen ist diese Methode vor allem durch die Medien sehr bekannt geworden. Ein aktuelles Beispiel ist eine Sicherheitslücke in Android, wo durch das Öffnen eines PNG Bildes Schadcode mit den Rechten des Benutzers ausgeführt werden kann.\cite{HEISE_ANDROID}.
+                                  
 
-%TODO                                                       
-
-Da der zeitabhängigen Covert-Channel die Pakete nicht manipulieren muss und da beim Netzwerkverkehr, bis auf den zeitlichen Offset, keine Veränderung vorgenommen werden muss soll dieses Projekt mit diesem Kanal durchgeführt werden. Zudem ist die Möglichkeit den Channel passiv zu realisieren ein weiterer positiver Aspekt.
+Da der zeitabhängigen Covert-Channel die Pakete nicht manipulieren muss und da beim Netzwerkverkehr, bis auf den zeitlichen Offset, keine Veränderung vorgenommen werden muss, soll dieses Projekt mit diesem Kanal durchgeführt werden. Zudem ist die Möglichkeit den Channel passiv zu realisieren und die allgemeine Unbekanntheit des Channels weitere positive Aspekte.
 
 \chapter{Projekt Umsetzung}
 
@@ -336,7 +336,7 @@ Wie in den Grundlagen schon beschrieben, kann man einen steganografischen Kanal 
 \textit{Steganographischer Covert Channel = Geheime Daten + Trägerkanal + Steganografischer Schlüssel}\\
  
 \subsection{Geheime Daten}
-Die geheimen Daten beinhalten die Information, welche versteckt übertragen werden. Diese sollen in jedes beliebige Format annehmen können. Zum Senden werden die Daten in ihre binären Form übertragen. So muss sich keine Sorge um das Datenformat gemacht werden.\\ Da ein sehr geringe Übertragungsgeschwindigkeit erwartet wird ist es hilfreich, wenn diese Daten so klein wie möglich ausfallen.\\
+Die geheimen Daten beinhalten die Information, welche versteckt übertragen werden. Diese sollen jedes beliebige Format annehmen können. Zum Senden werden die Daten in ihre binären Form übertragen. So muss sich keine Sorge um das Datenformat gemacht werden.\\ Da ein sehr geringe Übertragungsgeschwindigkeit erwartet wird ist es hilfreich, wenn diese Daten so klein wie möglich ausfallen.\\
 Zum Entwickeln wird hierzu die Datei $test.txt$ verwendet, die als Inhalt den String ,,Hallo Welt'' besitzt.
 
 
@@ -354,8 +354,8 @@ Schlüssel zur Datenexfiltration:
 
 
 \subsection{Trägerkanal}
-Es wird ein Träger Kanal benötigt in diesen die geheimen Nachrichten eingebettet werden sollen.\\
-Für den gewählten Covert Channel kann prinzipiell jedes Netzwerkprotokoll verwendet werden. Da die Übertragung über Netzwerkgrenzen hinaus stattfinden soll muss mindestens das Internet Protokoll verwendet werden. 
+Es wird ein Trägerkanal benötigt in diesen die geheimen Nachrichten eingebettet werden sollen.\\
+Für den gewählten Covert Channel kann prinzipiell jedes Netzwerkprotokoll verwendet werden. Da die Übertragung über Netzwerkgrenzen hinaus stattfinden soll muss jedoch mindestens das Internet Protokoll verwendet werden. 
 Die Verwendung von ICMP Paketen ist durch die Filterung von Firewalls nicht geeignet. Die verbleibenden und sinnvollen Möglichkeiten sind demnach entweder TCP oder UDP. Da immer nur ein Bit durch ein Datenpaket übertragen wird wird ein Datenstrom (Stream) mit vielen Datenpaketen benötigt.\\
 Die Entscheidung Beschränkt sich nun auf einen UDP oder TCP Stream. UDP hat das Problem, dass es sich hierbei um eine verbindungsloses Protokoll handelt und man nicht sicher sein kann, dass die Daten in der Richtigen Reihenfolge oder überhaupt ankommen. Durch die Verwendung eines zeitlichen Covert Channel muss aber sowieso ein System zur Sicherstellung der Integrität implementiert werden.\\
 Auf der anderen Seite sind UDP Pakete selten geworden, da HTTP und somit die Webserver auf TCP aufbauen. Die Streams von Firmen wie Netflix oder YouTube basieren heute alle auf dem TCP/IP Stack.\\
@@ -418,8 +418,8 @@ Für diese Art der Codierung ist es unabdingbar, dass die Uhren von Sender und Em
 
 \subsection{Basierend auf den Paketabständen}
 
-Zur Kodierung kann ebenso die Veränderung der Paketabstände benutzt werden. Hierzu wird zwischen einer kleinen oder großen Pause zwischen zwei Nachrichten unterschieden. Eine große Pause wird als binäre 1 interpretiert eine kleine Pause als 0.\\
-Je nachdem wie gut die Netzwerkbedingungen sind kann hier durch eine gezielte Verkleinerung der Pausen eine Erhöhung der Übertragungsgeschwindigkeit generiert werden. Durch eine Verlängerung dieser Pausend sinkt jedoch die Fehleranfälligkeit.\\
+Zur Kodierung kann ebenso die Veränderung der Paketabstände benutzt werden. Hierzu wird zwischen einer kleinen oder großen Pause zwischen zwei Nachrichten unterschieden. Eine große Pause wird als binäre 1 interpretiert, eine kleine Pause als 0.\\
+Je nachdem wie gut die Netzwerkbedingungen sind kann hier durch eine gezielte Verkleinerung der Pausen eine Erhöhung der Übertragungsgeschwindigkeit generiert werden. Durch eine Verlängerung dieser Pausen sinkt jedoch die Fehleranfälligkeit.\\
 Zu sehen ist diese Art der Kodierung in \textit{Abbildung 6.4}
 
 \begin{figure}[h!]
@@ -430,11 +430,19 @@ Zu sehen ist diese Art der Kodierung in \textit{Abbildung 6.4}
 \end{figure}
 
 \subsection{Bewertung der Kodierung}
-Bei der Kodierung mit Zeitrastern muss sich um die Synchronisierung gekümmert werden. Außerdem gilt es den Offset passend zu wählen. Diese Methode hat ebenfalls den Vorteil, dass zum Senden einer 0 keine Nachricht benötigt wird. Kommt es jedoch zu Fehlern im Offset oder zu plötzlichen Übertragungsschwankung ist dieses System sehr Anfällig da die Nachrichten in andere Zeitintervalle hineingeraten.
+Bei der Kodierung mit Zeitrastern muss sich um die Synchronisierung gekümmert werden. Außerdem gilt es den Offset passend zu wählen. Diese Methode hat jedoch den Vorteil, dass zum Senden einer 0 keine Nachricht benötigt wird. Kommt es jedoch zu Fehlern im Offset oder zu plötzlichen Übertragungsschwankung ist dieses System sehr Anfällig, da die Nachrichten in andere Zeitintervalle hineingeraten könnten.
+
+Werden die Paketabstände zu Kodierung verwendet, so wird zum Senden einer 0 eine Nachricht benötigt. Dadurch werden mehr Nachrichten benötigt, die kontinuierlich zu Verfügung sehen müssen.\\
+Dabei besteht ein Vorteil darin, dass sich nicht um die Synchronisierung gekümmert werden muss. Zusätzlich lässt sich bei schlechten Netzwerkbedingungen die Übertragung pausieren. Hierzu kann einfach die Datenübertragung gestoppt werden. Bei der Codierung mit Rastern würde dieses abrupte Stoppen der Datenübertragung als 0en interpretiert werden.
+Bei einer reinen Betrachtung der Differenz zwischen den langen und kurzen Pausen ist der Sender in der Lage die Sendegeschwindigkeit beliebig anzupassen.
+
+Aufgrund der Vorteile durch die Codierung mit Hilfe der Paketabstände soll diese Methode in dieser Arbeit verwendet werden. 
 
 \section{Wahrung der Integrität}
 
 \section{Optimierung}
+Buffer
+Pausenverkleinerung
 
 \section{Implementierung}
 

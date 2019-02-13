@@ -1,5 +1,13 @@
 \begin{thebibliography}{{Wik}18}
 
+\bibitem[{ De}19]{HEISE_ANDROID}
+{\sc { Dennis Schirrmacher }}: {\em Patchday: Das Öffnen von PNG-Bildern kann
+  Android-Geräte kompromittieren}.
+\newblock
+  \url{https://www.heise.de/security/meldung/Patchday-Das-Oeffnen-von-PNG-Bildern-kann-Android-Geraete-kompromittieren-4300362.html},
+  2019.
+\newblock Abrufdatum: 12.02.2019.
+
 \bibitem[CBS04]{cabuk2004ip}
 {\sc Cabuk, Serdar}, {\sc Carla~E Brodley} \btxandlong{}\ {\sc Clay Shields}:
   {\em IP covert timing channels: design and detection}.
