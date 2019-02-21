@@ -8,69 +8,70 @@
 \contentsline {section}{\numberline {1.3}Aufbau}{2}{section.1.3}
 \contentsline {section}{\numberline {1.4}Eigene Leistung}{2}{section.1.4}
 \contentsline {chapter}{\numberline {2}Grundlagen}{4}{chapter.2}
-\contentsline {section}{\numberline {2.1}Datenschutz}{4}{section.2.1}
-\contentsline {section}{\numberline {2.2}Datensicherheit}{4}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Vertraulichkeit}{5}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Integrit\"at}{5}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Verf\"ugbarkeit}{5}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Authentizit\"at}{6}{subsection.2.2.4}
-\contentsline {section}{\numberline {2.3}Kryptographie}{6}{section.2.3}
-\contentsline {section}{\numberline {2.4}Symmetrische Verschl\"usselung}{6}{section.2.4}
-\contentsline {section}{\numberline {2.5}Asymmetrische Verschl\"usselung}{7}{section.2.5}
-\contentsline {section}{\numberline {2.6}Steganographie}{8}{section.2.6}
-\contentsline {section}{\numberline {2.7}Internet Protokolle}{9}{section.2.7}
-\contentsline {subsection}{\numberline {2.7.1}Sicherungsschicht/Data Link Layer (Schicht 2)}{10}{subsection.2.7.1}
-\contentsline {subsubsection}{\nonumberline Ethernet}{10}{section*.7}
-\contentsline {subsection}{\numberline {2.7.2}Vermittlungsschicht/Network Layer (Schicht 3)}{10}{subsection.2.7.2}
-\contentsline {subsubsection}{\nonumberline IPv4}{10}{section*.8}
-\contentsline {subsubsection}{\nonumberline IPv6}{11}{section*.9}
-\contentsline {subsection}{\numberline {2.7.3}Transportschicht/ Transport Layer (Schicht 4)}{11}{subsection.2.7.3}
-\contentsline {subsection}{\numberline {2.7.4}Kommunikationsschicht/Session Layer (Schicht 5)}{11}{subsection.2.7.4}
-\contentsline {chapter}{\numberline {3}Was ist ein Covert-Channel?}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}Definition}{13}{section.3.1}
-\contentsline {section}{\numberline {3.2}Was zeichnend einen guten Covert-Channel aus?}{13}{section.3.2}
-\contentsline {section}{\numberline {3.3}Aktive und Passive Covert Channels}{14}{section.3.3}
-\contentsline {section}{\numberline {3.4}Wozu sind Covert Channels nicht geeignet?}{14}{section.3.4}
-\contentsline {chapter}{\numberline {4}M\"ogliche steganografische Covert Channel}{15}{chapter.4}
-\contentsline {section}{\numberline {4.1}Klassische textbasierende Verfahren}{15}{section.4.1}
-\contentsline {section}{\numberline {4.2}Zeitabh\"angige Covert-Chanel}{16}{section.4.2}
-\contentsline {section}{\numberline {4.3}Storage Channel}{18}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}IPv4}{18}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}IPv6}{19}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}TCP}{20}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Traffic Normalizers}{20}{subsection.4.3.4}
-\contentsline {section}{\numberline {4.4}Benutzung verschiedener Protokolle}{21}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Protocol Channels}{21}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Protocol Hopping Covert Channels}{22}{subsection.4.4.2}
-\contentsline {section}{\numberline {4.5}Verwendung der Nutzdatengr\"o\IeC {\ss }e}{23}{section.4.5}
-\contentsline {section}{\numberline {4.6}Verstecken der Informationen in den Nutzdaten}{24}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Verwenung von Bilddateien}{24}{subsection.4.6.1}
-\contentsline {subsubsection}{\nonumberline RGB Basierende Formate}{24}{section*.10}
-\contentsline {subsubsection}{\nonumberline Bildformate mit Alpha Kanal}{24}{section*.11}
-\contentsline {subsubsection}{\nonumberline Verwendung von ,,Shamir's Secret Sharing'' Methode}{25}{section*.12}
-\contentsline {subsection}{\numberline {4.6.2}Verwenung von PDF Dateien}{27}{subsection.4.6.2}
-\contentsline {chapter}{\numberline {5}Bewertung der Covert Channel}{29}{chapter.5}
-\contentsline {chapter}{\numberline {6}Projekt Umsetzung}{31}{chapter.6}
-\contentsline {section}{\numberline {6.1}Konstruktion des Covert Channel}{31}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Geheime Daten}{31}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Steganografischer Schl\"ussel}{32}{subsection.6.1.2}
-\contentsline {subsection}{\numberline {6.1.3}Tr\"agerkanal}{32}{subsection.6.1.3}
-\contentsline {section}{\numberline {6.2}Aufbau des Systems}{33}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Aktiv}{33}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Passiv}{33}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}Kodierung und Dekodierung}{35}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Mit festen Zeitrastern}{35}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Basierend auf den Paketabst\"anden}{35}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Bewertung der Kodierung}{36}{subsection.6.3.3}
-\contentsline {section}{\numberline {6.4}Fehlerkorrektur}{37}{section.6.4}
-\contentsline {section}{\numberline {6.5}Wahrung der Integrit\"at}{37}{section.6.5}
-\contentsline {section}{\numberline {6.6}Optimierung}{37}{section.6.6}
-\contentsline {section}{\numberline {6.7}Implementierung}{38}{section.6.7}
-\contentsline {subsection}{\numberline {6.7.1}Aktiv}{38}{subsection.6.7.1}
-\contentsline {subsection}{\numberline {6.7.2}Passiv}{38}{subsection.6.7.2}
-\contentsline {section}{\numberline {6.8}Bewertung der Ergebnisse}{38}{section.6.8}
-\contentsline {chapter}{\numberline {7}Etische Aspekte}{39}{chapter.7}
-\contentsline {chapter}{\numberline {8}Schlussbemerkungen und Ausblick}{40}{chapter.8}
-\contentsline {chapter}{\numberline {A}Ein Kapitel des Anhangs}{41}{appendix.A}
-\contentsline {chapter}{\nonumberline Literatur}{43}{chapter*.13}
-\contentsline {chapter}{Stichwortverzeichnis}{44}{chapter*.13}
+\contentsline {section}{\numberline {2.1}Internet Protokolle}{4}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Sicherungsschicht/Data Link Layer (Schicht 2)}{4}{subsection.2.1.1}
+\contentsline {subsubsection}{\nonumberline Ethernet}{4}{section*.7}
+\contentsline {subsection}{\numberline {2.1.2}Vermittlungsschicht/Network Layer (Schicht 3)}{5}{subsection.2.1.2}
+\contentsline {subsubsection}{\nonumberline IPv4}{5}{section*.8}
+\contentsline {subsubsection}{\nonumberline IPv6}{5}{section*.9}
+\contentsline {subsection}{\numberline {2.1.3}Transportschicht/ Transport Layer (Schicht 4)}{6}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Kommunikationsschicht/Session Layer (Schicht 5)}{6}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}Datensicherheit}{6}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Vertraulichkeit}{7}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Integrit\"at}{7}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Verf\"ugbarkeit}{7}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Authentizit\"at}{8}{subsection.2.2.4}
+\contentsline {section}{\numberline {2.3}Datenschutz}{8}{section.2.3}
+\contentsline {section}{\numberline {2.4}Kryptographie}{8}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Symmetrische Verschl\"usselung}{9}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Asymmetrische Verschl\"usselung}{9}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}Information Hidding}{10}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Steganographie}{10}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Covert Channel}{12}{subsection.2.5.2}
+\contentsline {subsubsection}{\nonumberline Was zeichnend einen guten Covert-Channel aus?}{13}{section*.10}
+\contentsline {subsubsection}{\nonumberline Aktive und Passive Covert Channels}{13}{section*.11}
+\contentsline {subsubsection}{\nonumberline Wozu sind Covert Channels nicht geeignet?}{13}{section*.12}
+\contentsline {chapter}{\numberline {3}Anforderung an die L\"osung}{14}{chapter.3}
+\contentsline {chapter}{\numberline {4}L\"osungsans\"atze}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}Covert Channel}{15}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Zeitabh\"angige Covert-Chanel}{15}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Storage Channel}{17}{subsection.4.1.2}
+\contentsline {subsubsection}{\nonumberline IPv4}{18}{section*.13}
+\contentsline {subsubsection}{\nonumberline IPv6}{19}{section*.14}
+\contentsline {subsubsection}{\nonumberline TCP}{19}{section*.15}
+\contentsline {subsubsection}{\nonumberline Traffic Normalizers}{20}{section*.16}
+\contentsline {subsection}{\numberline {4.1.3}Benutzung verschiedener Protokolle}{20}{subsection.4.1.3}
+\contentsline {subsubsection}{\nonumberline Protocol Channels}{20}{section*.17}
+\contentsline {subsubsection}{\nonumberline Protocol Hopping Covert Channels}{21}{section*.18}
+\contentsline {subsection}{\numberline {4.1.4}Verwendung der Nutzdatengr\"o\IeC {\ss }e}{22}{subsection.4.1.4}
+\contentsline {section}{\numberline {4.2}Steganografie}{23}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Klassische textbasierende Verfahren}{23}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Basierend auf RGB Bilder}{23}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Bildformate mit Alpha Kanal}{25}{subsection.4.2.3}
+\contentsline {subsubsection}{\nonumberline Verwendung von ,,Shamir's Secret Sharing'' Methode}{25}{section*.19}
+\contentsline {subsection}{\numberline {4.2.4}Verwenung von PDF Dateien}{27}{subsection.4.2.4}
+\contentsline {chapter}{\numberline {5}Bewertung der Covert Channel}{28}{chapter.5}
+\contentsline {chapter}{\numberline {6}Umsetzung des Projekts}{30}{chapter.6}
+\contentsline {section}{\numberline {6.1}Konstruktion des Covert Channels}{30}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Geheime Daten}{30}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Steganografischer Schl\"ussel}{31}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Tr\"agerkanal}{31}{subsection.6.1.3}
+\contentsline {section}{\numberline {6.2}Aufbau des Systems}{32}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Aktiv}{32}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Passiv}{32}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}Kodierung und Dekodierung}{34}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Mit festen Zeitrastern}{34}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Basierend auf den Paketabst\"anden}{34}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Bewertung der Kodierung}{35}{subsection.6.3.3}
+\contentsline {section}{\numberline {6.4}Fehlerkorrektur}{36}{section.6.4}
+\contentsline {section}{\numberline {6.5}Wahrung der Integrit\"at}{36}{section.6.5}
+\contentsline {section}{\numberline {6.6}Optimierung}{36}{section.6.6}
+\contentsline {section}{\numberline {6.7}Implementierung}{37}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Aktiv}{37}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.2}Passiv}{37}{subsection.6.7.2}
+\contentsline {section}{\numberline {6.8}Bewertung der Ergebnisse}{37}{section.6.8}
+\contentsline {chapter}{\numberline {7}Etische Aspekte}{38}{chapter.7}
+\contentsline {chapter}{\numberline {8}Zusammenfassung und Fazit}{39}{chapter.8}
+\contentsline {chapter}{\numberline {A}Ein Kapitel des Anhangs}{40}{appendix.A}
+\contentsline {chapter}{\nonumberline Literatur}{42}{chapter*.20}
+\contentsline {chapter}{Stichwortverzeichnis}{43}{chapter*.20}

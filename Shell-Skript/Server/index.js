@@ -11,7 +11,7 @@ var timestaps = [];
 var dataBits;
 
 console.log("Encode 10111011: ", hammingCode.encode("10111011"));
-console.log("Decode 001101111011: ", hammingCode.decode("001101101011"))
+console.log("Decode 001101111011: ", hammingCode.decode("001101101001"))
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
