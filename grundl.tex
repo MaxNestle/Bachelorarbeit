@@ -72,9 +72,6 @@ Der Header des IPv6 Protokolls ist in folgender Abbildung gezeigt.
 
 
 
-
-
-
 \section{Datensicherheit}
 
  Die Aufgabe der Datensicherheit werden durch das CIA-Prinzip beschreiben.\\ Zur Datensicherheit gehören nach diesem Prinzip alle Maßnahmen, die die \textbf{C}onfidentiality, \textbf{I}ntegrity und \textbf{A}vailability (Vertraulichkeit, Integrität, Verfügbarkeit) gewährleisten.\cite{CIA}
@@ -84,35 +81,35 @@ Viele dieser Aufgaben werden mit Hilfe der Kryptographie realisiert und umgesetz
 
 \subsection{Vertraulichkeit}
 Die Vertraulichkeit ist dann gewährleistet, wenn die Daten nicht von unbefugten Personen eingesehen werden können. Es muss also ein System verwendet werden, bei dem sich befugte Benutzer legitimieren können und unbefugte beim Interpretieren gehindert werden. \\
-In den meisten Fällen wird dies durch eine Verschlüsselung (symmetrisch oder asymmetrisch) umgesetzt. Alle legitimierten Benutzter erhalten den Schlüssel. Die Personen ohne Schlüssel können die Informationen nicht entschlüsseln - die Vertraulichkeit ist so garantiert.\\
-Optimal wäre, wenn nicht legitime Benutzer, auch nicht an die verschlüsselten Daten kommen würde.
+In den meisten Fällen wird dies durch eine Verschlüsselung (symmetrisch oder asymmetrisch) umgesetzt. Alle legitimierten Benutzter erhalten den Schlüssel. Die Personen ohne Schlüssel können die Informationen nicht entschlüsseln - die Vertraulichkeit ist so garantiert.
 
 \subsection{Integrität} 
-Die Integrität beschäftigt sich damit, dass Daten nicht unbemerkt verändert oder abgefälscht werden. So soll zum Beispiel sichergestellt werden, dass eine Nachricht genau so beim Empfänger ankommt, wie sie abgesendet wurde.\\
+Die Integrität stellt sicher, dass Daten nicht unbemerkt verändert oder gefälscht werden. 
+So soll eine Nachricht genau so beim Empfänger ankommt, wie sie abgesendet wurde.\\
 Hierzu können Hash-Funktionen verwendet werden, die beim Verändern der Nachricht einen anderen Wert ergeben würden. Dabei müsste entweder die Hash-Funktion geheim sein oder der Hash-Wert verschlüsselt werden.
  
+
+\subsection{Authentizität} 
+Die Authentizität bestätigt, dass Daten von der angegeben Informationsquelle stammen. Es ist ein Identitätsbeweis des Absenders gegenüber dem Empfängers.\\ Dies kann zum mit einer Public-Key Verschlüsselung realisiert werden. Dafür verschlüsselt der Sender die Nachricht mit seinem Private Key. Der Empfänger kann einzig mit dem Public Key des Senders die Nachricht entschlüsseln. Ist das Entschlüsseln möglich, so weiß der Empfänger, dass die Nachricht genau von diesem Sender kommt.
+
+
 
 \subsection{Verfügbarkeit} 
 Der Dritte Punkt ist die Verfügbarkeit. Es soll immer sichergestellt wer, dass Daten aber auch Programm immer abrufbar sind. Hierzu gehören Mechanismen zur Vermeidung von DoS (Denial of Service) Angriffen. Diese Angriffe würden beispielsweise einen Server so überfordern, dass dieser keine Dateien mehr ausliefern kann - die Verfügbarkeit ist dann nicht mehr gewährleistet.
 
-\subsection{Authentizität} 
-Die Authentizität bestätigt, dass Daten von der angegeben Informationsquelle stammen. Es ist ein Identitätsbeweis des Absenders gegenüber dem Empfängers.\\ Dies kann zum Beispiel mit einer Public-Key Verschlüsselung realisiert werden. So kann der Sender die Nachrichten mit seinem Private-Key verschlüsseln und jeder im Besitz des Public-Keys kann bestätigen, dass die Nachricht genau von dieser Person kommt.
-
-%TODO public private key
 
 
 \section{Datenschutz}
 
-Der Datenschutz ist ein Überbegriff für das in Gesetzte festgelegten Recht, dass jede Person über die Preisgabe der personenbezogenen Daten bestimmen kann. Die Bundesbeauftragten für den Datenschutz und die Informationssicherheit (BfDI) definieren den Datenschutz wie folgt:\\\\
+Der Datenschutz ist ein Überbegriff für das im Gesetzte festgelegten Recht auf informationelle Selbstbestimmung. Was bedeutet, dass jede Person über die Preisgabe der personenbezogenen Daten bestimmen kann. Die Bundesbeauftragten für den Datenschutz und die Informationssicherheit (BfDI) definieren den Datenschutz wie folgt:\\\\
 \textit{,,Datenschutz garantiert jedem Bürger Schutz vor missbräuchlicher Datenverarbeitung, das Recht auf informationelle Selbstbestimmung und den Schutz der Privatsphäre''}
 \cite{BfDI}\\\\
-Das bedeutet, dass jeder der personenbezogene Daten, ohne Zustimmung des Betreffenden speichert oder weiterverarbeitet vor Gericht angeklagt werden kann.
+So kann jeder der personenbezogene Daten, ohne Zustimmung des Betreffenden speichert oder weiterverarbeitet vor Gericht angeklagt werden kann.
 Damit dies nicht passiert haben die meisten Institute die mit personenbezogenen Daten umgehen einen Datenschutzbeauftragten, der die Einhaltung dieser Gesetzte überwacht.
 
 
 \section{Kryptographie}
-Kryptographie bedeutet ,,wörtlich: Die Lehre vom Geheimen schreiben'' \cite{hellmann2018sicherheit} und beschäftigt sich mit der mathematischen Verschlüsselung von Informationen. Dabei gibt es zwei große Verschlüsselungsarten - die Symmetrischen und die Asymmetrischen Verschlüsselungen. Bei beiden Verfahren wird durch einen Schlüssel (meistens eine Zahl) und einem Algorithmus aus einer lesbaren Information eine Unlesbare.
-Um dies wieder Rückgängig zu machen wird ebenfalls ein Schlüssel und ein Algorithmus benötigt.\\
+Kryptographie bedeutet ,,wörtlich: Die Lehre vom Geheimen schreiben'' \cite{hellmann2018sicherheit} und beschäftigt sich mit der mathematischen Verschlüsselung von Informationen. Dabei gibt es zwei große Verschlüsselungsarten - die Symmetrischen und die Asymmetrischen Verschlüsselungen.//
 Eine der wichtigsten Grundprinzipien der Kryptographie wurde bereits im 19. Jahrhundert von A.Kerkhoffs aufgestellt. Eine der wichtigsten Ausagen hierbei ist, dass die Sicherheit einer Verschlüsselung nicht von dem Verschlüsselungsalgorithmus, sondern allein von dem Schlüssel abhängig sein soll. Das heißt, dass ein guter Verschlüsselungsalgorithmus öffentlich gemacht werden kann, ohne die Sicherheit zu gefährden.
 Ein Beispiel ist der RSA Algorithmus. Dies ist einer der heute verbreitetsten Algorithmen. Der Algorithmus ist für jeden öffentlich zugänglich, dies hat aber keine Auswirkung auf die Sicherheit, da die Sicherheit allein auf der Geheimhaltung des Passwortes basiert.\\
 Dies hat zum Beispiel auch den Vorteil, dass bei einem Personalwechsel nicht der ganze Algorithmus ausgetauscht werden muss, sondern nur das Password. 
@@ -145,7 +142,40 @@ Dieses System löst das Problem der Schlüsselübergabe, da der öffentliche Schlüss
 Diese Art von Algorithmus kann so auch zur Authentifizierung eingesetzt werden.
 Bekannte Asymmetrische Verschlüsselungen sind der RSA-Algorithmus, der Algorithmus von Diffi und Hellmann oder der Algorithmus von ElGamal.
 
-\section{Information Hidding}
+
+\subsection{Verwendung von ,,Shamir's Secret Sharing'' Methode}
+
+Die Shamir's Secret Sharing Methode ist ein mathematisches Verfahren, das es möglich macht, ein Geheimnis auf mehrere Instanzen aufzuteilen. Dabei sind das Geheimnis und die dabei einstehenden ,,Shares'' Integer-Werte.\\  Die einzelnen Instanzen können dabei keine Rückschlüsse auf das Geheimnis schließen. Allein wenn man den Großteil der ,,Shares'' besitzt kann man das Geheimnis rekonstruieren.\\
+
+Der folgende Abschnitt basiert auf dieser Literatur: \cite{lee2010new}
+
+Verschlüsseln:\\
+Verwendet wird ein Geheimnis d, eine Anzahl von n Instanzen und eine Schwelle k < n.
+
+1. Es wird eine Primzahl p zufällig gewählt.
+
+2. Es werden k-1 Werte $c_1,c_2....,c_{k-1}$ mit den Werten zwischen 0 und p-1 vergeben.
+
+3. Für $x_1,x_2..,x_n$ jeweils eine eindeutige reale Zahl wählen.
+
+4. Mit Hilfe einer Polynomgleichung mit dem Grad k-1 werden nun n Gleichungen und somit auch Werte berechnet. $i = 1,2,...,n$
+
+\begin{center}
+	$F(x_i) = (d+c_1x_i+c_2x_i^2+...+c_{k-1}x_i^{k-1})mod(p)$
+\end{center}
+
+5. Nun können die n Shares erstellt werden. Diese sind wie folgt Aufgebaut $(x_i,F(x_i)) $
+
+
+Das Geheimnis ist nun in einer Funktion ,,abgespeichert''. Die Shares sind Punkte, die auf dieser Funktion liegen. Damit die Funktion wieder rekonstruiert werden kann, müssen mindestens k der n Shares vorhanden.
+
+Entschlüsseln:\\
+
+Um die Nachrichten zu entschlüsseln müssen k Shares in die Formel oben eingesetzt werden.\\
+Das hierdurch entstandene Gleichungssystem mit den Unbekannten $d$ und $c_1$ bis $c_{k-1}$, kann zum Beispiel mit dem Gaußsches Eliminationsverfahren oder durch die Lagrangesche Interpolationsformel gelöst werden.
+
+
+\section{Information Hiding}
 
 \subsection{Steganographie}
 
@@ -192,11 +222,7 @@ Im Kapitel der Lösungsansätze wird sich damit beschäftigen, wie die die Kommunik
 
 
 Der Aufbau eines Covert Channel lässt sich durch folgendes Schema darstellen:\\
-\textit{Covert Channel = Geheime Daten + Trägerkanal + Manipulation der Kommunikationsattribute}\\
-
-
-\subsubsection{Was zeichnend einen guten Covert-Channel aus?}
-
+\textit{Covert Channel = Geheime Daten + Trägerkanal + Manipulation der Kommunikationsattribute}
 
 Bei den weit verbreiteten mathematischen Verschlüsselungen muss sich meistens keine sorgen gemachen werden, ob der Datenaustausch von Dritten entdeckt werden kann, da hier die Daten ohne richtigen Key nutzlos sind.\\
 Bei den Covert-Chanels ist dies problematischer, da ein entdeckter Kanal in der Regel direkt interpretiert werden kann. Ein Covert-Channel lebt, wie der Name auch schon verrät, davon wie gut dieser versteckt ist.\\ 

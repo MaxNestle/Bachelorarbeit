@@ -15,9 +15,7 @@ Im folgenden Kapitel werden verschiedene, bereits existierende steganografische 
 
 \subsection{Zeitabhängige Covert-Chanel}
 
-Bei zeitabhängigen Covert-Channel werden die Daten so versendet, dass der Absendezeitpunkt oder der Abstand zwischen den Paketen die Information enthält. Dabei ähnelt dieses Verfahren dem in der Vergangenheit oft eingesetzten Morse Code. Hingegen beschränkt man sich bei diesen Covert-Channel meistens auf Binärdaten.\\
-In der Abbildung unten sieht man einen beispielhaften Aufbau dieses versteckten Kanals.
-
+Bei zeitabhängigen Covert-Channel werden die Daten so versendet, dass der Absendezeitpunkt oder der Abstand zwischen den Paketen die Information enthält. Dabei ähnelt dieses Verfahren dem in der Vergangenheit oft eingesetzten Morse Code. Hingegen beschränkt man sich bei diesen Covert-Channel meistens auf Binärdaten.
 \begin{figure}[ht]
 	\centering
 	\includegraphics*[height=10cm]{bilder/timing.png}
@@ -25,13 +23,11 @@ In der Abbildung unten sieht man einen beispielhaften Aufbau dieses versteckten 
 	\label{fig5}
 \end{figure}
 
-Bei dem in Abbildung 4.1 dargestellte Covert Channel wird mit einem festen Zeitintervall gearbeitet. Dieses Zeitintervall muss sowohl dem Sender sowie dem Empfänger bekannt sein und muss vor dem Senden festgelegt werden. Wichtig ist ebenfalls die Synchronisation von Sender und Empfänger. Dazu muss entweder ein fixer Startzeitpunkt gewählt werden, oder ein bestimmtes Paket als Start der Übertragung festgelegt werden.\cite{cabuk2004ip}
-
-Sind dieses Parameter mit beiden Seiten abgeklärt, so kann die Datenübertragung starten. Dabei wird einen Datenpaket innerhalb des Zeitintervalls als 1 interpretiert, falls kein Paket gesendet wird als 0.
-So lassen sich beliebige Daten betragen.\cite{cabuk2004ip}
+Bei dem in Abbildung 4.1 dargestellte Covert Channel wird mit einem festen Zeitintervall gearbeitet. Dieses Zeitintervall muss sowohl dem Sender sowie dem Empfänger bekannt sein. Wird ein Datenpaket innerhalb des Zeitintervalls gesendet wird dies als 1 interpretiert, falls kein Paket gesendet wird als 0.
+So lassen sich beliebige Daten übertragen.\cite{cabuk2004ip}
 
 Da die Datenübertragung sehr stark von der Netzwerkgeschwindigkeit abhängig ist, muss man zusätzlich ein Verfahren zur Sicherstellung der Integrität implementieren.\\ 
-Das zusätzlich Versenden des Hashwertes, der über einen bestimmten Anteil der Nachricht gebildet wird, könnte die Integrität garantieren.\\
+Das Versenden des Hashwertes, der über einen bestimmten Anteil der Nachricht gebildet wird, könnte die Integrität garantieren.\\
 Eine andere Methode bei der die Integrität jedoch nicht vollständig garantiert, aber simpler umzusetzen ist, ist die Verwendung eines Paritätsbit.\cite{cabuk2004ip}
 
 \begin{figure}[ht]
@@ -41,10 +37,9 @@ Eine andere Methode bei der die Integrität jedoch nicht vollständig garantiert, 
 	\label{fig6}
 \end{figure}
 
-Die Datenübertragung über diesen Channel ist mit einem Bit pro Paket relativ gering. Die Datenübertragung ist hier aber auch direkt vom verwendeten Zeitintervall abhängig. Deshalb gilt es einen möglichst kleinen Zeitintervall zu wählen und diesen variabel, optimal an die herrschenden Netzwerkbedingungen anzupassen. \\
-Die Problematik ist hier, dass mit der Reduzierung des Netzwerkhinteralls die Fehleranfälligkeit ebenfalls zunimmt.
+Die Datenübertragung über diesen Channel ist mit einem Bit pro Paket relativ gering. Die Datenübertragung ist hier aber auch direkt vom verwendeten Zeitintervall abhängig. Deshalb gilt es einen möglichst kleinen Zeitintervall zu wählen und diesen optimal an die herrschenden Netzwerkbedingungen anzupassen.
 
-Abbildung 4.2 zeigt, wie das gewählte Zeitintervall und die Genauigkeit zusammenhängen. So lässt sich ab einer langsamen Datenübertragung mit einem Intervall von 0.05 Sekunden eine Genauigkeit von ca. 100 Prozent garantieren. Wobei diese Zahlen mit Vorsicht zu genießen  sind da sie sehr stark vom jeweiligen Netzwerk abhängig sind.
+Die Problematik ist hier, dass mit der Reduzierung des Netzwerkhinteralls die Fehleranfälligkeit ebenfalls zunimmt. Abbildung 4.2 zeigt, wie das gewählte Zeitintervall und die Genauigkeit zusammenhängen. So lässt sich bei einer langsamen Datenübertragung mit einem Intervall von 0.05 Sekunden eine Genauigkeit von ca. 100 Prozent garantieren. Wobei diese Zahlen mit Vorsicht zu genießen sind, da sie sehr stark vom jeweiligen Netzwerk abhängig sind.
 Der Ersteller dieser Grafik\cite{cabuk2004ip} hat ebenfalls einen Wert $k$ in seine Implementierung eingebaut, der die Länge einer Pause angibt, die bei einer Übertragungsverzögerung eingelegt werden kann. Diese Verbessert zwar die Genauigkeit der Datenübertragung die Geschwindigkeit wird aber erheblich reduziert.
 
 Bei dieser Art von Covert-Channel kann jedes beliebige Protokoll eingesetzt werden. Es bietet sich aber an die Protokolle auf den umliegenden Netzwerkverkehr anzupassen um ihn so unauffällig wie möglich zu machen.
@@ -98,7 +93,7 @@ Um diese Nummer nun zu Verändern muss eine Übersetzungsschicht eingebaut werden 
 
 
 \subsubsection{Traffic Normalizers}
-Storage Channels haben einen großen Schwachpunkt, der ihnen das Leben schwer macht. Traffic Normalizer schreiben die oben beschriebenen Headerattribute gezielt um oder verwerfen diese wenn auffällige Werte gesetzt sind. \\
+Storage Channels haben einen großen Schwachpunkt: Traffic Normalizer schreiben die oben beschriebenen Headerattribute gezielt um oder verwerfen diese wenn auffällige Werte gesetzt sind. \\
 Ein Traffic Normalizer auf IP Ebene könnte zum Beispiel das TTL Feld manipulieren, die Flags ,,Don't Fragment'' und ,,Reserved'' auf 0 senzen, die Options löschen oder Pakete bei denen das IHL Feld größer als 5 ist verwerfen. \cite{wendzel2012problem}\\
 Außerdem denkbar ist, dass Padding und die ungenutzten Bits des Type of Service Feldes auf 0 gesetzt werden.\\
 Ein solches System, in ähnlicher Weise auf alle Netzwerkschichten angewendet, ist eine sehr effektive Methode um gegen Storage Channels vorzugehen. 
@@ -137,7 +132,7 @@ Eine denkbare Unterart dieses Kanals ist die Verwendung verschiedener Options im
 
 \subsubsection{Protocol Hopping Covert Channels}
 
-Dieser Kanal ist eine Mischung des Protocl-Channels und des Storage Channel. Dabei werden verschiedene Storage-Channels zu einem zusammengefasst und abwechseln Daten übertragen.
+Dieser Kanal ist eine Mischung des Protocol-Channels und des Storage Channel. Dabei werden verschiedene Storage-Channels zu einem zusammengefasst und abwechseln Daten übertragen.
 
 In Abbildung 4.4 wird dargestellt wie dies realisiert werden kann. Die Binärdaten werden hier über zufällig gewählte Storage-Chanel übertragen. Dadurch wird bewirkt, dass der Kanal unauffälliger wird, da sich ein reales Netzwerk simulieren lässt.
 
@@ -162,8 +157,8 @@ Dieser Kanal lässt sich auf alle Protokolle, die zur Datenübertragung fähig sind
 
 \subsection{Klassische textbasierende Verfahren}
 
-Botschaften in Texten teilweise einzubetten ist mit der Steganographie möglich.\\
-Gängig unter Textmanipulatoren ist die gezielte Wahl des ersten Buchstaben des Wortes, wobei die Aneinanderreihung dieser Buchstaben ein neues Wort ergibt. \\
+Botschaften in Texten teilweise einzubetten ist mit der Steganographie möglich.
+Gängig unter Textmanipulatoren ist die gezielte Wahl des ersten Buchstaben des Wortes, wobei die Aneinanderreihung dieser Buchstaben ein neues Wort ergibt.
 Bei einem wissenschaftlich erarbeiteten Rückblick treten einige, nicht zu unterschätzende, Sicherheitslücken auf, wenn diese Art der Verschlüsselung angewendet wird.
 
 (Im oberen Text ist zur Veranschaulichung eine Nachricht an einen potentiellen Prüfer eingebettet)
@@ -197,44 +192,12 @@ Bei einem Wert von 0 ist der Pixel ,,unsichtbar'' und bei 255 ist der Pixel komp
 Hier könnte man die Daten wie oben in den letzten beiden Werten speichern.\\
 Da die Transparenz keine direkte Auswirkung auf die Farbe der Pixel hat, kann man jedoch auch mehr Daten speichern.
 
-
 \subsubsection{Verwendung von ,,Shamir's Secret Sharing'' Methode}
 
-Die Shamir's Secret Sharing Methode ist ein mathematisches Verfahren, das es möglich macht, ein Geheimnis auf mehrere Instanzen aufzuteilen. Dabei sind das Geheimnis und die dabei einstehenden ,,Shares'' Integer-Werte.\\  Die einzelnen Instanzen können dabei keine Rückschlüsse auf das Geheimnis schließen. Allein wenn man den Großteil der ,,Shares'' besitzt kann man das Geheimnis rekonstruieren.\\
-
-Der folgende Abschnitt basiert auf dieser Literatur: \cite{lee2010new}
-
-Verschlüsseln:\\
-Verwendet wird ein Geheimnis d, eine Anzahl von n Instanzen und eine Schwelle k < n.
-
-1. Es wird eine Primzahl p zufällig gewählt.
-
-2. Es werden k-1 Werte $c_1,c_2....,c_{k-1}$ mit den Werten zwischen 0 und p-1 vergeben.
-
-3. Für $x_1,x_2..,x_n$ jeweils eine eindeutige reale Zahl wählen.
-
-4. Mit Hilfe einer Polynomgleichung mit dem Grad k-1 werden nun n Gleichungen und somit auch Werte berechnet. $i = 1,2,...,n$
-
-\begin{center}
-$F(x_i) = (d+c_1x_i+c_2x_i^2+...+c_{k-1}x_i^{k-1})mod(p)$
-\end{center}
-
-5. Nun können die n Shares erstellt werden. Diese sind wie folgt Aufgebaut $(x_i,F(x_i)) $
-
-
-Das Geheimnis ist nun in einer Funktion ,,abgespeichert''. Die Shares sind Punkte, die auf dieser Funktion liegen. Damit die Funktion wieder rekonstruiert werden kann, müssen mindestens k der n Shares vorhanden.
-
-Entschlüsseln:\\
-
-Um die Nachrichten zu entschlüsseln müssen k Shares in die Formel oben eingesetzt werden.\\
-Das hierdurch entstandene Gleichungssystem mit den Unbekannten $d$ und $c_1$ bis $c_{k-1}$, kann zum Beispiel mit dem Gaußsches Eliminationsverfahren oder durch die Lagrangesche Interpolationsformel gelöst werden.
-
-Dieses Verfahren kann man dazu verwenden, um Nachrichten unauffällig in den alpha Kanal eines PNG Bildes zu integrieren.\\
+Das in Kapitel 2.4.3 beschriebene Verfahren kann man dazu verwenden, um Nachrichten unauffällig in den alpha Kanal eines PNG Bildes zu integrieren.\\
 Die zu übertragende Nachricht $M$ wird hierzu in Segmente von $t$ Bit, mit $t=3$ unterteilt. Bei der Umwandlung der Segmente in Dezimalzahlen entsteht so ein neues Array $M'=d_1,d_2...$ bei dem die Werte zwischen 0 und 7 liegen.
 
 Im Gegensatz zu dem original Algorithmus greift man hier zusätzlich auf die Werte $c_1$, $c_2$ und $c_3$ zurück um hier Ebenfalls ein ,,Geheimnis'' einzubetten. Zusammen mit $d$ können nun $k$ Werte integriert werden.
-
-
 
 So ergibt sich:
 
@@ -255,9 +218,12 @@ $q_2 = F(x_2 ) = (m_1 + m_2 x_2 + m_3 {x_2}^2 + m_4 {x_2}^3 ) mod(p)$\\
 $q_3 = F(x_3 ) = (m_1 + m_2 x_3 + m_3 {x_3}^2 + m_4 {x_3}^3 ) mod(p)$\\
 $q_4 = F(x_4 ) = (m_1 + m_2 x_4 + m_3 {x_4}^2 + m_4 {x_4}^3 ) mod(p)$\\
 
-Die Werte $q_1$ bis $q_4$ können nun beispielsweise in den alpha Kanal eines PNG Bildes eingefügt werden.
+
+
+Die Werte $q_1$ bis $q_4$ können nun  in den alpha Kanal eines PNG Bildes eingefügt werden.
 Durch die modulo Funktion entstehen so entstehen Werte zwischen 0 und 10. Damit das Bild eine möglichst niedrige Transparenz bekommt muss der alpha Wert so groß wie möglich sein. Deshalb wird zu $q$ jeweils der Wert 245 addiert, um so nah wie möglich an 255 zu kommen.\\
 Die neu entstandenen Werte $q'_1$ bis $q'_4$ kann man nun in den alpha Kanal einfügen und über eine sensible Datenverbindung übertragen.\\
+
 
 Zum Entschlüsseln muss man nun wieder 245 von den Werten des alpha Chanel subtrahieren. Durch das Erstellen und Lösen des Gleichungssystems, mit den oben gezeigten Formeln, können die Wert $m_1$ bis $m_4$ wieder berechnet werden.
 
@@ -266,6 +232,10 @@ Zum Entschlüsseln muss man nun wieder 245 von den Werten des alpha Chanel subtra
 
 Auch in PDF Dateien können Daten versteckt eingebettet werden. Das PDF Format setzt sich aus einer Reihe von Befehlen zusammen in der die Formatierung der Seite angegeben wird. So können Elemente zur Positionierung von Texten eingesetzt werden um Informationen einzubetten.\cite{zhong2007data}
 Open Source Programme machen es für jeden möglich auf diese Weise Daten zu verstecken.
+
+
+pocgtfo -> beispiel
+
 
 \chapter{Bewertung der Covert Channel}
 In diesem Kapitel wird sich damit beschäftigt, welcher der im vorhergehenden Kapitel vorgestellten Covert Channel für die Problemstellung geeignet ist. Es soll nun der optimale Kanal gefunden werden, der das Problem der Kommunikation zwischen Polizeipräsidium und Informant lösen kann.
@@ -358,6 +328,7 @@ Dieser Datenstrom läuft über den Proxy, der nun die Möglichkeit hat den Datenstr
 \end{figure}
 
 
+\subsection{Bewertung des Aufbaus}
 
 \section{Kodierung und Dekodierung}
 
@@ -404,10 +375,39 @@ Bei einer reinen Betrachtung der Differenz zwischen den langen und kurzen Pausen
 Aufgrund der Vorteile durch die Codierung mit Hilfe der Paketabstände soll diese Methode in dieser Arbeit verwendet werden. 
 
 \section{Fehlerkorrektur}
-Parität, Hamming Code
+
+Die Fehlerkorrektur kann mit einem Paritätsbit realisier werden. Dieses Bit gibt an, ob die Anzahl der Einsen in einer binären Zahlenfolge eine gerade oder ungerade Zahl ist. Wird nun bei der Datenübertragung ein Bit verändert sich die Anzahl der Einsen und stimmt nicht mehr mit dem Paritätsbit überein.
+
+Mit nur einem Paritätsbit lässt sich nun feststellen das ein Fehler aufgetreten ist, man erfährt aber nicht wo. Um auch dies herauszufinden kann der Hammingcode angewendet werden.\\
+Bei dieser Codiereung werden den Datenbits mehrere Paritätsbits hinzugefügt. Mit Hilfe dieser Bits kann dann ein Fehler in den Datenbits gefunden werden und gezielt korrigiert werden.
+\cite{HAMMING}
+
+Die folgende Tabelle zeigt wie viele Paritätsbits zu den Datenbits hinzugefügt werden müssen um ein falsches Bit in n Datenbits zu korrigieren. 
+
+\begin{tabular}{llllll}
+Daten Bits:& 8& 16& 32& 64& 128\\
+Paritäts-Bits:& 4& 5& 6& 7& 8\\
+Codewort:&12& 21& 38& 71& 136\\
+	
+\end{tabular}
+\cite{HAMMING}
+
+Zum verschlüsseln prüft jedes Paritätsbit mehrere genau festgelegte Bits des Codeworts. Das Paritätsbit wird dann so gesetzt, dass die Summe der geprüften Bits (sich selbst einge-schlossen) gerade ist.
+
+Um einen Fehler zu erkennen wird jetzt wieder die Summe ausgerechnet. Ist die Summe gerade, so ist kein Fehler aufgetreten und die Paritätsbits können aus dem Codeword gelöscht werden.
+Ist die Summe ungerade ist ein Fehler aufgetreten. Nun müssen alle fehlerhaften Paritätsbits ausfindig gemacht werden.\\
+Bildet man nun die Schnittmenge aller, von nicht korrekten Paritätsbits geprüften, Bits und Eliminiere alle Bits, die auch von korrekten Paritätsbits geprüft wurden so bleibt das falsche Bit übrig.
+\cite{HAMMING}
+
+Da die Datenübertragung über den Covert Channel auf Grund von Netzwerkschwankungen fehleranfällig ist empfiehlt es sich den Hammingcode auf jeweils 8 Bits anzuwenden. Dies bedeutet pro Byte 4 zusätzliche Paritätsbits was ein Codewort von 12 Bits Länge ergibt. In diesem Codewort kann ein potentiell falsches Bit ausfindig gemacht und korrigiert werden.
 
 \section{Wahrung der Integrität}
-Hash
+
+Um die Integrität der gesendeten Daten zu gewährleisten, soll am Ende der Daten ein Hashwert mitgesendet werden.
+Ein Hashwert wird mit Hilfe einer Hashfunktion gebildet. Hier soll die Hashfunktion md5 verwendet werden. Diese bildet eine beliebige Nachricht auf einen 128-Bit-Hashwert ab. Die Eigenschaft dieser Funktion die hier ausgenutzt wird ist, dass bei einer Veränderung der Input Nachricht ein anderer Wert herauskommt.
+
+Um die Integrität zu garantieren bildet der Sender den md5 Hash über die zu Sendende Nachricht. Die Nachricht und der Hashwert werden nun versendet. Der Empfänger bildet nun Ebenfalls den md5 Hash über die empfangene Nachricht. Stimmt dieser Hashwert mit dem überein den er vom Sender bekommen hat so ist die Nachricht unverändert versendet worden. Die Integrität ist sichergestellt.\\
+Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Möglich ist auch den Hash nicht erst am Ende der Datenübertragung zu Senden sondern nach einer festgelegten Datenmenge. Dies hätte den Vorteil, dass nicht die komplette Nachricht wiederholt
 
 \section{Optimierung}
 Buffer
@@ -421,5 +421,4 @@ Pausenverkleinerung
 
 \section{Bewertung der Ergebnisse}
 
-\chapter{Etische Aspekte}
-vieleicht hinter Grundlagen 
+

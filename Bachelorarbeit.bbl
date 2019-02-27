@@ -1,4 +1,4 @@
-\begin{thebibliography}{{Wik}18}
+\begin{thebibliography}{{LMU}17}
 
 \bibitem[{ De}19]{HEISE_ANDROID}
 {\sc { Dennis Schirrmacher }}: {\em Patchday: Das Öffnen von PNG-Bildern kann
@@ -26,6 +26,14 @@
 {\sc Ertel, Wolfgang}: {\em Angewandte Kryptographie. Fachbuchverlag Leipzig}.
 \newblock Carl Hanser Verlag), ISBN, 2001.
 
+\bibitem[{Fab}99]{INFO_HIDING}
+{\sc {Fabien A. P. Petitcolas, Ross J. Anderson and Markus G. Kuhn}}: {\em
+  Information Hiding A Survey}.
+\newblock
+  \url{https://www.petitcolas.net/fabien/publications/ieee99-infohiding.pdf},
+  1999.
+\newblock Abrufdatum: 22.02.2019.
+
 \bibitem[Gol03]{goltz2003covert}
 {\sc Goltz, James~P.}: {\em Under the radar:A look at three covert
   communications channels}.
@@ -34,6 +42,12 @@
 \bibitem[Hel18]{hellmann2018sicherheit}
 {\sc Hellmann, Roland}: {\em IT-Sicherheit: eine Einf{\"u}hrung}.
 \newblock Walter de Gruyter GmbH \& Co KG, 2018.
+
+\bibitem[HS96]{handel1996hiding}
+{\sc Handel, Theodore~G} \btxandlong{}\ {\sc Maxwell~T Sandford}: {\em Hiding
+  data in the OSI network model}.
+\newblock \Btxinlong{}\ {\em International Workshop on Information Hiding},
+  \btxpageslong{}\ 23--38. Springer, 1996.
 
 \bibitem[{Inf}81]{TCP_RFC}
 {\sc {Information Sciences Institute University of Southern California}}: {\em
@@ -56,11 +70,24 @@
 \newblock International Journal of Information Privacy, Security and Integrity,
   3(2):134--153, 2017.
 
+\bibitem[{LMU}17]{HAMMING}
+{\sc {LMU Münschen}}: {\em Erklärung Hamming Codes}.
+\newblock
+  \url{http://www.mobile.ifi.lmu.de/wp-content/uploads/lehrveranstaltungen/rechnerarchitektur-sose17/Erkl%C3%A4rungHammingCodes.pdf},
+  2017.
+\newblock Abrufdatum: 27.02.2019.
+
 \bibitem[LT10]{lee2010new}
 {\sc Lee, Che-Wei} \btxandlong{}\ {\sc Wen-Hsiang Tsai}: {\em A new
   steganographic method based on information sharing via PNG images}.
 \newblock \Btxinlong{}\ {\em 2nd International Conference on Computer and
   Automation Engineering (ICCAE)}, 2010.
+
+\bibitem[LT13]{lee2013data}
+{\sc Lee, Che-Wei} \btxandlong{}\ {\sc Wen-Hsiang Tsai}: {\em A data hiding
+  method based on information sharing via PNG images for applications of color
+  image authentication and metadata embedding}.
+\newblock Signal Processing, 93(7), 2013.
 
 \bibitem[{Nic}18]{CIA}
 {\sc {Nico Grundmeier}}: {\em Sicherheitslücken im Internet}.

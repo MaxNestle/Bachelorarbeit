@@ -8,27 +8,28 @@
 
 In der heutigen Zeit wird die Datensicherheit immer wichtiger, da immer mehr Daten im Internet preisgegeben werden. Um die Datenübertragung zu sichern wird meistens ein asymmetrisches Verschlüsselungsverfahren verwendet.\\
 Dieses Verfahren bieten zwar ein hohes Maß an Sicherheit, hat aber auch Nachteile, wie zum Beispiel eine Erhöhung der Rechenzeit, die Verwaltung eines Key-Managers und die Bedrohung durch einen ,,Man-in-the-Middle'' Angriff.\\ 
-Eine mögliche Alternative ist die Steganographie. Dies ist die Kunst, Daten in legitimierten Datenkanälen zu verstecken ohne einen Verschlüsselung anzuwenden.\\
-Steganographie ist zudem sehr unauffällig, da in unverschlüsselten Daten keine sensiblen Daten vermutet werden. \\
+Mögliche Alternativen sind die Steganographie oder Covert Channel. Beide Techniken nutzen legitimierte Datenkanäle, um darin Daten zu verstecken ohne einen Verschlüsselung anzuwenden. Dabei verwendet die Steganographie Dateien wie zum Beispiel Bilder, Audios oder PDFs um Informationen zu verbergen. Covert Channels nutzten hingegen die Netzwerkattribute für die Datenübertragung.\\
+%Beide Methoden sind sehr unauffällig, da in unverschlüsselten Daten keine sensiblen Daten vermutet werden.\\
 So wäre beispielsweise eine Anwendung denkbar, bei der ein Polizeipräsidium mit ihren verdeckten Ermittlern kommunizieren will. Da die Polizei davon ausgehen muss, dass die Kommunikation abgehört wird, würde einen verschlüsselte Kommunikation zu viel Aufsehen erregen. Zudem kann es sein, dass die Verschlüsselung schon geknackt wurde. \\
 Hier kommt die Steganographie ins Spiel, die es möglich macht einen legitimen und unauffälligen Kanal für die Datenübertagung zu verwenden. So ein Kanal könnte der Stream beim Schauen eines Videos oder die Nachrichten einer Webseite sein.\\
-Die Steganographie bietet gerade deswegen, da sie oft hinter den großen Verschlüsselungsverfahren in Vergessenheit gerät, eine sehr gut Methode um hoch sensible Daten zu versenden.
+Die Steganographie aber auch die Covert Channel bietet gerade deswegen, da sie oft hinter den großen Verschlüsselungsverfahren in Vergessenheit geraten, eine sehr gut Methode um hoch sensible Daten zu versenden.
 
 \section {Aufgabenstellung und Zielsetzung}
 
 Ziel der Bachelorarbeit ist es, bei dem in der Motivation bereits beschriebenen Szenario, der Polizei eine Kommunikationsmöglichkeit zu schaffen. Dabei soll es möglich sein, dass Anweisungen, Treffpunkte aber auch Bilder an den verdeckten Ermittler übertragen werden können.
-Dabei soll die Kommunikation über ein Netzwerk stattfinden und steganografisch verschlüsselt werden.\\ Die entstehende Anwendung soll als ein ,,Proof of Concept'' dienen und das Potential der Steganografie veranschaulichen.\\ Die Daten sollen nicht mit einem mathematischen Verfahren verschlüsselt werden, sondern in ein oder mehreren Protokollen ,,versteckt'' eingebettet und übertragen werden. Dazu soll ein optimales Verfahren zur Dateninfiltration und -exfiltration gefunden werden. Das Verfahren sollte unauffällig, f\"ur Dritte schwer zu interpretieren und mit größt möglicher Übertragungsrate senden. Optimal wäre ein ähnliche Sicherheit zu gewährleisten, wie mit einer mathematischen Verschlüsselung.\\
+Dabei soll die Kommunikation über ein Netzwerk stattfinden und mit Hilfe der Steganographie oder von Covert Channels realisiert werden.\\ Die entstehende Anwendung soll als ein ,,Proof of Concept'' dienen und das Potential von Information Hiding veranschaulichen.\\ Die Daten sollen nicht mit einem kryptographischen Verfahren verschlüsselt werden, sondern in ein oder mehreren Protokollen ,,versteckt'' eingebettet und übertragen werden. Dazu soll ein optimales Verfahren zur Dateninfiltration und -exfiltration gefunden werden. Das Verfahren sollte unauffällig, f\"ur Dritte schwer zu interpretieren und mit größt möglicher Übertragungsrate senden. Optimal wäre ein ähnliche Sicherheit zu gewährleisten, wie mit einer mathematischen Verschlüsselung.\\
 Ziel ist es außerdem jedes Dateiformat übertragen zu können. \\
 
 
 \section{Aufbau}
-Als erstes folgt die Einführung in die Grundlagen.
-Danach beschäftigt sich die Arbeit mit der Findung eines optimalen steganographischen Verfahren, mit dem die Daten übertragen werden sollen.
-Anschließend wird dieses Verfahren in einer realen Anwendung übertragen.
-Als letztes wird die Anwendung bewertet und ein Fazit gezogen.
+In Kapitel 2 werden die thematischen Grundlagen erklärt und definiert. Kapitel 3 beschäftigt sich mit der Findung der Anforderungen an die Lösung. Hier werden alle Punkte definiert die bei der Umsetzung realisiert werden müssten.\\
+Danach beschäftigt sich die Arbeit in Kapitel 4 mit der Findung eines optimalen Verfahren zum Information Hiding, mit dem die Daten übertragen werden sollen.
+In Kapitel 5 werden die gefunden Methoden bewertetet und die gewünschte Übertragungsart für die Umsetzung festgelegt.\\
+Danach wird sich mit der Umsetzung beschäftigt, die im 6. Kapitel dokumentiert ist.
+Im letzten und 8. Kapitel wird das Ergebnis des Projekts vorgestellt und ein Ausblick in die Zukunft geben.
 
 \section{Eigene Leistung}
-Es werden steganografische Verfahren bewertet und das Optimum ausfindig gemacht. Aus dem gefundenen Ergebnis wird einen Anwendung als ,,Proof of Concept'' implementiert, die passend zur Zielsetzung die Datenkommunikation übernimmt.
+Es werden steganografische Verfahren und Covert Channel bewertet und das Optimum ausfindig gemacht. Aus dem gefundenen Ergebnis wird einen Anwendung als ,,Proof of Concept'' implementiert, die passend zur Zielsetzung die Datenkommunikation übernimmt.
 Das Programm wird danach evaluiert und auf mögliche Anwendungsgebiete getestet.
 
 
