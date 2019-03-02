@@ -8,7 +8,14 @@ var socken = [];
 var proxySocket = '';
 var receiverSocket = '';
 var timestaps = [];
-var dataBits;
+var dataBits = [];
+var codeBits = [];
+var factor = 0.5;//relation between long and short break
+var longBreak = 100;//mil sec
+var shortBreak = longBreak*factor;// milsec
+var dataBitsLength = 8;//bits
+var fileLoad = false;
+var breakBetweenTransmit = 1000//mil sec
 
 console.log("Encode 10111011: ", hammingCode.encode("10111011"));
 console.log("Decode 001101111011: ", hammingCode.decode("001101101001"))
@@ -29,8 +36,8 @@ var getTimeString = function(input, separator) {
     return [
         pad(date.getHours()),
         pad(date.getMinutes()),
-        pad(date.getSeconds())
-      //  date.getMilliseconds()
+        pad(date.getSeconds()),
+        date.getMilliseconds()
     ].join(typeof separator !== 'undefined' ?  separator : ':' );
 }
 
@@ -62,9 +69,32 @@ function getDataFromFile(){
     dataBits = dataBits.substr(1);
     dataBits = dataBits.substr(1);
     console.log(dataBits);
+    makeHammingCode();
+    covertChannel();
   });
 }
 
+
+function makeHammingCode(){
+  var tmp = "";
+  while (true) {
+    if(dataBits.length >= dataBitsLength){
+      tmp = dataBits.substr(0,dataBitsLength);
+      codeBits = codeBits+hammingCode.encode(tmp);
+    }
+    else {
+      tmp = dataBits;
+      dataBits = "";
+      codeBits = codeBits+hammingCode.encode(tmp);
+      console.log(tmp);
+      break;
+    }
+    dataBits = dataBits.substr(dataBitsLength,dataBits.length);
+    console.log(tmp);
+  }
+  console.log(codeBits);
+  fileLoad = true;
+}
 
 async function sendTime(){
 	while(1){
@@ -75,17 +105,65 @@ async function sendTime(){
 		}
 	}
 
+async function covertChannel(){
+  while (true) {
+    if (fileLoad == true) {
+      for(i = 0; i < codeBits.length; i++){
+        if(socken.length != 0){ // vieleicht verzögerung
+          socken[0].emit('time', getTimeString());
+        }
+        if(codeBits[i] == "1"){
+          process.stdout.write("_");
+          await sleep(longBreak);
+        }
+        else {
+          process.stdout.write(".");
+          await sleep(shortBreak);
+        }
+      }
+      if(socken.length != 0){ // vieleicht verzögerung
+        socken[0].emit('time', getTimeString());
+      }
+    }
+    await sleep(breakBetweenTransmit);
+    console.log("");
+  }
+}
+
 //checks every minute the timstaps for receiver
 async function checkTimestamps(){
   var min = getMinute();
-  	while(1){
+  	while(true){
      		await sleep(1000);
-        if (parseInt(getMinute()) == parseInt(min) + 1){
+        if (parseInt(getMinute()) == parseInt(min) + 1){       //jede Minute suchen
           min = getMinute();
           console.log("Checking timestaps");
-          for (i = 0; i < timestaps.length; i++) {
-            if(timestaps[i].time )
-            console.log(timestaps[i].time);
+          for (i = 0; i < timestaps.length; i++) {    //durchsuchen aller timstaps
+            var tmp = [];
+            for (k = i; k < timestaps.length; k++){   // nach gleichen ips suchen
+              if(timestaps[i].ip == timestaps[k].ip){
+                tmp.push(parseInt(timestaps[k].time));          // zeit der einzelnen ips in array abspeichern
+              }
+            }
+            if(tmp.length <= 6){
+              if(tmp[0]==tmp[1]){
+                if(tmp[1] == tmp[2]){
+                  if((tmp[2]+1) == tmp[3]){
+                    if(tmp[3] == tmp[4]){
+                      if((tmp[4]+1) == tmp[5]){
+                        console.log("angemeldet");
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            console.log(tmp);
+            for (w = 0; w < timestaps.length; w++){
+              if(timestaps[w].time < (min-4)){
+                console.log("zahl gelöscht");
+              }
+            }
           }
         }
   		}
@@ -131,7 +209,7 @@ io.on('connection', (socket) => {
 
 getDataFromFile();
 checkTimestamps();
-sendTime();
+//sendTime();
 
 
 http.listen(80, function(){
