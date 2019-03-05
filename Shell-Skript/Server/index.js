@@ -13,7 +13,7 @@ var codeBits = [];
 var factor = 0.5;//relation between long and short break
 var longBreak = 100;//mil sec
 var shortBreak = longBreak*factor;// milsec
-var dataBitsLength = 8;//bits
+var dataBitsLength = 4;//bits
 var fileLoad = false;
 var breakBetweenTransmit = 1000//mil sec
 
@@ -92,7 +92,7 @@ function makeHammingCode(){
     dataBits = dataBits.substr(dataBitsLength,dataBits.length);
     console.log(tmp);
   }
-  console.log(codeBits);
+  console.log("Länge"+codeBits.length);
   fileLoad = true;
 }
 
@@ -113,11 +113,11 @@ async function covertChannel(){
           socken[0].emit('time', getTimeString());
         }
         if(codeBits[i] == "1"){
-          process.stdout.write("_");
+          //process.stdout.write("_");
           await sleep(longBreak);
         }
         else {
-          process.stdout.write(".");
+          //process.stdout.write(".");
           await sleep(shortBreak);
         }
       }
@@ -126,7 +126,6 @@ async function covertChannel(){
       }
     }
     await sleep(breakBetweenTransmit);
-    console.log("");
   }
 }
 
@@ -208,7 +207,7 @@ io.on('connection', (socket) => {
 
 
 getDataFromFile();
-checkTimestamps();
+//checkTimestamps();
 //sendTime();
 
 
