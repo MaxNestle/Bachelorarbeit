@@ -3,7 +3,6 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var fs = require('fs');
 var bits = require('buffer-bits');
-var hammingCode = require('hamming-code');
 var socken = [];
 var proxySocket = '';
 var receiverSocket = '';
@@ -11,23 +10,20 @@ var timestaps = [];
 var dataBits = [];
 var codeBits = [];
 var factor = 0.5;//relation between long and short break
-var longBreak = 100;//mil sec
+var longBreak = 50;//mil sec
 var shortBreak = longBreak*factor;// milsec
 var dataBitsLength = 4;//bits
 var fileLoad = false;
 var breakBetweenTransmit = 1000//mil sec
-
-console.log("Encode 10111011: ", hammingCode.encode("10111011"));
-console.log("Decode 001101111011: ", hammingCode.decode("001101101001"))
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
 
-app.get('/SecretProxy', function(req, res){
-  res.sendFile(__dirname + '/indexProxy.html');
-});
+//app.get('/SecretProxy', function(req, res){
+//  res.sendFile(__dirname + '/indexProxy.html');
+//});
 
 
 var getTimeString = function(input, separator) {
@@ -74,36 +70,138 @@ function getDataFromFile(){
   });
 }
 
+var ParityBit = function(position, dataSize) {
+  this.responsibleFor = {};
+  this.position = position;
+  this.value = undefined;
+
+  this.assign = function(responsibleFor) {
+    this.responsibleFor = responsibleFor;
+  };
+
+  this.reCalc = function() {
+    for (var key in this.responsibleFor) {
+      if (this.responsibleFor.hasOwnProperty(key)) {
+        // if it's in the set of 2^n, then we're looking at the value of a parity bit
+        if (Math.log(key) / Math.log(2) % 1 === 0) {
+          this.responsibleFor[key] = (this.responsibleFor[key] === null && this.isEven()) ? "0" : "1";
+
+          // and finally assign the value of this ParityBit object
+          if (key === this.position.toString()) {
+            this.value = this.responsibleFor[key];
+          }
+        }
+      }
+    }
+  };
+
+  // iterate through each bit in responsibleFor and calculate whether the
+  // bit holds an even or odd value
+  this.isEven = function() {
+    var count = 0;
+    for (var key in this.responsibleFor) {
+      if (this.responsibleFor.hasOwnProperty(key)) {
+        count += (this.responsibleFor[key] !== null) ? parseInt(this.responsibleFor[key]) : 0;
+      }
+    }
+    return count % 2 === 0;
+  };
+
+  this.toString = function() {
+    return this.value;
+  };
+}
+
+function encodeHamming(input) {
+  var r = 0;
+
+  // calculate how many parity bits we need: m+r+1 <= 2^r
+  while (!(input.length + r + 1 <= Math.pow(2, r))) {
+    r++;
+  }
+
+  var dataSequence = {};
+  var binaryArray = []; // used to create the 000, 001, 010, 011, ... table
+  var arrayLength = input.length + r;
+  var inputIndexPointer = 0;
+
+  for (var i = 1; i <= arrayLength; i++) {
+    // if it's a power of 2, push an empty location that will be filled later
+    if ((Math.log(i) / Math.log(2)) % 1 === 0) {
+      dataSequence[i] = new ParityBit(i);
+    } else {
+      dataSequence[i] = input.charAt(inputIndexPointer);
+      inputIndexPointer++;
+    }
+
+    var binary = i.toString(2); // now generate the value for our binary table
+    binary = "0000000000000000" + binary; // add leading zeros ...
+    binary = binary.slice(-1 * (r)); // ... and cut the string back down to size
+    binaryArray.push(binary);
+  }
+
+  // assign "responsibleFor" bits to all the parity bits, and then assign each
+  // parity bit a value to match the even or odd mode. this is only the first pass
+  for (var j = 0; j < r; j++) {
+    // get position of parity bit
+    var position = Math.pow(2, j);
+
+    var responsibleFor = {};
+
+    for (var k = 1; k <= arrayLength; k++) {
+      if (binaryArray[k-1].charAt(r-1-j) === "1") {
+        // assign key and value
+        responsibleFor[k] = (dataSequence[k] instanceof ParityBit) ? null : dataSequence[k];
+      }
+    }
+
+    dataSequence[position].assign(responsibleFor);
+  }
+
+  // do second pass to add in values for all the nulls
+  for (var j = 0; j < r; j++) {
+    // get parity bit
+    var current = dataSequence[Math.pow(2, j)];
+    current.reCalc();
+  }
+
+  var dataString = '';
+  for (var key in dataSequence) {
+    dataString += dataSequence[key].toString();
+  }
+
+  return dataString;
+};
 
 function makeHammingCode(){
   var tmp = "";
   while (true) {
     if(dataBits.length >= dataBitsLength){
       tmp = dataBits.substr(0,dataBitsLength);
-      codeBits = codeBits+hammingCode.encode(tmp);
+      codeBits = codeBits+tmp//+encodeHamming(tmp);
     }
     else {
       tmp = dataBits;
       dataBits = "";
-      codeBits = codeBits+hammingCode.encode(tmp);
-      console.log(tmp);
+      codeBits = codeBits+tmp//+encodeHamming(tmp);
       break;
     }
     dataBits = dataBits.substr(dataBitsLength,dataBits.length);
-    console.log(tmp);
+    //console.log(tmp);
+    //console.log(encodeHamming(tmp));
   }
   console.log("Länge"+codeBits.length);
   fileLoad = true;
 }
 
-async function sendTime(){
-	while(1){
-   		await sleep(1000);
-			for (i = 0; i < socken.length; i++) {
-				socken[i].emit('time', getTimeString());
-			}
-		}
-	}
+//async function sendTime(){
+//	while(1){
+//   		await sleep(1000);
+//			for (i = 0; i < socken.length; i++) {
+//				socken[i].emit('time', getTimeString());
+//			}
+//		}
+//	}
 
 async function covertChannel(){
   while (true) {
@@ -177,14 +275,14 @@ io.on('connection', (socket) => {
   socket.emit('test', "test");
 
   //if proxy
-  socket.on('proxyHello', function (data) {
-    if(proxySocket != ''){
-      proxySocket.emit('ACK', "You are no longer the Proxy");
-    }
-    proxySocket = socket;
-    proxySocket.emit('ACK', "You are the Proxy now");
-     console.log("Proxy");
-   });
+  //socket.on('proxyHello', function (data) {
+  //  if(proxySocket != ''){
+  //    proxySocket.emit('ACK', "You are no longer the Proxy");
+  //  }
+  //  proxySocket = socket;
+  //  proxySocket.emit('ACK', "You are the Proxy now");
+  //   console.log("Proxy");
+  // });
 
    //if normal user
    socket.on('ClientHello', function (data) {

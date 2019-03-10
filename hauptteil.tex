@@ -316,7 +316,6 @@ Soll ein aktiver Covert Channel erstellt werden, so ist der Sender gleichzeitig 
 
 \subsection{Passiv}
 
-
 Bei der passiven Alternative verbindet sich der Empfänger über einen Proxy mit einem beliebigen Webserver, der einen konstanten Datenstrom generiert. Dies könnte zum Beispiel ein Video- oder Audiostream sein.\\
 Dieser Datenstrom läuft über den Proxy, der nun die Möglichkeit hat den Datenstrom zu manipulieren. Der Sender der geheimen Nachrichten nimmt in diesem System die Rolle des Proxys ein. Er muss die Daten nicht verändern sondern nur verzögern.
 
@@ -407,7 +406,7 @@ Um die Integrität der gesendeten Daten zu gewährleisten, soll am Ende der Daten 
 Ein Hashwert wird mit Hilfe einer Hashfunktion gebildet. Hier soll die Hashfunktion md5 verwendet werden. Diese bildet eine beliebige Nachricht auf einen 128-Bit-Hashwert ab. Die Eigenschaft dieser Funktion die hier ausgenutzt wird ist, dass bei einer Veränderung der Input Nachricht ein anderer Wert herauskommt.
 
 Um die Integrität zu garantieren bildet der Sender den md5 Hash über die zu Sendende Nachricht. Die Nachricht und der Hashwert werden nun versendet. Der Empfänger bildet nun Ebenfalls den md5 Hash über die empfangene Nachricht. Stimmt dieser Hashwert mit dem überein den er vom Sender bekommen hat so ist die Nachricht unverändert versendet worden. Die Integrität ist sichergestellt.\\
-Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Möglich ist auch den Hash nicht erst am Ende der Datenübertragung zu Senden sondern nach einer festgelegten Datenmenge. Dies hätte den Vorteil, dass nicht die komplette Nachricht wiederholt
+Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Möglich ist auch den Hash nicht erst am Ende der Datenübertragung zu Senden sondern nach einer festgelegten Datenmenge. Dies hätte den Vorteil, dass nicht die komplette Nachricht wiederholt werden muss.
 
 \section{Optimierung}
 Buffer
