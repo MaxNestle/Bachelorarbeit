@@ -7,6 +7,7 @@ import time
 from datetime import datetime
 from array import *
 from bitstring import BitArray,BitStream
+from random import shuffle
 
 mutex = Lock()
 buffer = []
@@ -20,6 +21,7 @@ threadBreak = 0.005  # sec
 breakbetween = 1  # sec
 sTolerance = 0.1
 bTolerance = 0.3
+breakArray = []
 
 
 def tcpdump():
@@ -27,7 +29,6 @@ def tcpdump():
     global data
     global mutex
 
-    print("Thread")
     pipe = os.popen("tcpdump -s 0 host 127.0.0.1 and src port 80 -q -i any -l")
     for line in pipe:
         buffer.append(line[0:15])
@@ -43,13 +44,12 @@ def tcpdump():
     time.sleep(threadBreak)
 
 
-print("Thread")
 
 
 def calc():
     d1 = []
     d2 = []
-    f1 = []
+    dif = list()
     bStartTolerance = breakbetween + (breakbetween * bTolerance)
     sStartTolerance = breakbetween - (breakbetween * sTolerance)
     bBigBreakTolerance = longBreak + (longBreak * bTolerance)
@@ -57,57 +57,78 @@ def calc():
     bSmallBreakTolerance = (longBreak * factor) + (longBreak * factor * bTolerance)
     sSmallBreakTolerance = (longBreak * factor) - (longBreak * factor * sTolerance)
 
+    print(str(bStartTolerance)+" - "+str(sStartTolerance))
+    print(str(bBigBreakTolerance)+" - "+str(sBigBreakTolerance))
+    print(str(bSmallBreakTolerance)+" - "+str(sSmallBreakTolerance))
+
+
     global codedata
     global result
     write = False
     while 1:
         mutex.acquire()
+        dif = list()
         while len(data) > 2:  # enouth to compare?
             d1 = datetime.strptime(data[0], "%H:%M:%S.%f")
             d2 = datetime.strptime(data[1], "%H:%M:%S.%f")
             d1 = d2 - d1  # calculate the time between paket
-            f1 = float(d1.total_seconds())
+            dif.append(float(d1.total_seconds()))
             data.pop(0)
-
+        if len(dif) != 0:
+            #detectBreak(dif)
+        for f1 in dif:
             if sStartTolerance < f1 < bStartTolerance:  # searching the file start/end
+                print(str(f1) + "  \t=> Start of File")
                 if codedata != []:
-                    result = []
                     #while len(codedata) >= 7:
-                    #    result = result + hammingCorrection(codedata[0:7])
+                    #    #result = result + hammingCorrection(codedata[0:7])
                     #    del codedata[0:7]
                     f = open('./secrete2', 'wb')
-                    print(codedata)
                     s= ''.join(str(e) for e in codedata)
                     #s = ''.join(codedata)
+                    print("")
+                    print("Data: "+s)
+                    print("Data Length: "+str(len(s)))
+                    print("")
                     b = BitArray(bin = s)
-                    print(b)
                     b.tofile(f)
                     f.flush()
                     f.close()
-                    print(result)
                 codedata = []
-                print("Start of File")
                 if write == False:
                     write = True
+            else:
+                if write == True:
+                    if sBigBreakTolerance < f1 < bBigBreakTolerance:
+                        codedata.append("1")
+                        print(str(f1) + "  \t=> 1 \t" + str(f1-sBigBreakTolerance) + " / " +str(bBigBreakTolerance-f1))
+                    else:
+                        if sSmallBreakTolerance < f1 < bSmallBreakTolerance:
+                            codedata.append("0")
+                            print(str(f1) + "  \t=> 0 \t"+ str(f1-sSmallBreakTolerance) + " / " +str(bSmallBreakTolerance-f1))
+                        else:
+                            print(str(f1) + "  \t=> undefind: will be ignored")
 
-            if write == True:
-                if sBigBreakTolerance < f1 < bBigBreakTolerance:
-                    codedata.append(1)
-                if sSmallBreakTolerance < f1 < bSmallBreakTolerance:
-                    codedata.append(0)
         mutex.release()
         time.sleep(threadBreak)
 
 
+def detectBreak(dif):
+    print(dif)
+    if(len(dif)>= 100):
+        tmp = dif[1:100]   #first elem = break
+    else:
+        tmp = dif
+
+    step = tmp[0]
+    i = 0
+
+    while i != len(tmp)-1:
+        k = abs(tmp[i] - tmp[i+1])
+
 
 
 #https://gist.github.com/vatsal-sodha/f8f16b1999a0b5228143e637d617c797
-def noOfParityBitsInCode(noOfBits):
-    i=0
-    while 2.**i <= noOfBits:
-        i+=1
-    return i
-
 
 def hammingCorrection(data):
     n = noOfParityBitsInCode(len(data))

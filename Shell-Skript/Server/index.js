@@ -3,6 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var fs = require('fs');
 var bits = require('buffer-bits');
+var md5 = require('js-md5');
 var socken = [];
 var proxySocket = '';
 var receiverSocket = '';
@@ -55,17 +56,37 @@ function sleep(ms){
     })
 }
 
+function getMD5(data){
+  var hash = md5.create();
+  hash.update(data);
+  console.log(hash.hex());
+  return hash.hex();
+}
+
 function getDataFromFile(){
   fs.readFile('Secret/secret', function (err,data) {
     if (err) {
       return console.log(err);
     }
-    console.log(data);
     dataBits = bits.from(data).toBinaryString();
     dataBits = dataBits.substr(1);
     dataBits = dataBits.substr(1);
     console.log(dataBits);
-    makeHammingCode();
+    var tmp = getMD5(dataBits);
+    var hashBuffer = new Buffer(tmp);
+    var hash = bits.from(hashBuffer).toBinaryString();
+    hash = hash.substr(1);
+    hash = hash.substr(1);
+    console.log(hash);
+
+    dataBits = dataBits + hash;
+    console.log(dataBits);
+
+
+    //makeHammingCode();
+    codeBits = dataBits;
+    dataBits = [];
+    fileLoad = true;
     covertChannel();
   });
 }
@@ -178,12 +199,12 @@ function makeHammingCode(){
   while (true) {
     if(dataBits.length >= dataBitsLength){
       tmp = dataBits.substr(0,dataBitsLength);
-      codeBits = codeBits+tmp//+encodeHamming(tmp);
+      codeBits = codeBits + encodeHamming(tmp);
     }
     else {
       tmp = dataBits;
       dataBits = "";
-      codeBits = codeBits+tmp//+encodeHamming(tmp);
+      codeBits = codeBits + encodeHamming(tmp);
       break;
     }
     dataBits = dataBits.substr(dataBitsLength,dataBits.length);
@@ -191,7 +212,6 @@ function makeHammingCode(){
     //console.log(encodeHamming(tmp));
   }
   console.log("Länge"+codeBits.length);
-  fileLoad = true;
 }
 
 //async function sendTime(){
