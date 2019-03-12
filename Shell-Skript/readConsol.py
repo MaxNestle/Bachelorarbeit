@@ -22,6 +22,25 @@ breakbetween = 1  # sec
 sTolerance = 0.1
 bTolerance = 0.3
 breakArray = []
+table = [129, 69, 229, 238, 16, 104, 178, 222, 95, 5, 171, 147, 231, 170, 105,
+         61, 85, 217, 236, 223, 87, 221, 60, 38, 125, 151, 124, 86, 137, 143,
+         230, 25, 228, 116, 62, 12, 150, 42, 177, 65, 207, 20, 122, 67, 109,
+         220, 208, 102, 183, 90, 28, 15, 245, 97, 145, 162, 156, 181, 155,
+         233, 111, 43, 157, 120, 247, 83, 194, 126, 34, 18, 198, 57, 121,
+         164, 74, 218, 8, 138, 130, 37, 51, 193, 4, 244, 152, 40, 45, 89,
+         35, 209, 21, 224, 76, 189, 96, 17, 201, 235, 64, 161, 68, 254,
+         202, 174, 44, 66, 133, 91, 72, 195, 210, 22, 52, 172, 56, 114,
+         63, 48, 197, 127, 88, 173, 0, 117, 10, 41, 106, 192, 188, 252,
+         169, 199, 242, 31, 214, 136, 7, 23, 103, 251, 6, 185, 11, 123,
+         98, 182, 46, 118, 110, 36, 225, 249, 160, 3, 163, 100, 80, 53,
+         1, 190, 141, 13, 255, 146, 93, 14, 140, 166, 211, 78, 184, 232,
+         108, 115, 19, 32, 167, 9, 113, 165, 253, 226, 132, 187, 154, 227,
+         205, 206, 58, 59, 134, 55, 128, 131, 204, 200, 24, 196, 144, 75, 216,
+         158, 49, 94, 107, 180, 168, 142, 119, 219, 153, 248, 212, 159, 239, 186,
+         179, 54, 27, 30, 84, 149, 203, 2, 191, 215, 175, 139, 81, 47, 92, 240, 241,
+         148, 77, 26, 70, 71, 176, 99, 39, 234, 33, 50, 82, 213, 112, 237, 73, 135,
+         250, 101, 243, 246, 79, 29]
+
 
 
 def tcpdump():
@@ -74,36 +93,41 @@ def calc():
             d1 = d2 - d1  # calculate the time between paket
             dif.append(float(d1.total_seconds()))
             data.pop(0)
-        if len(dif) != 0:
+        #if len(dif) != 0:
             #detectBreak(dif)
         for f1 in dif:
             if sStartTolerance < f1 < bStartTolerance:  # searching the file start/end
                 print(str(f1) + "  \t=> Start of File")
                 if codedata != []:
-                    #while len(codedata) >= 7:
-                    #    #result = result + hammingCorrection(codedata[0:7])
-                    #    del codedata[0:7]
-                    f = open('./secrete2', 'wb')
-                    s= ''.join(str(e) for e in codedata)
-                    #s = ''.join(codedata)
+                    f = open('./secrete2', 'wb')        # open file
+
+                    hashFromServer = codedata[-8:]      # get the Hash fom the end of the data
+                    del codedata[-8:]                   # remove hash from data
+                    hashFromServer = int(''.join(str(e) for e in hashFromServer),2)
+                    print("Hash from serer: "+str(hashFromServer))
+                    dataString = ''.join(str(e) for e in codedata)  # data from List to String
+                    hashFromClient = hash8(codedata,table)[0]         # generating 8 bit Perason Hash
+                    print("Hash from client: "+str(hashFromClient))
+
                     print("")
-                    print("Data: "+s)
-                    print("Data Length: "+str(len(s)))
+                    print("Data: "+dataString)
+                    print("Data Length: "+str(len(dataString)))
                     print("")
-                    b = BitArray(bin = s)
-                    b.tofile(f)
+
+                    b = BitArray(bin = dataString)               # making bitArray without Char encoding
+                    b.tofile(f)                         # write to file
                     f.flush()
                     f.close()
                 codedata = []
-                if write == False:
+                if write == False:                      # false at the beginning as long the file hasnt started
                     write = True
             else:
                 if write == True:
-                    if sBigBreakTolerance < f1 < bBigBreakTolerance:
+                    if sBigBreakTolerance < f1 < bBigBreakTolerance:    # time range for a 1
                         codedata.append("1")
-                        print(str(f1) + "  \t=> 1 \t" + str(f1-sBigBreakTolerance) + " / " +str(bBigBreakTolerance-f1))
+                        print(str(f1) + "  \t=> 1 \t" + str(f1-sBigBreakTolerance) + " / " +str(bBigBreakTolerance-f1))     # print result and distance to the range borders
                     else:
-                        if sSmallBreakTolerance < f1 < bSmallBreakTolerance:
+                        if sSmallBreakTolerance < f1 < bSmallBreakTolerance: # time range for 0
                             codedata.append("0")
                             print(str(f1) + "  \t=> 0 \t"+ str(f1-sSmallBreakTolerance) + " / " +str(bSmallBreakTolerance-f1))
                         else:
@@ -126,61 +150,15 @@ def detectBreak(dif):
     while i != len(tmp)-1:
         k = abs(tmp[i] - tmp[i+1])
 
+def hash8(data,s):
+    result = []
+    for byte in range(1):
+        h = s[(int(data[0]) + byte) % 256]
+        for c in data[1:]:
+            h = s[h ^ int(c)]
+        result.append(h)
+    return result
 
-
-#https://gist.github.com/vatsal-sodha/f8f16b1999a0b5228143e637d617c797
-
-def hammingCorrection(data):
-    n = noOfParityBitsInCode(len(data))
-    print(n)
-    i = 0
-    list1 = list(data)
-    print(list1)
-    errorthBit = 0
-    while i < n:
-        k = 2. ** i
-        j = 1
-        total = 0
-        while j * k - 1 < len(list1):
-            if j * k - 1 == len(list1) - 1:
-                lower_index = j * k - 1
-                temp = list1[int(lower_index):len(list1)]
-            elif (j + 1) * k - 1 >= len(list1):
-                lower_index = j * k - 1
-                temp = list1[int(lower_index):len(list1)]  # if list's size is smaller than boundary point
-            elif (j + 1) * k - 1 < len(list1) - 1:
-                lower_index = (j * k) - 1
-                upper_index = (j + 1) * k - 1
-                temp = list1[int(lower_index):int(upper_index)]
-
-            total = total + sum(int(e) for e in temp)
-            j += 2  # increment by 2 beacause we want alternative pairs of numberss from list
-        if total % 2 > 0:
-            errorthBit += k  # to check even parity summing up all the elements in sublist and if summ is even than even parity else odd parity
-        i += 1
-    if errorthBit >= 1:
-        print("error in ", errorthBit, " bit after correction data is ")
-        # toggle the corrupted bit
-        if list1[int(errorthBit - 1)] == '0' or list1[int(errorthBit - 1)] == 0:
-            list1[int(errorthBit - 1)] = 1
-        else:
-            list1[int(errorthBit - 1)] = 0
-    else:
-        print("No error")
-    list2 = list()
-    i = 0
-    j = 0
-    k = 0
-    # returning only data from codeword that is ignoring parity bits
-    while i < len(list1):  # returning only data bits
-        if i != ((2 ** k) - 1):
-            temp = list1[int(i)]
-            list2.append(str(temp))
-            j += 1
-        else:
-            k += 1
-        i += 1
-    return list2
 
 
 _thread.start_new_thread(tcpdump, ())

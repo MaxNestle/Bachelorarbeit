@@ -56,11 +56,46 @@ function sleep(ms){
     })
 }
 
-function getMD5(data){
-  var hash = md5.create();
-  hash.update(data);
-  console.log(hash.hex());
-  return hash.hex();
+function getHash(data){
+  hashLength = 1;
+  seed = new Buffer([129, 69, 229, 238, 16, 104, 178, 222, 95, 5, 171, 147, 231, 170, 105,
+         61, 85, 217, 236, 223, 87, 221, 60, 38, 125, 151, 124, 86, 137, 143,
+         230, 25, 228, 116, 62, 12, 150, 42, 177, 65, 207, 20, 122, 67, 109,
+         220, 208, 102, 183, 90, 28, 15, 245, 97, 145, 162, 156, 181, 155,
+         233, 111, 43, 157, 120, 247, 83, 194, 126, 34, 18, 198, 57, 121,
+         164, 74, 218, 8, 138, 130, 37, 51, 193, 4, 244, 152, 40, 45, 89,
+         35, 209, 21, 224, 76, 189, 96, 17, 201, 235, 64, 161, 68, 254,
+         202, 174, 44, 66, 133, 91, 72, 195, 210, 22, 52, 172, 56, 114,
+         63, 48, 197, 127, 88, 173, 0, 117, 10, 41, 106, 192, 188, 252,
+         169, 199, 242, 31, 214, 136, 7, 23, 103, 251, 6, 185, 11, 123,
+         98, 182, 46, 118, 110, 36, 225, 249, 160, 3, 163, 100, 80, 53,
+         1, 190, 141, 13, 255, 146, 93, 14, 140, 166, 211, 78, 184, 232,
+         108, 115, 19, 32, 167, 9, 113, 165, 253, 226, 132, 187, 154, 227,
+         205, 206, 58, 59, 134, 55, 128, 131, 204, 200, 24, 196, 144, 75, 216,
+         158, 49, 94, 107, 180, 168, 142, 119, 219, 153, 248, 212, 159, 239, 186,
+         179, 54, 27, 30, 84, 149, 203, 2, 191, 215, 175, 139, 81, 47, 92, 240, 241,
+         148, 77, 26, 70, 71, 176, 99, 39, 234, 33, 50, 82, 213, 112, 237, 73, 135,
+         250, 101, 243, 246, 79, 29]);
+	if (!(Buffer.isBuffer(data) || typeof data == 'string')) throw new TypeError('data must either be a string or a buffer');
+	if (hashLength && !(typeof hashLength == 'number' && hashLength > 0 && hashLength <= 8 && Math.round(hashLength) == hashLength)) throw new TypeError('when defined, hashLength must be an integer number between 1 and 8 ');
+	if (seed && !(Buffer.isBuffer(seed) && seed.length == 256)) throw new TypeError('when defined, seed must be a 256 bytes-long buffer');
+
+	if (data.length == 0) throw new TypeError('data must be at least one byte long');
+	if (typeof data == 'string') data = new Buffer(data, 'utf8');
+
+	var s = seed;
+
+	var i = 0, j = 0;
+	var hash = new Buffer(hashLength);
+  data = String(data);
+	for (var j = 0; j < hashLength; j++){
+		var h = s[(parseInt(data.charAt(0)) + j) % 256];
+		for (var i = 1; i < data.length; i++){
+			h = s[(h ^ data[i])];
+		}
+		hash[j] = h;
+	}
+	return hash;
 }
 
 function getDataFromFile(){
@@ -71,147 +106,20 @@ function getDataFromFile(){
     dataBits = bits.from(data).toBinaryString();
     dataBits = dataBits.substr(1);
     dataBits = dataBits.substr(1);
-    console.log(dataBits);
-    var tmp = getMD5(dataBits);
-    var hashBuffer = new Buffer(tmp);
+    console.log("Data: \t"+dataBits);
+    var hashBuffer = new Buffer(getHash(dataBits));
     var hash = bits.from(hashBuffer).toBinaryString();
     hash = hash.substr(1);
     hash = hash.substr(1);
-    console.log(hash);
-
+    console.log("Hash: \t"+hash);
     dataBits = dataBits + hash;
-    console.log(dataBits);
+    console.log("Data + Hash: \t"+dataBits);
 
-
-    //makeHammingCode();
     codeBits = dataBits;
     dataBits = [];
     fileLoad = true;
     covertChannel();
   });
-}
-
-var ParityBit = function(position, dataSize) {
-  this.responsibleFor = {};
-  this.position = position;
-  this.value = undefined;
-
-  this.assign = function(responsibleFor) {
-    this.responsibleFor = responsibleFor;
-  };
-
-  this.reCalc = function() {
-    for (var key in this.responsibleFor) {
-      if (this.responsibleFor.hasOwnProperty(key)) {
-        // if it's in the set of 2^n, then we're looking at the value of a parity bit
-        if (Math.log(key) / Math.log(2) % 1 === 0) {
-          this.responsibleFor[key] = (this.responsibleFor[key] === null && this.isEven()) ? "0" : "1";
-
-          // and finally assign the value of this ParityBit object
-          if (key === this.position.toString()) {
-            this.value = this.responsibleFor[key];
-          }
-        }
-      }
-    }
-  };
-
-  // iterate through each bit in responsibleFor and calculate whether the
-  // bit holds an even or odd value
-  this.isEven = function() {
-    var count = 0;
-    for (var key in this.responsibleFor) {
-      if (this.responsibleFor.hasOwnProperty(key)) {
-        count += (this.responsibleFor[key] !== null) ? parseInt(this.responsibleFor[key]) : 0;
-      }
-    }
-    return count % 2 === 0;
-  };
-
-  this.toString = function() {
-    return this.value;
-  };
-}
-
-function encodeHamming(input) {
-  var r = 0;
-
-  // calculate how many parity bits we need: m+r+1 <= 2^r
-  while (!(input.length + r + 1 <= Math.pow(2, r))) {
-    r++;
-  }
-
-  var dataSequence = {};
-  var binaryArray = []; // used to create the 000, 001, 010, 011, ... table
-  var arrayLength = input.length + r;
-  var inputIndexPointer = 0;
-
-  for (var i = 1; i <= arrayLength; i++) {
-    // if it's a power of 2, push an empty location that will be filled later
-    if ((Math.log(i) / Math.log(2)) % 1 === 0) {
-      dataSequence[i] = new ParityBit(i);
-    } else {
-      dataSequence[i] = input.charAt(inputIndexPointer);
-      inputIndexPointer++;
-    }
-
-    var binary = i.toString(2); // now generate the value for our binary table
-    binary = "0000000000000000" + binary; // add leading zeros ...
-    binary = binary.slice(-1 * (r)); // ... and cut the string back down to size
-    binaryArray.push(binary);
-  }
-
-  // assign "responsibleFor" bits to all the parity bits, and then assign each
-  // parity bit a value to match the even or odd mode. this is only the first pass
-  for (var j = 0; j < r; j++) {
-    // get position of parity bit
-    var position = Math.pow(2, j);
-
-    var responsibleFor = {};
-
-    for (var k = 1; k <= arrayLength; k++) {
-      if (binaryArray[k-1].charAt(r-1-j) === "1") {
-        // assign key and value
-        responsibleFor[k] = (dataSequence[k] instanceof ParityBit) ? null : dataSequence[k];
-      }
-    }
-
-    dataSequence[position].assign(responsibleFor);
-  }
-
-  // do second pass to add in values for all the nulls
-  for (var j = 0; j < r; j++) {
-    // get parity bit
-    var current = dataSequence[Math.pow(2, j)];
-    current.reCalc();
-  }
-
-  var dataString = '';
-  for (var key in dataSequence) {
-    dataString += dataSequence[key].toString();
-  }
-
-  return dataString;
-};
-
-function makeHammingCode(){
-  var tmp = "";
-  while (true) {
-    if(dataBits.length >= dataBitsLength){
-      tmp = dataBits.substr(0,dataBitsLength);
-      codeBits = codeBits + encodeHamming(tmp);
-    }
-    else {
-      tmp = dataBits;
-      dataBits = "";
-      codeBits = codeBits + encodeHamming(tmp);
-      break;
-    }
-    dataBits = dataBits.substr(dataBitsLength,dataBits.length);
-    //console.log(tmp);
-    //console.log(encodeHamming(tmp));
-  }
-  console.log("Länge"+codeBits.length);
 }
 
 //async function sendTime(){
