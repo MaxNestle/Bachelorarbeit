@@ -8,9 +8,14 @@ from datetime import datetime
 from array import *
 from bitstring import BitArray,BitStream
 from random import shuffle
+import sys
+
 
 mutex = Lock()
+host = []
+port = []
 buffer = []
+filename = []
 data = []  # timestamps
 result = []
 codedata = []  # binary hamming code
@@ -42,22 +47,28 @@ table = [129, 69, 229, 238, 16, 104, 178, 222, 95, 5, 171, 147, 231, 170, 105,
          250, 101, 243, 246, 79, 29]
 
 
+if len(sys.argv) != 4:
+    print("Program needs exactly three arguments: destination_IP_Adress destination_Port filname")
+    sys.exit(0)
+else:
+    host = sys.argv[1]
+    port = sys.argv[2]
+    filename = sys.argv[3]
 
 def tcpdump():
     global buffer
     global data
     global mutex
 
-    pipe = os.popen("tcpdump -s 0 host 127.0.0.1 and src port 80 -q -i any -l")
+    pipe = os.popen("tcpdump -s 0 host "+host+" and src port "+port+" -q -i any -l")
     for line in pipe:
-        buffer.append(line[0:15])
+        buffer.append(line[0:15])           #saves only the time to buffer
 
         if len(buffer) > bufferzize:
             mutex.acquire()
             data = data + buffer
             buffer = []
             mutex.release()
-
         #print(str(len(buffer))+ "   "+ str(len(data)))
 
     time.sleep(threadBreak)
@@ -99,7 +110,7 @@ def calc():
             if sStartTolerance < f1 < bStartTolerance:  # searching the file start/end
                 print(str(f1) + "  \t=> Start of File")
                 if codedata != []:
-                    f = open('./secrete2', 'wb')        # open file
+                    f = open('./'+filename, 'wb')        # open file
 
                     hashFromServer = codedata[-8:]      # get the Hash fom the end of the data
                     del codedata[-8:]                   # remove hash from data
@@ -108,6 +119,9 @@ def calc():
                     dataString = ''.join(str(e) for e in codedata)  # data from List to String
                     hashFromClient = hash8(codedata,table)[0]         # generating 8 bit Perason Hash
                     print("Hash from client: "+str(hashFromClient))
+
+                    if hashFromServer != hashFromClient:
+                        print("Mistake in data transfer... Hashes are not the same!")
 
                     print("")
                     print("Data: "+dataString)
