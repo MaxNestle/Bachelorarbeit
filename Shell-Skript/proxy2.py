@@ -6,21 +6,11 @@ from urllib.parse import urlparse
 import time
 import ssl
 from threading import Lock
-import queue
-import errno
 
-aLock = Lock()
-bLock = Lock()
+lock = Lock()
 serverUrlStart = ""
-aQueue = queue.Queue()
-bQueue = queue.Queue()
-
 
 def listenSocket():
-    global aLock
-    global bLock
-    global aQueue
-    global bQueue
 
     # Create a TCP socket
     serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -33,7 +23,6 @@ def listenSocket():
 
     serverSocket.listen(10)  # become a server socket
 
-    i = 1;
     while True:
         # Establish the connection
         print("listening...")
@@ -41,9 +30,6 @@ def listenSocket():
         d = threading.Thread(name= "client",target=proxyThread, args=(clientSocket, client_address))
         d.setDaemon(True)
         d.start()
-       # i += 1
-        if i == 2:
-            break
 
 
 def proxyThread(clientSocket, client_address):
@@ -56,10 +42,9 @@ def proxyThread(clientSocket, client_address):
     # get url
     if len(first_line) == 0:
         print(requestStr)
-    if len(first_line) > 2:
-        url = first_line[1]
-        print(url)
-        urlObj = urlparse(url)
+    url = first_line[1]
+    print(url)
+    urlObj = urlparse(url)
 
     if urlObj.netloc == "":
         portStart = urlObj.path.find(":")
@@ -87,7 +72,7 @@ def proxyThread(clientSocket, client_address):
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((webserver, port))
-    request = request.decode()
+    request = request.decode("utf-8")
     serverUrlStart = "http://"+webserver
 
     if port != 443:
@@ -99,89 +84,48 @@ def proxyThread(clientSocket, client_address):
     print(request)
     s.sendall(request.encode("utf-8"))
 
-    e = threading.Thread(name="receiveFromClient", target=receiveFromClient, args=(s,clientSocket,port,webserver))
+    e = threading.Thread(name="clientToServer", target=clientToServer, args=(s,clientSocket,port,webserver))
     e.start()
 
-    f = threading.Thread(name="serverToClient", target=receiveFromServer, args=(s,clientSocket,port,webserver))
+    f = threading.Thread(name="serverToClient", target=serverToClient, args=(s,clientSocket,port,webserver,lock))
     f.start()
 
-    g = threading.Thread(name="serverToClient", target=sendToServer, args=(s,clientSocket, port, webserver))
-    g.start()
-
-    h = threading.Thread(name="serverToClient", target=sendToClient, args=(s,clientSocket, port, webserver))
-    h.start()
 
 
 
-def receiveFromClient(s,clientSocket,port,webserver):
+
+
+def clientToServer(s,clientSocket,port,webserver):
     print("cts thread")
 
     serverUrlStart = "http://"+webserver
 
     while 1:
+        # receive data from client
         data = clientSocket.recv(2048)
         if (len(data) > 0):
             data = data.decode("utf-8")
             pos = data.find(serverUrlStart)
             if pos != -1:
                 data = data[:pos] + data[(pos+len(serverUrlStart)):]
-            aQueue.put(data)
-            print("1")
-            print(data)
-        time.sleep(0.002)
+            #print(data)
+            s.sendall(data.encode("utf-8"))  # send to server
 
-
-
-
-def receiveFromServer(s,clientSocket,port,webserver):
+def serverToClient(s,clientSocket,port,webserver,lock):
     print("stc thread")
-
+    buffer = []
     serverUrlStart = "http://"+webserver
 
     while 1:
+        # receive data from web server
         data = s.recv(2048)
-        if len(data) > 0:
+        if (len(data) > 0):
             data = data.decode("utf-8")
             pos = data.find(serverUrlStart)
             if pos != -1:
-                data = data[:pos] + data[(pos + len(serverUrlStart)):]
-            bQueue.put(data)
-            print("2")
-            print(data)
-        time.sleep(0.002)
+                data = data[:pos] + data[(pos+len(serverUrlStart)):]
 
-
-
-def sendToServer(s,clientSocket,port,webserver):
-    while 1:
-        if aQueue.qsize() > 0:
-            try:
-                s.sendall(aQueue.get().encode("utf-8"))  # send to server
-            except IOError as e:
-                if e.errno == errno.EPIPE:
-                    print("broken pipe!!")
-            print("3")
-        time.sleep(0.002)
-
-
-
-
-def sendToClient(s,clientSocket,port,webserver):
-    while 1:
-        if bQueue.qsize() != 0:
-            data = bQueue.get()
-            print(data)
-            try:
-                clientSocket.sendall(data.encode("utf-8"))
-            except IOError as e:
-                if e.errno == errno.EPIPE:
-                    print("broken pipe!!")
-        time.sleep(0.002)
-
-
-
-
-
+            clientSocket.sendall(data.encode("utf-8"))  # send to browser/client
 
 listenSocket()
 
