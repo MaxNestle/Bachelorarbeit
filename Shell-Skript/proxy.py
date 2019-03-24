@@ -1,11 +1,11 @@
 # !/usr/bin/python3
 
-import threading
 from urllib.parse import urlparse
 import time
 import select
 import socket
 import sys
+import datetime
 
 class Proxy:
     def __init__(self):
@@ -13,6 +13,8 @@ class Proxy:
         self.msgToClient = []
         self.msgToServer = []
         self.lastSend = []
+        self.pause = 1;
+
 
     def cutIpFromata(self, data):
         data = data.decode('Latin-1')
@@ -23,11 +25,10 @@ class Proxy:
             pos = data.find(split[1])
             if pos != -1:
                 data = data[:pos-1] + data[(pos + len(split[1])):]
-                #print("??????? "+str(data))
-                #print(pos)
 
         data = data.encode('Latin-1')
         return data
+
 
     def getAddress(self,request):
         requestStr = str(request) # parse the first line
@@ -62,7 +63,120 @@ class Proxy:
         print(self.webserver + " " + str(self.webserverPort))
 
 
+    def newClient(self,s):
+        (self.clientSocket, self.client_address) = s.accept()  # Establish the connection
+        print("client accepted")
+
+        request = self.clientSocket.recv(2024)
+
+        self.webserverPort = -1
+        self.webserver = ""
+
+        if request != "":
+            self.getAddress(request)
+
+        if self.webserver != "" and self.webserverPort != -1:
+            try:
+                self.serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                self.serverSocket.connect((self.webserver, self.webserverPort))
+
+                request = request.decode("utf-8")
+                self.serverSocket.sendall(request.encode())
+
+                self.lsock.append(self.clientSocket)
+                self.lsock.append(self.serverSocket)
+
+                self.msgToServer.append([])
+                self.msgToClient.append([])
+                self.lastSend.append(time.time())
+
+                print(str(self.msgToClient))
+                print("server and client added")
+
+            except:
+                e = sys.exc_info()[0]
+                print(e)
+
+
+    def getSocketIndex(self,s):
+        sockIndex = -1
+        for sock in self.lsock:
+            if sock == s:
+                sockIndex += 1
+                break;
+            else:
+                sockIndex += 1
+        return sockIndex
+
+
+    def read(self,readable):
+        for s in readable:
+            sockIndex = self.getSocketIndex(s)
+            if sockIndex == 0:
+                self.newClient(s)
+            else:
+                if sockIndex % 2 == 0:
+                    self.readFromServer(s,sockIndex)
+                else:
+                    self.readFromClient(s,sockIndex)
+
+
+    def send(self,writable):
+        for t in writable:
+            sockIndex = self.getSocketIndex(t)
+            if sockIndex == 0:
+                print("unlikely to happen")
+            else:
+                if sockIndex % 2 == 0:
+                    self.sendToServer(t,sockIndex)
+                else:
+                    self.sendToClient(t,sockIndex)
+
+
+    def readFromServer(self,s,sockIndex):
+        data = s.recv(24000)
+        if data != b'':
+            self.msgToClient[(int(sockIndex / 2) - 1)].append(data)
+            print(("\nFROM SERFER\n" + str(self.msgToClient[int((sockIndex / 2) - 1)])))
+
+
+    def readFromClient(self,s,sockIndex):
+        data = s.recv(24000)
+        if data != b'':
+            self.msgToServer[int((sockIndex - 1) / 2)].append(data)
+            print(("\nFROM CLIENT\n" + str(self.msgToServer[int((sockIndex - 1) / 2)])))
+
+
+    def sendToServer(self,t,sockIndex):
+        if len(self.msgToServer[int((sockIndex / 2) - 1)]) != 0:
+            data = self.msgToServer[int((sockIndex / 2) - 1)].pop(0)
+            data = self.cutIpFromata(data)
+            print("\nTO SERVER\n" + str(data))
+            try:
+                t.sendall(data)
+            except:
+                print(sys.exc_info()[0])
+
+
+    def sendToClient(self,t,sockIndex):
+        if len(self.msgToClient[int((sockIndex - 1) / 2)]) != 0:
+
+            # lastTime = self.lastSend[int((sockIndex-1)/2)]
+            # currenTime = time.time()
+            # div = currenTime - lastTime
+
+            data = self.msgToClient[int((sockIndex - 1) / 2)].pop(0);
+            data = self.cutIpFromata(data)
+            print("\nTO CLIENT\n" + str(data))
+            try:
+                t.sendall(data)
+            except:
+                print(sys.exc_info()[0])
+            self.lastSend[int((sockIndex - 1) / 2)] = time.time()
+
+
     def proxy(self):
+
         # Create a TCP socket
         self.listenSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.listenSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)        # Re-use the socket
@@ -73,108 +187,10 @@ class Proxy:
 
         while True:
             readable, writable, exceptional = select.select(self.lsock,self.lsock,self.lsock)
-            #print(str(len(readable))+" "+str(len(writable))+" "+str(len(exceptional)))
-            for s in readable:
-                sockIndex = -1
-                for sock in self.lsock:
-                    if sock == s:
-                        sockIndex += 1
-                        break;
-                    else:
-                        sockIndex += 1
+            self.read(readable)
+            self.send(writable)
+            time.sleep(0.0002)
 
-                if sockIndex == 0:
-                    (self.clientSocket, self.client_address) = s.accept()  # Establish the connection
-                    print("client accepted")
-
-                    request = self.clientSocket.recv(20000)
-
-                    self.webserverPort = -1
-                    self.webserver = ""
-
-                    if request != "":
-                        self.getAddress(request)
-
-                    if self.webserver != "" and self.webserverPort != -1:
-                        try:
-                            self.serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                            self.serverSocket.connect((self.webserver, self.webserverPort))
-
-
-                            request = request.decode("utf-8")
-                            self.serverSocket.sendall(request.encode())
-
-
-                            self.lsock.append(self.clientSocket)
-                            self.lsock.append(self.serverSocket)
-
-
-                            self.msgToServer.append([])
-                            self.msgToClient.append([])
-                            print(str(self.msgToClient))
-                            print("server and client added")
-
-                        except:
-                            e = sys.exc_info()[0]
-                            print(e)
-                else:
-                    if sockIndex%2 == 0:
-                        #print("Von Server lesen")
-                        data = s.recv(4096)
-                        if data != b'':
-                            self.msgToClient[(int(sockIndex/2)-1)].append(data)
-                            print(("<--S"+str(self.msgToClient[int((sockIndex/2)-1)])))
-
-                    else:
-                        #print("Von Client lesen")
-                        data = s.recv(4096)
-                        if data != b'':
-                            self.msgToServer[int((sockIndex-1)/2)].append(data)
-                            print(("<--C"+str(self.msgToServer[int((sockIndex-1)/2)])))
-
-            for t in writable:
-                sockIndex = -1
-                for sock in self.lsock:
-                    if sock == t:
-                        sockIndex += 1
-                        break;
-                    else:
-                        sockIndex += 1
-                if sockIndex == 0:
-                    print("000")
-                else:
-                    if sockIndex % 2 == 0:
-                        if len(self.msgToServer[int((sockIndex/2)-1)]) != 0:
-                            print("An Server senden")
-
-                            data = self.msgToServer[int((sockIndex/2)-1)].pop()
-                            data = self.cutIpFromata(data)
-                            print("-->S \n"+str(data))
-                            t.sendall(data)
-
-
-                            #s.sendall(self.msgToServer[sockIndex-2][0])
-                            #del self.msgToServer[sockIndex-2]
-                    else:
-                        if len(self.msgToClient[int((sockIndex-1)/2)]) != 0:
-                            print("An Client Senden")
-                            data = self.msgToClient[int((sockIndex-1)/2)].pop();
-                            data = self.cutIpFromata(data)
-                            print("-->C \n"+str(data))
-
-                            try:
-                                t.sendall(data)
-                            except:
-                                e = sys.exc_info()[0]
-                                print(e)
-
-                            #s.sendall(self.msgToClient[sockIndex-1][0])
-                            #del self.msgToClient[sockIndex-1][0]
-
-            #print(str(len(self.msgToServer)))
-            #print(str(len(self.msgToClient)))
-
-            time.sleep(0.002)
 
 proxy = Proxy()
 proxy.proxy()
