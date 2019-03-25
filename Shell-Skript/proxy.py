@@ -1,6 +1,7 @@
 # !/usr/bin/python3
 
 from urllib.parse import urlparse
+from bitstring import BitArray
 import time
 import select
 import socket
@@ -13,8 +14,13 @@ class Proxy:
         self.msgToClient = []
         self.msgToServer = []
         self.lastSend = []
-        self.pause = 1;
-
+        self.pause = 1
+        self.secretData = []
+        self.longBreak = 0.05  # sec
+        self.factor = 0.5  # difference between long and short break
+        self.shortBreak = self.longBreak*self.factor
+        self.fileCursor = []
+        self.breakBetweenTransmit = 1
 
     def cutIpFromata(self, data):
         data = data.decode('Latin-1')
@@ -67,7 +73,7 @@ class Proxy:
         (self.clientSocket, self.client_address) = s.accept()  # Establish the connection
         print("client accepted")
 
-        request = self.clientSocket.recv(2024)
+        request = self.clientSocket.recv(20000)
 
         self.webserverPort = -1
         self.webserver = ""
@@ -89,6 +95,7 @@ class Proxy:
                 self.msgToServer.append([])
                 self.msgToClient.append([])
                 self.lastSend.append(time.time())
+                self.fileCursor.append(0)
 
                 print(str(self.msgToClient))
                 print("server and client added")
@@ -149,13 +156,40 @@ class Proxy:
 
     def sendToServer(self,t,sockIndex):
         if len(self.msgToServer[int((sockIndex / 2) - 1)]) != 0:
-            data = self.msgToServer[int((sockIndex / 2) - 1)].pop(0)
-            data = self.cutIpFromata(data)
-            print("\nTO SERVER\n" + str(data))
-            try:
-                t.sendall(data)
-            except:
-                print(sys.exc_info()[0])
+
+            lastTime = self.lastSend[int((sockIndex / 2) - 1)]
+            currenTime = time.time()
+            div = currenTime - lastTime
+            
+            #print(self.secretData[self.fileCursor[int((sockIndex / 2) - 1)]])
+            if self.pause != self.breakBetweenTransmit:
+                if self.secretData[self.fileCursor[int((sockIndex / 2) - 1)]] == '1':
+                    self.pause = self.longBreak
+                    #print("long")
+                else:
+                    self.pause = self.shortBreak
+                    #print("short")
+
+            if div > self.pause:
+                self.pause = 0
+                data = self.msgToServer[int((sockIndex / 2) - 1)].pop(0)
+                data = self.cutIpFromata(data)
+                print("\nTO SERVER\n" + str(data))
+                try:
+                    t.sendall(data)
+                    self.lastSend[int((sockIndex / 2) - 1)] = time.time()
+
+                    print(len(self.secretData))
+                    print(self.fileCursor[int((sockIndex / 2) - 1)])
+
+                    if len(self.secretData)-1 == self.fileCursor[int((sockIndex / 2) - 1)]:
+                        self.fileCursor[int((sockIndex / 2) - 1)] = 0
+                        self.pause = self.breakBetweenTransmit
+                    else:
+                        self.fileCursor[int((sockIndex / 2) - 1)] += 1
+                except:
+                    print(sys.exc_info()[0])
+
 
 
     def sendToClient(self,t,sockIndex):
@@ -172,7 +206,7 @@ class Proxy:
                 t.sendall(data)
             except:
                 print(sys.exc_info()[0])
-            self.lastSend[int((sockIndex - 1) / 2)] = time.time()
+            #self.lastSend[int((sockIndex - 1) / 2)] = time.time()
 
 
     def proxy(self):
@@ -191,8 +225,19 @@ class Proxy:
             self.send(writable)
             time.sleep(0.0002)
 
+    def getSecreteData(self):
+        f = open("secret", "rb")
+        try:
+            self.secretData = f.read()
+        finally:
+            f.close()
+        self.secretData = list(BitArray(hex=self.secretData.hex()).bin)
+        print(self.secretData)
+
 
 proxy = Proxy()
+proxy.getSecreteData()
+
 proxy.proxy()
 
 while 1:

@@ -118,7 +118,8 @@ function getDataFromFile(){
     codeBits = dataBits;
     dataBits = [];
     fileLoad = true;
-    covertChannel();
+    //covertChannel();
+    channel();
   });
 }
 
@@ -130,6 +131,16 @@ function getDataFromFile(){
 //			}
 //		}
 //	}
+
+
+async function channel(){
+  while (true) {
+    if(socken.length != 0){ // vieleicht verzögerung
+      socken[0].emit('time', getTimeString());
+    }
+    await sleep(shortBreak);
+  }
+}
 
 async function covertChannel(){
   while (true) {
