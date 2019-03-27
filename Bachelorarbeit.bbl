@@ -14,6 +14,11 @@
 \newblock \Btxinlong{}\ {\em Proceedings of the 11th ACM conference on Computer
   and communications security}, \btxpageslong{}\ 178--187. ACM, 2004.
 
+\bibitem[Dav10]{davies2010traffic}
+{\sc Davies, Michael}: {\em Traffic distribution techniques utilizing initial
+  and scrambled hash values}, \btxmonoctlong{}~26 2010.
+\newblock US Patent 7,821,925.
+
 \bibitem[{Die}18]{BfDI}
 {\sc {Die Bundesbeauftragten für den Datenschutz und die Informationssicherheit
   (BfDI)}}: {\em Was ist Datenschutz?}
@@ -108,6 +113,11 @@
   \url{https://null-byte.wonderhowto.com/how-to/steganography-hide-secret-data-inside-image-audio-file-seconds-0180936/},
   2018.
 \newblock Abrufdatum: 22.01.2019.
+
+\bibitem[W{\"a}t18]{watjen2018hashfunktionen}
+{\sc W{\"a}tjen, Dietmar}: {\em Hashfunktionen}.
+\newblock \Btxinlong{}\ {\em Kryptographie}, \btxpageslong{}\ 93--112.
+  Springer, 2018.
 
 \bibitem[Wen12a]{wendzel2012problem}
 {\sc Wendzel, Steffen}: {\em The Problem of Traffic Normalization Within a

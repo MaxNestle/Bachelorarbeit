@@ -329,6 +329,7 @@ Dieser Datenstrom läuft über den Proxy, der nun die Möglichkeit hat den Datenstr
 
 
 \subsection{Bewertung des Aufbaus}
+Die passive Variante bietet die Möglichkeit, die Nachrichten jedes beliebigen Servers zu verwenden und auch das Ziel zu variieren. Dies spricht für die passive Durchführung. %TODO                                       
 
 \section{Kodierung und Dekodierung}
 
@@ -401,24 +402,74 @@ Bildet man nun die Schnittmenge aller, von nicht korrekten Paritätsbits geprüfte
 
 Da die Datenübertragung über den Covert Channel auf Grund von Netzwerkschwankungen fehleranfällig ist empfiehlt es sich den Hammingcode auf jeweils 8 Bits anzuwenden. Dies bedeutet pro Byte 4 zusätzliche Paritätsbits was ein Codewort von 12 Bits Länge ergibt. In diesem Codewort kann ein potentiell falsches Bit ausfindig gemacht und korrigiert werden.
 
+\subsection{Bewertung der Fehlerkorektur}
+Da die Fehleranfälligkeit bei schlechten Netzwerkbedingungen und hoher Übertragungsgeschwindigkeit sehr hoch ist, sollte die Fehlerkorrektur auf einen möglichst kleine Anzahl von Bits angewendet werden. Dies hat den Nachteil, dass der Anteil von Paritätsbits bei Verwendung von 8 Bits 50\% und bei 16 Bits 31\% ausmachen würden.\\
+Ein weiterer Nachteil ist, dass Fehler oft nacheinander auftreten, da sie von der gleichen Netzwerkverzögerung ausgelöst wurden. Mit dem Hammingcode kann bei mehreren Fehlern ein Fehler detektiert werden, jedoch ist eine Fehlerkorrektur nicht mehr möglich.\\
+Bei einer Verwendung von großen Datenpaketen und sehr verstreut auftretenden Fehlern würde die Implementierung des Hamming-Codes Sinn machen, aber in dieser Arbeit wird aus den oben genannten Gründen darauf verzichtet.
+
+
 \section{Wahrung der Integrität}
 
 Um die Integrität der gesendeten Daten zu gewährleisten, soll am Ende der Daten ein Hashwert mitgesendet werden.
-Ein Hashwert wird mit Hilfe einer Hashfunktion gebildet. Hier soll die Hashfunktion md5 verwendet werden. Diese bildet eine beliebige Nachricht auf einen 128-Bit-Hashwert ab. Die Eigenschaft dieser Funktion die hier ausgenutzt wird ist, dass bei einer Veränderung der Input Nachricht ein anderer Wert herauskommt.
 
-Um die Integrität zu garantieren bildet der Sender den md5 Hash über die zu Sendende Nachricht. Die Nachricht und der Hashwert werden nun versendet. Der Empfänger bildet nun Ebenfalls den md5 Hash über die empfangene Nachricht. Stimmt dieser Hashwert mit dem überein den er vom Sender bekommen hat so ist die Nachricht unverändert versendet worden. Die Integrität ist sichergestellt.\\
+Um die Integrität zu garantieren bildet der Sender den Hash über die zu Sendende Nachricht. Die Nachricht und der Hashwert werden nun versendet. Der Empfänger bildet nun Ebenfalls den  Hash über die empfangene Nachricht. Stimmt dieser Hashwert mit dem überein den er vom Sender bekommen hat, so ist die Nachricht unverändert versendet worden. Die Integrität ist sichergestellt.\\
 Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Möglich ist auch den Hash nicht erst am Ende der Datenübertragung zu Senden sondern nach einer festgelegten Datenmenge. Dies hätte den Vorteil, dass nicht die komplette Nachricht wiederholt werden muss.
 
+\subsection{Hash-Funktionen}
+	\subsubsection{md5}
+	Die md5 Hashfunktion wurde 1991 als Weiterentwicklung der md4 Hashfunktion veröffentlicht. Diese bildet eine beliebige Nachricht auf einen 128-Bit-Hashwert ab. Zu erwähnen ist, dass der md5 aus Sicherheitsgründen nicht mehr empfohlen wird.\cite{watjen2018hashfunktionen}
+
+	\subsubsection{Pearson}
+	Der Pearson-Algorithmus verwendet eine zufällig initialisierte statische Mapping-Tabelle, um jedes Byte von jedem Hash-Wert auf ein neues Byte für einen neuen Hash-Wert abzubilden.\cite{davies2010traffic}\\
+	Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem Byte erzeugen. Die Mapping-Taballe muss jedoch auf allen beteiligten Systemen gleich sein.
+	
+	\subsection{Bewertung der Hash-Funktionen}
+	Beide Algorithmen verändern sich maßgeblich, wenn ein Bit geändert wird. Der md5 ist auf Grund seiner Länge aber auch komplexeren Algorithmus erheblich sicherer. In dieser Arbeit soll die Sicherheit jedoch allein von der Unauffälligkeit des Covert Channel abhängen. Die Hashfunktion soll nur Sicherstellen, dass die Nachricht unverändert beim Empfänger angekommen ist.\\
+	Dazu ist der Pearson Hash ebenfalls in der Lage und hat den Vorteil, dass er nur ein sechzehntel an Datenmenge in Anspruch nimmt.\\ Aus diesen Gründen wird in dieser Arbeit mit dem Pearson Hash gearbeitet. 
+
+
+\section{Netzwerkprotokoll}
+	\subsection{Anforderung an das Netzwerkprotokol}
+	Diese Anforderungen wurden bereits zum Großteil bei der Wahl des Trägerkanals formuliert. Hier wird die Nutzung eines TCP basierenden Protokolls festgelegt.\\
+	Zusätzlich kommt nun der Aspekt hinzu, dass sich mit diesem Protokoll legitim große Datenmengen verschicken lassen sollen ohne Aufmerksamkeit zu erregen. Um der Philosophie von Covert Channels und der Steganographie gerecht zu werden soll ebenfalls keine Verschlüsselung eingesetzt werden.
+	
+	\subsection{HTTP}
+	\subsection{SMTP}
+	\subsection{FTP}
+		
+	\subsection{Bewertung des Netztwerkprotokolls}
+
+\section{Server}
+	\subsection{Anforderungen an den Server}
+	\subsection{Apache}
+	\subsection{Nodejs}
+	\subsection{Implementierung}
+		\subsubsection{npm}
+		\subsubsection{express js}
+		\subsubsection{Pearson Hash}
+	\subsection{Täuschung von Dritten}
+	
+\section{Client}
+	\subsection{Anforderungen an den Client}
+	\subsection{Programmiersprache}
+		\subsubsection{Python}
+		\subsubsection{Java}
+	\subsection{tcpdump}
+	\subsection{Toleranz}
+
+\section{Passiv}
+	\subsection{Anforderung an den Proxy}
+	\subsection{Lösungsansatz}
+	\subsection{Proxy}
+
+
 \section{Optimierung}
-Buffer
-Pausenverkleinerung
+	Buffer
+	Pausenverkleinerung
 
-\section{Implementierung}
-
-\subsection{Aktiv}
-
-\subsection{Passiv}
 
 \section{Bewertung der Ergebnisse}
+
+durchschnit der Daten ausrechnen
 
 

@@ -8,6 +8,7 @@ import socket
 import sys
 import datetime
 
+
 class Proxy:
     def __init__(self):
         self.lsock = []
@@ -18,7 +19,7 @@ class Proxy:
         self.secretData = []
         self.longBreak = 0.05  # sec
         self.factor = 0.5  # difference between long and short break
-        self.shortBreak = self.longBreak*self.factor
+        self.shortBreak = self.longBreak * self.factor
         self.fileCursor = []
         self.breakBetweenTransmit = 1
 
@@ -30,16 +31,15 @@ class Proxy:
             split = data.split("/")
             pos = data.find(split[1])
             if pos != -1:
-                data = data[:pos-1] + data[(pos + len(split[1])):]
+                data = data[:pos - 1] + data[(pos + len(split[1])):]
 
         data = data.encode('Latin-1')
         return data
 
-
-    def getAddress(self,request):
-        requestStr = str(request) # parse the first line
+    def getAddress(self, request):
+        requestStr = str(request)  # parse the first line
         first_line = requestStr.split(' ')
-        if len(first_line) == 0:                   # get url
+        if len(first_line) == 0:  # get url
             print(requestStr)
         if len(first_line) > 2:
             self.url = first_line[1]
@@ -68,8 +68,7 @@ class Proxy:
 
         print(self.webserver + " " + str(self.webserverPort))
 
-
-    def newClient(self,s):
+    def newClient(self, s):
         (self.clientSocket, self.client_address) = s.accept()  # Establish the connection
         print("client accepted")
 
@@ -104,8 +103,7 @@ class Proxy:
                 e = sys.exc_info()[0]
                 print(e)
 
-
-    def getSocketIndex(self,s):
+    def getSocketIndex(self, s):
         sockIndex = -1
         for sock in self.lsock:
             if sock == s:
@@ -115,60 +113,55 @@ class Proxy:
                 sockIndex += 1
         return sockIndex
 
-
-    def read(self,readable):
+    def read(self, readable):
         for s in readable:
             sockIndex = self.getSocketIndex(s)
             if sockIndex == 0:
                 self.newClient(s)
             else:
                 if sockIndex % 2 == 0:
-                    self.readFromServer(s,sockIndex)
+                    self.readFromServer(s, sockIndex)
                 else:
-                    self.readFromClient(s,sockIndex)
+                    self.readFromClient(s, sockIndex)
 
-
-    def send(self,writable):
+    def send(self, writable):
         for t in writable:
             sockIndex = self.getSocketIndex(t)
             if sockIndex == 0:
                 print("unlikely to happen")
             else:
                 if sockIndex % 2 == 0:
-                    self.sendToServer(t,sockIndex)
+                    self.sendToServer(t, sockIndex)
                 else:
-                    self.sendToClient(t,sockIndex)
+                    self.sendToClient(t, sockIndex)
 
-
-    def readFromServer(self,s,sockIndex):
+    def readFromServer(self, s, sockIndex):
         data = s.recv(24000)
         if data != b'':
             self.msgToClient[(int(sockIndex / 2) - 1)].append(data)
             print(("\nFROM SERFER\n" + str(self.msgToClient[int((sockIndex / 2) - 1)])))
 
-
-    def readFromClient(self,s,sockIndex):
+    def readFromClient(self, s, sockIndex):
         data = s.recv(24000)
         if data != b'':
             self.msgToServer[int((sockIndex - 1) / 2)].append(data)
             print(("\nFROM CLIENT\n" + str(self.msgToServer[int((sockIndex - 1) / 2)])))
 
-
-    def sendToServer(self,t,sockIndex):
+    def sendToServer(self, t, sockIndex):
         if len(self.msgToServer[int((sockIndex / 2) - 1)]) != 0:
 
             lastTime = self.lastSend[int((sockIndex / 2) - 1)]
             currenTime = time.time()
             div = currenTime - lastTime
-            
-            #print(self.secretData[self.fileCursor[int((sockIndex / 2) - 1)]])
+
+            # print(self.secretData[self.fileCursor[int((sockIndex / 2) - 1)]])
             if self.pause != self.breakBetweenTransmit:
                 if self.secretData[self.fileCursor[int((sockIndex / 2) - 1)]] == '1':
                     self.pause = self.longBreak
-                    #print("long")
+                    # print("long")
                 else:
                     self.pause = self.shortBreak
-                    #print("short")
+                    # print("short")
 
             if div > self.pause:
                 self.pause = 0
@@ -182,7 +175,7 @@ class Proxy:
                     print(len(self.secretData))
                     print(self.fileCursor[int((sockIndex / 2) - 1)])
 
-                    if len(self.secretData)-1 == self.fileCursor[int((sockIndex / 2) - 1)]:
+                    if len(self.secretData) - 1 == self.fileCursor[int((sockIndex / 2) - 1)]:
                         self.fileCursor[int((sockIndex / 2) - 1)] = 0
                         self.pause = self.breakBetweenTransmit
                     else:
@@ -190,9 +183,7 @@ class Proxy:
                 except:
                     print(sys.exc_info()[0])
 
-
-
-    def sendToClient(self,t,sockIndex):
+    def sendToClient(self, t, sockIndex):
         if len(self.msgToClient[int((sockIndex - 1) / 2)]) != 0:
 
             # lastTime = self.lastSend[int((sockIndex-1)/2)]
@@ -206,21 +197,20 @@ class Proxy:
                 t.sendall(data)
             except:
                 print(sys.exc_info()[0])
-            #self.lastSend[int((sockIndex - 1) / 2)] = time.time()
-
+            # self.lastSend[int((sockIndex - 1) / 2)] = time.time()
 
     def proxy(self):
 
         # Create a TCP socket
         self.listenSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.listenSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)        # Re-use the socket
-        self.listenSocket.bind(('127.0.0.1',3210))        # bind the socket to a public host, and a port
+        self.listenSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Re-use the socket
+        self.listenSocket.bind(('127.0.0.1', 3210))  # bind the socket to a public host, and a port
         self.listenSocket.listen(10)  # become a server socket
 
         self.lsock.append(self.listenSocket)
 
         while True:
-            readable, writable, exceptional = select.select(self.lsock,self.lsock,self.lsock)
+            readable, writable, exceptional = select.select(self.lsock, self.lsock, self.lsock)
             self.read(readable)
             self.send(writable)
             time.sleep(0.0002)

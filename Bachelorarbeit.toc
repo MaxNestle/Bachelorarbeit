@@ -1,7 +1,7 @@
-\contentsline {chapter}{\nonumberline Kurzfassung}{III}{chapter*.3}
-\contentsline {chapter}{\nonumberline Abstract}{IV}{chapter*.4}
-\contentsline {chapter}{\nonumberline Danksagung}{V}{chapter*.5}
-\contentsline {chapter}{\nonumberline Etische Aspekte}{VI}{chapter*.6}
+\contentsline {chapter}{\nonumberline Kurzfassung}{IV}{chapter*.3}
+\contentsline {chapter}{\nonumberline Abstract}{V}{chapter*.4}
+\contentsline {chapter}{\nonumberline Danksagung}{VI}{chapter*.5}
+\contentsline {chapter}{\nonumberline Etische Aspekte}{VII}{chapter*.6}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Aufgabenstellung und Zielsetzung}{2}{section.1.2}
@@ -65,11 +65,39 @@
 \contentsline {subsection}{\numberline {6.3.2}Basierend auf den Paketabst\"anden}{34}{subsection.6.3.2}
 \contentsline {subsection}{\numberline {6.3.3}Bewertung der Kodierung}{36}{subsection.6.3.3}
 \contentsline {section}{\numberline {6.4}Fehlerkorrektur}{36}{section.6.4}
-\contentsline {section}{\numberline {6.5}Wahrung der Integrit\"at}{37}{section.6.5}
-\contentsline {section}{\numberline {6.6}Optimierung}{38}{section.6.6}
-\contentsline {section}{\numberline {6.7}Implementierung}{38}{section.6.7}
-\contentsline {subsection}{\numberline {6.7.1}Aktiv}{38}{subsection.6.7.1}
-\contentsline {subsection}{\numberline {6.7.2}Passiv}{38}{subsection.6.7.2}
-\contentsline {section}{\numberline {6.8}Bewertung der Ergebnisse}{38}{section.6.8}
-\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{39}{chapter.7}
-\contentsline {chapter}{\nonumberline Literatur}{41}{chapter*.19}
+\contentsline {subsection}{\numberline {6.4.1}Bewertung der Fehlerkorektur}{37}{subsection.6.4.1}
+\contentsline {section}{\numberline {6.5}Wahrung der Integrit\"at}{38}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Hash-Funktionen}{38}{subsection.6.5.1}
+\contentsline {subsubsection}{\nonumberline md5}{38}{section*.19}
+\contentsline {subsubsection}{\nonumberline Pearson}{39}{section*.20}
+\contentsline {subsection}{\numberline {6.5.2}Bewertung der Hash-Funktionen}{39}{subsection.6.5.2}
+\contentsline {section}{\numberline {6.6}Netzwerkprotokoll}{39}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Anforderung an das Netzwerkprotokol}{39}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}HTTP}{41}{subsection.6.6.2}
+\contentsline {subsection}{\numberline {6.6.3}SMTP}{41}{subsection.6.6.3}
+\contentsline {subsection}{\numberline {6.6.4}FTP}{41}{subsection.6.6.4}
+\contentsline {subsection}{\numberline {6.6.5}Bewertung des Netztwerkprotokolls}{41}{subsection.6.6.5}
+\contentsline {section}{\numberline {6.7}Server}{41}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Anforderungen an den Server}{41}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.2}Apache}{41}{subsection.6.7.2}
+\contentsline {subsection}{\numberline {6.7.3}Nodejs}{41}{subsection.6.7.3}
+\contentsline {subsection}{\numberline {6.7.4}Implementierung}{41}{subsection.6.7.4}
+\contentsline {subsubsection}{\nonumberline npm}{41}{section*.21}
+\contentsline {subsubsection}{\nonumberline express js}{41}{section*.22}
+\contentsline {subsubsection}{\nonumberline Pearson Hash}{41}{section*.23}
+\contentsline {subsection}{\numberline {6.7.5}T\"auschung von Dritten}{41}{subsection.6.7.5}
+\contentsline {section}{\numberline {6.8}Client}{41}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}Anforderungen an den Client}{41}{subsection.6.8.1}
+\contentsline {subsection}{\numberline {6.8.2}Programmiersprache}{41}{subsection.6.8.2}
+\contentsline {subsubsection}{\nonumberline Python}{41}{section*.24}
+\contentsline {subsubsection}{\nonumberline Java}{41}{section*.25}
+\contentsline {subsection}{\numberline {6.8.3}tcpdump}{41}{subsection.6.8.3}
+\contentsline {subsection}{\numberline {6.8.4}Toleranz}{41}{subsection.6.8.4}
+\contentsline {section}{\numberline {6.9}Passiv}{41}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}Anforderung an den Proxy}{41}{subsection.6.9.1}
+\contentsline {subsection}{\numberline {6.9.2}L\"osungsansatz}{41}{subsection.6.9.2}
+\contentsline {subsection}{\numberline {6.9.3}Proxy}{41}{subsection.6.9.3}
+\contentsline {section}{\numberline {6.10}Optimierung}{41}{section.6.10}
+\contentsline {section}{\numberline {6.11}Bewertung der Ergebnisse}{42}{section.6.11}
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{43}{chapter.7}
+\contentsline {chapter}{\nonumberline Literatur}{45}{chapter*.26}
