@@ -13,46 +13,47 @@ A level-1 auxiliary file: hauptteil.aux
 A level-1 auxiliary file: schluss.aux
 The style file: geralpha.bst
 Database file #1: bib.bib
+Warning--empty institution in fielding1999hypertext
 Warning--empty journal in goltz2003covert
-You've used 25 entries,
+You've used 31 entries,
             2768 wiz_defined-function locations,
-            760 strings with 9369 characters,
-and the built_in function-call counts, 8897 in all, are:
-= -- 923
-> -- 289
-< -- 23
-+ -- 89
-- -- 84
-* -- 573
-:= -- 1344
-add.period$ -- 59
-call.type$ -- 25
-change.case$ -- 109
-chr.to.int$ -- 24
-cite$ -- 26
-duplicate$ -- 424
-empty$ -- 776
-format.name$ -- 127
-if$ -- 1979
+            789 strings with 10143 characters,
+and the built_in function-call counts, 10984 in all, are:
+= -- 1135
+> -- 385
+< -- 27
++ -- 120
+- -- 115
+* -- 720
+:= -- 1681
+add.period$ -- 74
+call.type$ -- 31
+change.case$ -- 140
+chr.to.int$ -- 30
+cite$ -- 33
+duplicate$ -- 512
+empty$ -- 932
+format.name$ -- 167
+if$ -- 2425
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 23
-newline$ -- 109
-num.names$ -- 75
-pop$ -- 198
+missing$ -- 27
+newline$ -- 137
+num.names$ -- 93
+pop$ -- 245
 preamble$ -- 1
-purify$ -- 159
+purify$ -- 202
 quote$ -- 0
-skip$ -- 371
+skip$ -- 451
 stack$ -- 0
-substring$ -- 344
-swap$ -- 112
-text.length$ -- 23
-text.prefix$ -- 18
+substring$ -- 386
+swap$ -- 134
+text.length$ -- 27
+text.prefix$ -- 22
 top$ -- 0
-type$ -- 184
-warning$ -- 1
-while$ -- 74
-width$ -- 29
-write$ -- 300
-(There was 1 warning)
+type$ -- 232
+warning$ -- 2
+while$ -- 88
+width$ -- 35
+write$ -- 373
+(There were 2 warnings)

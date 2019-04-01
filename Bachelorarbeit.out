@@ -65,20 +65,21 @@
 \BOOKMARK [2][-]{subsection.6.6.5}{Bewertung des Netztwerkprotokolls}{section.6.6}% 65
 \BOOKMARK [1][-]{section.6.7}{Server}{chapter.6}% 66
 \BOOKMARK [2][-]{subsection.6.7.1}{Anforderungen an den Server}{section.6.7}% 67
-\BOOKMARK [2][-]{subsection.6.7.2}{Apache}{section.6.7}% 68
-\BOOKMARK [2][-]{subsection.6.7.3}{Nodejs}{section.6.7}% 69
-\BOOKMARK [2][-]{subsection.6.7.4}{Implementierung}{section.6.7}% 70
-\BOOKMARK [2][-]{subsection.6.7.5}{T\344uschung von Dritten}{section.6.7}% 71
-\BOOKMARK [1][-]{section.6.8}{Client}{chapter.6}% 72
-\BOOKMARK [2][-]{subsection.6.8.1}{Anforderungen an den Client}{section.6.8}% 73
-\BOOKMARK [2][-]{subsection.6.8.2}{Programmiersprache}{section.6.8}% 74
-\BOOKMARK [2][-]{subsection.6.8.3}{tcpdump}{section.6.8}% 75
-\BOOKMARK [2][-]{subsection.6.8.4}{Toleranz}{section.6.8}% 76
-\BOOKMARK [1][-]{section.6.9}{Passiv}{chapter.6}% 77
-\BOOKMARK [2][-]{subsection.6.9.1}{Anforderung an den Proxy}{section.6.9}% 78
-\BOOKMARK [2][-]{subsection.6.9.2}{L\366sungsansatz}{section.6.9}% 79
-\BOOKMARK [2][-]{subsection.6.9.3}{Proxy}{section.6.9}% 80
-\BOOKMARK [1][-]{section.6.10}{Optimierung}{chapter.6}% 81
-\BOOKMARK [1][-]{section.6.11}{Bewertung der Ergebnisse}{chapter.6}% 82
-\BOOKMARK [0][-]{chapter.7}{Zusammenfassung und Fazit}{}% 83
-\BOOKMARK [0][-]{chapter*.26}{Literatur}{}% 84
+\BOOKMARK [2][-]{subsection.6.7.2}{Java HttpServer}{section.6.7}% 68
+\BOOKMARK [2][-]{subsection.6.7.3}{Node.js und Express}{section.6.7}% 69
+\BOOKMARK [2][-]{subsection.6.7.4}{Bewertung des Servers}{section.6.7}% 70
+\BOOKMARK [2][-]{subsection.6.7.5}{Implementierung}{section.6.7}% 71
+\BOOKMARK [2][-]{subsection.6.7.6}{T\344uschung von Dritten}{section.6.7}% 72
+\BOOKMARK [1][-]{section.6.8}{Client}{chapter.6}% 73
+\BOOKMARK [2][-]{subsection.6.8.1}{Anforderungen an den Client}{section.6.8}% 74
+\BOOKMARK [2][-]{subsection.6.8.2}{Programmiersprache}{section.6.8}% 75
+\BOOKMARK [2][-]{subsection.6.8.3}{tcpdump}{section.6.8}% 76
+\BOOKMARK [2][-]{subsection.6.8.4}{Toleranz}{section.6.8}% 77
+\BOOKMARK [1][-]{section.6.9}{Passiv}{chapter.6}% 78
+\BOOKMARK [2][-]{subsection.6.9.1}{Anforderung an den Proxy}{section.6.9}% 79
+\BOOKMARK [2][-]{subsection.6.9.2}{L\366sungsansatz}{section.6.9}% 80
+\BOOKMARK [2][-]{subsection.6.9.3}{Proxy}{section.6.9}% 81
+\BOOKMARK [1][-]{section.6.10}{Optimierung}{chapter.6}% 82
+\BOOKMARK [1][-]{section.6.11}{Bewertung der Ergebnisse}{chapter.6}% 83
+\BOOKMARK [0][-]{chapter.7}{Zusammenfassung und Fazit}{}% 84
+\BOOKMARK [0][-]{chapter*.26}{Literatur}{}% 85

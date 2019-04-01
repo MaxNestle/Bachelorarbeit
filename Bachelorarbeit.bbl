@@ -1,3 +1,4 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
 \begin{thebibliography}{{LMU}17}
 
 \bibitem[{ De}19]{HEISE_ANDROID}
@@ -39,6 +40,12 @@
   1999.
 \newblock Abrufdatum: 22.02.2019.
 
+\bibitem[FGM{\etalchar{+}}99]{fielding1999hypertext}
+{\sc Fielding, Roy}, {\sc Jim Gettys}, {\sc Jeffrey Mogul}, {\sc Henrik
+  Frystyk}, {\sc Larry Masinter}, {\sc Paul Leach} \btxandlong{}\ {\sc Tim
+  Berners-Lee}: {\em Hypertext transfer protocol--HTTP/1.1}.
+\newblock \Btxtechreplong{}, 1999.
+
 \bibitem[Gol03]{goltz2003covert}
 {\sc Goltz, James~P.}: {\em Under the radar:A look at three covert
   communications channels}.
@@ -63,6 +70,10 @@
 \bibitem[Kes15]{Steg}
 {\sc Kessler, Gary~C.}: {\em An Overview of Steganography for the Computer
   Forensics Examiner (Updated Version, February 2015)}, 2015.
+
+\bibitem[Kle01]{klensin2001rfc}
+{\sc Klensin, John}: {\em RFC 2821: Simple mail transfer protocol}.
+\newblock Request For Comment, Network Working Group, 2001.
 
 \bibitem[KP00]{katzenbeisser2000information}
 {\sc Katzenbeisser, Stefan} \btxandlong{}\ {\sc Fabien Petitcolas}: {\em
@@ -101,10 +112,32 @@
   2018.
 \newblock Abrufdatum: 16.10.2018.
 
+\bibitem[{Nod}19]{NODE}
+{\sc {Node.js Foundation}}: {\em About Node.js®}.
+\newblock \url{https://nodejs.org/en/about/}, 2019.
+\newblock Abrufdatum: 01.04.2019.
+
+\bibitem[{Ora}18]{JAVA_HTTP}
+{\sc {Oracle}}: {\em Class HttpServer}.
+\newblock
+  \url{https://docs.oracle.com/javase/8/docs/jre/api/net/httpserver/spec/com/sun/net/httpserver/HttpServer.html},
+  2005,2018.
+\newblock Abrufdatum: 01.04.2019.
+
+\bibitem[PR85]{postel1985rfc}
+{\sc Postel, Jon} \btxandlong{}\ {\sc Joyce Reynolds}: {\em Rfc 959: File
+  transfer protocol (ftp)}.
+\newblock InterNet Network Working Group, 1985.
+
 \bibitem[Pur10]{purgathofer2010kurze}
 {\sc Purgathofer, Peter}: {\em Eine kurze Geschichte der Steganographie}.
 \newblock Die Funktion verdeckter Kommunikation: Impulse f{\"u}r eine
   Technikfolgenabsch{\"a}tzung zur Steganographie, 9:65, 2010.
+
+\bibitem[{Str}19]{EXPRESS}
+{\sc {StrongLoop, Inc.}}: {\em Beispiel ?Hello World?}
+\newblock \url{https://expressjs.com/de/starter/hello-world.html}, 2019.
+\newblock Abrufdatum: 01.04.2019.
 
 \bibitem[{Use}18]{Black2018Slash}
 {\sc {User: Black Slash}}: {\em How to Hide Secret Data Inside an Image or

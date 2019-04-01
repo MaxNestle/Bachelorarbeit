@@ -434,15 +434,44 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 	Zusätzlich kommt nun der Aspekt hinzu, dass sich mit diesem Protokoll legitim große Datenmengen verschicken lassen sollen ohne Aufmerksamkeit zu erregen. Um der Philosophie von Covert Channels und der Steganographie gerecht zu werden soll ebenfalls keine Verschlüsselung eingesetzt werden.
 	
 	\subsection{HTTP}
+	Das Hypertext Transfer Protocol (HTTP) ist ein Protokoll auf Anwendungsebene.
+	Es ist ein generisches, zustandsloses Protokoll, das für viele Aufgaben verwendet werden kann, die auch über die Verwendung für Hypertext hinausgehen.
+	HTTP wird zur Versendung von Webseiten und Informationen seit dem Jahr 1990 verwendet.\cite{fielding1999hypertext}\\
+	Auch heute stellt es zusammen mit der verschlüsselten Variante HTTPS einen elementaren Bestandteil des Internets dar. Dabei besteht die Hauptaufgabe darin Daten von Webservern in den Browser zu laden.
 	\subsection{SMTP}
+	Das Simple Mail Transfer Protocol (SMTP) hat die Aufgabe Mail zuverlässig und effizient weiterzuleiten. SMTP Nachrichten, und die in ihnen enthaltenen Mails werden von SMTP Servern entgegengenommen um sie an den Empfänger weiterzuleiten. Auch die Kommunikation zwischen den SMTP Servern wird mit Hilfe dieses Protokolls realisiert.\cite{klensin2001rfc}
 	\subsection{FTP}
-		
+	Mit dem File Transfer Protocol (FTP) können Dateien über ein Netzwerk zu einem Server hoch- und heruntergeladen werden. Ebenfalls ist es möglich das Dateisystem auszulesen und auf entfernten Rechnern Dateien zu erstellen aber auch zu löschen.
+	Die hierzu nötige Kommunikation, wird durch das FTP definiert.\cite{postel1985rfc}
+	
 	\subsection{Bewertung des Netztwerkprotokolls}
+	Alle Protokolle basieren auf TCP und verzichten auf eine Verschlüsselung. FTP wird heute in der Regeln aber nicht mehr angewendet, da es von Protokollen wie SFTP und SSH abgelöst wurde. Daher wäre eine Verwendung.\\
+	Auch bei SMTP wird heute vermehrt auf die SSL verschlüsselte Variante zurückgegriffen. Ein weiteres Problem be SMTP ist, dass die Nachrichten bei großen Paketmengen als Spam interpretiert werden kann.\\
+	HTTP ist trotz der Einführung von HTTPS im Internet immer noch weit verbreitet und zieht sehr wenig Aufmerksamkeit auf sich. Zusätzlich lässt sich durch die Bereitstellung einer Webseite die wahre Aufgabe des Webservers verbergen.\\
+	Aus diesen Gründen soll in dieser Arbeit ein HTTP Server realisiert werden, der als Sender der geheimen Daten dient.
 
 \section{Server}
 	\subsection{Anforderungen an den Server}
-	\subsection{Apache}
-	\subsection{Nodejs}
+	Der Server muss in der Lage sein, einen HTTP Request entgegenzunehmen und im Gegenzug eine Webseite ausliefern. Da die geheimen Daten vom Server an den Client übertragen werden sollen, muss der Server in der Lage sein aktiv ohne Requests HTTP Nachrichten an den CLient zu senden.\\ Zusätzlich ist es für diese Anwendung essentiell, dass sich das Senden der Nachrichten verzögern lässt um die nötigen zeitlichen Abstände für den Covert Channel zu realisieren. Aus diesem Grund soll der Server frei programmierbar sein und auch Daten verarbeiten können um beispielsweise binär Daten zu erstellen oder einen Hashwert zu generieren.\\
+	Der Server soll leichtgewichtig und einfach zu bedienen sein.
+	
+	\subsection{Java HttpServer}
+	HttpServer ist eine Java Klasse die es ermöglicht einen einfachen HTTP Server zu erstellen.
+	Die von Oracle angebotene Klasse implementiert einen Webserver der an eine IP-Adresse und an einen Port gebunden ist und dort auf eingehende TCP Verbindungen lauscht.\\
+	Um den Server nutzen zu können müssen im ein oder mehrere HttpHandler hinzugefügt werden. Diese bearbeiten, die Anfragen auf verschiedene URL Pfade.\\
+	Der HttpServer kann bei der Verwendung der Unterklasse HttpsServer auch verschlüsselte Verbindungen realisieren.\cite{JAVA_HTTP}
+	
+		
+	\subsection{Node.js und Express}
+	Node.js ist eine Plattform, ausgerichtet um Netzwerkanwendungen zu erstellen. Dabei ist Node.js eine asynchrone und ereignisgesteuerte JavaScript Runtime. Node.js wird in JavaScript programmiert und kann mit Paketen von npm (Node Paket Manager) erweitert werden.\\
+	Als asynchrone Laufzeitumgebung arbeitet Node.js sehr viel mit Call-Back-Funktionen, die bei Erfüllen von Events ausgeführt werden. Durch die asynchrone Abarbeitung des Programmcodes entsteht eine sehr gut skalierbare Anwendung die keine Deadlocks generieren kann.\cite{NODE}\\
+	Um mit Node.js ein Webserver zu erstellen kann das Web-Framework Express verwendet werden. Express lässt sich mit Hilfen von npm in das Projekt eingliedern. Das Express Objekt ist in der Lage auf einem Port auf TCP Verbindungen zu warten und entgegenzunehmen. Jedem Pfad ist eine Call-Back-Funktion zugeordnet, die bei dessen Aufrufen die Abarbeitung der Anfrage übernimmt.\cite{EXPRESS}
+	
+	
+	
+	\subsection{Bewertung des Servers}
+	Da der Server in der Lage sein muss HTTP Nachrichten zeitlich verzögert abzuschicken sind fertige und schwergewichtige Server wie der Apache oder NGINX ungeeignet.
+	
 	\subsection{Implementierung}
 		\subsubsection{npm}
 		\subsubsection{express js}
