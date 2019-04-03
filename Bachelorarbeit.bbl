@@ -9,6 +9,11 @@
   2019.
 \newblock Abrufdatum: 12.02.2019.
 
+\bibitem[Abt15]{abts2015bidirektionale}
+{\sc Abts, Dietmar}: {\em Bidirektionale Kommunikation mit WebSocket}.
+\newblock \Btxinlong{}\ {\em Masterkurs Client/Server-Programmierung mit Java},
+  \btxpageslong{}\ 189--205. Springer, 2015.
+
 \bibitem[BB10]{barton2010modellierung}
 {\sc Barton, Thomas} \btxandlong{}\ {\sc Harriet Bach}: {\em Modellierung eines
   Anwendungssystems zur Beh{\"a}lterlokalisation und Beh{\"a}lterreservierung
@@ -149,6 +154,11 @@
 {\sc {StrongLoop, Inc.}}: {\em Beispiel ?Hello World?}
 \newblock \url{https://expressjs.com/de/starter/hello-world.html}, 2019.
 \newblock Abrufdatum: 01.04.2019.
+
+\bibitem[Ull12]{ullrich2012websockets}
+{\sc Ullrich, Benjamin}: {\em WebSockets: spezifikation/implementierung}.
+\newblock Innovative Internet Technologies and Mobile Communications (IITM),
+  53, 2012.
 
 \bibitem[{Use}18]{Black2018Slash}
 {\sc {User: Black Slash}}: {\em How to Hide Secret Data Inside an Image or

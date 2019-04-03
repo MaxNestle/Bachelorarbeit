@@ -421,7 +421,8 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 	Die md5 Hashfunktion wurde 1991 als Weiterentwicklung der md4 Hashfunktion veröffentlicht. Diese bildet eine beliebige Nachricht auf einen 128-Bit-Hashwert ab. Zu erwähnen ist, dass der md5 aus Sicherheitsgründen nicht mehr empfohlen wird.\cite{watjen2018hashfunktionen}
 
 	\subsubsection{Pearson}
-	Der Pearson-Algorithmus verwendet eine zufällig initialisierte statische Mapping-Tabelle, um jedes Byte von jedem Hash-Wert auf ein neues Byte für einen neuen Hash-Wert abzubilden.\cite{davies2010traffic}\\
+	%TODO                                                                           
+	Der Pearson-Algorithmus verwendet eine zufällig initialisierte statische Mapping-Tabelle, um jedes Byte von jedem Hash-Wert auf einen neuen Hash-Wert abzubilden.\cite{davies2010traffic}\\
 	Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem Byte erzeugen. Die Mapping-Taballe muss jedoch auf allen beteiligten Systemen gleich sein.
 	
 	\subsection{Bewertung der Hash-Funktionen}
@@ -474,8 +475,8 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 	Bei beiden oben vorgestellten Servern hat man die Möglichkeit den Datenfluss zu manipulieren und so auch zu verzögern. Da es sich um normalen Java oder JavaScript Code handelt, kann man beliebige Funktionen eigenhändig implementieren und auch von Dateien lesen. So ist der Java HttpServer und auch Express in der Lage den Covert Channel zu realisieren.\\
 	Der sehr simple Aufbau und das einfache Hinzufügen und Verwenden von Paketen sprechen jedoch für den Node.js Server, weshalb dieser hier verwendet wird. Ein weiterer Vorteil von Node.js ist das einfache Installieren auf einem Linux System und dass keine zusätzliche IDE benötigt wird.
 	
-	\section{Back-End Implementierung}
-		\subsection{Express}
+	\section{Back-End}
+		\subsection{Express Implementierung}
 			Das importierte Express Paket wird als \textit{app} Objekt in den Code eingebunden. Mit Hilfe dieses Objekts kann definiert werden, wie auf einen Request an eine definierte URL-Routen reagiert werden sollen.\\
 			 Eine Route wird wie in Listing 6.1 gezeigt hinzugefügt. Die mitgegebene Callback-Funktion wird ausgeführt, falls ein GET Request an die ,,Wurzel-Route'' erfolgt. Ist dies der Fall so wird hier die index.html Seite ausgeliefert.\\
 				
@@ -500,17 +501,28 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 			\subsection{Kommunikation des Covert Channel}
 				Bei der Express Implementierung wird die \textit{index.html} Datei mit Hilfe von REST (Representational State Transfer) ausgeliefert. REST ist ein Architekturstil, der die Kommunikation zwischen Server und Client regelt. Dieses System beruht darauf, dass ein Server eine beliebige Ressource, wie beispielsweise \textit{index.html}, anbietet. Die wichtigsten Methoden um mit diesen Ressourcen umzugehen sind  GET, PUT, POST und  DELETE.\cite{barton2010modellierung}\\
 				Diese Methoden, auf die mit http zugegriffen wird, sehen nicht vor, dass ein Server selbständig und ohne danach gefragt zu werden Nachrichten an den Client sendet.
-				
+
 				\subsubsection{Anforderung an die Kommunikation des Covert Channel}
-				Da die Hauptaufgabe des Server das Senden manipulierter Pakete an den Client sein wird, muss ein alternative Kommunikation gefunden werden, die nach dem Ausliefern der Webseite den Nachrichtentransport übernimmt. Dabei muss eine bidirektionale Kommunikation möglich sein. Auch eine möglicht einfache Anwendung soll angestrebt werden.
+				Da die Hauptaufgabe des Server das Senden manipulierter Pakete an den Client sein wird, muss ein alternative Kommunikation gefunden werden, die nach dem Ausliefern der Webseite den Nachrichtentransport übernimmt. Dabei muss eine bidirektionale Kommunikation möglich sein. Auch eine einfache Anwendung soll angestrebt werden.
 					
 				\subsubsection{Websockets}
 				
 				Das Websocket Protokol baut auf HTTP auf. Bei HTTP wird, nach dem der Client die Antwort vom Server erhalten, hat meistens die Verbindung geschlossen. Bei der Verwendung von websockets wird die darunterliegende TCP/IP Verbindung weiterverwendet und kann wie ein normaler Netzwerksocket benutzt werden. Dies ermöglicht dem Client und dem Server jeder Zeit Daten zu senden.\cite{abts2015bidirektionale}
 					
 				\subsubsection{Socket.IO}
-				Socket.IO ist eine JavaScript-Bibliothek, mit der sich eine bidirektionale Echtzeitkommunikation realisieren lässt. Die Funktion ähnelt einem WebSocket, lässt jedoch eine ereignisgesteuerte Kommunikation zwischen Browser und Server zu.\cite{SOCKET_IO}\\
-				Mit Hilfe von Socket.IO wird in dieser Arbeit die Kommunikation zwischen Server und Client hergestellt. Dies macht es möglich Nachrichten jeder Zeit vom Server an den Client zu senden.
+				
+				Socket.IO ist eine JavaScript-Bibliothek, mit der sich eine bidirektionale Echtzeitkommunikation realisieren lässt. Die Funktion ähnelt einem WebSocket und lässt eine ereignisgesteuerte Kommunikation zwischen Browser und Server zu.\cite{SOCKET_IO}\\
+				Um die Verbindung zwischen Server und Client auf jeden Fall sicherzustellen und um so viele Browser wie möglich zu unterstützten, setzt Socket.io auf mehrere Technologien, wie Websockets, Flash-Sockets oder Comet.\cite{ullrich2012websockets}
+				
+				
+				\subsubsection{Berwertung der Kommunikation des Covert Channel}
+				Beide Methoden sind in der Lage den Covert Channel zu realisieren, jedoch gibt es bei Websockets Probdenleme mit der Verwendung von Proxys.\\
+				Socket.IO stellt eine Erweiterung der WebSockets dar und verfügt über weitere Funktionen wie zum Beispiel Broadcasting. Aus diesen Gründen, und da eine sehr komfortable node.js Schnittstelle vorhanden ist soll hier die Kommunikation mit Socket.IO realisiert werden.
+				
+			
+			\subsection{Socket.IO Implementierung}
+			Socket.IO wird in Form des \textit{io} Objekts in den Code eingebunden. Der Verbindungsaufbau ist wie in Listing 6.3 gezeigt aufgebaut. Den Events werden ihre jeweiligen Callback-Funktionen zugeordnet.\\
+			Wurde eine Verbindung aufgebaut so sendet der Server eine \textit{test} Nachricht an den Client. Hat der diese empfangen so antwortet dieser mit einem \textit{ClientHello}. Wird diese vom Server empfangen, so wird der jeweilige Socket in ein Array gespeichert, wo er später zum Senden von weiteren Daten verwendet werden kann.\\
 			
 			
 			\begin{lstlisting}[caption=Verbindungsaufbau mit Socket.IO]
@@ -518,7 +530,6 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 					var address = socket.handshake.address.replace(/^.*:/, '');
 					timestaps.push({ip: address ,time: getMinute()});
 				
-					//sends test message
 					socket.emit('test', 'test');
 				
 					socket.on('ClientHello', function (data) {
@@ -528,11 +539,64 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 				
 			\end{lstlisting}
 				
-		\subsection{Covert Channel}
 		
-		\subsection{Pearson Hash}
+		\subsection{Geheime Daten}
+		Die geheimen Daten werden vom Dateisystem gelesen und anschließend mit Hilfe des npm Paketes \textit{buffer-bits} in einen Bit-String umgewandelt.
+				
+		\subsection{Pearson Hash Implementierung}
+		Um die Pearson Hash-Funktion auf die Daten anzuwenden, muss eine Mapping-Tabelle mit den Werten von 0-255 in zufälliger Reihenfolge generiert werden. Diese lässt sich beispielsweise mit einem Python Script unter Verwendung der \textit{shuffel} Funktion erstellen.\\
+		Die hier generierte Tabelle muss beim Server sowie Client bekannt sein, um bei gleicher Hash-Funktion und gleichen Daten den identischen Hashwert zu generieren.\\
+		Den Algorithmus zur Berechnung des Hashes ist in Listing 6.4 gezeigt.
+		Hier wird am Anfang ein Hash-Wert \textit{h} generiert. Dieser wird bitweise XOR mit dem Datenwert verknüpft. Der entstandene Wert wird als Index in der Mapping-Tabelle verwendet. Der dortige Wert in der Mapping-Tabelle wird der neue Wert \textit{h}. Diese wird so lange wiederholt bis alle Datenwerte verwendet wurden. 
+		
+		\begin{lstlisting}[caption=Erstellen der Mapping-Table]
+					
+					for (var j = 0; j < hashLength; j++){  
+						var h = table[(parseInt(data.charAt(0)) + j) % 256];
+						for (var i = 1; i < data.length; i++){
+							h = tabel[(h ^ data[i])];          // XOR
+						}
+						hash[j] = h;
+					}
+		
+		\end{lstlisting}
+		
+		Da hier mit einer \textit{hashLength} von 1 gearbeitet wird, ist das Ergebnis ein 8 Bit Wert der nun an die Daten angehängt werden kann.
+		
+		\subsection{Covert Channel Implementierung}
+		
+		Um den Covert Channel zu implementieren werden Nachrichten zeitlich verzögert an den Client gesendet. Die Länge der Pause zwischen den Daten hängt davon ab ob eine 1 oder 0 übertragen werden soll. Bei einer 1 wird eine lange Pause zwischen den Paketen gemacht bei einer 0 eine kurze.\\
+		Zur Definition der Pausen wird die lange Pause in Millisekunden angegeben. Zusätzlich kommt ein Faktor der das Verhältnis zwischen der langen und kurzen Pause angibt. Durch die Variation dieser beiden Werte kann der Covert Channel eingestellt und optimiert werden.
+		
+		\begin{lstlisting}[caption=]
+		
+					async function covertChannel(){
+						while (true) {
+							if (fileLoad == true) {
+								for(i = 0; i < dataBits.length; i++){
+									if(socken.length != 0){
+										socken[0].emit('time', getTimeString());
+									}
+									if(dataBits[i] == "1"){
+										await sleep(longBreak);
+									}
+									else {
+										await sleep(shortBreak);
+									}
+								}
+								if(socken.length != 0){
+									socken[0].emit('time', getTimeString());
+								}
+							}
+							await sleep(breakBetweenTransmit);
+						}
+					}
+		
+		\end{lstlisting}
+		
+
 	
-	\section{Front-End Implementierung}
+	\section{Front-End}
 		\subsection{Socket.IO}
 		warum nicht hier die auswertung des covert Channel
 	
@@ -558,7 +622,8 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 
 
 \section{Bewertung der Ergebnisse}
-
+paketmenge berechnen
+fehler/informationsgehalt
 durchschnit der Daten ausrechnen
 
 

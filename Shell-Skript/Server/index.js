@@ -81,13 +81,14 @@ function getHash(data){
 
 	var s = seed;
 
-	var i = 0, j = 0;
+	//var i = 0, j = 0;
 	var hash = new Buffer(hashLength);
   data = String(data);
+
 	for (var j = 0; j < hashLength; j++){
-		var h = s[(parseInt(data.charAt(0)) + j) % 256];
+		var h = s[(parseInt(data.charAt(0)) + j) % 256];  //index hash
 		for (var i = 1; i < data.length; i++){
-			h = s[(h ^ data[i])];
+			h = s[(h ^ data[i])];                           // bitwise XOR
 		}
 		hash[j] = h;
 	}
@@ -133,19 +134,17 @@ async function covertChannel(){
   while (true) {
     if (fileLoad == true) {
       for(i = 0; i < codeBits.length; i++){
-        if(socken.length != 0){ // vieleicht verzögerung
+        if(socken.length != 0){
           socken[0].emit('time', getTimeString());
         }
         if(codeBits[i] == "1"){
-          //process.stdout.write("_");
           await sleep(longBreak);
         }
         else {
-          //process.stdout.write(".");
           await sleep(shortBreak);
         }
       }
-      if(socken.length != 0){ // vieleicht verzögerung
+      if(socken.length != 0){
         socken[0].emit('time', getTimeString());
       }
     }
