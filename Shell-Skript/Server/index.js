@@ -17,14 +17,13 @@ var dataBitsLength = 4;//bits
 var fileLoad = false;
 var breakBetweenTransmit = 1000//mil sec
 
+
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
 
-//app.get('/SecretProxy', function(req, res){
-//  res.sendFile(__dirname + '/indexProxy.html');
-//});
 
 
 var getTimeString = function(input, separator) {
@@ -42,10 +41,7 @@ var getMinute = function(input, separator) {
     var pad = function(input) {return input < 10 ? "0" + input : input;};
     var date = input ? new Date(input) : new Date();
     return [
-      //  pad(date.getHours())
         pad(date.getMinutes())
-      //  pad(date.getSeconds())
-      //  date.getMilliseconds()
     ].join(typeof separator !== 'undefined' ?  separator : ':' );
 }
 
@@ -122,15 +118,6 @@ function getDataFromFile(){
     channel();
   });
 }
-
-//async function sendTime(){
-//	while(1){
-//   		await sleep(1000);
-//			for (i = 0; i < socken.length; i++) {
-//				socken[i].emit('time', getTimeString());
-//			}
-//		}
-//	}
 
 
 async function channel(){
@@ -210,22 +197,11 @@ io.on('connection', (socket) => {
   var address = socket.handshake.address.replace(/^.*:/, '');
   timestaps.push({ip: address ,time: getMinute()});
 
-  //tests if the socket is from a user or the proxy
-  socket.emit('test', "test");
+  //sends test message
+  socket.emit('test', 'test');
 
-  //if proxy
-  //socket.on('proxyHello', function (data) {
-  //  if(proxySocket != ''){
-  //    proxySocket.emit('ACK', "You are no longer the Proxy");
-  //  }
-  //  proxySocket = socket;
-  //  proxySocket.emit('ACK', "You are the Proxy now");
-  //   console.log("Proxy");
-  // });
-
-   //if normal user
-   socket.on('ClientHello', function (data) {
-      console.log("Client");
+  socket.on('ClientHello', function (data) {
+      console.log("Client connected");
       socken.push(socket);
     });
 
@@ -235,9 +211,10 @@ io.on('connection', (socket) => {
         for(var i = socken.length - 1; i >= 0; i--) {
             if(socken[i] === socket) {
               socken.splice(i, 1);
+              console.log("Client disconnected");
+              break;
             }
         }
-        console.log("user abgemeldet");
       }
     });
 });

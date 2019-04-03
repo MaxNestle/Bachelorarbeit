@@ -65,7 +65,8 @@
 \contentsline {subsection}{\numberline {6.3.2}Basierend auf den Paketabst\"anden}{34}{subsection.6.3.2}
 \contentsline {subsection}{\numberline {6.3.3}Bewertung der Kodierung}{36}{subsection.6.3.3}
 \contentsline {section}{\numberline {6.4}Fehlerkorrektur}{36}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Bewertung der Fehlerkorektur}{37}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.1}Parit\"atsbit}{36}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Bewertung der Fehlerkorektur}{37}{subsection.6.4.2}
 \contentsline {section}{\numberline {6.5}Wahrung der Integrit\"at}{38}{section.6.5}
 \contentsline {subsection}{\numberline {6.5.1}Hash-Funktionen}{38}{subsection.6.5.1}
 \contentsline {subsubsection}{\nonumberline md5}{38}{section*.19}
@@ -82,23 +83,29 @@
 \contentsline {subsection}{\numberline {6.7.2}Java HttpServer}{41}{subsection.6.7.2}
 \contentsline {subsection}{\numberline {6.7.3}Node.js und Express}{42}{subsection.6.7.3}
 \contentsline {subsection}{\numberline {6.7.4}Bewertung des Servers}{42}{subsection.6.7.4}
-\contentsline {subsection}{\numberline {6.7.5}Implementierung}{44}{subsection.6.7.5}
-\contentsline {subsubsection}{\nonumberline npm}{44}{section*.21}
-\contentsline {subsubsection}{\nonumberline express js}{44}{section*.22}
-\contentsline {subsubsection}{\nonumberline Pearson Hash}{44}{section*.23}
-\contentsline {subsection}{\numberline {6.7.6}T\"auschung von Dritten}{44}{subsection.6.7.6}
-\contentsline {section}{\numberline {6.8}Client}{44}{section.6.8}
-\contentsline {subsection}{\numberline {6.8.1}Anforderungen an den Client}{44}{subsection.6.8.1}
-\contentsline {subsection}{\numberline {6.8.2}Programmiersprache}{44}{subsection.6.8.2}
-\contentsline {subsubsection}{\nonumberline Python}{44}{section*.24}
-\contentsline {subsubsection}{\nonumberline Java}{44}{section*.25}
-\contentsline {subsection}{\numberline {6.8.3}tcpdump}{44}{subsection.6.8.3}
-\contentsline {subsection}{\numberline {6.8.4}Toleranz}{44}{subsection.6.8.4}
-\contentsline {section}{\numberline {6.9}Passiv}{44}{section.6.9}
-\contentsline {subsection}{\numberline {6.9.1}Anforderung an den Proxy}{44}{subsection.6.9.1}
-\contentsline {subsection}{\numberline {6.9.2}L\"osungsansatz}{44}{subsection.6.9.2}
-\contentsline {subsection}{\numberline {6.9.3}Proxy}{44}{subsection.6.9.3}
-\contentsline {section}{\numberline {6.10}Optimierung}{44}{section.6.10}
-\contentsline {section}{\numberline {6.11}Bewertung der Ergebnisse}{45}{section.6.11}
-\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{46}{chapter.7}
-\contentsline {chapter}{\nonumberline Literatur}{48}{chapter*.26}
+\contentsline {section}{\numberline {6.8}Back-End Implementierung}{43}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}Express}{43}{subsection.6.8.1}
+\contentsline {subsection}{\numberline {6.8.2}Kommunikation des Covert Channel}{43}{subsection.6.8.2}
+\contentsline {subsubsection}{\nonumberline Anforderung an die Kommunikation des Covert Channel}{44}{section*.21}
+\contentsline {subsubsection}{\nonumberline Websockets}{44}{section*.22}
+\contentsline {subsubsection}{\nonumberline Socket.IO}{44}{section*.23}
+\contentsline {subsection}{\numberline {6.8.3}Covert Channel}{45}{subsection.6.8.3}
+\contentsline {subsection}{\numberline {6.8.4}Pearson Hash}{45}{subsection.6.8.4}
+\contentsline {section}{\numberline {6.9}Front-End Implementierung}{45}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}Socket.IO}{45}{subsection.6.9.1}
+\contentsline {subsection}{\numberline {6.9.2}T\"auschung von Dritten}{46}{subsection.6.9.2}
+\contentsline {section}{\numberline {6.10}Client}{46}{section.6.10}
+\contentsline {subsection}{\numberline {6.10.1}Anforderungen an den Client}{46}{subsection.6.10.1}
+\contentsline {subsection}{\numberline {6.10.2}Programmiersprache}{46}{subsection.6.10.2}
+\contentsline {subsubsection}{\nonumberline Python}{46}{section*.24}
+\contentsline {subsubsection}{\nonumberline Java}{46}{section*.25}
+\contentsline {subsection}{\numberline {6.10.3}tcpdump}{46}{subsection.6.10.3}
+\contentsline {subsection}{\numberline {6.10.4}Toleranz}{46}{subsection.6.10.4}
+\contentsline {section}{\numberline {6.11}Passiv}{46}{section.6.11}
+\contentsline {subsection}{\numberline {6.11.1}Anforderung an den Proxy}{46}{subsection.6.11.1}
+\contentsline {subsection}{\numberline {6.11.2}L\"osungsansatz}{46}{subsection.6.11.2}
+\contentsline {subsection}{\numberline {6.11.3}Proxy}{46}{subsection.6.11.3}
+\contentsline {section}{\numberline {6.12}Optimierung}{46}{section.6.12}
+\contentsline {section}{\numberline {6.13}Bewertung der Ergebnisse}{47}{section.6.13}
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Fazit}{48}{chapter.7}
+\contentsline {chapter}{\nonumberline Literatur}{50}{chapter*.26}

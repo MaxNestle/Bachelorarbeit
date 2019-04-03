@@ -377,6 +377,7 @@ Aufgrund der Vorteile durch die Codierung mit Hilfe der Paketabstände soll diese
 
 \section{Fehlerkorrektur}
 
+\subsection{Paritätsbit}
 Die Fehlerkorrektur kann mit einem Paritätsbit realisier werden. Dieses Bit gibt an, ob die Anzahl der Einsen in einer binären Zahlenfolge eine gerade oder ungerade Zahl ist. Wird nun bei der Datenübertragung ein Bit verändert sich die Anzahl der Einsen und stimmt nicht mehr mit dem Paritätsbit überein.
 
 Mit nur einem Paritätsbit lässt sich nun feststellen das ein Fehler aufgetreten ist, man erfährt aber nicht wo. Um auch dies herauszufinden kann der Hammingcode angewendet werden.\\
@@ -453,7 +454,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 \section{Server}
 	\subsection{Anforderungen an den Server}
 	Der Server muss in der Lage sein, einen HTTP Request entgegenzunehmen und im Gegenzug eine Webseite ausliefern. Da die geheimen Daten vom Server an den Client übertragen werden sollen, muss der Server in der Lage sein aktiv ohne Requests HTTP Nachrichten an den CLient zu senden.\\ Zusätzlich ist es für diese Anwendung essentiell, dass sich das Senden der Nachrichten verzögern lässt um die nötigen zeitlichen Abstände für den Covert Channel zu realisieren. Aus diesem Grund soll der Server frei programmierbar sein und auch Daten verarbeiten können um beispielsweise binär Daten zu erstellen oder einen Hashwert zu generieren.\\
-	Der Server soll leichtgewichtig und einfach zu bedienen sein.
+	Der Server soll leichtgewichtig, einfach zu bedienen und auf einem Linux Betriebssystem lauffähig sein.
 	
 	\subsection{Java HttpServer}
 	HttpServer ist eine Java Klasse die es ermöglicht einen einfachen HTTP Server zu erstellen.
@@ -464,18 +465,77 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 		
 	\subsection{Node.js und Express}
 	Node.js ist eine Plattform, ausgerichtet um Netzwerkanwendungen zu erstellen. Dabei ist Node.js eine asynchrone und ereignisgesteuerte JavaScript Runtime. Node.js wird in JavaScript programmiert und kann mit Paketen von npm (Node Paket Manager) erweitert werden.\\
-	Als asynchrone Laufzeitumgebung arbeitet Node.js sehr viel mit Call-Back-Funktionen, die bei Erfüllen von Events ausgeführt werden. Durch die asynchrone Abarbeitung des Programmcodes entsteht eine sehr gut skalierbare Anwendung die keine Deadlocks generieren kann.\cite{NODE}\\
-	Um mit Node.js ein Webserver zu erstellen kann das Web-Framework Express verwendet werden. Express lässt sich mit Hilfen von npm in das Projekt eingliedern. Das Express Objekt ist in der Lage auf einem Port auf TCP Verbindungen zu warten und entgegenzunehmen. Jedem Pfad ist eine Call-Back-Funktion zugeordnet, die bei dessen Aufrufen die Abarbeitung der Anfrage übernimmt.\cite{EXPRESS}
-	
+	Als asynchrone Laufzeitumgebung arbeitet Node.js sehr viel mit Callback-Funktionen, die bei Erfüllen von Events ausgeführt werden. Durch die asynchrone Abarbeitung des Programmcodes entsteht eine sehr gut skalierbare Anwendung die keine Deadlocks generieren kann.\cite{NODE}\\
+	Um mit Node.js ein Webserver zu erstellen kann das Web-Framework Express verwendet werden. Express lässt sich mit Hilfen von npm in das Projekt eingliedern. Das Express Objekt ist in der Lage auf einem Port auf TCP Verbindungen zu warten und entgegenzunehmen. Jedem Pfad ist eine Callback-Funktion zugeordnet, die bei dessen Aufrufen die Abarbeitung der Anfrage übernimmt.\cite{EXPRESS}
 	
 	
 	\subsection{Bewertung des Servers}
-	Da der Server in der Lage sein muss HTTP Nachrichten zeitlich verzögert abzuschicken sind fertige und schwergewichtige Server wie der Apache oder NGINX ungeeignet.
+	Da der Server in der Lage sein muss HTTP Nachrichten zeitlich verzögert abzuschicken, sind fertige und schwergewichtige Server wie der Apache oder NGINX ungeeignet.\\
+	Bei beiden oben vorgestellten Servern hat man die Möglichkeit den Datenfluss zu manipulieren und so auch zu verzögern. Da es sich um normalen Java oder JavaScript Code handelt, kann man beliebige Funktionen eigenhändig implementieren und auch von Dateien lesen. So ist der Java HttpServer und auch Express in der Lage den Covert Channel zu realisieren.\\
+	Der sehr simple Aufbau und das einfache Hinzufügen und Verwenden von Paketen sprechen jedoch für den Node.js Server, weshalb dieser hier verwendet wird. Ein weiterer Vorteil von Node.js ist das einfache Installieren auf einem Linux System und dass keine zusätzliche IDE benötigt wird.
 	
-	\subsection{Implementierung}
-		\subsubsection{npm}
-		\subsubsection{express js}
-		\subsubsection{Pearson Hash}
+	\section{Back-End Implementierung}
+		\subsection{Express}
+			Das importierte Express Paket wird als \textit{app} Objekt in den Code eingebunden. Mit Hilfe dieses Objekts kann definiert werden, wie auf einen Request an eine definierte URL-Routen reagiert werden sollen.\\
+			 Eine Route wird wie in Listing 6.1 gezeigt hinzugefügt. Die mitgegebene Callback-Funktion wird ausgeführt, falls ein GET Request an die ,,Wurzel-Route'' erfolgt. Ist dies der Fall so wird hier die index.html Seite ausgeliefert.\\
+				
+			\begin{lstlisting}[caption=Hinzufügen der Stamm-Route]
+				app.get('/', function(req, res){
+				res.sendFile(__dirname + '/index.html');
+				});
+				
+			\end{lstlisting}
+				
+				
+			Ebenfalls von Express stammt das \textit{http} Objekt, welches den Http Server darstellt. Der Server Port kann wie in Listing 6.2 gewählt werden.\\
+			
+
+			\begin{lstlisting}[caption=Wählen des Server Ports]
+				http.listen(80, function(){
+					console.log('listening on port:80');
+				});
+					
+			\end{lstlisting}
+			
+			\subsection{Kommunikation des Covert Channel}
+				Bei der Express Implementierung wird die \textit{index.html} Datei mit Hilfe von REST (Representational State Transfer) ausgeliefert. REST ist ein Architekturstil, der die Kommunikation zwischen Server und Client regelt. Dieses System beruht darauf, dass ein Server eine beliebige Ressource, wie beispielsweise \textit{index.html}, anbietet. Die wichtigsten Methoden um mit diesen Ressourcen umzugehen sind  GET, PUT, POST und  DELETE.\cite{barton2010modellierung}\\
+				Diese Methoden, auf die mit http zugegriffen wird, sehen nicht vor, dass ein Server selbständig und ohne danach gefragt zu werden Nachrichten an den Client sendet.
+				
+				\subsubsection{Anforderung an die Kommunikation des Covert Channel}
+				Da die Hauptaufgabe des Server das Senden manipulierter Pakete an den Client sein wird, muss ein alternative Kommunikation gefunden werden, die nach dem Ausliefern der Webseite den Nachrichtentransport übernimmt. Dabei muss eine bidirektionale Kommunikation möglich sein. Auch eine möglicht einfache Anwendung soll angestrebt werden.
+					
+				\subsubsection{Websockets}
+				
+				Das Websocket Protokol baut auf HTTP auf. Bei HTTP wird, nach dem der Client die Antwort vom Server erhalten, hat meistens die Verbindung geschlossen. Bei der Verwendung von websockets wird die darunterliegende TCP/IP Verbindung weiterverwendet und kann wie ein normaler Netzwerksocket benutzt werden. Dies ermöglicht dem Client und dem Server jeder Zeit Daten zu senden.\cite{abts2015bidirektionale}
+					
+				\subsubsection{Socket.IO}
+				Socket.IO ist eine JavaScript-Bibliothek, mit der sich eine bidirektionale Echtzeitkommunikation realisieren lässt. Die Funktion ähnelt einem WebSocket, lässt jedoch eine ereignisgesteuerte Kommunikation zwischen Browser und Server zu.\cite{SOCKET_IO}\\
+				Mit Hilfe von Socket.IO wird in dieser Arbeit die Kommunikation zwischen Server und Client hergestellt. Dies macht es möglich Nachrichten jeder Zeit vom Server an den Client zu senden.
+			
+			
+			\begin{lstlisting}[caption=Verbindungsaufbau mit Socket.IO]
+				io.on('connection', (socket) => {
+					var address = socket.handshake.address.replace(/^.*:/, '');
+					timestaps.push({ip: address ,time: getMinute()});
+				
+					//sends test message
+					socket.emit('test', 'test');
+				
+					socket.on('ClientHello', function (data) {
+						console.log("Client connected");
+						socken.push(socket);
+					});
+				
+			\end{lstlisting}
+				
+		\subsection{Covert Channel}
+		
+		\subsection{Pearson Hash}
+	
+	\section{Front-End Implementierung}
+		\subsection{Socket.IO}
+		warum nicht hier die auswertung des covert Channel
+	
 	\subsection{Täuschung von Dritten}
 	
 \section{Client}

@@ -9,6 +9,12 @@
   2019.
 \newblock Abrufdatum: 12.02.2019.
 
+\bibitem[BB10]{barton2010modellierung}
+{\sc Barton, Thomas} \btxandlong{}\ {\sc Harriet Bach}: {\em Modellierung eines
+  Anwendungssystems zur Beh{\"a}lterlokalisation und Beh{\"a}lterreservierung
+  auf Basis des Architekturstils REST.}
+\newblock \Btxinlong{}\ {\em MKWI}, \btxpageslong{}\ 2411--2418, 2010.
+
 \bibitem[CBS04]{cabuk2004ip}
 {\sc Cabuk, Serdar}, {\sc Carla~E Brodley} \btxandlong{}\ {\sc Clay Shields}:
   {\em IP covert timing channels: design and detection}.
@@ -133,6 +139,11 @@
 {\sc Purgathofer, Peter}: {\em Eine kurze Geschichte der Steganographie}.
 \newblock Die Funktion verdeckter Kommunikation: Impulse f{\"u}r eine
   Technikfolgenabsch{\"a}tzung zur Steganographie, 9:65, 2010.
+
+\bibitem[{Soc}19]{SOCKET_IO}
+{\sc {Socket.io}}: {\em What Socket.IO is}.
+\newblock \url{https://socket.io/docs/}, 2019.
+\newblock Abrufdatum: 02.04.2019.
 
 \bibitem[{Str}19]{EXPRESS}
 {\sc {StrongLoop, Inc.}}: {\em Beispiel ?Hello World?}
