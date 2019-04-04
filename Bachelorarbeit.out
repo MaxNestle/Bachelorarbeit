@@ -77,18 +77,23 @@
 \BOOKMARK [2][-]{subsection.6.8.5}{Pearson Hash Implementierung}{section.6.8}% 77
 \BOOKMARK [2][-]{subsection.6.8.6}{Covert Channel Implementierung}{section.6.8}% 78
 \BOOKMARK [1][-]{section.6.9}{Front-End}{chapter.6}% 79
-\BOOKMARK [2][-]{subsection.6.9.1}{Socket.IO}{section.6.9}% 80
-\BOOKMARK [2][-]{subsection.6.9.2}{T\344uschung von Dritten}{section.6.9}% 81
-\BOOKMARK [1][-]{section.6.10}{Client}{chapter.6}% 82
-\BOOKMARK [2][-]{subsection.6.10.1}{Anforderungen an den Client}{section.6.10}% 83
-\BOOKMARK [2][-]{subsection.6.10.2}{Programmiersprache}{section.6.10}% 84
-\BOOKMARK [2][-]{subsection.6.10.3}{tcpdump}{section.6.10}% 85
-\BOOKMARK [2][-]{subsection.6.10.4}{Toleranz}{section.6.10}% 86
-\BOOKMARK [1][-]{section.6.11}{Passiv}{chapter.6}% 87
-\BOOKMARK [2][-]{subsection.6.11.1}{Anforderung an den Proxy}{section.6.11}% 88
-\BOOKMARK [2][-]{subsection.6.11.2}{L\366sungsansatz}{section.6.11}% 89
-\BOOKMARK [2][-]{subsection.6.11.3}{Proxy}{section.6.11}% 90
-\BOOKMARK [1][-]{section.6.12}{Optimierung}{chapter.6}% 91
-\BOOKMARK [1][-]{section.6.13}{Bewertung der Ergebnisse}{chapter.6}% 92
-\BOOKMARK [0][-]{chapter.7}{Zusammenfassung und Fazit}{}% 93
-\BOOKMARK [0][-]{chapter*.27}{Literatur}{}% 94
+\BOOKMARK [2][-]{subsection.6.9.1}{HTML}{section.6.9}% 80
+\BOOKMARK [2][-]{subsection.6.9.2}{JQuery}{section.6.9}% 81
+\BOOKMARK [2][-]{subsection.6.9.3}{Socket.IO}{section.6.9}% 82
+\BOOKMARK [2][-]{subsection.6.9.4}{T\344uschung von Dritten}{section.6.9}% 83
+\BOOKMARK [1][-]{section.6.10}{Auswerten des Covert Channel}{chapter.6}% 84
+\BOOKMARK [2][-]{subsection.6.10.1}{Anforderung an die Auswertung}{section.6.10}% 85
+\BOOKMARK [2][-]{subsection.6.10.2}{Auswertung im Front-End}{section.6.10}% 86
+\BOOKMARK [1][-]{section.6.11}{Client}{chapter.6}% 87
+\BOOKMARK [2][-]{subsection.6.11.1}{Anforderungen an den Client}{section.6.11}% 88
+\BOOKMARK [2][-]{subsection.6.11.2}{Programmiersprache}{section.6.11}% 89
+\BOOKMARK [2][-]{subsection.6.11.3}{tcpdump}{section.6.11}% 90
+\BOOKMARK [2][-]{subsection.6.11.4}{Toleranz}{section.6.11}% 91
+\BOOKMARK [1][-]{section.6.12}{Passiv}{chapter.6}% 92
+\BOOKMARK [2][-]{subsection.6.12.1}{Anforderung an den Proxy}{section.6.12}% 93
+\BOOKMARK [2][-]{subsection.6.12.2}{L\366sungsansatz}{section.6.12}% 94
+\BOOKMARK [2][-]{subsection.6.12.3}{Proxy}{section.6.12}% 95
+\BOOKMARK [1][-]{section.6.13}{Optimierung}{chapter.6}% 96
+\BOOKMARK [1][-]{section.6.14}{Bewertung der Ergebnisse}{chapter.6}% 97
+\BOOKMARK [0][-]{chapter.7}{Zusammenfassung und Fazit}{}% 98
+\BOOKMARK [0][-]{chapter*.27}{Literatur}{}% 99

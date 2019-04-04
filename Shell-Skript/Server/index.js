@@ -20,7 +20,7 @@ var breakBetweenTransmit = 1000//mil sec
 
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/AltheimerOpenAir.html');
 });
 
 
@@ -115,8 +115,8 @@ function getDataFromFile(){
     codeBits = dataBits;
     dataBits = [];
     fileLoad = true;
-    //covertChannel();
-    channel();
+    covertChannel();
+    //channel();
   });
 }
 

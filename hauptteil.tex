@@ -502,7 +502,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 				Bei der Express Implementierung wird die \textit{index.html} Datei mit Hilfe von REST (Representational State Transfer) ausgeliefert. REST ist ein Architekturstil, der die Kommunikation zwischen Server und Client regelt. Dieses System beruht darauf, dass ein Server eine beliebige Ressource, wie beispielsweise \textit{index.html}, anbietet. Die wichtigsten Methoden um mit diesen Ressourcen umzugehen sind  GET, PUT, POST und  DELETE.\cite{barton2010modellierung}\\
 				Diese Methoden, auf die mit http zugegriffen wird, sehen nicht vor, dass ein Server selbständig und ohne danach gefragt zu werden Nachrichten an den Client sendet.
 
-				\subsubsection{Anforderung an die Kommunikation des Covert Channel}
+				\subsubsection{Anforderung an die Kommunikation des Covert Channels}
 				Da die Hauptaufgabe des Server das Senden manipulierter Pakete an den Client sein wird, muss ein alternative Kommunikation gefunden werden, die nach dem Ausliefern der Webseite den Nachrichtentransport übernimmt. Dabei muss eine bidirektionale Kommunikation möglich sein. Auch eine einfache Anwendung soll angestrebt werden.
 					
 				\subsubsection{Websockets}
@@ -515,7 +515,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 				Um die Verbindung zwischen Server und Client auf jeden Fall sicherzustellen und um so viele Browser wie möglich zu unterstützten, setzt Socket.io auf mehrere Technologien, wie Websockets, Flash-Sockets oder Comet.\cite{ullrich2012websockets}
 				
 				
-				\subsubsection{Berwertung der Kommunikation des Covert Channel}
+				\subsubsection{Berwertung der Kommunikation des Covert Channels}
 				Beide Methoden sind in der Lage den Covert Channel zu realisieren, jedoch gibt es bei Websockets Probdenleme mit der Verwendung von Proxys.\\
 				Socket.IO stellt eine Erweiterung der WebSockets dar und verfügt über weitere Funktionen wie zum Beispiel Broadcasting. Aus diesen Gründen, und da eine sehr komfortable node.js Schnittstelle vorhanden ist soll hier die Kommunikation mit Socket.IO realisiert werden.
 				
@@ -565,10 +565,12 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 		
 		\subsection{Covert Channel Implementierung}
 		
-		Um den Covert Channel zu implementieren werden Nachrichten zeitlich verzögert an den Client gesendet. Die Länge der Pause zwischen den Daten hängt davon ab ob eine 1 oder 0 übertragen werden soll. Bei einer 1 wird eine lange Pause zwischen den Paketen gemacht bei einer 0 eine kurze.\\
+		Um den Covert Channel zu implementieren werden Nachrichten zeitlich verzögert an den Client gesendet. Grundsätzlich kann jede beliebige Nachricht an den Client gesendet werden. Hier wird zum Testen die aktuelle Uhrzeit versendet.\\
+		Die Länge der Pause zwischen den Daten hängt davon ab ob eine 1 oder 0 übertragen werden soll. Bei einer 1 wird eine lange Pause zwischen den Paketen gemacht bei einer 0 eine kurze.\\
 		Zur Definition der Pausen wird die lange Pause in Millisekunden angegeben. Zusätzlich kommt ein Faktor der das Verhältnis zwischen der langen und kurzen Pause angibt. Durch die Variation dieser beiden Werte kann der Covert Channel eingestellt und optimiert werden.
+		Ist eine komplette Datei übertragen wird eine definierte Pause von einer Sekunde gemacht. Danach beginnt die Datenübertragung erneut.
 		
-		\begin{lstlisting}[caption=]
+		\begin{lstlisting}[caption=Covert Channel]
 		
 					async function covertChannel(){
 						while (true) {
@@ -593,14 +595,37 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 					}
 		
 		\end{lstlisting}
-		
-
-	
 	\section{Front-End}
+		\subsection{HTML}
+		
+		Das Front-End wird durch eine einfache HTML-Seite ausgeliefert. In diesem Proof-of-Concept Projekt wird als Funktion der Webseite das Anzeigen der aktuelle Uhrzeit umgesetzt. Diese Uhrzeit wird vom Server empfangen.\\
+		
+		\subsection{JQuery}
+		
+		JQuery ist eine JavaScript Bibliothek, die es wesentlich einfacher macht das HTML-Dokument und den DOM-Baum zu manipulieren und zu verändern. Hier wird es dazu verwendet, um jeweils die aktuelle Uhrzeit dynamisch auf der Seite anzuzeigen.\\
+		Zudem kommt es zum Einsatz, um die Eventhandler für Socket.IO einzubinden.
+		
+		
 		\subsection{Socket.IO}
-		warum nicht hier die auswertung des covert Channel
+		Der nötige Code wird über das Script Tag heruntergeladen und hinzugefügt. Wie auch serverseitig kann hier nun ein ServerIO Objekt generiert werden.
+		Diesem werden hier die Events zum Empfangen der Nachrichten zum Verbindungsaufbau und zum Empfangen der Zeitpakete hinzugefügt.\\
 	
 	\subsection{Täuschung von Dritten}
+		
+	
+	\section{Auswerten des Covert Channel}
+		Die vom Server erhaltenen Pakete und vor allem die Abstände zwischen den Paketen müssen nun ausgewertet werden, um die geheime Nachricht zu rekonstruieren.
+		
+		\subsection{Anforderung an die Auswertung}
+		Für die Auswertung muss eine Anwendung geschrieben werden, die die eingehenden Nachrichten vom Server analysiert. Dazu muss der exakte Zeitpunk des Eintreffens der Pakete so genau wie möglich aufgezeichnet werden. Nach dem Rekonstruieren der geheimen Nachricht muss diese auf das Dateisystem abgespeichert werden. Die Anwendung soll zudem auf jedem gängigen Betriebssystem lauffähig sein. Ein weiterer wichtiger Aspekt ist, dass es für Dritte möglichst schwierig sein soll die Analyse des Covert Channels zu bemerken.
+		
+		\subsection{Auswertung im Front-End}
+		Bei der Auswertung im Front-End werden die Daten direkt nach dem Empfangen im Browser ausgewertet werden. Hier sind die nötigen Funktionen mit JavaScript geschrieben. Ein schreiben der Daten
+		
+		\subsection{Auswertung mit externem Programm}
+		
+		
+		
 	
 \section{Client}
 	\subsection{Anforderungen an den Client}
@@ -618,7 +643,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 
 \section{Optimierung}
 	Buffer
-	Pausenverkleinerung
+	Pausenverkleinerung/ tolleranzanpassung
 
 
 \section{Bewertung der Ergebnisse}
