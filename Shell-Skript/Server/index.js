@@ -115,8 +115,8 @@ function getDataFromFile(){
     codeBits = dataBits;
     dataBits = [];
     fileLoad = true;
-    covertChannel();
-    //channel();
+    //covertChannel();
+    channel();
   });
 }
 

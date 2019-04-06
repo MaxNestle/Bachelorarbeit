@@ -89,15 +89,16 @@
 \BOOKMARK [1][-]{section.6.12}{Client}{chapter.6}% 89
 \BOOKMARK [2][-]{subsection.6.12.1}{Programmiersprache}{section.6.12}% 90
 \BOOKMARK [2][-]{subsection.6.12.2}{Mitschneiden der Datenenpakete}{section.6.12}% 91
-\BOOKMARK [2][-]{subsection.6.12.3}{Toleranz}{section.6.12}% 92
-\BOOKMARK [1][-]{section.6.13}{Einstellen des Covert Channel}{chapter.6}% 93
-\BOOKMARK [0][-]{chapter.7}{Umsetzung Passiv}{}% 94
-\BOOKMARK [1][-]{section.7.1}{Passiv}{chapter.7}% 95
-\BOOKMARK [2][-]{subsection.7.1.1}{Anforderung an den Proxy}{section.7.1}% 96
-\BOOKMARK [2][-]{subsection.7.1.2}{L\366sungsansatz}{section.7.1}% 97
-\BOOKMARK [2][-]{subsection.7.1.3}{Proxy}{section.7.1}% 98
-\BOOKMARK [1][-]{section.7.2}{Reale Anwendung}{chapter.7}% 99
-\BOOKMARK [0][-]{chapter.8}{Bewertung der Ergebnisse}{}% 100
-\BOOKMARK [0][-]{chapter.9}{Optimierung}{}% 101
-\BOOKMARK [0][-]{chapter.10}{Zusammenfassung und Fazit}{}% 102
-\BOOKMARK [0][-]{chapter*.34}{Literatur}{}% 103
+\BOOKMARK [2][-]{subsection.6.12.3}{Interpretieren der Zeitstempel}{section.6.12}% 92
+\BOOKMARK [2][-]{subsection.6.12.4}{Toleranz}{section.6.12}% 93
+\BOOKMARK [1][-]{section.6.13}{Einstellen des Covert Channel}{chapter.6}% 94
+\BOOKMARK [0][-]{chapter.7}{Umsetzung Passiv}{}% 95
+\BOOKMARK [1][-]{section.7.1}{Passiv}{chapter.7}% 96
+\BOOKMARK [2][-]{subsection.7.1.1}{Anforderung an den Proxy}{section.7.1}% 97
+\BOOKMARK [2][-]{subsection.7.1.2}{L\366sungsansatz}{section.7.1}% 98
+\BOOKMARK [2][-]{subsection.7.1.3}{Proxy}{section.7.1}% 99
+\BOOKMARK [1][-]{section.7.2}{Reale Anwendung}{chapter.7}% 100
+\BOOKMARK [0][-]{chapter.8}{Bewertung der Ergebnisse}{}% 101
+\BOOKMARK [0][-]{chapter.9}{Optimierung}{}% 102
+\BOOKMARK [0][-]{chapter.10}{Zusammenfassung und Fazit}{}% 103
+\BOOKMARK [0][-]{chapter*.34}{Literatur}{}% 104

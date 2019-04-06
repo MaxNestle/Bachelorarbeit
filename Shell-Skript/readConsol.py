@@ -21,7 +21,7 @@ result = []
 codedata = []  # binary hamming code
 longBreak = 0.05  # sec
 factor = 0.5  # difference between long and short break
-bufferzize = 64
+bufferzize = 10
 threadBreak = 0.005  # sec
 breakbetween = 1  # sec
 sTolerance = 0.4
@@ -64,7 +64,9 @@ def tcpdump():
 
     pipe = os.popen("tcpdump -s 0 host "+host+" and src port "+port+" -q -i any -l")
     for line in pipe:
-        buffer.append(line[0:15])           #saves only the time to buffer
+
+        if line.split()[6] != "0":                #looks if the massage contains data => in the other case its the ACK for the server
+            buffer.append(line[0:15])           #saves only the time to buffer
 
         if len(buffer) > bufferzize:
             mutex.acquire()

@@ -1,7 +1,7 @@
-\contentsline {chapter}{\nonumberline Kurzfassung}{IV}{chapter*.3}
-\contentsline {chapter}{\nonumberline Abstract}{V}{chapter*.4}
-\contentsline {chapter}{\nonumberline Danksagung}{VI}{chapter*.5}
-\contentsline {chapter}{\nonumberline Etische Aspekte}{VII}{chapter*.6}
+\contentsline {chapter}{\nonumberline Kurzfassung}{V}{chapter*.3}
+\contentsline {chapter}{\nonumberline Abstract}{VI}{chapter*.4}
+\contentsline {chapter}{\nonumberline Danksagung}{VII}{chapter*.5}
+\contentsline {chapter}{\nonumberline Etische Aspekte}{VIII}{chapter*.6}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Aufgabenstellung und Zielsetzung}{2}{section.1.2}
@@ -116,7 +116,8 @@
 \contentsline {subsubsection}{\nonumberline tshark}{52}{section*.31}
 \contentsline {subsubsection}{\nonumberline Bewertung der Paket-Sniffer}{52}{section*.32}
 \contentsline {subsubsection}{\nonumberline Implementierung}{52}{section*.33}
-\contentsline {subsection}{\numberline {6.12.3}Toleranz}{53}{subsection.6.12.3}
+\contentsline {subsection}{\numberline {6.12.3}Interpretieren der Zeitstempel}{53}{subsection.6.12.3}
+\contentsline {subsection}{\numberline {6.12.4}Toleranz}{53}{subsection.6.12.4}
 \contentsline {section}{\numberline {6.13}Einstellen des Covert Channel}{53}{section.6.13}
 \contentsline {chapter}{\numberline {7}Umsetzung Passiv}{54}{chapter.7}
 \contentsline {section}{\numberline {7.1}Passiv}{54}{section.7.1}

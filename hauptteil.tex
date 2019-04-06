@@ -671,7 +671,8 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 		
 		\subsubsection{Implementierung}
 		Für das Öffnen und anschließende Mitschneiden der Daten wird ein eigener Thread gestartet. Hier wird zuerst mit \textit{os.popen} ein neuer Prozess erstellt in dem tcpdump läuft. Die nötigen Parameter für die Einstellung des Filters werden ebenfalls übergeben. Der Rückgabewert ist hier ein \textit{open file object}, in welches die Pipe zu tcpdump die Ergebnisse schreibt.
-		Aus diesem \textit{open file object} kann nun die tcpdump Ausgabe gelesen und der Empfangszeitpunkt in einen Buffer gespeichert werden.
+		Aus diesem \textit{open file object} kann nun die tcpdump Ausgabe gelesen und der Empfangszeitpunkt in einen Buffer gespeichert werden.\\
+		Die Zeitstempel werden dann kontinuierlich in ein globales Datenarray geschrieben. Um Kollisionen zu vermeiden, wird ein Mutex verwendet.
 		
 		\begin{lstlisting}[caption=Paket-Sniffing]
 			   	pipe = os.popen("tcpdump -s 0 host "+host+" and src port "+port+" -q -i any -l")
@@ -685,13 +686,14 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 							mutex.release()
 		\end{lstlisting}
 		
-		
-		
+	\subsection{Interpretieren der Zeitstempel}
+		Die Zeitstempel vom tcpdump Thread sollen nun ausgewertet. Dafür werden die als String abgespeicherten Zeitstempel in \textit{datetime} Objekte geparst um mit ihnen Rechnen zu können. 
 	
 	\subsection{Toleranz}
 
 
 \section{Einstellen des Covert Channel}
+	
 
 
 \chapter{Umsetzung Passiv}
@@ -711,6 +713,7 @@ durchschnit der Daten ausrechnen
 
 \chapter{Optimierung}
 Buffer
+client detect break self
 Pausenverkleinerung/ tolleranzanpassung
 
 
