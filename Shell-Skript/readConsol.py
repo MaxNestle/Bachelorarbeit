@@ -21,11 +21,11 @@ result = []
 codedata = []  # binary hamming code
 longBreak = 0.05  # sec
 factor = 0.5  # difference between long and short break
-bufferzize = 64  # bit
+bufferzize = 64
 threadBreak = 0.005  # sec
 breakbetween = 1  # sec
-sTolerance = 0.1
-bTolerance = 0.3
+sTolerance = 0.4
+bTolerance = 0.4
 breakArray = []
 table = [129, 69, 229, 238, 16, 104, 178, 222, 95, 5, 171, 147, 231, 170, 105,
          61, 85, 217, 236, 223, 87, 221, 60, 38, 125, 151, 124, 86, 137, 143,
@@ -48,7 +48,7 @@ table = [129, 69, 229, 238, 16, 104, 178, 222, 95, 5, 171, 147, 231, 170, 105,
 
 
 if len(sys.argv) != 4:
-    print("Program needs exactly three arguments: destination_IP_Adress destination_Port filname")
+    print("Program needs exactly three arguments: source_IP_Adress source_Port filname")
     sys.exit(0)
 else:
     host = sys.argv[1]
@@ -71,8 +71,8 @@ def tcpdump():
             data = data + buffer
             buffer = []
             mutex.release()
-        #print(str(len(buffer))+ "   "+ str(len(data)))
 
+    print("test")
     time.sleep(threadBreak)
 
 
@@ -131,8 +131,9 @@ def calc():
                     print("")
 
                     b = BitArray(bin = dataString)               # making bitArray without Char encoding
-                    b.tofile(f)                         # write to file
-                    f.flush()
+                    if hashFromClient == hashFromServer:
+                        b.tofile(f)                         # write to file
+                        f.flush()
                     f.close()
                 codedata = []
                 if write == False:                      # false at the beginning as long the file hasnt started
@@ -141,11 +142,14 @@ def calc():
                 if write == True:
                     if sBigBreakTolerance < f1 < bBigBreakTolerance:    # time range for a 1
                         codedata.append("1")
-                        print(str(f1) + "  \t=> 1 \t" + str(f1-sBigBreakTolerance) + " / " +str(bBigBreakTolerance-f1))     # print result and distance to the range borders
+                        #print(str(f1) + "  \t=> 1 \t" + str(f1-sBigBreakTolerance) + " / " +str(bBigBreakTolerance-f1))     # print result and distance to the range borders
+                        print(str(f1) + "  \t=> 1 ")     # print result and distance to the range borders
                     else:
                         if sSmallBreakTolerance < f1 < bSmallBreakTolerance: # time range for 0
                             codedata.append("0")
-                            print(str(f1) + "  \t=> 0 \t"+ str(f1-sSmallBreakTolerance) + " / " +str(bSmallBreakTolerance-f1))
+                            #print(str(f1) + "  \t=> 0 \t"+ str(f1-sSmallBreakTolerance) + " / " +str(bSmallBreakTolerance-f1))
+                            print(str(f1) + "  \t=> 0")
+
                         else:
                             print(str(f1) + "  \t=> undefind: will be ignored")
 
@@ -176,9 +180,7 @@ def hash8(data,s):
     return result
 
 
-
 _thread.start_new_thread(tcpdump, ())
-_thread.start_new_thread(calc(), ())
+calc()
 
-while 1:
-    pass
+

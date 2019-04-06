@@ -78,6 +78,11 @@
 \newblock \url{https://tools.ietf.org/html/rfc793}, 1981.
 \newblock Abrufdatum: 01.02.2019.
 
+\bibitem[JLM03]{jacobson2003tcpdump}
+{\sc Jacobson, Van}, {\sc Craig Leres} \btxandlong{}\ {\sc Steven McCanne}:
+  {\em TCPDUMP public repository}.
+\newblock Web page at http://www. tcpdump. org, 2003.
+
 \bibitem[Kes15]{Steg}
 {\sc Kessler, Gary~C.}: {\em An Overview of Steganography for the Computer
   Forensics Examiner (Updated Version, February 2015)}, 2015.
@@ -155,6 +160,10 @@
 \newblock \url{https://expressjs.com/de/starter/hello-world.html}, 2019.
 \newblock Abrufdatum: 01.04.2019.
 
+\bibitem[Ull04]{ullenboom2004java}
+{\sc Ullenboom, Christian}: {\em Java ist auch eine Insel}, \btxvolumelong{}~8.
+\newblock Galileo Press, 2004.
+
 \bibitem[Ull12]{ullrich2012websockets}
 {\sc Ullrich, Benjamin}: {\em WebSockets: spezifikation/implementierung}.
 \newblock Innovative Internet Technologies and Mobile Communications (IITM),
@@ -172,6 +181,10 @@
 {\sc W{\"a}tjen, Dietmar}: {\em Hashfunktionen}.
 \newblock \Btxinlong{}\ {\em Kryptographie}, \btxpageslong{}\ 93--112.
   Springer, 2018.
+
+\bibitem[Wei06]{weigend2006objektorientierte}
+{\sc Weigend, Michael}: {\em Objektorientierte Programmierung mit Python}.
+\newblock mitp Bonn, 2006.
 
 \bibitem[Wen12a]{wendzel2012problem}
 {\sc Wendzel, Steffen}: {\em The Problem of Traffic Normalization Within a

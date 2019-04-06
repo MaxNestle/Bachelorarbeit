@@ -15,45 +15,45 @@ The style file: geralpha.bst
 Database file #1: bib.bib
 Warning--empty institution in fielding1999hypertext
 Warning--empty journal in goltz2003covert
-You've used 35 entries,
+You've used 38 entries,
             2768 wiz_defined-function locations,
-            810 strings with 10718 characters,
-and the built_in function-call counts, 12687 in all, are:
-= -- 1323
-> -- 428
-< -- 32
-+ -- 132
-- -- 127
-* -- 824
-:= -- 1919
-add.period$ -- 84
-call.type$ -- 35
-change.case$ -- 157
-chr.to.int$ -- 34
-cite$ -- 37
-duplicate$ -- 601
-empty$ -- 1080
-format.name$ -- 186
-if$ -- 2821
+            823 strings with 11010 characters,
+and the built_in function-call counts, 13659 in all, are:
+= -- 1416
+> -- 469
+< -- 35
++ -- 145
+- -- 140
+* -- 890
+:= -- 2077
+add.period$ -- 90
+call.type$ -- 38
+change.case$ -- 171
+chr.to.int$ -- 37
+cite$ -- 40
+duplicate$ -- 651
+empty$ -- 1158
+format.name$ -- 204
+if$ -- 3026
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 31
-newline$ -- 154
-num.names$ -- 105
-pop$ -- 273
+missing$ -- 37
+newline$ -- 166
+num.names$ -- 114
+pop$ -- 296
 preamble$ -- 1
-purify$ -- 227
+purify$ -- 247
 quote$ -- 0
-skip$ -- 533
+skip$ -- 573
 stack$ -- 0
-substring$ -- 486
-swap$ -- 167
-text.length$ -- 32
-text.prefix$ -- 25
+substring$ -- 507
+swap$ -- 176
+text.length$ -- 35
+text.prefix$ -- 27
 top$ -- 0
-type$ -- 264
+type$ -- 280
 warning$ -- 2
-while$ -- 103
-width$ -- 39
-write$ -- 423
+while$ -- 110
+width$ -- 42
+write$ -- 457
 (There were 2 warnings)

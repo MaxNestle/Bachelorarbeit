@@ -409,6 +409,9 @@ Ein weiterer Nachteil ist, dass Fehler oft nacheinander auftreten, da sie von de
 Bei einer Verwendung von großen Datenpaketen und sehr verstreut auftretenden Fehlern würde die Implementierung des Hamming-Codes Sinn machen, aber in dieser Arbeit wird aus den oben genannten Gründen darauf verzichtet.
 
 
+\section{Wahrung der Authenzität}
+
+
 \section{Wahrung der Integrität}
 
 Um die Integrität der gesendeten Daten zu gewährleisten, soll am Ende der Daten ein Hashwert mitgesendet werden.
@@ -566,7 +569,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 		\subsection{Covert Channel Implementierung}
 		
 		Um den Covert Channel zu implementieren werden Nachrichten zeitlich verzögert an den Client gesendet. Grundsätzlich kann jede beliebige Nachricht an den Client gesendet werden. Hier wird zum Testen die aktuelle Uhrzeit versendet.\\
-		Die Länge der Pause zwischen den Daten hängt davon ab ob eine 1 oder 0 übertragen werden soll. Bei einer 1 wird eine lange Pause zwischen den Paketen gemacht bei einer 0 eine kurze.\\
+		Die Länge der Pause zwischen den Daten hängt davon ab, ob eine 1 oder 0 übertragen werden soll. Bei einer 1 wird eine lange Pause zwischen den Paketen gemacht bei einer 0 eine kurze.\\
 		Zur Definition der Pausen wird die lange Pause in Millisekunden angegeben. Zusätzlich kommt ein Faktor der das Verhältnis zwischen der langen und kurzen Pause angibt. Durch die Variation dieser beiden Werte kann der Covert Channel eingestellt und optimiert werden.
 		Ist eine komplette Datei übertragen wird eine definierte Pause von einer Sekunde gemacht. Danach beginnt die Datenübertragung erneut.
 		
@@ -598,7 +601,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 	\section{Front-End}
 		\subsection{HTML}
 		
-		Das Front-End wird durch eine einfache HTML-Seite ausgeliefert. In diesem Proof-of-Concept Projekt wird als Funktion der Webseite das Anzeigen der aktuelle Uhrzeit umgesetzt. Diese Uhrzeit wird vom Server empfangen.\\
+		Das Front-End wird durch eine einfache HTML-Seite ausgeliefert. In diesem Proof-of-Concept Projekt wird als Funktion der Webseite das Anzeigen der aktuelle Uhrzeit umgesetzt. Diese Uhrzeit wird vom Server empfangen und danach im Browser angezeigt.\\
 		
 		\subsection{JQuery}
 		
@@ -607,48 +610,108 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 		
 		
 		\subsection{Socket.IO}
-		Der nötige Code wird über das Script Tag heruntergeladen und hinzugefügt. Wie auch serverseitig kann hier nun ein ServerIO Objekt generiert werden.
+		Der nötige Code wird für das Paket wird über ein Script Tag heruntergeladen und hinzugefügt. Wie auch serverseitig kann hier ein ServerIO Objekt generiert werden.
 		Diesem werden hier die Events zum Empfangen der Nachrichten zum Verbindungsaufbau und zum Empfangen der Zeitpakete hinzugefügt.\\
-	
-	\subsection{Täuschung von Dritten}
 		
-	
-	\section{Auswerten des Covert Channel}
+		
+	\section{Clientseitige Auswertung des Covert Channel}
 		Die vom Server erhaltenen Pakete und vor allem die Abstände zwischen den Paketen müssen nun ausgewertet werden, um die geheime Nachricht zu rekonstruieren.
 		
 		\subsection{Anforderung an die Auswertung}
-		Für die Auswertung muss eine Anwendung geschrieben werden, die die eingehenden Nachrichten vom Server analysiert. Dazu muss der exakte Zeitpunk des Eintreffens der Pakete so genau wie möglich aufgezeichnet werden. Nach dem Rekonstruieren der geheimen Nachricht muss diese auf das Dateisystem abgespeichert werden. Die Anwendung soll zudem auf jedem gängigen Betriebssystem lauffähig sein. Ein weiterer wichtiger Aspekt ist, dass es für Dritte möglichst schwierig sein soll die Analyse des Covert Channels zu bemerken.
+		Für die Auswertung muss eine Anwendung geschrieben werden, die die eingehenden Nachrichten vom Server analysiert. Dazu muss der exakte Zeitpunk des Eintreffens der Pakete so genau wie möglich aufgezeichnet werden. Nach dem Rekonstruieren der geheimen Nachricht muss diese auf das Dateisystem abgespeichert werden. Ein weiterer wichtiger Aspekt ist, dass es für Dritte möglichst schwierig sein soll die Analyse des Covert Channels zu bemerken.
 		
 		\subsection{Auswertung im Front-End}
-		Bei der Auswertung im Front-End werden die Daten direkt nach dem Empfangen im Browser ausgewertet werden. Hier sind die nötigen Funktionen mit JavaScript geschrieben. Ein schreiben der Daten
+		Bei der Auswertung im Front-End werden die Daten direkt nach dem Empfangen im Browser ausgewertet werden. Hier sind die nötigen Funktionen mit JavaScript geschrieben und direkt im Browser ausgeführt. Sobald die Nachricht beim Browser ankommt wird die Event Callback- Funktion ausgeführt wo dann der aktuelle Zeitstempel abgespeichert werden kann.
 		
 		\subsection{Auswertung mit externem Programm}
+		Bei einer Auswertung mit einem externen Programm hat eine zweite Anwendung, die unabhängig vom Browser ist, die Aufgabe die eingehenden Nachrichten zu interpretieren. Dazu muss die Anwendung in der Lage sein, den Netzwerkverkehr mitzulesen und den Zeitpunkt des Eintreffens abzuspeichern und zu interpretieren.
+		
+		\subsection{Bewertung der Covert Channel Auswertung}
+		Die Auswertung direkt im Front-End hat den Vorteil, dass kein zweites Programm benötigt wird. So ist diese Variante ressourcenschonender und vereinfacht die tatsächliche Anwendung.\\
+		Die Auswertung direkt im Front-End hat jedoch einen großen Nachteil: Der Front-End Code wird an jeden versendet, der die Seite aufruft. So kommen Dritte, die möglicherweise die Kommunikation abhören an den Sourcecode, der den Covert-Channel auswertet. Zusätzlich wäre dadurch der Algorithmus der Hash-Funktion bekannt und auch die zugehörige Mapping-Tabelle. Dies würde einem Dritten, der als Man-in-the-Middle zwischen dem Server und Client steht, die Möglichkeit geben selbst Nachrichten zu verfassen oder diese zu manipulieren.\\
+		Aus diesen Gründen wird die Auswertung des Covert Channel durch ein externes Programm realisiert.
+	
+\section{Client}
+	Der Client stellt hier den Empfänger des Covert Channels dar. Wie im vorhergehenden Kapitel festgelegt, soll dieser als externes Programm realisiert werden, dass unabhängig vom Browser.
+	
+	\subsection{Programmiersprache}
+		\subsubsection{Anforderung an die Programmiersprache}
+			Die zu verwendende Programmiersprache muss in der Lage sein Daten effizient zu verarbeiten. Eine harte Echtzeit ist jedoch nicht nötig. Es soll ein Programm entstehen, dass auf allen Unix Systemen lauffähig ist und das sich über die Konsole oder ein Shell-Script öffnen lässt.\\
+			Es soll möglichst einfach sein ein anderes Konsolenprogramm zu öffnen und dessen Output zu empfangen und auszuwerten.
+			
+		\subsubsection{Java}
+			Java ist eine objektorientierte Programmiersprache dessen Code auf mehr als 3 Milliarden Geräten ausgeführt wird. Der Java Code orientiert sich an C++ aber auch an anderen Skript Sprachen.\\
+			Der Java Code wird von einem Compiler in Bytecode umgewandelt. Dieser kann nun auf jedem Gerät das die Java Runtime besitzt ausgeführt werden. Dadurch muss der Code nicht mehr für jedes Gerät compiliert werden.\cite{ullenboom2004java}
+			
+		\subsubsection{Python}
+			Python ist eine objektorientierte Skript Sprache. Der Code wird als lesbares Skript an den Anwender übergeben und von einem Python Interpreter ausgewertet. So wird kein Compiler und auch nicht unbedingt eine IDE benötigt.
+			Die Python Syntax ist so entworfen, dass die Skripte sehr gut lesbar und auch wiederverwendbar sind.\\
+			Trotzdem ist der Code sehr kompakt und hat in der Regel ein Drittel bis ein Fünftel der Codelänge von traditionellen Programmiersprachen wie Java oder C++.\cite{weigend2006objektorientierte}
+		\subsubsection{Bewertung der Programmiersprache}
+			Beide Programmiersprachen sind sind in der Lage das Clientprogramm zu realisieren. Java zeigt im direkten Vergleich mit Python eine bessere Performance. Python hingegen ist besser dafür geeignet um mit zusätzlichen Konsolenprogrammen zu arbeiten und bringt von Haus aus viele Funktionen mit die bei der Datenverarbeitung helfen. Da es sich hier nicht um ein komerzielles Projekt handelt, kann das Skript einfach verbreitet werden und nach Bedarf angepasst werden.
+			Aus diesen Gründen wird in diesem Projekt Python als Programmiersprache verwendet.
+	
+	
+	
+	\subsection{Mitschneiden der Datenenpakete}
+		Paket-Sniffer sind Programme, die in der Lage sind den Netzwerkverkehr auf den verschieden Interfaces aufzuzeichnen und für den Benutzter zu veranschaulichen. Ein solches Programm soll hier verwendet werden um die Datenpakete mitzuschneiden.
+	
+		\subsubsection{Anforderungen an den Paket-Sniffer}
+		Der Paket-Sniffer soll sich über die Konsole öffnen lassen und die Ergebnisse in eine Pipe schreiben. Das Tool soll frei für alle UNIX Systeme erhältlich. Die Pakete sollen möglichst korrekt mitgeschnitten werden und der Zeitpunk des Eintreffens des Pakets soll ausgegeben werden.\\
+		Zusätzlich soll das Filtern der Pakete möglich sein um die mitgeschnittenen Pakete auf die vom Server einzugrenzen.
+		
+		\subsubsection{tcpdump}
+		tcpdump ist eine Konsolenanwendung für UNIX Systeme, die die empfangenen Netzwerkpakete an einer Netzwerkschnittstelle ausgibt. Dabei basiert tcpdump auf der Betriebssystemschnittstelle \textit{libpcap}. Es lassen sich ebenfalls Filter einstellen die beispielsweise nur Pakete von einem bestimmten Host aufzeichnen. \cite{jacobson2003tcpdump} 
+
+		\subsubsection{tshark}
+		tshark ist eine Version von Wireshark, die dessen volle Funktion in der Konsole aufrufbar macht. tshark ist ein sehr mächtiges Tool um Netzwerkpakete nicht nur aufzuzeichnen, sondern auch zu Decodieren. Es lassen sich ebenfalls unzählige Filter realisieren.\cite{TSHARK}
+
+		\subsubsection{Bewertung der Paket-Sniffer}
+		tshark hat einen größern Funktionsumfang. In diesem Projekt wird aber nur der Zeitstempel der Nachricht benötigt. tcpdump ist hierzu in der Lage und hat ebenfalls den Vorteil, dass er bei vielen UNIX Systemen wie zum Beispiel Ubuntu bereits vorhanden ist und nicht installiert werden muss. 
+		
+		\subsubsection{Implementierung}
+		Für das Öffnen und anschließende Mitschneiden der Daten wird ein eigener Thread gestartet. Hier wird zuerst mit \textit{os.popen} ein neuer Prozess erstellt in dem tcpdump läuft. Die nötigen Parameter für die Einstellung des Filters werden ebenfalls übergeben. Der Rückgabewert ist hier ein \textit{open file object}, in welches die Pipe zu tcpdump die Ergebnisse schreibt.
+		Aus diesem \textit{open file object} kann nun die tcpdump Ausgabe gelesen und der Empfangszeitpunkt in einen Buffer gespeichert werden.
+		
+		\begin{lstlisting}[caption=Paket-Sniffing]
+			   	pipe = os.popen("tcpdump -s 0 host "+host+" and src port "+port+" -q -i any -l")
+					for line in pipe:
+						buffer.append(line[0:15])
+						
+						if len(buffer) > bufferzize:
+							mutex.acquire()
+							data = data + buffer
+							buffer = []
+							mutex.release()
+		\end{lstlisting}
 		
 		
 		
 	
-\section{Client}
-	\subsection{Anforderungen an den Client}
-	\subsection{Programmiersprache}
-		\subsubsection{Python}
-		\subsubsection{Java}
-	\subsection{tcpdump}
 	\subsection{Toleranz}
 
+
+\section{Einstellen des Covert Channel}
+
+
+\chapter{Umsetzung Passiv}
 \section{Passiv}
 	\subsection{Anforderung an den Proxy}
 	\subsection{Lösungsansatz}
 	\subsection{Proxy}
 
-
-\section{Optimierung}
-	Buffer
-	Pausenverkleinerung/ tolleranzanpassung
+	
+\section{Reale Anwendung}
 
 
-\section{Bewertung der Ergebnisse}
+\chapter{Bewertung der Ergebnisse}
 paketmenge berechnen
 fehler/informationsgehalt
 durchschnit der Daten ausrechnen
+
+\chapter{Optimierung}
+Buffer
+Pausenverkleinerung/ tolleranzanpassung
+
 
 
