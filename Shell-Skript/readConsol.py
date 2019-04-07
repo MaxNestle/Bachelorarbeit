@@ -144,14 +144,11 @@ def calc():
                 if write == True:
                     if sBigBreakTolerance < f1 < bBigBreakTolerance:    # time range for a 1
                         codedata.append("1")
-                        #print(str(f1) + "  \t=> 1 \t" + str(f1-sBigBreakTolerance) + " / " +str(bBigBreakTolerance-f1))     # print result and distance to the range borders
                         print(str(f1) + "  \t=> 1 ")     # print result and distance to the range borders
                     else:
                         if sSmallBreakTolerance < f1 < bSmallBreakTolerance: # time range for 0
                             codedata.append("0")
-                            #print(str(f1) + "  \t=> 0 \t"+ str(f1-sSmallBreakTolerance) + " / " +str(bSmallBreakTolerance-f1))
                             print(str(f1) + "  \t=> 0")
-
                         else:
                             print(str(f1) + "  \t=> undefind: will be ignored")
 

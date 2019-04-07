@@ -687,16 +687,45 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 		\end{lstlisting}
 		
 	\subsection{Interpretieren der Zeitstempel}
-		Die Zeitstempel vom tcpdump Thread sollen nun ausgewertet. Dafür werden die als String abgespeicherten Zeitstempel in \textit{datetime} Objekte geparst um mit ihnen Rechnen zu können. 
+		Die Zeitstempel vom tcpdump Thread sollen nun ausgewertet. Dafür werden die als String abgespeicherten Zeitstempel in \textit{datetime} Objekte geparst, um mit ihnen Rechnen zu können.\\
+		Die hiermit berechneten zeitlichen Diverenzen werden entweder als eine eine binäre 1 oder 0 interpretiert. Wie auch schon serverseitig wird die Geschwindigkeit des Covert Channels durch die Angabe der langen Pause und dem Faktor, der den Unterschied zwischen der langen und der kurzen Pause beschreibt definiert.\\
+		So kann zum Beispiel eine lange Pause als 50 Millisekunden und der Faktor als 0.5 definiert werden. Daraus ergibt sich eine eine kurze Pause von 20 Millisekunden.
 	
-	\subsection{Toleranz}
-
-
-\section{Einstellen des Covert Channel}
+	\subsubsection{Toleranz}
+		Da die Zeiten mit sechs Nachkommastellen angegeben werden ist es unmöglich, dass die Pausen exakt der Angabe entsprechen. Durch Verzögerungen durch Schwankungen in der Netzwerkgeschwindigkeit aber auch durch Prozess-Scheduling kann es zu Abweichungen kommen.\\
+		Deshalb muss die Pause nicht als festen Zeitpunkt, sondern als Zeitfenster definiert werden. Ist die Länge der Differenz zwischen den Paketen im jeweiligen Zeitfenster enthalten, kann sie entsprechend interpretiert werden. Falls nicht wird diese Paket ignoriert.\\
+		Die Zeitfenster werden durch die prozentuale Angabe, bezüglich der Pausenlänge, in Positive und Negative Richtung angegeben.\\
+		Wird die Pause mit 50 Millisekunden, einer Positiven Toleranz von 30\% und einer Negativen Toleranz von 10\% angegeben, ergibt sich ein Zeitfenster zwischen 45 und 65 Millisekunden.\\
+		Da nur die Differenz der Nachrichten betrachtet wird können Nachrichten auch zu früh kommen, wenn die vorhergehende Nachricht erheblich zu spät ist. Aus diesem Grund muss dass Zeitfenster auch  in Negative Richtung erweitert werden.\\
+		Von der Einstellung dieser Toleranzfenstern hängt erheblich die Qualität der empfangenen Daten ab.\\
+		Der Code zeigt, wie eine Klassifizierung der Differenz, hier \textit{f1} genannt, in die Zeitfenster realisiert ist.
+	
+		
+		\begin{lstlisting}[caption=Interpretation mit Zeitfenstern]
+			if write == True:
+				if sBigBreakTolerance < f1 < bBigBreakTolerance:   
+					codedata.append("1")
+					print(str(f1) + "  \t=> 1 ")    
+				else:
+					if sSmallBreakTolerance < f1 < bSmallBreakTolerance: 
+						codedata.append("0")
+						print(str(f1) + "  \t=> 0")
+					else:
+						print(str(f1) + "  \t=> undefind: will be ignored")
+		\end{lstlisting}
+		
+		
+	\subsection{Verarbeiten der Erhaltenen Daten}
+		Von den erhaltenen Daten werden die letzten 8 Bit abgeschnitten. Dies ist der Hash-Wert vom Server. Um die Daten zu validieren wird auf diese die gleiche Hash-Funktion angewendet. Stimmt dieser Hash-Wert mit dem vom Server überein, so wird die Datei ins Dateisystem geschrieben.\\
+		Damit die Daten nicht codiert auf die Datei geschrieben werden, wird das Paket \textit{BitArray} verwendet, welche es möglich macht die binären Daten zu schreiben.\\
+		Die Datei oder Nachricht ist hiermit erfolgreich übertragen.
+		
+\section{Optimales Einstellen des Covert Channel}
+		
 	
 
 
-\chapter{Umsetzung Passiv}
+\chapter{Umsetzung der Passiv}
 \section{Passiv}
 	\subsection{Anforderung an den Proxy}
 	\subsection{Lösungsansatz}

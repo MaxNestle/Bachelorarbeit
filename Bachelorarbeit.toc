@@ -117,15 +117,16 @@
 \contentsline {subsubsection}{\nonumberline Bewertung der Paket-Sniffer}{52}{section*.32}
 \contentsline {subsubsection}{\nonumberline Implementierung}{52}{section*.33}
 \contentsline {subsection}{\numberline {6.12.3}Interpretieren der Zeitstempel}{53}{subsection.6.12.3}
-\contentsline {subsection}{\numberline {6.12.4}Toleranz}{53}{subsection.6.12.4}
-\contentsline {section}{\numberline {6.13}Einstellen des Covert Channel}{53}{section.6.13}
-\contentsline {chapter}{\numberline {7}Umsetzung Passiv}{54}{chapter.7}
-\contentsline {section}{\numberline {7.1}Passiv}{54}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Anforderung an den Proxy}{54}{subsection.7.1.1}
-\contentsline {subsection}{\numberline {7.1.2}L\"osungsansatz}{54}{subsection.7.1.2}
-\contentsline {subsection}{\numberline {7.1.3}Proxy}{54}{subsection.7.1.3}
-\contentsline {section}{\numberline {7.2}Reale Anwendung}{54}{section.7.2}
-\contentsline {chapter}{\numberline {8}Bewertung der Ergebnisse}{55}{chapter.8}
-\contentsline {chapter}{\numberline {9}Optimierung}{56}{chapter.9}
-\contentsline {chapter}{\numberline {10}Zusammenfassung und Fazit}{57}{chapter.10}
-\contentsline {chapter}{\nonumberline Literatur}{59}{chapter*.34}
+\contentsline {subsubsection}{\nonumberline Toleranz}{53}{section*.34}
+\contentsline {subsection}{\numberline {6.12.4}Verarbeiten der Erhaltenen Daten}{54}{subsection.6.12.4}
+\contentsline {section}{\numberline {6.13}Optimales Einstellen des Covert Channel}{55}{section.6.13}
+\contentsline {chapter}{\numberline {7}Umsetzung der Passiv}{56}{chapter.7}
+\contentsline {section}{\numberline {7.1}Passiv}{56}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Anforderung an den Proxy}{56}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}L\"osungsansatz}{56}{subsection.7.1.2}
+\contentsline {subsection}{\numberline {7.1.3}Proxy}{56}{subsection.7.1.3}
+\contentsline {section}{\numberline {7.2}Reale Anwendung}{56}{section.7.2}
+\contentsline {chapter}{\numberline {8}Bewertung der Ergebnisse}{57}{chapter.8}
+\contentsline {chapter}{\numberline {9}Optimierung}{58}{chapter.9}
+\contentsline {chapter}{\numberline {10}Zusammenfassung und Fazit}{59}{chapter.10}
+\contentsline {chapter}{\nonumberline Literatur}{61}{chapter*.35}

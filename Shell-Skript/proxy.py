@@ -40,6 +40,7 @@ class Proxy:
     def getAddress(self, request):
         requestStr = str(request)  # parse the first line
         first_line = requestStr.split(' ')
+        print(first_line)
         if len(first_line) == 0:  # get url
             print(requestStr)
         if len(first_line) > 2:
@@ -86,8 +87,8 @@ class Proxy:
                 self.serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 self.serverSocket.connect((self.webserver, self.webserverPort))
 
-                request = request.decode("utf-8")
-                self.serverSocket.sendall(request.encode())
+
+                self.serverSocket.sendall(self.cutIpFromata(request))
 
                 self.lsock.append(self.clientSocket)
                 self.lsock.append(self.serverSocket)
@@ -97,7 +98,6 @@ class Proxy:
                 self.lastSend.append(time.time())
                 self.fileCursor.append(0)
 
-                print(str(self.msgToClient))
                 print("server and client added")
 
             except:
@@ -137,13 +137,13 @@ class Proxy:
                     self.sendToClient(t, sockIndex)
 
     def readFromServer(self, s, sockIndex):
-        data = s.recv(24000)
+        data = s.recv(64)
         if data != b'':
             self.msgToClient[(int(sockIndex / 2) - 1)].append(data)
             #print(("\nFROM SERFER\n" + str(self.msgToClient[int((sockIndex / 2) - 1)])))
 
     def readFromClient(self, s, sockIndex):
-        data = s.recv(24000)
+        data = s.recv(64)
         if data != b'':
             self.msgToServer[int((sockIndex - 1) / 2)].append(data)
             #print(("\nFROM CLIENT\n" + str(self.msgToServer[int((sockIndex - 1) / 2)])))
@@ -179,7 +179,7 @@ class Proxy:
                 self.pause = 0
                 data = self.msgToClient[int((sockIndex - 1) / 2)].pop(0)
                 data = self.cutIpFromata(data)
-                #print("\nTO SERVER\n" + str(data))
+                #print("\nTO CLIENT\n" + str(data))
                 try:
                     t.sendall(data)
                     self.lastSend[int((sockIndex - 1) / 2)] = time.time()
@@ -205,7 +205,7 @@ class Proxy:
 
             data = self.msgToServer[int((sockIndex / 2) - 1)].pop(0);
             data = self.cutIpFromata(data)
-            #print("\nTO CLIENT\n" + str(data))
+            #print("\nTO SERVER\n" + str(data))
             try:
                 t.sendall(data)
             except:
