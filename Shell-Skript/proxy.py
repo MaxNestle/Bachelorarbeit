@@ -88,7 +88,10 @@ class Proxy:
                 self.serverSocket.connect((self.webserver, self.webserverPort))
 
 
-                self.serverSocket.sendall(self.cutIpFromata(request))
+                request = self.cutIpFromata(request)
+                print(request)
+                self.serverSocket.sendall(request)
+
 
                 self.lsock.append(self.clientSocket)
                 self.lsock.append(self.serverSocket)
@@ -137,13 +140,13 @@ class Proxy:
                     self.sendToClient(t, sockIndex)
 
     def readFromServer(self, s, sockIndex):
-        data = s.recv(64)
+        data = s.recv(350)
         if data != b'':
             self.msgToClient[(int(sockIndex / 2) - 1)].append(data)
             #print(("\nFROM SERFER\n" + str(self.msgToClient[int((sockIndex / 2) - 1)])))
 
     def readFromClient(self, s, sockIndex):
-        data = s.recv(64)
+        data = s.recv(350)
         if data != b'':
             self.msgToServer[int((sockIndex - 1) / 2)].append(data)
             #print(("\nFROM CLIENT\n" + str(self.msgToServer[int((sockIndex - 1) / 2)])))
@@ -167,7 +170,7 @@ class Proxy:
                 if self.pause == self.breakBetweenTransmit:
                     self.pause = 0
                     data = self.msgToClient[int((sockIndex - 1) / 2)].pop(0)
-                    data = self.cutIpFromata(data)
+                    #data = self.cutIpFromata(data)
                     try:
                         t.sendall(data)
                         self.lastSend[int((sockIndex - 1) / 2)] = time.time()
@@ -178,14 +181,11 @@ class Proxy:
 
                 self.pause = 0
                 data = self.msgToClient[int((sockIndex - 1) / 2)].pop(0)
-                data = self.cutIpFromata(data)
-                #print("\nTO CLIENT\n" + str(data))
+                #data = self.cutIpFromata(data)
+                print("\nTO CLIENT\n" + str(data))
                 try:
                     t.sendall(data)
                     self.lastSend[int((sockIndex - 1) / 2)] = time.time()
-
-                    #print(len(self.secretData))
-                    #print(self.fileCursor[int((sockIndex / 2) - 1)])
 
                     if len(self.secretData) - 1 == self.fileCursor[int((sockIndex - 1) / 2)]:
                         self.fileCursor[int((sockIndex - 1) / 2)] = 0
@@ -199,25 +199,20 @@ class Proxy:
     def sendToServer(self, t, sockIndex):
         if len(self.msgToServer[int((sockIndex / 2) - 1)]) != 0:
 
-            # lastTime = self.lastSend[int((sockIndex-1)/2)]
-            # currenTime = time.time()
-            # div = currenTime - lastTime
-
             data = self.msgToServer[int((sockIndex / 2) - 1)].pop(0);
             data = self.cutIpFromata(data)
-            #print("\nTO SERVER\n" + str(data))
+            print("\nTO SERVER\n" + str(data))
             try:
                 t.sendall(data)
             except:
                 print(sys.exc_info()[0])
-            # self.lastSend[int((sockIndex - 1) / 2)] = time.time()
 
     def proxy(self):
 
         # Create a TCP socket
         self.listenSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.listenSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Re-use the socket
-        self.listenSocket.bind(('127.0.0.1', 3210))  # bind the socket to a public host, and a port
+        self.listenSocket.bind(('127.0.0.1', 8080))  # bind the socket to a public host, and a port
         self.listenSocket.listen(10)  # become a server socket
 
         self.lsock.append(self.listenSocket)

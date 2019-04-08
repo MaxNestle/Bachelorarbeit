@@ -171,6 +171,8 @@ def detectBreak(dif):
 
 def hash8(data,s):
     result = []
+    if len(data) == 0:
+        return [-1]
     for byte in range(1):
         h = s[(int(data[0]) + byte) % 256]
         for c in data[1:]:

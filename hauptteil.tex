@@ -720,16 +720,34 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 		Damit die Daten nicht codiert auf die Datei geschrieben werden, wird das Paket \textit{BitArray} verwendet, welche es möglich macht die binären Daten zu schreiben.\\
 		Die Datei oder Nachricht ist hiermit erfolgreich übertragen.
 		
-\section{Optimales Einstellen des Covert Channel}
-		
+\section{Optimales Einstellen des Covert Channel} 
+	\subsection{Messen der durchnittlichen Abweichung}
+		in prozent
 	
 
+\chapter{Umsetzung der passiven Variante}
+	Die in Abbildung 6.2 dargestellte passive Lösungsvariante des Covert Channels soll ebenfalls betrachtet werden. Dies hat den Vorteil, dass als Server jeder beliebige Webserver verwendet werden kann. Die Codierung wird nun von einem Proxy realisiert.\\
+	Für die Proof of Concept Implementierung wird hier der Server und der Client der aktiven Variante wiederverwendet. Im Browser des Clients muss die Verwendung eines Proxys eingetragen werden.
 
-\chapter{Umsetzung der Passiv}
-\section{Passiv}
 	\subsection{Anforderung an den Proxy}
+		Der Proxy hat die Aufgabe TCP Nachrichten von einem Client an einen Server zu senden. Die Nachrichten sollen bidirektional durch den Proxy geschleust werden. Nachrichten vom Client werden an den Server weitergeleitet und Nachrichten vom Server an den Client. Dabei soll der Inhalt der Nachrichten nicht verändert werden. Wie bei der aktiven Variante soll der Proxy in der Lage sein die TCP Pakete zeitlich zu verzögern um so Daten zu übertragen.\\
+		Der Proxy soll auf einem Linux System laufen.
+	
 	\subsection{Lösungsansatz}
-	\subsection{Proxy}
+		\subsubsection{Verändernung eines fertigen Open-Source Proxys}
+			Ein Lösungsansatz ist die Verwendung eines fertigen Proxys wie zum Beispiel Squid oder Tinyproxy. Für diese Open Source Programme ist der Code frei erhältlich. Hier gilt es die Funktion zum Senden der Nachrichten so zu verändern, dass die Nachrichten verzögert werden.
+		
+		
+		\subsubsection{Proxy selbst programieren}
+	
+	\subsection{Bewertung des Lösungsansatzes}
+	
+	\subsection{Verwendung einer beliebigen Webseite}
+	
+	
+		\subsubsection{Generierung von genügend Nachrichten}
+			paketgröße
+			buffern
 
 	
 \section{Reale Anwendung}

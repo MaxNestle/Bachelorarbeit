@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  7 APR 2019 17:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  8 APR 2019 15:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1075,7 +1075,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
 
-<bilder/HSLogoWGd.jpg, id=422, 322.0833pt x 125.5089pt>
+<bilder/HSLogoWGd.jpg, id=426, 322.0833pt x 125.5089pt>
 File: bilder/HSLogoWGd.jpg Graphic file (type jpg)
 <use bilder/HSLogoWGd.jpg>
 Package pdftex.def Info: bilder/HSLogoWGd.jpg  used on input line 16.
@@ -1120,8 +1120,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--15
 ]
 Package tocbasic Info: character protrusion at toc deactivated on input line 20
 4.
- (./Bachelorarbeit.tocpdfTeX warning (ext4): destination with the same identifi
-er (name{page.I}) has been already used, duplicate ignored
+ (./Bachelorarbeit.toc
+Overfull \hbox (3.18622pt too wide) detected at line 4
+ []\T1/aess/bx/n/12 VIII
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.35 ...line {4}L\"osungsans\"atze}{16}{chapter.4}
@@ -1133,11 +1138,11 @@ s been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.82 ...{\numberline {6.8}Server}{41}{section.6.8}
-                                                   [2])
+                                                   [2] [3])
 \tf@toc=\write9
 \openout9 = `Bachelorarbeit.toc'.
 
- [3] [4]
+ [4]
 \openout2 = `kurzfass.aux'.
 
  (./kurzfass.tex
@@ -1207,7 +1212,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--22
 
  (./grundl.tex
 chapter 2.
-<bilder/Ethernet.png, id=593, 1376.14125pt x 248.93pt>
+<bilder/Ethernet.png, id=598, 1376.14125pt x 248.93pt>
 File: bilder/Ethernet.png Graphic file (type png)
 <use bilder/Ethernet.png>
 Package pdftex.def Info: bilder/Ethernet.png  used on input line 24.
@@ -1221,12 +1226,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
-<bilder/ipv4.png, id=604, 1559.8275pt x 807.015pt>
+<bilder/ipv4.png, id=609, 1559.8275pt x 807.015pt>
 File: bilder/ipv4.png Graphic file (type png)
 <use bilder/ipv4.png>
 Package pdftex.def Info: bilder/ipv4.png  used on input line 43.
 (pdftex.def)             Requested size: 329.95355pt x 170.71652pt.
-<bilder/ipv6.png, id=607, 1544.77126pt x 636.3775pt>
+<bilder/ipv6.png, id=612, 1544.77126pt x 636.3775pt>
 File: bilder/ipv6.png Graphic file (type png)
 <use bilder/ipv6.png>
 Package pdftex.def Info: bilder/ipv6.png  used on input line 60.
@@ -1281,12 +1286,12 @@ chapter 3.
 
 ]
 chapter 4.
-<bilder/timing.png, id=690, 1198.4775pt x 823.075pt>
+<bilder/timing.png, id=695, 1198.4775pt x 823.075pt>
 File: bilder/timing.png Graphic file (type png)
 <use bilder/timing.png>
 Package pdftex.def Info: bilder/timing.png  used on input line 22.
 (pdftex.def)             Requested size: 414.29811pt x 284.52756pt.
-<bilder/Zeitacuracyzusammenhang.png, id=695, 1270.7475pt x 869.2475pt>
+<bilder/Zeitacuracyzusammenhang.png, id=700, 1270.7475pt x 869.2475pt>
 File: bilder/Zeitacuracyzusammenhang.png Graphic file (type png)
 <use bilder/Zeitacuracyzusammenhang.png>
 Package pdftex.def Info: bilder/Zeitacuracyzusammenhang.png  used on input line
@@ -1296,7 +1301,7 @@ Package pdftex.def Info: bilder/Zeitacuracyzusammenhang.png  used on input line
 
 ] [17 <./bilder/timing.png (PNG copy)>] [18 <./bilder/Zeitacuracyzusammenhang.p
 ng (PNG copy)>] [19] [20]
-<bilder/protoChannel.png, id=738, 1155.31625pt x 831.105pt>
+<bilder/protoChannel.png, id=743, 1155.31625pt x 831.105pt>
 File: bilder/protoChannel.png Graphic file (type png)
 <use bilder/protoChannel.png>
 Package pdftex.def Info: bilder/protoChannel.png  used on input line 124.
@@ -1307,7 +1312,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--131
  []
 
 [21]
-<bilder/protoHopingChan.png, id=748, 1348.03625pt x 851.18pt>
+<bilder/protoHopingChan.png, id=753, 1348.03625pt x 851.18pt>
 File: bilder/protoHopingChan.png Graphic file (type png)
 <use bilder/protoHopingChan.png>
 Package pdftex.def Info: bilder/protoHopingChan.png  used on input line 144.
@@ -1317,7 +1322,7 @@ Package pdftex.def Info: bilder/protoHopingChan.png  used on input line 144.
 
 LaTeX Warning: Reference `fig:fig4' on page 25 undefined on input line 181.
 
-<bilder/stgRGB.jpg, id=773, 994.71625pt x 597.23125pt>
+<bilder/stgRGB.jpg, id=778, 994.71625pt x 597.23125pt>
 File: bilder/stgRGB.jpg Graphic file (type jpg)
 <use bilder/stgRGB.jpg>
 Package pdftex.def Info: bilder/stgRGB.jpg  used on input line 185.
@@ -1355,7 +1360,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 308--309
 
  []
 
-<bilder/Activ.png, id=814, 1927.2pt x 1084.05pt>
+<bilder/Activ.png, id=819, 1927.2pt x 1084.05pt>
 File: bilder/Activ.png Graphic file (type png)
 <use bilder/Activ.png>
 Package pdftex.def Info: bilder/Activ.png  used on input line 312.
@@ -1363,13 +1368,13 @@ Package pdftex.def Info: bilder/Activ.png  used on input line 312.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<bilder/Passiv.png, id=816, 1927.2pt x 1084.05pt>
+<bilder/Passiv.png, id=821, 1927.2pt x 1084.05pt>
 File: bilder/Passiv.png Graphic file (type png)
 <use bilder/Passiv.png>
 Package pdftex.def Info: bilder/Passiv.png  used on input line 325.
 (pdftex.def)             Requested size: 404.63573pt x 227.62204pt.
 [32] [33 <./bilder/Activ.png> <./bilder/Passiv.png>]
-<bilder/Raster.png, id=832, 1927.2pt x 1084.05pt>
+<bilder/Raster.png, id=837, 1927.2pt x 1084.05pt>
 File: bilder/Raster.png Graphic file (type png)
 <use bilder/Raster.png>
 Package pdftex.def Info: bilder/Raster.png  used on input line 350.
@@ -1379,7 +1384,7 @@ Package pdftex.def Info: bilder/Raster.png  used on input line 350.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [34]
-<bilder/Morse.png, id=838, 1725.44624pt x 716.6775pt>
+<bilder/Morse.png, id=843, 1725.44624pt x 716.6775pt>
 File: bilder/Morse.png Graphic file (type png)
 <use bilder/Morse.png>
 Package pdftex.def Info: bilder/Morse.png  used on input line 364.
@@ -1433,22 +1438,26 @@ LaTeX Warning: Citation `TSHARK' on page 52 undefined on input line 667.
 
 [52] [53] [54] [55]
 chapter 7.
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 732.
+
 [56
 
-]
+] [57]
 chapter 8.
-[57
+[58
 
 ]
 chapter 9.
-) [58
+) [59
 
 ]
 \openout2 = `schluss.aux'.
 
  (./schluss.tex
 chapter 10.
-) [59
+) [60
 
 
 
@@ -1456,7 +1465,7 @@ chapter 10.
 No file Bachelorarbeit.gls.
 No file Bachelorarbeit.acr.
 No file Bachelorarbeit.syi.
-(./Bachelorarbeit.bbl [60
+(./Bachelorarbeit.bbl [61
 
 ]
 chapter without number
@@ -1970,7 +1979,7 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              `\sc' yourself you should replace it, e.g., by
 (scrbook)              `\normalfont \scshape ' on input line 61.
 
-[61
+[62
 
 ]
 
@@ -2472,7 +2481,7 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              `\sc' yourself you should replace it, e.g., by
 (scrbook)              `\normalfont \scshape ' on input line 125.
 
-[62]
+[63]
 
 Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              You should note, that since 1994 LaTeX2e provides a
@@ -2883,7 +2892,7 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              `\sc' yourself you should replace it, e.g., by
 (scrbook)              `\normalfont \scshape ' on input line 201.
 
-[63]
+[64]
 
 Class scrbook Warning: deprecated old font command `\sc' used.
 (scrbook)              You should note, that since 1994 LaTeX2e provides a
@@ -2979,7 +2988,7 @@ Class scrbook Warning: deprecated old font command `\sc' used.
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 248.
- [64]
+ [65]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 248.
  (./Bachelorarbeit.aux (./DeckHS.aux) (./eidHS.aux) (./kurzfass.aux)
 (./abstract.aux) (./dasa.aux) (./vowo.aux) (./einleit.aux) (./grundl.aux)
@@ -2987,7 +2996,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 248.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 248.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 248.
 Package rerunfilecheck Info: File `Bachelorarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: FB79E76D7B51AEADAA17056187CB362A;7380.
+(rerunfilecheck)             Checksum: E5C52DA0E713BC903ADD6EFE16CB06F2;7562.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2995,16 +3004,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 248.
  ) 
 Here is how much of TeX's memory you used:
- 21396 strings out of 492982
- 351868 string characters out of 6134895
- 632925 words of memory out of 5000000
- 23619 multiletter control sequences out of 15000+600000
+ 21402 strings out of 492982
+ 351954 string characters out of 6134895
+ 632930 words of memory out of 5000000
+ 23620 multiletter control sequences out of 15000+600000
  87844 words of font info for 540 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,11n,66p,8892b,1222s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3024,10 +3030,10 @@ ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm
 -super/sfti1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhv
 r8a.pfb>
-Output written on Bachelorarbeit.pdf (74 pages, 1461946 bytes).
+Output written on Bachelorarbeit.pdf (75 pages, 1464554 bytes).
 PDF statistics:
- 1250 PDF objects out of 1440 (max. 8388607)
- 1121 compressed objects within 12 object streams
- 329 named destinations out of 1000 (max. 500000)
- 42960 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 1263 PDF objects out of 1440 (max. 8388607)
+ 1133 compressed objects within 12 object streams
+ 334 named destinations out of 1000 (max. 500000)
+ 42968 words of extra memory for PDF output out of 42996 (max. 10000000)
 

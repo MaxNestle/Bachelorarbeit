@@ -92,13 +92,14 @@
 \BOOKMARK [2][-]{subsection.6.12.3}{Interpretieren der Zeitstempel}{section.6.12}% 92
 \BOOKMARK [2][-]{subsection.6.12.4}{Verarbeiten der Erhaltenen Daten}{section.6.12}% 93
 \BOOKMARK [1][-]{section.6.13}{Optimales Einstellen des Covert Channel}{chapter.6}% 94
-\BOOKMARK [0][-]{chapter.7}{Umsetzung der Passiv}{}% 95
-\BOOKMARK [1][-]{section.7.1}{Passiv}{chapter.7}% 96
-\BOOKMARK [2][-]{subsection.7.1.1}{Anforderung an den Proxy}{section.7.1}% 97
-\BOOKMARK [2][-]{subsection.7.1.2}{L\366sungsansatz}{section.7.1}% 98
-\BOOKMARK [2][-]{subsection.7.1.3}{Proxy}{section.7.1}% 99
-\BOOKMARK [1][-]{section.7.2}{Reale Anwendung}{chapter.7}% 100
-\BOOKMARK [0][-]{chapter.8}{Bewertung der Ergebnisse}{}% 101
-\BOOKMARK [0][-]{chapter.9}{Optimierung}{}% 102
-\BOOKMARK [0][-]{chapter.10}{Zusammenfassung und Fazit}{}% 103
-\BOOKMARK [0][-]{chapter*.35}{Literatur}{}% 104
+\BOOKMARK [2][-]{subsection.6.13.1}{Messen der durchnittlichen Abweichung}{section.6.13}% 95
+\BOOKMARK [0][-]{chapter.7}{Umsetzung der passiven Variante}{}% 96
+\BOOKMARK [1][-]{subsection.7.0.1}{Anforderung an den Proxy}{chapter.7}% 97
+\BOOKMARK [2][-]{subsection.7.0.2}{L\366sungsansatz}{subsection.7.0.1}% 98
+\BOOKMARK [2][-]{subsection.7.0.3}{Bewertung des L\366sungsansatzes}{subsection.7.0.1}% 99
+\BOOKMARK [2][-]{subsection.7.0.4}{Verwendung einer beliebigen Webseite}{subsection.7.0.1}% 100
+\BOOKMARK [1][-]{section.7.1}{Reale Anwendung}{chapter.7}% 101
+\BOOKMARK [0][-]{chapter.8}{Bewertung der Ergebnisse}{}% 102
+\BOOKMARK [0][-]{chapter.9}{Optimierung}{}% 103
+\BOOKMARK [0][-]{chapter.10}{Zusammenfassung und Fazit}{}% 104
+\BOOKMARK [0][-]{chapter*.38}{Literatur}{}% 105

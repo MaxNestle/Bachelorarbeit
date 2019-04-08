@@ -120,13 +120,17 @@
 \contentsline {subsubsection}{\nonumberline Toleranz}{53}{section*.34}
 \contentsline {subsection}{\numberline {6.12.4}Verarbeiten der Erhaltenen Daten}{54}{subsection.6.12.4}
 \contentsline {section}{\numberline {6.13}Optimales Einstellen des Covert Channel}{55}{section.6.13}
-\contentsline {chapter}{\numberline {7}Umsetzung der Passiv}{56}{chapter.7}
-\contentsline {section}{\numberline {7.1}Passiv}{56}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Anforderung an den Proxy}{56}{subsection.7.1.1}
-\contentsline {subsection}{\numberline {7.1.2}L\"osungsansatz}{56}{subsection.7.1.2}
-\contentsline {subsection}{\numberline {7.1.3}Proxy}{56}{subsection.7.1.3}
-\contentsline {section}{\numberline {7.2}Reale Anwendung}{56}{section.7.2}
-\contentsline {chapter}{\numberline {8}Bewertung der Ergebnisse}{57}{chapter.8}
-\contentsline {chapter}{\numberline {9}Optimierung}{58}{chapter.9}
-\contentsline {chapter}{\numberline {10}Zusammenfassung und Fazit}{59}{chapter.10}
-\contentsline {chapter}{\nonumberline Literatur}{61}{chapter*.35}
+\contentsline {subsection}{\numberline {6.13.1}Messen der durchnittlichen Abweichung}{55}{subsection.6.13.1}
+\contentsline {chapter}{\numberline {7}Umsetzung der passiven Variante}{56}{chapter.7}
+\contentsline {subsection}{\numberline {7.0.1}Anforderung an den Proxy}{56}{subsection.7.0.1}
+\contentsline {subsection}{\numberline {7.0.2}L\"osungsansatz}{56}{subsection.7.0.2}
+\contentsline {subsubsection}{\nonumberline Ver\"andernung eines fertigen Open-Source Proxys}{56}{section*.35}
+\contentsline {subsubsection}{\nonumberline Proxy selbst programieren}{57}{section*.36}
+\contentsline {subsection}{\numberline {7.0.3}Bewertung des L\"osungsansatzes}{57}{subsection.7.0.3}
+\contentsline {subsection}{\numberline {7.0.4}Verwendung einer beliebigen Webseite}{57}{subsection.7.0.4}
+\contentsline {subsubsection}{\nonumberline Generierung von gen\"ugend Nachrichten}{57}{section*.37}
+\contentsline {section}{\numberline {7.1}Reale Anwendung}{57}{section.7.1}
+\contentsline {chapter}{\numberline {8}Bewertung der Ergebnisse}{58}{chapter.8}
+\contentsline {chapter}{\numberline {9}Optimierung}{59}{chapter.9}
+\contentsline {chapter}{\numberline {10}Zusammenfassung und Fazit}{60}{chapter.10}
+\contentsline {chapter}{\nonumberline Literatur}{62}{chapter*.38}
