@@ -733,21 +733,69 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 		Der Proxy hat die Aufgabe TCP Nachrichten von einem Client an einen Server zu senden. Die Nachrichten sollen bidirektional durch den Proxy geschleust werden. Nachrichten vom Client werden an den Server weitergeleitet und Nachrichten vom Server an den Client. Dabei soll der Inhalt der Nachrichten nicht verändert werden. Wie bei der aktiven Variante soll der Proxy in der Lage sein die TCP Pakete zeitlich zu verzögern um so Daten zu übertragen.\\
 		Der Proxy soll auf einem Linux System laufen.
 	
-	\subsection{Lösungsansatz}
-		\subsubsection{Verändernung eines fertigen Open-Source Proxys}
+	\subsection{Lösungsansätze}
+		\subsubsection{Veränderung eines Open-Source Proxys}
 			Ein Lösungsansatz ist die Verwendung eines fertigen Proxys wie zum Beispiel Squid oder Tinyproxy. Für diese Open Source Programme ist der Code frei erhältlich. Hier gilt es die Funktion zum Senden der Nachrichten so zu verändern, dass die Nachrichten verzögert werden.
 		
-		
-		\subsubsection{Proxy selbst programieren}
+		\subsubsection{Proxy selbst programmieren}
+			Eine alternative Lösung ist die eigenständige Programmierung eines Proxys. Dazu soll ein Python-Skript geschrieben werden, das jeweils ein Netzwerksocket zum Client und einen zum Server verwaltet. Werden die TCP Pakete vom einen an den anderen Socket weitergegeben erhält man einen Proxy. Die Pakete können hier frei verändert werden.
 	
 	\subsection{Bewertung des Lösungsansatzes}
+			Beide Lösungsansätze sind in der Lage die Anforderungen umzusetzen. Der selbst programmierte bietet jedoch die volle Kontrolle und bietet bei dieser Proof of Concept Implementierung mehr Spielraum. Zudem ist diese sehr leichtgewichtige Software Variante komfortabler zu Debuggen und optimieren. Aus diesen Gründen soll hier der Proxy eigenhändig erstellt werden.\\
+			Sollte sich der Proof of Concept als Erfolg herausstelle, ist die erste Lösung für eine reale Anwendung besser geeignet, da so eine große Funktionsumfang hinzukommt.
 	
-	\subsection{Verwendung einer beliebigen Webseite}
+	\subsection{Implementierung}
+		\subsubsection{Sockets}
+			Es wird ein Listen-Socket erstellt, der auf eingehende Nachrichten auf Port \textit{8080} hört. Dieser Port muss später in den Proxy-Einstellungen des Browsers hinterlegt werden.\\
+			Sendet der Browser einen HTTP-Request an den Proxy, wird der Client-Socket erstellt. Der Proxy erstellt nun den Server-Socket indem er sich mit dem in dem HTTP-Request stehenden Webserver verbindet. Da oft externe Ressourcen verwendet werden und Verbindungen nach dem Senden einer Datei geschlossen werden, entstehen pro Webseite mehrere dieser Verbindungen.\\
+			Um die hierdurch entstehenden Sockets zu verwalten wird das Betriebssystemmodul \textit{select} verwendet. Bei der Verwendung von \textit{select} wird das Betriebssystem gefragt ob die angegebenen Sockets bereit zum Lesen oder zum Schreiben sind. Ist dies der Fall wird eine Liste mit beschreibbaren und eine mit lesbaren Sockets zurückgegeben. Dies hat den Vorteil, dass nicht alle Sockets mit Polling abgefragt werden müssen.\\
+			In Listing 7.1 ist der Code zu sehen, der die Handhabung der Sockets übernimmt. Die Liste aller Sockets wird zur Kontrolle an \textit{select} übergeben.
+			
+			\begin{lstlisting}[caption=Socket Handling]
+while True:
+	readable, writable, exceptional = select.select(self.lsock, self.lsock, self.lsock)
 	
+	self.read(readable)
+	self.send(writable)
+			\end{lstlisting}
+			 
+			 Anhand ihres Index in der Socket-Liste ,können die Sockets identifiziert werden. Dabei gehören immer ein Client- und ein Server-Socket zusammen. Die Nachrichten die zwischen diesen zwei augetauscht werden sollen, sind in einem Array gespeichert.\\
+			
+		\subsubsection{Geheime Daten}
+			Wie auch schon bei der aktiven Variante, werden die zu übertragenden Daten von einer angegebenen Datei gelesen und in eine binäre Liste umgewandelt. Hieraus wird ein 8 Bit Pearson-Hash berechnet und hinten angehängt.
+			
+		\subsubsection{Covert Channel}
+			Bei der Erstellung des Covert Channels müssen die Nachrichten an den Client nun zeitlich Verzögert werden. Dabei besteht allerdings das Problem, dass bei dieser Anwendung ein Thread verwendet wird, der gleichzeitig für das Senden und Empfangen zuständig ist.\\ So kann die Lösung der aktiven Variante, wobei der Thread für die benötigte Zeit in \textit{sleep} gesetzt wird nicht verwendet werden.\\
+			Aus diesem Grund wird nach jedem Senden an den Client der Zeitstempel abgespeichert. Bevor ein neues Paket gesendet wird kontrolliert, ob die Differenz der aktuellen Zeit und dem letzten Senden der gewünschten Pause entspricht.
+			
+	\subsection{Verwendung des Testservers}
+	
+	
+	\subsection{Verwendung einer realer Webseite}
+	
+			\subsubsection{HTTPS}
+	
+			\subsubsection{Problem mit meherer Sockets}	
+				Wie vorhergehnd bereits beschrieben öffnet einen normale Webserver gleich mehrerer Sockets zum um parallel Daten zu empfangen. Diese Nachrichtenpakete, der einzelnen Sockets können nicht vom Client auseinander gehalten werden, da dieser nur den Source-Port betrachtet. Dieser ist jedoch bei allen gleich.\\
+				In Bild 7.1 ist ein Ausschnitt aus den Firefox Development Tool zu sehen. Hier wird die Übertragungsdauer der einzelnen Dateien gezeigt. Dabei fällt auf, dass bei der hier verwendeten Webseite der \textit{PH-Weingarten}, 5 CSS Dateien gleichzeitig übertragen werden.\\
+				Jede Datei hat einen eigenen Covert-Channel, da der Client jedoch nicht unter ihnen unterscheiden kann. Kommt kein klares Ergebnis an.
+				Der Covert Channel funktioniert also nur, wenn nur eine Datei übertragen wird.
+				
+				\begin{figure}[h!]
+					\centering
+					\includegraphics*[height=7cm]{bilder/ParallelProblem.png}
+					\caption{Parallele Datenabfrage}
+					\label{fig43}
+				\end{figure}
+				
+				Daten 
 	
 		\subsubsection{Generierung von genügend Nachrichten}
 			paketgröße
 			buffern
+			
+			
+ 
 
 	
 \section{Reale Anwendung}

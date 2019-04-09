@@ -140,13 +140,13 @@ class Proxy:
                     self.sendToClient(t, sockIndex)
 
     def readFromServer(self, s, sockIndex):
-        data = s.recv(350)
+        data = s.recv(256)
         if data != b'':
             self.msgToClient[(int(sockIndex / 2) - 1)].append(data)
             #print(("\nFROM SERFER\n" + str(self.msgToClient[int((sockIndex / 2) - 1)])))
 
     def readFromClient(self, s, sockIndex):
-        data = s.recv(350)
+        data = s.recv(256)
         if data != b'':
             self.msgToServer[int((sockIndex - 1) / 2)].append(data)
             #print(("\nFROM CLIENT\n" + str(self.msgToServer[int((sockIndex - 1) / 2)])))
@@ -207,21 +207,6 @@ class Proxy:
             except:
                 print(sys.exc_info()[0])
 
-    def proxy(self):
-
-        # Create a TCP socket
-        self.listenSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.listenSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Re-use the socket
-        self.listenSocket.bind(('127.0.0.1', 8080))  # bind the socket to a public host, and a port
-        self.listenSocket.listen(10)  # become a server socket
-
-        self.lsock.append(self.listenSocket)
-
-        while True:
-            readable, writable, exceptional = select.select(self.lsock, self.lsock, self.lsock)
-            self.read(readable)
-            self.send(writable)
-            time.sleep(0.0002)
 
     def hash8(self,data):
         s = [129, 69, 229, 238, 16, 104, 178, 222, 95, 5, 171, 147, 231, 170, 105,
@@ -262,6 +247,24 @@ class Proxy:
         print(hash)
         self.secretData = list(self.secretData+hash)
         print(self.secretData)
+
+
+    def proxy(self):
+
+        # Create a TCP socket
+        self.listenSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.listenSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Re-use the socket
+        self.listenSocket.bind(('127.0.0.1', 8080))  # bind the socket to a public host, and a port
+        self.listenSocket.listen(10)  # become a server socket
+
+        self.lsock.append(self.listenSocket)
+
+        while True:
+            readable, writable, exceptional = select.select(self.lsock, self.lsock, self.lsock)
+            self.read(readable)
+            self.send(writable)
+            time.sleep(0.00002)
+
 
 
 proxy = Proxy()

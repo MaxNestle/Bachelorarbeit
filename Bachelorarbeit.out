@@ -95,11 +95,13 @@
 \BOOKMARK [2][-]{subsection.6.13.1}{Messen der durchnittlichen Abweichung}{section.6.13}% 95
 \BOOKMARK [0][-]{chapter.7}{Umsetzung der passiven Variante}{}% 96
 \BOOKMARK [1][-]{subsection.7.0.1}{Anforderung an den Proxy}{chapter.7}% 97
-\BOOKMARK [2][-]{subsection.7.0.2}{L\366sungsansatz}{subsection.7.0.1}% 98
+\BOOKMARK [2][-]{subsection.7.0.2}{L\366sungsans\344tze}{subsection.7.0.1}% 98
 \BOOKMARK [2][-]{subsection.7.0.3}{Bewertung des L\366sungsansatzes}{subsection.7.0.1}% 99
-\BOOKMARK [2][-]{subsection.7.0.4}{Verwendung einer beliebigen Webseite}{subsection.7.0.1}% 100
-\BOOKMARK [1][-]{section.7.1}{Reale Anwendung}{chapter.7}% 101
-\BOOKMARK [0][-]{chapter.8}{Bewertung der Ergebnisse}{}% 102
-\BOOKMARK [0][-]{chapter.9}{Optimierung}{}% 103
-\BOOKMARK [0][-]{chapter.10}{Zusammenfassung und Fazit}{}% 104
-\BOOKMARK [0][-]{chapter*.38}{Literatur}{}% 105
+\BOOKMARK [2][-]{subsection.7.0.4}{Implementierung}{subsection.7.0.1}% 100
+\BOOKMARK [2][-]{subsection.7.0.5}{Verwendung des Testservers}{subsection.7.0.1}% 101
+\BOOKMARK [2][-]{subsection.7.0.6}{Verwendung einer realer Webseite}{subsection.7.0.1}% 102
+\BOOKMARK [1][-]{section.7.1}{Reale Anwendung}{chapter.7}% 103
+\BOOKMARK [0][-]{chapter.8}{Bewertung der Ergebnisse}{}% 104
+\BOOKMARK [0][-]{chapter.9}{Optimierung}{}% 105
+\BOOKMARK [0][-]{chapter.10}{Zusammenfassung und Fazit}{}% 106
+\BOOKMARK [0][-]{chapter*.43}{Literatur}{}% 107
