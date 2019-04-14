@@ -121,23 +121,25 @@
 \contentsline {subsection}{\numberline {6.12.4}Verarbeiten der Erhaltenen Daten}{54}{subsection.6.12.4}
 \contentsline {section}{\numberline {6.13}Optimales Einstellen des Covert Channel}{55}{section.6.13}
 \contentsline {subsection}{\numberline {6.13.1}Messen der durchnittlichen Abweichung}{55}{subsection.6.13.1}
-\contentsline {chapter}{\numberline {7}Umsetzung der passiven Variante}{56}{chapter.7}
-\contentsline {subsection}{\numberline {7.0.1}Anforderung an den Proxy}{56}{subsection.7.0.1}
-\contentsline {subsection}{\numberline {7.0.2}L\"osungsans\"atze}{56}{subsection.7.0.2}
-\contentsline {subsubsection}{\nonumberline Ver\"anderung eines Open-Source Proxys}{56}{section*.35}
-\contentsline {subsubsection}{\nonumberline Proxy selbst programmieren}{57}{section*.36}
-\contentsline {subsection}{\numberline {7.0.3}Bewertung des L\"osungsansatzes}{57}{subsection.7.0.3}
-\contentsline {subsection}{\numberline {7.0.4}Implementierung}{57}{subsection.7.0.4}
-\contentsline {subsubsection}{\nonumberline Sockets}{57}{section*.37}
-\contentsline {subsubsection}{\nonumberline Geheime Daten}{58}{section*.38}
-\contentsline {subsubsection}{\nonumberline Covert Channel}{58}{section*.39}
-\contentsline {subsection}{\numberline {7.0.5}Verwendung des Testservers}{59}{subsection.7.0.5}
-\contentsline {subsection}{\numberline {7.0.6}Verwendung einer realer Webseite}{59}{subsection.7.0.6}
-\contentsline {subsubsection}{\nonumberline HTTPS}{59}{section*.40}
-\contentsline {subsubsection}{\nonumberline Problem mit meherer Sockets}{59}{section*.41}
-\contentsline {subsubsection}{\nonumberline Generierung von gen\"ugend Nachrichten}{59}{section*.42}
-\contentsline {section}{\numberline {7.1}Reale Anwendung}{59}{section.7.1}
-\contentsline {chapter}{\numberline {8}Bewertung der Ergebnisse}{61}{chapter.8}
-\contentsline {chapter}{\numberline {9}Optimierung}{62}{chapter.9}
-\contentsline {chapter}{\numberline {10}Zusammenfassung und Fazit}{63}{chapter.10}
-\contentsline {chapter}{\nonumberline Literatur}{65}{chapter*.43}
+\contentsline {chapter}{\numberline {7}Evaluation}{56}{chapter.7}
+\contentsline {chapter}{\numberline {8}Umsetzung der passiven Variante}{57}{chapter.8}
+\contentsline {subsection}{\numberline {8.0.1}Anforderung an den Proxy}{57}{subsection.8.0.1}
+\contentsline {subsection}{\numberline {8.0.2}L\"osungsans\"atze}{57}{subsection.8.0.2}
+\contentsline {subsubsection}{\nonumberline Ver\"anderung eines Open-Source Proxys}{57}{section*.35}
+\contentsline {subsubsection}{\nonumberline Proxy selbst programmieren}{58}{section*.36}
+\contentsline {subsection}{\numberline {8.0.3}Bewertung des L\"osungsansatzes}{58}{subsection.8.0.3}
+\contentsline {subsection}{\numberline {8.0.4}Implementierung}{58}{subsection.8.0.4}
+\contentsline {subsubsection}{\nonumberline Sockets}{58}{section*.37}
+\contentsline {subsubsection}{\nonumberline Geheime Daten}{59}{section*.38}
+\contentsline {subsubsection}{\nonumberline Covert Channel}{59}{section*.39}
+\contentsline {chapter}{\numberline {9}Evaluation der Passiven Variante}{61}{chapter.9}
+\contentsline {section}{\numberline {9.1}Tests mit Testserver}{61}{section.9.1}
+\contentsline {section}{\numberline {9.2}Schwierigkeiten bei der Verwendung einer realer Webseite}{61}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}HTTPS}{61}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}Generierung von gen\"ugend Nachrichten}{61}{subsection.9.2.2}
+\contentsline {subsection}{\numberline {9.2.3}Parallele Datenabfrage}{62}{subsection.9.2.3}
+\contentsline {section}{\numberline {9.3}Test mit realen Servern}{62}{section.9.3}
+\contentsline {chapter}{\numberline {10}Optimierung}{63}{chapter.10}
+\contentsline {chapter}{\numberline {11}Bewertung der Ergebnisse}{64}{chapter.11}
+\contentsline {chapter}{\numberline {12}Zusammenfassung und Fazit}{65}{chapter.12}
+\contentsline {chapter}{\nonumberline Literatur}{67}{chapter*.40}

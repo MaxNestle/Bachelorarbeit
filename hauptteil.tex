@@ -3,7 +3,10 @@
 
 
 \chapter{Anforderung an die Lösung}
-Problemspezifikation
+Die Covert Channel Lösung 
+
+
+
 
 \chapter{Lösungsansätze}
 \label{cha:Covert-Channel} %Label des Kapitelsne bereit
@@ -724,6 +727,8 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 	\subsection{Messen der durchnittlichen Abweichung}
 		in prozent
 	
+\chapter{Evaluation}
+
 
 \chapter{Umsetzung der passiven Variante}
 	Die in Abbildung 6.2 dargestellte passive Lösungsvariante des Covert Channels soll ebenfalls betrachtet werden. Dies hat den Vorteil, dass als Server jeder beliebige Webserver verwendet werden kann. Die Codierung wird nun von einem Proxy realisiert.\\
@@ -765,21 +770,32 @@ while True:
 			Wie auch schon bei der aktiven Variante, werden die zu übertragenden Daten von einer angegebenen Datei gelesen und in eine binäre Liste umgewandelt. Hieraus wird ein 8 Bit Pearson-Hash berechnet und hinten angehängt.
 			
 		\subsubsection{Covert Channel}
-			Bei der Erstellung des Covert Channels müssen die Nachrichten an den Client nun zeitlich Verzögert werden. Dabei besteht allerdings das Problem, dass bei dieser Anwendung ein Thread verwendet wird, der gleichzeitig für das Senden und Empfangen zuständig ist.\\ So kann die Lösung der aktiven Variante, wobei der Thread für die benötigte Zeit in \textit{sleep} gesetzt wird nicht verwendet werden.\\
-			Aus diesem Grund wird nach jedem Senden an den Client der Zeitstempel abgespeichert. Bevor ein neues Paket gesendet wird kontrolliert, ob die Differenz der aktuellen Zeit und dem letzten Senden der gewünschten Pause entspricht.
+			Bei der Erstellung des Covert Channels müssen die Nachrichten an den Client nun zeitlich Verzögert werden. Dabei besteht allerdings das Problem, dass bei dieser Anwendung nur ein Thread verwendet wird, der gleichzeitig für das Senden und Empfangen zuständig ist.\\ So kann die Lösung der aktiven Variante, wobei der Thread für die benötigte Zeit in \textit{sleep} gesetzt wird nicht verwendet werden.\\
+			Aus diesem Grund wird nach jedem Senden an den Client der Zeitstempel abgespeichert. Bevor ein neues Paket gesendet wird, wird kontrolliert, ob die Differenz der aktuellen Zeit und dem letzten Sendezeitpunkt der gewünschten Pause entspricht.\\
+			Die Pausen werden äquivalent zu der aktiven Variante definiert.
 			
-	\subsection{Verwendung des Testservers}
 	
+\chapter{Evaluation der Passiven Variante}
 	
-	\subsection{Verwendung einer realer Webseite}
+	\section{Tests mit Testserver}
+			
 	
-			\subsubsection{HTTPS}
+	\section{Schwierigkeiten bei der Verwendung einer realer Webseite}
 	
-			\subsubsection{Problem mit meherer Sockets}	
-				Wie vorhergehnd bereits beschrieben öffnet einen normale Webserver gleich mehrerer Sockets zum um parallel Daten zu empfangen. Diese Nachrichtenpakete, der einzelnen Sockets können nicht vom Client auseinander gehalten werden, da dieser nur den Source-Port betrachtet. Dieser ist jedoch bei allen gleich.\\
+			\subsection{HTTPS}
+				Der Proxy ist nicht für die Verwendung von HTTPS ausgelegt, wodurch hier nur http Webseiten abgerufen werden können. 
+	
+			\subsection{Generierung von genügend Nachrichten}
+				Für den Covert Channel wird ein kontinuierlicher Datenstrom benötigt. Durch den verbindungsorientierten Aufbau von TCP ist es schwierig die Daten zu puffern und später auf ein mal abzusenden, da auf die ACK Nachricht gewartet wird.\\
+				Um künstlich einen hohen Netzwerkverkehr zu generieren, kann beim Empfangen des Sockets eine geringe Datenmenge angegeben.\\
+				Hier wird die maximale Paketgröße auf 256 Byte eingegrenzt. Dadurch wird gerade beim Empfangen von Bildern ein enormer Netzwerkverkehr erzeugt, welcher für den Covert Channel genutzt werden kann.
+				
+	
+			\subsection{Parallele Datenabfrage}	
+				Wie vorhergehnd bereits beschrieben öffnet einen normale Webserver gleich mehrerer Sockets um parallel Daten zu empfangen. Diese Nachrichtenpakete, der einzelnen Sockets können nicht vom Client auseinander gehalten werden, da dieser nur den Source-Port betrachtet. Dieser ist jedoch bei allen gleich.\\
 				In Bild 7.1 ist ein Ausschnitt aus den Firefox Development Tool zu sehen. Hier wird die Übertragungsdauer der einzelnen Dateien gezeigt. Dabei fällt auf, dass bei der hier verwendeten Webseite der \textit{PH-Weingarten}, 5 CSS Dateien gleichzeitig übertragen werden.\\
-				Jede Datei hat einen eigenen Covert-Channel, da der Client jedoch nicht unter ihnen unterscheiden kann. Kommt kein klares Ergebnis an.
-				Der Covert Channel funktioniert also nur, wenn nur eine Datei übertragen wird.
+				Diese 5 daraus entstehenden Covert Channel überschneiden sich bei der Interpretation im Client und sind so nicht mehr auswertbar.\\
+				Der Covert Channel funktioniert nur, wenn genau eine Datei übertragen wird.
 				
 				\begin{figure}[h!]
 					\centering
@@ -788,28 +804,27 @@ while True:
 					\label{fig43}
 				\end{figure}
 				
-				Daten 
+				Als mögliche Lösung kann der Client zur Berücksichtigung der Sequenznummer erweitert werden um die verschiedenen Covert Channel zu unterscheiden.
 	
-		\subsubsection{Generierung von genügend Nachrichten}
-			paketgröße
-			buffern
-			
-			
- 
-
 	
-\section{Reale Anwendung}
+		\section{Test mit realen Servern}
 
-
-\chapter{Bewertung der Ergebnisse}
-paketmenge berechnen
-fehler/informationsgehalt
-durchschnit der Daten ausrechnen
 
 \chapter{Optimierung}
 Buffer
 client detect break self
 Pausenverkleinerung/ tolleranzanpassung
+
+
+
+\chapter{Bewertung der Ergebnisse}
+
+
+paketmenge berechnen
+fehler/informationsgehalt
+durchschnit der Daten ausrechnen
+
+
 
 
 

@@ -19,10 +19,10 @@ filename = []
 data = []  # timestamps
 result = []
 codedata = []  # binary hamming code
-longBreak = 0.1# sec
+longBreak = 0.08# sec
 factor = 0.5  # difference between long and short break
 bufferzize = 10
-threadBreak = 0.008  # sec
+threadBreak = 0.005  # sec
 breakbetween = 1  # sec
 sTolerance = 0.4
 bTolerance = 0.4
@@ -109,9 +109,6 @@ def calc():
     totalData = 0
     count = 0
     correctTransfert = 0
-    startTime = []
-    firstCorrectReceveTime = []
-    passFirstTime = 0
 
     while 1:
         mutex.acquire()
@@ -129,10 +126,7 @@ def calc():
                 index = 0
                 print(str(f1) + "  \t=> Start of File")
                 if codedata != []:
-
-
-
-
+                    f = open('./'+filename, 'wb')        # open file
 
                     hashFromServer = codedata[-8:]      # get the Hash fom the end of the data
                     del codedata[-8:]                   # remove hash from data
@@ -154,7 +148,9 @@ def calc():
                     totalError += partialError
                     partialError = 0
 
-                    print("Fehlerrate gesamt: "+str((totalError/totalData)*100)+"%")
+
+                    if totalData != 0:
+                        print("Fehlerrate gesamt: "+str((totalError/totalData)*100)+"%")
 
                     count += 1
 
@@ -162,52 +158,32 @@ def calc():
 
                     b = BitArray(bin = dataString)               # making bitArray without Char encoding
                     if hashFromClient == hashFromServer:
-                        f = open('./' + filename, 'wb')  # open file
                         b.tofile(f)                         # write to file
                         f.flush()
-                        f.close()
-
-                        if correctTransfert == 0:
-                            firstCorrectReceveTime = time.time()
                         correctTransfert += 1
-                        print("Korrekt Übertragen: "+str(correctTransfert))
-                        if startTime != [] and firstCorrectReceveTime != []:
-                            print("Zeit bis zum ersten koreketn Paket"+str(firstCorrectReceveTime-startTime))
-                        return
+                    f.close()
 
 
                     if count == 20:
                         print("Korrekt Übertragen: "+str(correctTransfert))
-                        if startTime != [] and firstCorrectReceveTime != []:
-                            print("Zeit bis zum ersten koreketn Paket"+str(startTime-firstCorrectReceveTime))
-                        #return
+                        return
 
 
                 codedata = []
                 if write == False:                      # false at the beginning as long the file hasnt started
-                    startTime = time.time()
                     write = True
             else:
                 if write == True:
                     if sBigBreakTolerance < f1 < bBigBreakTolerance:    # time range for a 1
-                        if index <= 10:
-                            print(str(index)+"\t"+str(f1) + "  \t estimate sync")
-                        else:
-                            codedata.append("1")
-                            print(str(index)+"\t"+str(f1) + "  \t=> 1 ")     # print result and distance to the range borders
+                        codedata.append("1")
+                        print(str(index)+"\t"+str(f1) + "  \t=> 1 ")     # print result and distance to the range borders
                     else:
                         if sSmallBreakTolerance < f1 < bSmallBreakTolerance: # time range for 0
-                            if index <= 10:
-                                print(str(index) + "\t" + str(f1) + "  \t=> estimate sync")
-                            else:
                                 codedata.append("0")
                                 print(str(index)+"\t"+str(f1) + "  \t=> 0")
                         else:
-                            if index < 16:
-                                print(str(index)+"\t"+str(f1) + "  \t=> sync")
-                            else:
-                                partialError += 1
-                                print(str(index)+"\t"+str(f1) + "  \t=> undefind: will be ignored")
+                            partialError += 1
+                            print(str(index)+"\t"+str(f1) + "  \t=> undefind: will be ignored")
                     index += 1
 
         mutex.release()

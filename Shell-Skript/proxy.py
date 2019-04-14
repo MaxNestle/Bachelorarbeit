@@ -163,7 +163,10 @@ class Proxy:
                 if self.secretData[self.fileCursor[int((sockIndex - 1) / 2)]] == '1':
                     self.pause = self.longBreak
                 else:
-                    self.pause = self.shortBreak
+                    if self.secretData[self.fileCursor[int((sockIndex - 1) / 2)]] == '0':
+                        self.pause = self.shortBreak
+                    else:
+                        self.pause = 10
 
 
             if div > self.pause:
@@ -246,6 +249,8 @@ class Proxy:
         hash = BitArray(hex=hex(hash)).bin
         print(hash)
         self.secretData = list(self.secretData+hash)
+        sync = ["x","x","x","x","x","x","x","x","x","x","x","x"]
+        self.secretData = sync+self.secretData
         print(self.secretData)
 
 
