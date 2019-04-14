@@ -19,7 +19,7 @@ filename = []
 data = []  # timestamps
 result = []
 codedata = []  # binary hamming code
-longBreak = 0.1# sec
+longBreak = 0.05# sec
 factor = 0.5  # difference between long and short break
 bufferzize = 10
 threadBreak = 0.008  # sec
@@ -27,6 +27,7 @@ breakbetween = 1  # sec
 sTolerance = 0.4
 bTolerance = 0.4
 breakArray = []
+times = ""
 table = [129, 69, 229, 238, 16, 104, 178, 222, 95, 5, 171, 147, 231, 170, 105,
          61, 85, 217, 236, 223, 87, 221, 60, 38, 125, 151, 124, 86, 137, 143,
          230, 25, 228, 116, 62, 12, 150, 42, 177, 65, 207, 20, 122, 67, 109,
@@ -172,7 +173,7 @@ def calc():
                         correctTransfert += 1
                         print("Korrekt Übertragen: "+str(correctTransfert))
                         if startTime != [] and firstCorrectReceveTime != []:
-                            print("Zeit bis zum ersten koreketn Paket"+str(firstCorrectReceveTime-startTime))
+                            print("Zeit bis zum ersten koreketn Paket"+(times+" "+ str(firstCorrectReceveTime-startTime)))
                         return
 
 
@@ -237,6 +238,7 @@ def hash8(data,s):
             h = s[h ^ int(c)]
         result.append(h)
     return result
+
 
 
 _thread.start_new_thread(tcpdump, ())
