@@ -3,9 +3,10 @@
 
 
 \chapter{Anforderung an die Lösung}
-Die Covert Channel Lösung 
+Es soll eine Lösung gefunden werden, bei der mittels Methoden des Information-Hidding Daten übertragen werden können. Dabei sollen beliebige Formate versendet werden. Zudem soll er unauffällig sein und mit höcht möglicher Übertragungsgeschwindigkeit funktionieren. Die Lösungsidee muss sich als Algorithmus umsetzen lassen und soll möglich nicht von Netzwerkbedingungen abhängig sein. Die Lösung darf sich nicht von Netzwerk Normaliesierungen beeinflussen lassen.\\ 
+Eine Methode zur Sicherstellung der Integrität soll implementierbar sein und eine Umsetzung als passiven Covert 
 
-
+%TODO     
 
 
 \chapter{Lösungsansätze}
@@ -723,11 +724,106 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 		Damit die Daten nicht codiert auf die Datei geschrieben werden, wird das Paket \textit{BitArray} verwendet, welche es möglich macht die binären Daten zu schreiben.\\
 		Die Datei oder Nachricht ist hiermit erfolgreich übertragen.
 		
-\section{Optimales Einstellen des Covert Channel} 
-	\subsection{Messen der durchnittlichen Abweichung}
-		in prozent
+		\section{Optimales Einstellen des Covert Channel} 
+		Es gilt nun den Covert Channel so optimal wie möglich einzustellen. Dazu muss die beste Kombination aus Übertragungsgeschwindigkeit und des Zeitfensters gefunden werden.\\
+		Gezielte Test-Datenübertragungen soll hier Aufschluss zu diesen Werten geben. Um reale Netzwerkbedingungen zu schaffen wird der Server auf einem 1\&1 Cloud Server in Karlsruhe gehosted. Das Ergebnis eines TCP-Pings ergibt eine Übertragungsdauer von 30 ms zum Server. Bei allen Tests wird einen Testdatei mit 12 Byte (Hallo Welt) verwendet.\\
+		
+		
+		\subsection{Verhätniss nicht interpretierbar/ interpretierbar}
+		Der erste Test ist die Ermittlung des Verhältnisses zwischen interpretierbaren und nicht interpretierbaren Zeitstempeln. Interpretierbar ist ein Zeitstempel, wenn er sich entweder im Zeitfenster für Nullen oder Einsen befindet.\\
+		Die Ergebnisse dieses Test sind in Tabelle 6.1 zu sehen. Die Spalten zeigen jeweils die Länge einer langen Pause in Sekunden. Die Zeilen stehen für den prozentualen Anteil an der Pausenlänge, die das Zeitfenster definiert.\\
+		Die Ergebnisse sind in Prozent angegeben. Die Länge der kurzen Pausen beträgt die Hälfte der Langen.\\ Ein Wert von 0 spiegelt einen Übertragung wieder bei der keine Zeitstempel nicht interpretiert werden konnten. Liegt der Wert bei Hundert waren die Werte gleich.\\
+		Aus der Tabelle lässt sich interpretieren, dass ein Zeitfenster mit 20\% nicht zum Optimum führt, da hier die Werte für eine stabile Datenübertragung zu hoch sind. Auch die Übertragung mit einer Pausenlänge von 0,03 ms ist nicht geeignet.\\
+		
+		Da dieser Test jedoch keine Fehlinterpretationen betrachtet, muss noch ein weiterer Test hinzugefügt werden.
+		
+	 \begin{table}[h!]
+  \centering
+	\begin{tabular}{c|c|c|c}
+		
+		& \textbf{0,08} & \textbf{0,05} & \textbf{0,03} \\\hline
+		
+		20\%&1,26 & 66,44 & 96,53 \\
+		
+		30\%&0,62& 1,74 & 82,87\\
+		40\%&0,26&0,31&2,49\\
+		50\%&0,20&0,1&0,95\\
+		
+	\end{tabular}
+	\caption{Verhätniss nicht interpretierbar/ interpretierbar}
+ \end{table}
+		
+
+	
+
+	\subsection{Anzahl korrekt übertragener Dateien}
+	Bei diesem Test soll die Korrektheit der Ankommenden Daten begutachtet werden. Dazu wird für jede mögliche Kombination 20 Datenübertragungen durchgeführt und die Anzahl der korrekt übertragenen Dateien gezählt. Dadurch ergibt sich folgende Tabelle:
+	
+	
+		 \begin{table}[h!]
+		\centering
+		\begin{tabular}{c|c|c|c}
+			
+			& \textbf{0,08} & \textbf{0,05} & \textbf{0,03} \\\hline
+			
+			20\%&11 & 0 & 0 \\
+			30\%&14& 10 & 0\\
+			40\%&15&9&0\\
+			50\%&0&0&0\\
+			
+		\end{tabular}
+		\caption{Korrekt übertragene Dateien}
+	\end{table}
+	
+	Zusätzlich zu den im ersten Test ausgeschlossenen Zeilen und Spalten kann nun auch die Zeile mit einem 50\%igem Zeitfenster ausgeschlossen werden. Die guten Werte dieser Zeile im ersten Test lassen sich durch enorme Fehlinterpretationen erklären.  
+	
+	\subsection{Zeit bis zum ersten korrekten Eintreffen}
+	Nach dem bei den ersten beiden Tests bereits Kombinationen ausgeschlossen werden konnten sind nun noch die Kombinationen 30\%/0,08s, 40\%/0,08s, 30\%/0,05s und 40\%/0,05s übrig.\\
+	Um nun hieraus das Optimum zu ermitteln wird ein Test durchgeführt der einer realen Anwendung am nächsten kommt:
+	Es wird die Zeit gemessen die es benötigt, bis die erste korrekte Datei zu empfangen.\\
+	Diese Messung wurde jeweils für alle Kombinationen 10 mal ausgeführt. Die Ergebnisse sind in Bild 6.5 zu sehen.
+	
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics*[height=10cm]{bilder/Test31.png}
+		\caption{Zeit bis zum ersten korrekten Eintreffen}
+		\label{fig19}
+	\end{figure}
+	
+	In Tabelle 6.3 sind die Durchschnittswerte gezeigt die sich aus den Zeiten ergeben.\\
+	
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{c|c|c}
+			
+			& \textbf{0,08} & \textbf{0,05} \\\hline
+			30\%&8,956&12,418\\
+			40\%&9,004&9,114\\			
+		\end{tabular}
+		\caption{Durchschnittliche Zeiten}
+	\end{table}
+	
+	
+	In dieser Graphik lässt sich erkennen, dass die Werte der Kombination aus 0,3\%/0,05s (gelb) enorme Schwankungen beinhalten. Auch der höchste Durchschnittswert mit 12,418 Sekunden spricht gegen die Verwendung dieser Kombination. Bei den Werten 30\%/0,08s sind die besten Durchschnittswerte aufgetreten, weshalb diese auf jeden Fall in Frage kommen. Ebenfalls sehr vielversprechend ist die Kombination aus 40\%/0,05s (grün). Hier zeigt die Grafik, bis auf einen Ausschlag bei der ersten Messung sehr niedrige Werte.\\
+	
+	Um ein eindeutigeres Ergebnis zu schaffen, werden noch weitere Messungen mit den Kombinationen 30\%/0,08s und 40\%/0,05s.\\
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics*[height=10cm]{bilder/Test32.png}
+		\caption{Zeit bis zum ersten korrekten Eintreffen}
+		\label{fig193}
+	\end{figure}
+	
+	Die Grafik in Bild 6.6 zeigt die Zeiten der eingesetzten Werte. Bei der Verwendung der Werte 30\%/0,08s (blau) lässt sich eine höhere Konstanz erkennen. Hier werden deutlich mehr Daten auf den ersten Versuch korrekt übertragen. Das ist bei 40\%/0,05s selten der Fall, jedoch ist hier die mögliche Übertragungsgeschwindigkeit auf Grund der kleineren Pausen größer. Jedoch ist trotz größerer Schwankungen die durchschnittliche Zeit von 40\%0,05s mit 8,327s kleiner als die 9,095s von 30\%/0,08s.\\
+	
+	Die Kombination aus einem Zeitfenster von 40\% und einer große Pause von 0,05 Sekunden ist die optimale Lösung für diesen Covert Channel.
 	
 \chapter{Evaluation}
+
+
+
 
 
 \chapter{Umsetzung der passiven Variante}
@@ -808,12 +904,13 @@ while True:
 	
 	
 		\section{Test mit realen Servern}
-
+				
 
 \chapter{Optimierung}
 Buffer
 client detect break self
 Pausenverkleinerung/ tolleranzanpassung
+Datei aufteilen
 
 
 

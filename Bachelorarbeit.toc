@@ -120,26 +120,28 @@
 \contentsline {subsubsection}{\nonumberline Toleranz}{53}{section*.34}
 \contentsline {subsection}{\numberline {6.12.4}Verarbeiten der Erhaltenen Daten}{54}{subsection.6.12.4}
 \contentsline {section}{\numberline {6.13}Optimales Einstellen des Covert Channel}{55}{section.6.13}
-\contentsline {subsection}{\numberline {6.13.1}Messen der durchnittlichen Abweichung}{55}{subsection.6.13.1}
-\contentsline {chapter}{\numberline {7}Evaluation}{56}{chapter.7}
-\contentsline {chapter}{\numberline {8}Umsetzung der passiven Variante}{57}{chapter.8}
-\contentsline {subsection}{\numberline {8.0.1}Anforderung an den Proxy}{57}{subsection.8.0.1}
-\contentsline {subsection}{\numberline {8.0.2}L\"osungsans\"atze}{57}{subsection.8.0.2}
-\contentsline {subsubsection}{\nonumberline Ver\"anderung eines Open-Source Proxys}{57}{section*.35}
-\contentsline {subsubsection}{\nonumberline Proxy selbst programmieren}{58}{section*.36}
-\contentsline {subsection}{\numberline {8.0.3}Bewertung des L\"osungsansatzes}{58}{subsection.8.0.3}
-\contentsline {subsection}{\numberline {8.0.4}Implementierung}{58}{subsection.8.0.4}
-\contentsline {subsubsection}{\nonumberline Sockets}{58}{section*.37}
-\contentsline {subsubsection}{\nonumberline Geheime Daten}{59}{section*.38}
-\contentsline {subsubsection}{\nonumberline Covert Channel}{59}{section*.39}
-\contentsline {chapter}{\numberline {9}Evaluation der Passiven Variante}{61}{chapter.9}
-\contentsline {section}{\numberline {9.1}Tests mit Testserver}{61}{section.9.1}
-\contentsline {section}{\numberline {9.2}Schwierigkeiten bei der Verwendung einer realer Webseite}{61}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}HTTPS}{61}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}Generierung von gen\"ugend Nachrichten}{61}{subsection.9.2.2}
-\contentsline {subsection}{\numberline {9.2.3}Parallele Datenabfrage}{62}{subsection.9.2.3}
-\contentsline {section}{\numberline {9.3}Test mit realen Servern}{62}{section.9.3}
-\contentsline {chapter}{\numberline {10}Optimierung}{63}{chapter.10}
-\contentsline {chapter}{\numberline {11}Bewertung der Ergebnisse}{64}{chapter.11}
-\contentsline {chapter}{\numberline {12}Zusammenfassung und Fazit}{65}{chapter.12}
-\contentsline {chapter}{\nonumberline Literatur}{67}{chapter*.40}
+\contentsline {subsection}{\numberline {6.13.1}Verh\"atniss nicht interpretierbar/ interpretierbar}{55}{subsection.6.13.1}
+\contentsline {subsection}{\numberline {6.13.2}Anzahl korrekt \"ubertragener Dateien}{56}{subsection.6.13.2}
+\contentsline {subsection}{\numberline {6.13.3}Zeit bis zum ersten korrekten Eintreffen}{56}{subsection.6.13.3}
+\contentsline {chapter}{\numberline {7}Evaluation}{59}{chapter.7}
+\contentsline {chapter}{\numberline {8}Umsetzung der passiven Variante}{60}{chapter.8}
+\contentsline {subsection}{\numberline {8.0.1}Anforderung an den Proxy}{60}{subsection.8.0.1}
+\contentsline {subsection}{\numberline {8.0.2}L\"osungsans\"atze}{60}{subsection.8.0.2}
+\contentsline {subsubsection}{\nonumberline Ver\"anderung eines Open-Source Proxys}{60}{section*.35}
+\contentsline {subsubsection}{\nonumberline Proxy selbst programmieren}{61}{section*.36}
+\contentsline {subsection}{\numberline {8.0.3}Bewertung des L\"osungsansatzes}{61}{subsection.8.0.3}
+\contentsline {subsection}{\numberline {8.0.4}Implementierung}{61}{subsection.8.0.4}
+\contentsline {subsubsection}{\nonumberline Sockets}{61}{section*.37}
+\contentsline {subsubsection}{\nonumberline Geheime Daten}{62}{section*.38}
+\contentsline {subsubsection}{\nonumberline Covert Channel}{62}{section*.39}
+\contentsline {chapter}{\numberline {9}Evaluation der Passiven Variante}{64}{chapter.9}
+\contentsline {section}{\numberline {9.1}Tests mit Testserver}{64}{section.9.1}
+\contentsline {section}{\numberline {9.2}Schwierigkeiten bei der Verwendung einer realer Webseite}{64}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}HTTPS}{64}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}Generierung von gen\"ugend Nachrichten}{64}{subsection.9.2.2}
+\contentsline {subsection}{\numberline {9.2.3}Parallele Datenabfrage}{65}{subsection.9.2.3}
+\contentsline {section}{\numberline {9.3}Test mit realen Servern}{65}{section.9.3}
+\contentsline {chapter}{\numberline {10}Optimierung}{66}{chapter.10}
+\contentsline {chapter}{\numberline {11}Bewertung der Ergebnisse}{67}{chapter.11}
+\contentsline {chapter}{\numberline {12}Zusammenfassung und Fazit}{68}{chapter.12}
+\contentsline {chapter}{\nonumberline Literatur}{70}{chapter*.40}
