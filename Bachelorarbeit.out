@@ -101,7 +101,7 @@
 \BOOKMARK [2][-]{subsection.8.0.2}{L\366sungsans\344tze}{subsection.8.0.1}% 101
 \BOOKMARK [2][-]{subsection.8.0.3}{Bewertung des L\366sungsansatzes}{subsection.8.0.1}% 102
 \BOOKMARK [2][-]{subsection.8.0.4}{Implementierung}{subsection.8.0.1}% 103
-\BOOKMARK [0][-]{chapter.9}{Evaluation der Passiven Variante}{}% 104
+\BOOKMARK [0][-]{chapter.9}{Tests}{}% 104
 \BOOKMARK [1][-]{section.9.1}{Tests mit Testserver}{chapter.9}% 105
 \BOOKMARK [1][-]{section.9.2}{Schwierigkeiten bei der Verwendung einer realer Webseite}{chapter.9}% 106
 \BOOKMARK [2][-]{subsection.9.2.1}{HTTPS}{section.9.2}% 107

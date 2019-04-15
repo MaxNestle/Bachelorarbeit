@@ -821,6 +821,11 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 	Die Kombination aus einem Zeitfenster von 40\% und einer große Pause von 0,05 Sekunden ist die optimale Lösung für diesen Covert Channel.
 	
 \chapter{Evaluation}
+	Der Server und der Client sind in der Lage einen Covert Channel zu erstellen. Dieser ist in der Lage Daten zu übertragen. Die Kommunikation geschieht verdeckt, kommt aber ohne Verschlüsselung aus.\\
+	Das in der Motivation genannte Beispiel würde sich mit dieser Lösung umsetzten lassen. Es können Daten jeglicher Größe übertragen werden. Jedoch macht eine Größe über 200 Byte keinen Sinn, da hier die Chance auf falsch Interpretierte Bits sehr groß wird. Jedoch bietet dieses Projekt eine gute Basis um entsprechende Erweiterungen zu implementieren die das Senden von großen Dateien realistisch machen.\\
+	Mit einer durchschnittlichen Datenübertragungsrate von 11,53 Bits pro Sekunde ist der Covert Channel nicht sehr schnell, aber ausreichend um kleinere Datenmengen zu übertragen.\\
+	Wird der Covert Channel zur Kommunikation verwendet ist es für dritte nahezu unmöglich eine verdeckte Kommunikation zu erkennen. Wird der Server so getarnt, dass er nicht mit einem Sender, wie zum Beispiel der Polizei, in Verbindung gebracht werden kann, so stellt diese Lösung ein sehr sichere Variante dar um kurze Nachrichten wie Treffpunkte, Anweisungen oder Telefonnummern auszutauschen.
+	
 
 
 
@@ -871,7 +876,7 @@ while True:
 			Die Pausen werden äquivalent zu der aktiven Variante definiert.
 			
 	
-\chapter{Evaluation der Passiven Variante}
+\chapter{Tests}
 	
 	\section{Tests mit Testserver}
 			

@@ -134,7 +134,7 @@
 \contentsline {subsubsection}{\nonumberline Sockets}{61}{section*.37}
 \contentsline {subsubsection}{\nonumberline Geheime Daten}{62}{section*.38}
 \contentsline {subsubsection}{\nonumberline Covert Channel}{62}{section*.39}
-\contentsline {chapter}{\numberline {9}Evaluation der Passiven Variante}{64}{chapter.9}
+\contentsline {chapter}{\numberline {9}Tests}{64}{chapter.9}
 \contentsline {section}{\numberline {9.1}Tests mit Testserver}{64}{section.9.1}
 \contentsline {section}{\numberline {9.2}Schwierigkeiten bei der Verwendung einer realer Webseite}{64}{section.9.2}
 \contentsline {subsection}{\numberline {9.2.1}HTTPS}{64}{subsection.9.2.1}
