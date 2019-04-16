@@ -3,8 +3,8 @@
 
 
 \chapter{Anforderung an die Lösung}
-Es soll eine Lösung gefunden werden, bei der mittels Methoden des Information-Hidding Daten übertragen werden können. Dabei sollen beliebige Formate versendet werden. Zudem soll er unauffällig sein und mit höcht möglicher Übertragungsgeschwindigkeit funktionieren. Die Lösungsidee muss sich als Algorithmus umsetzen lassen und soll möglich nicht von Netzwerkbedingungen abhängig sein. Die Lösung darf sich nicht von Netzwerk Normaliesierungen beeinflussen lassen.\\ 
-Eine Methode zur Sicherstellung der Integrität soll implementierbar sein und eine Umsetzung als passiven Covert 
+Es soll eine Lösung gefunden werden, bei der mittels Methoden des Information-Hidding Daten übertragen werden können. Dabei sollen beliebige Formate versendet werden können. Zudem soll er unauffällig sein und mit höchst möglicher Übertragungsgeschwindigkeit funktionieren. Die Lösungsidee muss sich als Algorithmus umsetzen lassen und soll möglichst nicht von Netzwerkbedingungen abhängig sein. Die Lösung darf sich nicht von Netzwerk Normaliesierungen beeinflussen lassen.\\ 
+Eine Methode zur Sicherstellung der Integrität soll implementierbar sein und eine Umsetzung als passiven Covert Channel ist wünschenswert. 
 
 %TODO     
 
@@ -824,7 +824,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 	Der Server und der Client sind in der Lage einen Covert Channel zu erstellen. Dieser ist in der Lage Daten zu übertragen. Die Kommunikation geschieht verdeckt, kommt aber ohne Verschlüsselung aus.\\
 	Das in der Motivation genannte Beispiel würde sich mit dieser Lösung umsetzten lassen. Es können Daten jeglicher Größe übertragen werden. Jedoch macht eine Größe über 200 Byte keinen Sinn, da hier die Chance auf falsch Interpretierte Bits sehr groß wird. Jedoch bietet dieses Projekt eine gute Basis um entsprechende Erweiterungen zu implementieren die das Senden von großen Dateien realistisch machen.\\
 	Mit einer durchschnittlichen Datenübertragungsrate von 11,53 Bits pro Sekunde ist der Covert Channel nicht sehr schnell, aber ausreichend um kleinere Datenmengen zu übertragen.\\
-	Wird der Covert Channel zur Kommunikation verwendet ist es für dritte nahezu unmöglich eine verdeckte Kommunikation zu erkennen. Wird der Server so getarnt, dass er nicht mit einem Sender, wie zum Beispiel der Polizei, in Verbindung gebracht werden kann, so stellt diese Lösung ein sehr sichere Variante dar um kurze Nachrichten wie Treffpunkte, Anweisungen oder Telefonnummern auszutauschen.
+	Wird der Covert Channel zur Kommunikation verwendet ist es für dritte nahezu unmöglich eine verdeckte Kommunikation zu erkennen. Wird der Server so getarnt, dass er nicht mit einem Sender, wie zum Beispiel der Polizei, in Verbindung gebracht werden kann, so stellt diese Lösung ein sehr sichere Variante dar, um kurze Nachrichten wie Treffpunkte, Anweisungen oder Telefonnummern auszutauschen.
 	
 
 
@@ -877,11 +877,9 @@ while True:
 			
 	
 \chapter{Tests}
-	
-	\section{Tests mit Testserver}
 			
 	
-	\section{Schwierigkeiten bei der Verwendung einer realer Webseite}
+	\section{Probleme bei realen Webseite}
 	
 			\subsection{HTTPS}
 				Der Proxy ist nicht für die Verwendung von HTTPS ausgelegt, wodurch hier nur http Webseiten abgerufen werden können. 
@@ -896,7 +894,7 @@ while True:
 				Wie vorhergehnd bereits beschrieben öffnet einen normale Webserver gleich mehrerer Sockets um parallel Daten zu empfangen. Diese Nachrichtenpakete, der einzelnen Sockets können nicht vom Client auseinander gehalten werden, da dieser nur den Source-Port betrachtet. Dieser ist jedoch bei allen gleich.\\
 				In Bild 7.1 ist ein Ausschnitt aus den Firefox Development Tool zu sehen. Hier wird die Übertragungsdauer der einzelnen Dateien gezeigt. Dabei fällt auf, dass bei der hier verwendeten Webseite der \textit{PH-Weingarten}, 5 CSS Dateien gleichzeitig übertragen werden.\\
 				Diese 5 daraus entstehenden Covert Channel überschneiden sich bei der Interpretation im Client und sind so nicht mehr auswertbar.\\
-				Der Covert Channel funktioniert nur, wenn genau eine Datei übertragen wird.
+				Der Covert Channel funktioniert nur, wenn genau eine Datei übertragen wird. Oft dauert die Übertragung großer Bilder jedoch länger als die es Quellcodes. Dies bietet die Chance, dass am Ende der Übertragung nur noch der einen Socket für die Bildübertragung übrig ist, welcher für die Datenübertragung genutzt werden kann.
 				
 				\begin{figure}[h!]
 					\centering
@@ -909,22 +907,63 @@ while True:
 	
 	
 		\section{Test mit realen Servern}
+		Um die Funktion des Proxys zu testen und reale Netzwerkbedingungen zu schaffen, wird er auf einem 1\&1 Cloud Server installiert. Die zu übertragende Datei ist eine Textdatei mit 12 Byte. Zur Datenübertragung werden die gleichen Einstellungen verwendet, die bereits bei den Tests mit dem Client evaluiert wurden. Das bedeutet, die Lange Pause hat eine Länge von 0,08 Sekunden und das Zeitfenster entspricht jeweils 30\%.
+		Als Client wird das Programm der aktiven Variante verwendet. Um genügend Netzwerkverkehr zu generieren, wird die maximale Paketgröße vom Server zum Client auf 256 Byte festgelegt\\
+		Um den Proxy nutzen zu können, muss dieser im Browser eingetragen werden. Dadurch werden alle HTTP Nachrichten zuerst an den Proxy weitergeleitet.\\
+		Nun wird eine beliebige Webseite gewählt die als Paketquelle dient. Diese Seite muss jedoch über HTTP ausgeliefert werden. Hier wird die Webseite Pädagogischen-Hochschule Weingarten mit der Adresse \textit{http://www.ph-weingarten.de/} verwendet.
+		Wird die Webseite geladen so sendet der Webserver der PH-Weingarten die Webseitendateien über den Proxy an den Client.\\
+		Jedoch besteht anfangs das im vorhergehenden Kapitel beschriebene Problem mit der parallelen Datenübertragung. Das Ergebnis ist in Bild 9.2 zu sehen. Bei einer optimalen Funktion werden den zeitlichen Differenzen links binäre Werte zugeordnet. Jedoch sind hier die meisten Werte nicht zuzuordnen.
+		
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics*[height=7cm]{bilder/ProxyFail.png}
+			\caption{Fehlinterpretation des Clients}
+			\label{fig33}
+		\end{figure}
+	
+		Ist nur noch ein Socket aktiv, der für die Dateiübertragung eines größeren Bilds zuständig ist, so findet die Datenübertragung wie in Bild 9.3 gezeigt statt. Hier können die Daten nun ausgewertet werden. Fehler treten von diesem Zeitpunkt an nur noch aufgrund Netzwerk- oder Serveranomalien auf.\\
+		Die Datei kann so erfolgreich übertragen werden.
+		
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics*[height=9cm]{bilder/SucProxy.png}
+			\caption{Korrekte Interpretation des Clients}
+			\label{fig339}
+		\end{figure}
+			
 				
+		
+\chapter{Evaluierung}
+		Die passive Variante des Covert Channels ist eine \textit{Proof of Cocept} Implementierung und noch nicht geeignet um als reale Anwendung verwendet zu werden. Das Konzept eines passiven zeitlichen Cover Channel wurde bestätigt und dessen Funktion bewiesen.\\
+		Wie auch bei der aktiven Variante ist eine Datengröße über 200 Byte nicht sinnvoll. Es ist aber eine gute Basis entstanden die gut erweitert werden kann. Durch die Einschränkungen ist es nicht einfach eine geeignete Webseite für den Covert Channel zu finden. Bei einer realen Umsetzung sollte die Verwendung des ersten Lösungsansatzes in Betracht gezogen werden, da man hier auf einer funktionierenden Proxylösung aufbaut und alle Webseiten unterstützt werden.\\
+		Dennoch kann man mit der Kombination aus Proxy und Client Netzwerkpakete eines fremden Servers verwenden, um Informationen ohne Veränderung des Paketinhalts zu versenden.
+		
 
-\chapter{Optimierung}
-Buffer
-client detect break self
-Pausenverkleinerung/ tolleranzanpassung
-Datei aufteilen
+\chapter{Mögliche Optimierung}
+
+\subsubsection{Dateien aufeilen}
+Um auch große Dateien zu verschicken, können diese in mehrere kleine aufgeteilt werden. Hier müsste dann auch eine Methode gefunden werden um die Datei Fragmente wieder zusammenzusetzen.
+
+
+\subsubsection{Automatische Pausenerkennung}
+Um die Bedienung komfortabler zu machen, kann eine automatische Erkennung der Pausenlänge implementiert werden, so wird eine variable Anpassung der Pausenlänge möglich. Diese kann zum Beispiel vom Server oder Proxy als Reaktion auf eine Netzwerkanomalie veranlasst werden.
+
+\subsubsection{Beachtung der Sequence Number beim Client}
+Um das derzeitige Problem mit bei der parallelen Datenübertragung zu lösen. Kann zusätzlich zur Erkennung der Pakete die TCP Sequence Number beachtet werden. So könnten die unterschiedlichen Übertragungen der Daten unterschieden werden. Damit wäre sogar eine parallele Datenübertragung möglich.
+
+\subsubsection{Server mit realistischen Webseite}
+Die derzeitige Webseite zeigt die aktuelle Uhrzeit an. Um den Covert Channel noch sicherer und unauffälliger zu machen, kann hier eine Webseite implementiert werden, die einen plausiblen Einsatzzweck hat.
+
+
+\subsubsection{Verwendung von HTTPS}
+Um wirklich alle Webseiten verwenden zu können, muss der Proxy in der Lage sein HTTPS Pakete weiterzuleiten. Es macht ebefalls Sinn den Server mit einer verschlüsselten Verbindung auszustatten.
 
 
 
-\chapter{Bewertung der Ergebnisse}
+\chapter{Fazit}
 
-
-paketmenge berechnen
-fehler/informationsgehalt
-durchschnit der Daten ausrechnen
 
 
 

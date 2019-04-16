@@ -135,13 +135,17 @@
 \contentsline {subsubsection}{\nonumberline Geheime Daten}{62}{section*.38}
 \contentsline {subsubsection}{\nonumberline Covert Channel}{62}{section*.39}
 \contentsline {chapter}{\numberline {9}Tests}{64}{chapter.9}
-\contentsline {section}{\numberline {9.1}Tests mit Testserver}{64}{section.9.1}
-\contentsline {section}{\numberline {9.2}Schwierigkeiten bei der Verwendung einer realer Webseite}{64}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}HTTPS}{64}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}Generierung von gen\"ugend Nachrichten}{64}{subsection.9.2.2}
-\contentsline {subsection}{\numberline {9.2.3}Parallele Datenabfrage}{65}{subsection.9.2.3}
-\contentsline {section}{\numberline {9.3}Test mit realen Servern}{65}{section.9.3}
-\contentsline {chapter}{\numberline {10}Optimierung}{66}{chapter.10}
-\contentsline {chapter}{\numberline {11}Bewertung der Ergebnisse}{67}{chapter.11}
-\contentsline {chapter}{\numberline {12}Zusammenfassung und Fazit}{68}{chapter.12}
-\contentsline {chapter}{\nonumberline Literatur}{70}{chapter*.40}
+\contentsline {section}{\numberline {9.1}Probleme bei realen Webseite}{64}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}HTTPS}{64}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}Generierung von gen\"ugend Nachrichten}{64}{subsection.9.1.2}
+\contentsline {subsection}{\numberline {9.1.3}Parallele Datenabfrage}{64}{subsection.9.1.3}
+\contentsline {section}{\numberline {9.2}Test mit realen Servern}{65}{section.9.2}
+\contentsline {chapter}{\numberline {10}Evaluierung}{68}{chapter.10}
+\contentsline {chapter}{\numberline {11}M\"ogliche Optimierung}{69}{chapter.11}
+\contentsline {subsubsection}{\nonumberline Dateien aufeilen}{69}{section*.40}
+\contentsline {subsubsection}{\nonumberline Automatische Pausenerkennung}{69}{section*.41}
+\contentsline {subsubsection}{\nonumberline Beachtung der Sequence Number beim Client}{69}{section*.42}
+\contentsline {subsubsection}{\nonumberline Server mit realistischen Webseite}{70}{section*.43}
+\contentsline {subsubsection}{\nonumberline Verwendung von HTTPS}{70}{section*.44}
+\contentsline {chapter}{\numberline {12}Fazit}{71}{chapter.12}
+\contentsline {chapter}{\nonumberline Literatur}{73}{chapter*.45}

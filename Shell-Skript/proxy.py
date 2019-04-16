@@ -166,10 +166,12 @@ class Proxy:
                     if self.secretData[self.fileCursor[int((sockIndex - 1) / 2)]] == '0':
                         self.pause = self.shortBreak
                     else:
-                        self.pause = 10
+                        self.pause = 0.01
 
 
             if div > self.pause:
+
+
                 if self.pause == self.breakBetweenTransmit:
                     self.pause = 0
                     data = self.msgToClient[int((sockIndex - 1) / 2)].pop(0)

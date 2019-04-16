@@ -24,8 +24,8 @@ factor = 0.5  # difference between long and short break
 bufferzize = 10
 threadBreak = 0.005  # sec
 breakbetween = 1  # sec
-sTolerance = 0.4
-bTolerance = 0.4
+sTolerance = 0.3
+bTolerance = 0.3
 breakArray = []
 table = [129, 69, 229, 238, 16, 104, 178, 222, 95, 5, 171, 147, 231, 170, 105,
          61, 85, 217, 236, 223, 87, 221, 60, 38, 125, 151, 124, 86, 137, 143,
@@ -126,7 +126,6 @@ def calc():
                 index = 0
                 print(str(f1) + "  \t=> Start of File")
                 if codedata != []:
-                    f = open('./'+filename, 'wb')        # open file
 
                     hashFromServer = codedata[-8:]      # get the Hash fom the end of the data
                     del codedata[-8:]                   # remove hash from data
@@ -158,10 +157,12 @@ def calc():
 
                     b = BitArray(bin = dataString)               # making bitArray without Char encoding
                     if hashFromClient == hashFromServer:
+                        f = open('./' + filename, 'wb')  # open file
                         b.tofile(f)                         # write to file
                         f.flush()
                         correctTransfert += 1
-                    f.close()
+                        f.close()
+                        return
 
 
                     if count == 20:
