@@ -4,56 +4,58 @@ The top-level auxiliary file: Bachelorarbeit.aux
 A level-1 auxiliary file: DeckHS.aux
 A level-1 auxiliary file: eidHS.aux
 A level-1 auxiliary file: kurzfass.aux
-A level-1 auxiliary file: abstract.aux
-A level-1 auxiliary file: dasa.aux
-A level-1 auxiliary file: vowo.aux
 A level-1 auxiliary file: einleit.aux
 A level-1 auxiliary file: grundl.aux
 A level-1 auxiliary file: hauptteil.aux
-A level-1 auxiliary file: schluss.aux
+A level-1 auxiliary file: dasa.aux
 The style file: geralpha.bst
 Database file #1: bib.bib
+I was expecting an "="---line 246 of file bib.bib
+ :  
+ :  title = {
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--empty institution in fielding1999hypertext
 Warning--empty journal in goltz2003covert
-You've used 38 entries,
+You've used 40 entries,
             2768 wiz_defined-function locations,
-            823 strings with 11010 characters,
-and the built_in function-call counts, 13659 in all, are:
-= -- 1416
-> -- 469
-< -- 35
-+ -- 145
-- -- 140
-* -- 890
-:= -- 2077
-add.period$ -- 90
-call.type$ -- 38
-change.case$ -- 171
-chr.to.int$ -- 37
-cite$ -- 40
-duplicate$ -- 651
-empty$ -- 1158
-format.name$ -- 204
-if$ -- 3026
+            828 strings with 11084 characters,
+and the built_in function-call counts, 14255 in all, are:
+= -- 1467
+> -- 496
+< -- 36
++ -- 153
+- -- 148
+* -- 927
+:= -- 2170
+add.period$ -- 93
+call.type$ -- 40
+change.case$ -- 180
+chr.to.int$ -- 39
+cite$ -- 42
+duplicate$ -- 680
+empty$ -- 1213
+format.name$ -- 215
+if$ -- 3150
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 37
-newline$ -- 166
-num.names$ -- 114
-pop$ -- 296
+missing$ -- 39
+newline$ -- 173
+num.names$ -- 120
+pop$ -- 316
 preamble$ -- 1
-purify$ -- 247
+purify$ -- 260
 quote$ -- 0
-skip$ -- 573
+skip$ -- 599
 stack$ -- 0
-substring$ -- 507
-swap$ -- 176
-text.length$ -- 35
-text.prefix$ -- 27
+substring$ -- 521
+swap$ -- 181
+text.length$ -- 36
+text.prefix$ -- 28
 top$ -- 0
-type$ -- 280
+type$ -- 292
 warning$ -- 2
-while$ -- 110
-width$ -- 42
-write$ -- 457
-(There were 2 warnings)
+while$ -- 115
+width$ -- 45
+write$ -- 476
+(There was 1 error message)

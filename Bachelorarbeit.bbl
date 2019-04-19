@@ -39,6 +39,11 @@
   2018.
 \newblock Abrufdatum: 16.10.2018.
 
+\bibitem[EL18]{ertel2018angewandte}
+{\sc Ertel, Wolfgang} \btxandlong{}\ {\sc Ekkehard L{\"o}hmann}: {\em
+  Angewandte Kryptographie}.
+\newblock Carl Hanser Verlag GmbH Co KG, 2018.
+
 \bibitem[Ert01]{ertel2001angewandte}
 {\sc Ertel, Wolfgang}: {\em Angewandte Kryptographie. Fachbuchverlag Leipzig}.
 \newblock Carl Hanser Verlag), ISBN, 2001.
@@ -134,11 +139,7 @@
 \newblock Abrufdatum: 01.04.2019.
 
 \bibitem[{Ora}18]{JAVA_HTTP}
-{\sc {Oracle}}: {\em Class HttpServer}.
-\newblock
-  \url{https://docs.oracle.com/javase/8/docs/jre/api/net/httpserver/spec/com/sun/net/httpserver/HttpServer.html},
-  2005,2018.
-\newblock Abrufdatum: 01.04.2019.
+{\sc {Oracle}}, 2005,2018.
 
 \bibitem[PR85]{postel1985rfc}
 {\sc Postel, Jon} \btxandlong{}\ {\sc Joyce Reynolds}: {\em Rfc 959: File
@@ -202,6 +203,11 @@
   Encyclopedia}.
 \newblock \url{https://de.wikipedia.org/wiki/OSI-Modell}, 2018.
 \newblock Abrufdatum: 03.01.2019.
+
+\bibitem[{Wir}19]{TSHARK}
+{\sc {Wireshark}}: {\em tshark man-page}.
+\newblock \url{https://www.wireshark.org/docs/man-pages/tshark.html}, 2019.
+\newblock Abrufdatum: 06.04.2019.
 
 \bibitem[ZCC07]{zhong2007data}
 {\sc Zhong, Shangping}, {\sc Xueqi Cheng} \btxandlong{}\ {\sc Tierui Chen}:

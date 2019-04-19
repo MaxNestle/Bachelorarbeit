@@ -6,16 +6,16 @@
 
 \section{Internet Protokolle}
 
-In den folgenden Kapiteln soll kurz das OSI-Schichtenmodell, auf welches das heutige Internet aufbaut, erklärt werden. Dabei repräsentiert jede Schicht eine Protokoll, das für die Kommunikation im Internet nötig ist. \\
+In den folgenden Kapiteln soll kurz das OSI-Schichtenmodell, auf welches das heutige Internet aufbaut, erklärt werden. Dabei repräsentiert jede Schicht ein Protokoll, das für die Kommunikation im Internet nötig ist. \\
 Es werden nur die Protokolle betrachtet, die für dieses Projekt relevant sind. 
 
 \subsection{Sicherungsschicht/Data Link Layer (Schicht 2)}
 
-Diese Schicht beinhaltet Protokolle, welche einen weitestgehend fehlerfreie Datenübertragung garantieren sollen. Außerdem wird der Zugriff auf das Übertragungsmedium ermöglicht.\cite{wiki:osi}
+Diese Schicht beinhaltet Protokolle, welche eine weitestgehend fehlerfreie Datenübertragung garantieren sollen. Außerdem wird der Zugriff auf das Übertragungsmedium ermöglicht.\cite{wiki:osi}
 
 \subsubsection{Ethernet}
 
-Beim Ethernet-Protokoll werden die Daten in Pakete zerteilt. Diese können dann zwischen den Geräten im Netzwerk verschickt werden. Dabei ist das Ethernet-Protokoll immer nur im jeweiligen Netzwerksegment gültig.\cite{zisler2013computer} Die Adressierung wird mit Hilfe der MAC-Adressen realisiert. Diese Adresse ist einmalig und wird jedem netzwerkfähigem Gerät vom Hersteller zugeordnet.
+Beim Ethernet-Protokoll werden die Daten in Pakete zerteilt. Diese können dann zwischen den Geräten im Netzwerk verschickt werden. Dabei ist das Ethernet-Protokoll immer nur im jeweiligen Netzwerksegment gültig.\cite{zisler2013computer} Die Adressierung wird mit Hilfe der MAC-Adressen realisiert. Diese Adressen sind eindeutig und werden jedem netzwerkfähigen Gerät vom Hersteller zugeordnet.
 
 
 
@@ -30,13 +30,13 @@ Beim Ethernet-Protokoll werden die Daten in Pakete zerteilt. Diese können dann z
 
 \subsection{ Vermittlungsschicht/Network Layer (Schicht 3)}
 
-Die Protokolle dieser Schicht werden verwendet, um über Netzwerkgrenzen hinaus Nachrichten zu versenden.\cite{zisler2013computer} Dieses Protokoll liegt innerhalb der Nutzdaten des Ethernet-Pakets.
+Die Protokolle dieser Schicht werden verwendet, um über Netzwerkgrenzen hinaus Nachrichten zu versenden.\cite{zisler2013computer} Diese Protokolle liegen innerhalb der Nutzdaten des Ethernet-Pakets.
 
 \subsubsection{IPv4}
 
-Zur Adressierung werden IPv4 Adressen verwendet, die 32 bit (4 Byte) lang sind. Vergeben werden die Adressen von der IANA (Internet Assigned Numbers Authority). Jeder der aus dem Internet erreichbar sein will, muss sich bei der IANA oder einer untergeordneten Organisation eine IP-Adresse oder Adressbereich geben lassen.\\
+Zur Adressierung werden IPv4 Adressen verwendet, die 32 bit (4 Byte) lang sind. Vergeben werden die Adressen von der IANA (Internet Assigned Numbers Authority). Jeder, der aus dem Internet erreichbar sein will, muss sich bei der IANA oder einer untergeordneten Organisation eine IP-Adresse oder Adressbereich geben lassen.\\
 
-Das Internet Protokoll wird wie in folgender Abbildung gezeigt in das Ethernet Paket eingebettet.
+Das Internet Protokoll wird wie in unten stehender Abbildung 2.2 gezeigt in das Ethernet Paket eingebettet.
 
 \begin{figure}[h]
 	\centering
@@ -65,52 +65,52 @@ In Bild 2.3 ist der TCP Header gezeigt, der den Daten vorangestellt ist.
 \subsection{ Anwendungsschicht/ Application Layer (Schicht 5)}
 
 
-
+%TODO    
 
 
 
 
 \section{Datensicherheit}
 
- Die Aufgabe der Datensicherheit werden durch das CIA-Prinzip beschreiben.\\ Zur Datensicherheit gehören nach diesem Prinzip alle Maßnahmen, die die \textbf{C}onfidentiality, \textbf{I}ntegrity und \textbf{A}vailability (Vertraulichkeit, Integrität, Verfügbarkeit) gewährleisten.\cite{CIA}
+ Die Aufgaben der Datensicherheit werden durch das CIA-Prinzip beschrieben.\\ Zur Datensicherheit gehören nach diesem Prinzip alle Maßnahmen, die die \textbf{C}onfidentiality, \textbf{I}ntegrity und \textbf{A}vailability (Vertraulichkeit, Integrität, Verfügbarkeit) gewährleisten.\cite{CIA}
 Eine zusätzliche Aufgabe ist die Sicherstellung der Authentizität.
 Viele dieser Aufgaben werden mit Hilfe der Kryptographie realisiert und umgesetzt. 
 
 
 \subsection{Vertraulichkeit}
 Die Vertraulichkeit ist dann gewährleistet, wenn die Daten nicht von unbefugten Personen eingesehen werden können. Es muss also ein System verwendet werden, bei dem sich befugte Benutzer legitimieren können und unbefugte beim Interpretieren gehindert werden. \\
-In den meisten Fällen wird dies durch eine Verschlüsselung (symmetrisch oder asymmetrisch) umgesetzt. Alle legitimierten Benutzter erhalten den Schlüssel. Die Personen ohne Schlüssel können die Informationen nicht entschlüsseln - die Vertraulichkeit ist so garantiert.
+In den meisten Fällen wird dies durch eine Verschlüsselung (symmetrisch oder asymmetrisch) umgesetzt. Alle legitimierten Benutzer erhalten den Schlüssel. Die Personen ohne Schlüssel können die Informationen nicht entschlüsseln - die Vertraulichkeit ist so garantiert.
 
 \subsection{Integrität} 
 Die Integrität stellt sicher, dass Daten nicht unbemerkt verändert oder gefälscht werden. 
-So soll eine Nachricht genau so beim Empfänger ankommt, wie sie abgesendet wurde.\\
-Hierzu können Hash-Funktionen verwendet werden, die beim Verändern der Nachricht einen anderen Wert ergeben würden. Dabei müsste entweder die Hash-Funktion geheim sein oder der Hash-Wert verschlüsselt werden.
+So soll eine Nachricht genau so beim Empfänger ankommen, wie sie abgesendet wurde.\\
+Hierzu können Hash-Funktionen verwendet werden, die beim Verändern der Nachricht anderen Werte ergeben würden. Dabei müsste entweder die Hash-Funktion geheim sein oder der Hash-Wert verschlüsselt werden.
  
 
 \subsection{Authentizität} 
-Die Authentizität bestätigt, dass Daten von der angegeben Informationsquelle stammen. Es ist ein Identitätsbeweis des Absenders gegenüber dem Empfängers.\\ Dies kann zum mit einer Public-Key Verschlüsselung realisiert werden. Dafür verschlüsselt der Sender die Nachricht mit seinem Private Key. Der Empfänger kann einzig mit dem Public Key des Senders die Nachricht entschlüsseln. Ist das Entschlüsseln möglich, so weiß der Empfänger, dass die Nachricht genau von diesem Sender kommt.
+Die Authentizität bestätigt, dass Daten von der angegebenen Informationsquelle stammen. Es ist ein Identitätsbeweis des Absenders gegenüber dem Empfängers.\\ Dies kann zum Beispiel mit einer Public-Key Verschlüsselung realisiert werden. Dafür verschlüsselt der Sender die Nachricht mit seinem Private Key. Der Empfänger kann einzig mit dem Public Key des Senders die Nachricht entschlüsseln. Ist das Entschlüsseln möglich, so weiß der Empfänger, dass die Nachricht genau von diesem Sender kommt.
 
 
 
 \subsection{Verfügbarkeit} 
-Der Dritte Punkt ist die Verfügbarkeit. Es soll immer sichergestellt wer, dass Daten aber auch Programm immer abrufbar sind. Hierzu gehören Mechanismen zur Vermeidung von DoS (Denial of Service) Angriffen. Diese Angriffe würden beispielsweise einen Server so überfordern, dass dieser keine Dateien mehr ausliefern kann - die Verfügbarkeit ist dann nicht mehr gewährleistet.
+Der Dritte Punkt ist die Verfügbarkeit. Es soll immer sichergestellt sein, dass Daten aber auch Programme immer abrufbar sind. Hierzu gehören Mechanismen zur Vermeidung von DoS (Denial of Service) Angriffen. Diese Angriffe würden beispielsweise einen Server derart überfordern, dass dieser keine Dateien mehr ausliefern kann - die Verfügbarkeit ist dann nicht mehr gewährleistet.
 
 
 
 \section{Datenschutz}
 
-Der Datenschutz ist ein Überbegriff für das im Gesetzte festgelegten Recht auf informationelle Selbstbestimmung. Was bedeutet, dass jede Person über die Preisgabe der personenbezogenen Daten bestimmen kann. Die Bundesbeauftragten für den Datenschutz und die Informationssicherheit (BfDI) definieren den Datenschutz wie folgt:\\\\
+Der Datenschutz ist ein Überbegriff für das im Gesetz festgelegte Recht auf informationelle Selbstbestimmung. Was bedeutet, dass jede Person über die Preisgabe der personenbezogenen Daten bestimmen kann. Die Bundesbeauftragten für den Datenschutz und die Informationssicherheit (BfDI) definieren den Datenschutz wie folgt:\\\\
 \textit{,,Datenschutz garantiert jedem Bürger Schutz vor missbräuchlicher Datenverarbeitung, das Recht auf informationelle Selbstbestimmung und den Schutz der Privatsphäre''}
 \cite{BfDI}\\\\
-So kann jeder der personenbezogene Daten, ohne Zustimmung des Betreffenden speichert oder weiterverarbeitet vor Gericht angeklagt werden kann.
-Damit dies nicht passiert haben die meisten Institute die mit personenbezogenen Daten umgehen einen Datenschutzbeauftragten, der die Einhaltung dieser Gesetzte überwacht.
+So kann jeder, der personenbezogene Daten, ohne Zustimmung des Betreffenden speichert oder weiterverarbeitet vor Gericht angeklagt werden.
+Damit dies nicht passiert, haben die meisten Institute, die mit personenbezogenen Daten umgehen, einen Datenschutzbeauftragten, der die Einhaltung dieser Gesetze überwacht.
 
 
 \section{Kryptographie}
-Kryptographie bedeutet ,,wörtlich: Die Lehre vom Geheimen schreiben'' \cite{hellmann2018sicherheit} und beschäftigt sich mit der mathematischen Verschlüsselung von Informationen. Dabei gibt es zwei große Verschlüsselungsarten - die Symmetrischen und die Asymmetrischen Verschlüsselungen.//
-Eine der wichtigsten Grundprinzipien der Kryptographie wurde bereits im 19. Jahrhundert von A.Kerkhoffs aufgestellt. Eine der wichtigsten Ausagen hierbei ist, dass die Sicherheit einer Verschlüsselung nicht von dem Verschlüsselungsalgorithmus, sondern allein von dem Schlüssel abhängig sein soll.\cite{ertel2018angewandte} Das heißt, dass ein guter Verschlüsselungsalgorithmus öffentlich gemacht werden kann, ohne die Sicherheit zu gefährden.
+Kryptographie bedeutet ,,wörtlich: Die Lehre vom Geheimen schreiben'' \cite{hellmann2018sicherheit} und beschäftigt sich mit der mathematischen Verschlüsselung von Informationen. Dabei gibt es zwei große Verschlüsselungsarten - die Symmetrischen und die Asymmetrischen Verschlüsselungen.\\
+Ein Grundprinzip der Kryptographie wurde bereits im 19. Jahrhundert von A.Kerkhoffs aufgestellt. Eine der wichtigsten Aussagen hierbei ist, dass die Sicherheit einer Verschlüsselung nicht von dem Verschlüsselungsalgorithmus, sondern allein von dem Schlüssel abhängig sei.\cite{ertel2018angewandte} Das heißt, dass ein guter Verschlüsselungsalgorithmus öffentlich gemacht werden kann, ohne die Sicherheit zu gefährden.
 Ein Beispiel ist der RSA Algorithmus. Dies ist einer der heute verbreitetsten Algorithmen. Der Algorithmus ist für jeden öffentlich zugänglich, dies hat aber keine Auswirkung auf die Sicherheit, da die Sicherheit allein auf der Geheimhaltung des Passwortes basiert.\\
-Dies hat zum Beispiel auch den Vorteil, dass bei einem Personalwechsel nicht der ganze Algorithmus ausgetauscht werden muss, sondern nur das Password. 
+Dies hat zum Beispiel auch den Vorteil, dass in einer Firma bei einem Personalwechsel nicht der ganze Algorithmus ausgetauscht werden muss, sondern nur das Passwort. 
 
 
 \subsection{Symmetrische Verschlüsselung}
@@ -127,22 +127,21 @@ Bekannte Beispiele sind der DES und AES.
 
 \subsection{Asymmetrische Verschlüsselung}
 
-Bei einer asymmetrisch Verschlüsselung hat man zum verschlüsseln einen anderen Schlüssel wie zum entschlüsseln. Dieses System wird ,,Public-Key-Kryptographie'' genannt, da es einen öffentlichen ($k1$) und einen privaten Schlüssel ($k2$) gibt. Dabei wird der $k1$ zum Verschlüsseln verwendet und $k2$ zum Entschlüsseln.
+Bei einer asymmetrischen Verschlüsselung hat man zum Verschlüsseln einen anderen Schlüssel wie zum Entschlüsseln. Dieses System wird ,,Public-Key-Kryptographie'' genannt, da es einen öffentlichen ($k1$) und einen privaten Schlüssel ($k2$) gibt. Dabei wird der $k1$ zum Verschlüsseln verwendet und $k2$ zum Entschlüsseln.
 
 $E_{k1} (M) = C$\\
 $D_{k2}(C) = M$
-
 \cite{ertel2001angewandte}
 
 
-Dieses System löst das Problem der Schlüsselübergabe, da der öffentliche Schlüssel ohne Bedenke an den Kommunikationspartner übertragen werden kann. Bei einem Möglichen Angriff kann der Angreifer mit dem Schlüssel nichts anfangen, da er mit ihm nicht entschlüsseln kann. Nur der private Schlüssel, der geheim bleibt und nicht versendet wird, kann dann die Entschlüsselte Nachricht dechiffrieren.\\
+Dieses System löst das Problem der Schlüsselübergabe, da der öffentliche Schlüssel ohne Bedenken an den Kommunikationspartner übertragen werden kann. Bei einem möglichen Angriff kann der Angreifer mit dem Schlüssel nichts anfangen, da er mit ihm nicht entschlüsseln kann. Nur der private Schlüssel, der geheim bleibt und nicht versendet wird, kann dann die entschlüsselte Nachricht dechiffrieren.\\
 Diese Art von Algorithmus kann so auch zur Authentifizierung eingesetzt werden.
-Bekannte Asymmetrische Verschlüsselungen sind der RSA-Algorithmus, der Algorithmus von Diffi und Hellmann oder der Algorithmus von ElGamal.
-
+Bekannte asymmetrische Verschlüsselungen sind der RSA-Algorithmus, der Algorithmus von Diffi und Hellmann oder der Algorithmus von ElGamal.
+\cite{ertel2001angewandte}
 
 \subsection{Verwendung von ,,Shamir's Secret Sharing'' Methode}
 
-Die Shamir's Secret Sharing Methode ist ein mathematisches Verfahren, das es möglich macht, ein Geheimnis auf mehrere Instanzen aufzuteilen. Dabei sind das Geheimnis und die dabei einstehenden ,,Shares'' Integer-Werte.\\  Die einzelnen Instanzen können dabei keine Rückschlüsse auf das Geheimnis schließen. Allein wenn man den Großteil der ,,Shares'' besitzt kann man das Geheimnis rekonstruieren.\\
+Die Shamir's Secret Sharing Methode ist ein mathematisches Verfahren, das es möglich macht, ein Geheimnis auf mehrere Instanzen aufzuteilen. Dabei sind das Geheimnis und die dabei entstehenden ,,Shares'' Integer-Werte.\\  Die einzelnen Instanzen lassen dabei keine Rückschlüsse auf das Geheimnis zu. Allein wenn man den Großteil der ,,Shares'' besitzt, kann man das Geheimnis rekonstruieren.\\
 
 Der folgende Abschnitt basiert auf dieser Literatur: \cite{lee2010new}
 
@@ -161,10 +160,10 @@ Verwendet wird ein Geheimnis d, eine Anzahl von n Instanzen und eine Schwelle k 
 	$F(x_i) = (d+c_1x_i+c_2x_i^2+...+c_{k-1}x_i^{k-1})mod(p)$
 \end{center}
 
-5. Nun können die n Shares erstellt werden. Diese sind wie folgt Aufgebaut $(x_i,F(x_i)) $
+5. Nun können die n Shares erstellt werden. Diese sind wie folgt aufgebaut: $(x_i,F(x_i)) $
 
 
-Das Geheimnis ist nun in einer Funktion ,,abgespeichert''. Die Shares sind Punkte, die auf dieser Funktion liegen. Damit die Funktion wieder rekonstruiert werden kann, müssen mindestens k der n Shares vorhanden.
+Das Geheimnis ist nun in einer Funktion ,,abgespeichert''. Die Shares sind Punkte, die auf dieser Funktion liegen. Damit die Funktion wieder rekonstruiert werden kann, müssen mindestens k der n Shares vorhanden sein.
 
 Entschlüsseln:\\
 
@@ -176,25 +175,25 @@ Das hierdurch entstandene Gleichungssystem mit den Unbekannten $d$ und $c_1$ bis
 
 \subsection{Steganographie}
 
-Die Steganographie ist die Kunst vom verborgenem Schreiben. Je nachdem welche Literatur man verwendet wird die Steganographie als Unterpunkt der Kryptographie oder als einen eigene Disziplin gesehen. In dieser Arbeit wird die Steganographie eigenständig betrachtet und als alternative zur Kryptographie gesehen.\\
-Beide, die Kryptographie und die Steganographie, sind Möglichkeiten Informationen geheim und von Dritten ungesehen zu übertragen. Wie bereits oben beschrieben beschäftigt sich die Kryptographie mit dem verschlüsselten Schreiben. Die Steganographie hingegen benutzt keine Verschlüsselung, sondern versucht die geheime Information in einem unauffälligem oder legitimiertem Informationskanal zu verstecken.\\\\
-Wie von Peter Purgathofer \cite{purgathofer2010kurze} beschrieben hat die Steganographie eine große Bedeutung in der Geschichte, denn die Menschen waren gerade in Kriegszeiten schon immer auf der Suche nach einem sicher Weg Informationen zu übertragen.\\ So hat zum Beispiel der griechisch Spion Demaratos Wachstafeln dazu benutzt um Informationen zu verschicken. Nur hat er die nicht ins Wachs geschrieben sondern in das darunterliegende Holz.\\
+Die Steganographie ist die Kunst vom verborgenen Schreiben. Je nachdem welche Literatur man verwendet, wird die Steganographie als Unterpunkt der Kryptographie oder als eine eigene Disziplin gesehen. In dieser Arbeit wird die Steganographie eigenständig betrachtet und als Alternative zur Kryptographie gesehen.\\
+Beide, die Kryptographie und die Steganographie, sind Möglichkeiten Informationen geheim und von Dritten ungesehen zu übertragen. Wie bereits oben beschrieben, beschäftigt sich die Kryptographie mit dem verschlüsselten Schreiben. Die Steganographie hingegen benutzt keine Verschlüsselung, sondern versucht die geheime Information in einem unauffälligen oder legitimierten Informationskanal zu verstecken.\\\\
+Wie von Peter Purgathofer \cite{purgathofer2010kurze} beschrieben hat die Steganographie eine große Bedeutung in der Geschichte, denn die Menschen waren gerade in Kriegszeiten schon immer auf der Suche nach einem sicheren Weg, Informationen zu übertragen.\\ So hat zum Beispiel der griechische Spion Demaratos Wachstafeln dazu benutzt um Informationen zu verschicken. Nur hat er diese nicht ins Wachs geschrieben, sondern in das darunterliegende Holz.\\
 Ebenfalls soll Histiaeus, der Tyrann von Milet, seine geheimen Nachrichten auf die Schädel der Sklaven tätowiert haben. Die Haare wuchsen nach und die Nachricht war verborgen.\\
-Es gibt noch viele andere Beispiel Angefangen von unsichtbarer Tinte bis hin zu Morsezeichen in Gemälden, aber vor allem Künstlern wurde oft vorgeworfen, mit Hilfe von Steganographie Geheime Nachrichten zu verbreiten. So wurde zum Beispiel Mozart immer wieder beschuldigt freibeuterische Nachrichten  in der ,,Zauberflöte'' versteckt zu haben.
+Es gibt noch viele andere Beispiele, angefangen von unsichtbarer Tinte bis hin zu Morsezeichen in Gemälden. Vor allem Künstlern wurde oft vorgeworfen, mit Hilfe von Steganographie geheime Nachrichten zu verbreiten. So wurde zum Beispiel Mozart immer wieder beschuldigt freibeuterische Nachrichten  in der ,,Zauberflöte'' versteckt zu haben.
 
-Die Beispiele der Geschichte zeigen deutlich wie die Steganographie funktioniert: Es gibt immer eine unauffällige Trägernachricht (Wachstafel, Sklave, Gemälde, Musikstück... ).\\ In diese Trägernachricht wie die geheime Nachricht versteckt (Unter Wachs oder Haaren, Blickwinkel auf das Gemälde, Notenreihenfolge...)\\ Um die Nachricht zu entschlüsseln benötigt der Empfänger nur die Information wo sich die Nachricht befindet beziehungsweise wie sie versteckt wird.
+Die Beispiele der Geschichte zeigen deutlich wie die Steganographie funktioniert: Es gibt immer eine unauffällige Trägernachricht (Wachstafel, Sklave, Gemälde, Musikstück... ).\\ In dieser Trägernachricht wird die geheime Nachricht versteckt (Unter Wachs oder Haaren, Blickwinkel auf das Gemälde, Notenreihenfolge...).\\ Um die Nachricht zu entschlüsseln benötigt der Empfänger nur die Information wo sich die Nachricht befindet, beziehungsweise wie sie versteckt wurde.
 Das Schema von Gary C. Kessler \cite{Steg} macht dieses Prinzip sehr anschaulich:
 
  \textit{Steganographisches Medium = Geheime Nachricht + Träger Nachricht + Steganografischer Schlüssel}\\
  
-Dabei darf der steganografische Schlüssel nicht mit dem aus der Kryptographie verwechselt werden. Es handelt sich hier mehr um das Wissen wo und wie die geheime Nachricht verborgen ist.\\
-Dabei bedient sich die Steganographie der ,,Security by Obscurity'' (Sicherheit durch Unwissenheit), was bedeutet, dass die Sicherheit allein davon abhängt, ob das Geheimhaltungsverfahren unbekannt bleibt. Übrigens gehören kryptographische Verfahren die nicht unter Kerkhoffs Prinzip fallen auch zu ,,Security by Obscurity''. Will man also ein solches System sicherer machen muss man dafür sorgen, dass das Verfahren so abwegig beziehungsweise obskur gestalten wird, sodass nie jemand auf die Idee kommt nach einer geheimen Nachricht zu suchen.
+Dabei darf der steganografische Schlüssel nicht mit dem aus der Kryptographie verwechselt werden. Es handelt sich hier mehr um das Wissen, wo und wie die geheime Nachricht verborgen ist.\\
+Dabei bedient sich die Steganographie der ,,Security by Obscurity'' (Sicherheit durch Unwissenheit), was bedeutet, dass die Sicherheit allein davon abhängt, ob das Geheimhaltungsverfahren unbekannt bleibt. Im übrigen gehören kryptographische Verfahren die nicht unter Kerkhoffs Prinzip fallen auch zu ,,Security by Obscurity''. Will man also ein solches System sicherer machen, muss man dafür sorgen, dass das Verfahren so abwegig, beziehungsweise so obskur gestalten wird, sodass nie jemand auf die Idee kommt, nach einer geheimen Nachricht zu suchen.
 
 Die Steganographie hat in der Geschichte eine relativ einfache aber sichere Methode geboten Nachrichten zu übertragen. Aber auch heute im Internet sind wir nahezu immer von Datenkanälen umgeben, die sich für die steganographische Datenübertragung eignen. Der Vorteil hierbei ist, dass meistens unter den ganzen kryptographisch verschlüsselten Datenpaketen die Steganographie vergessen wird.
 
 \textbf{Im heutigen informationstechnischen Kontext spricht man von Steganographie, wenn geheime Informationen in Texte, Bilddateien, PDFs oder ähnlichem eingebettet und verschickt werden.} 
 
-Methoden diese Daten zu manipulieren werden bei den Lösungsidee vorgestellt.
+Methoden diese Daten zu manipulieren werden im Kapitel ,,Lösungsideen'' vorgestellt.
 \subsection{Covert Channel}
 \label{cha:Was ist ein Covert-Channel?} %Label des Kapitels
 
@@ -205,34 +204,34 @@ Methoden diese Daten zu manipulieren werden bei den Lösungsidee vorgestellt.
 
 %\textit{,,Verdeckte Kanäle erzeugen einen in der Literatur meist nicht legitimen Kommunikationskanal (also etwa das Übertragen versteckter Informationen über HTTP) und nutzen dabei Kommunikationsattribute aus, die von Entwicklern gar nicht zur Kommunikation gedacht sind. Die Legitimität des verdeckten Kanals ist dabei von der Betrachtungsweise (Anwender des verdeckten Kanals beziehungsweise Gegenspieler) abhängig.''}\cite{wendzel2012tunnel}
 
-Die Covert Channel (Verdeckte Kanäle) haben wie die Steganografie die Aufgabe, Daten in legitimen Kanälen zu verstecken. Der Unterschied zwischen der Steganographie und den Covert Channels liegt allein in der Art, wie diese Daten versteckt werden.
+Die Covert Channels (Verdeckte Kanäle) haben wie die Steganografie die Aufgabe, Daten in legitimen Kanälen zu verstecken. Der Unterschied zwischen der Steganographie und den Covert Channels, liegt allein in der Art, wie diese Daten versteckt werden.
 
 \textbf{
-Covert Channeln nutzen die Kommunikationsattribute der Netzwerkpakete um die geheimen Informationen einzubetten.\cite{wendzel2012tunnel}}
+Covert Channels nutzen die Kommunikationsattribute der Netzwerkpakete, um die geheimen Informationen einzubetten.\cite{wendzel2012tunnel}}
 
 Zur Erstellung eines Covert Channel wird ein legitimer Datenkanal benötigt. Dort werden die Kommunikationsattribute so manipuliert, dass zusätzliche geheime Daten übertragen werden können.
 Kommunikationsattribute sind hier alle veränderbaren Parameter in den Netzwerkprotokollen. Hierzu gehören die Protokoll Header, der Zeitpunk des Absendens aber auch die Größe der Nutzdaten.
  
-Im Kapitel der Lösungsansätze wird sich damit beschäftigen, wie die die Kommunikationsattribute manipuliert werden können.
+Das Kapitel der Lösungsansätze beschäftigt sich damit, wie die Kommunikationsattribute manipuliert werden können.
 
 
 Der Aufbau eines Covert Channel lässt sich durch folgendes Schema darstellen:\\
 \textit{Covert Channel = Geheime Daten + Trägerkanal + Manipulation der Kommunikationsattribute}
 
-Bei den weit verbreiteten mathematischen Verschlüsselungen muss sich meistens keine sorgen gemachen werden, ob der Datenaustausch von Dritten entdeckt werden kann, da hier die Daten ohne richtigen Key nutzlos sind.\\
-Bei den Covert-Chanels ist dies problematischer, da ein entdeckter Kanal in der Regel direkt interpretiert werden kann. Ein Covert-Channel lebt, wie der Name auch schon verrät, davon wie gut dieser versteckt ist.\\ 
-Dabei besitzen sie  einen großen Vorteil: Ist das Verfahren zum Verstecken der Daten nicht bekannt, so ist es nahezu unmöglich den Covert-Channel zu finden, da nicht klar ist wo und nach was gesucht werden muss (Security by Obscurity).\\
-Ist hingegen klar, um welches Verfahren es sich handelt und besteht die Vermutung, dass eine Kommunikation über einen versteckten Kanal stattfindet so kommt man leicht an die Informationen.\\
-Um einen Covert-Channel zu Bewerten müssen folgende Aspekte betrachtet werden:
+Bei den weit verbreiteten mathematischen Verschlüsselungen, muss sich meistens keine Sorgen gemacht werden, ob der Datenaustausch von Dritten entdeckt werden kann, da hier die Daten ohne den richtigen Key nutzlos sind.\\
+Bei den Covert Channels ist dies problematischer, da ein entdeckter Kanal in der Regel direkt interpretiert werden kann. Ein Covert Channel lebt, wie der Name auch schon verrät, davon wie gut dieser versteckt ist.\\ 
+Dennoch besteht ein großer Vorteil: Ist das Verfahren zum Verstecken der Daten nicht bekannt, so ist es nahezu unmöglich, den Covert Channel zu finden, da nicht klar ist, wo und nach was gesucht werden muss (Security by Obscurity).\\
+Ist hingegen klar, um welches Verfahren es sich handelt und besteht die Vermutung, dass eine Kommunikation über einen versteckten Kanal stattfindet, so sind die Informationen nicht lange sicher.\\
+Um einen Covert Channel zu Bewerten müssen folgende Aspekte betrachtet werden:
 
-Der erste ist die Fähigkeit, wie einfach sich ein Kanal verstecken lässt. Hier fließt die allgemeine Unauffälligkeit des Covert-Channels ein, aber auch die Eigenschaften des bereits herrschenden Netzwerkverkehrs, in den der Channel eingebettet werden soll.\\
-Der zweite Aspekt ist die Unbekanntheit des Verfahrens, sodass nicht nach einem möglichen versteckten Kanal gesucht werden kann. Hier kann einen Methode zur individuellen Gestaltung des Channels eine Verbesserung bringen.\\
-Natürlich muss auch die Datenübertragungsrate betrachtet. Diese ist meistens sehr gering aber hier gibt es auch große Unterschiede zwischen den einzelnen Verfahren. \\
+Der erste ist die Fähigkeit, wie einfach sich ein Kanal verstecken lässt. Hier fließt die allgemeine Unauffälligkeit des Covert Channels ein, aber auch die Eigenschaften des bereits herrschenden Netzwerkverkehrs, in den der Channel eingebettet werden soll.\\
+Der zweite Aspekt ist die Unbekanntheit des Verfahrens, sodass nicht nach einem möglichen versteckten Kanal gesucht wird. Die individuelle Gestaltung des Channels verbessert stets den Grad der Sicherheit.\\
+Natürlich muss auch die Datenübertragungsrate betrachtet werden. Diese ist meistens sehr gering. Es existieren jedoch große Unterschiede zwischen den einzelnen Verfahren. \\
 Die Integrität der Daten müssen die Channels ebenfalls gewährleisten.
 
 
 \subsubsection{Aktive und Passive Covert Channels}
-Covert Channels können in zwei Kategorien eingeteilt werden. In aktive und passive Covert Channels.\\ Die aktive Variante generiert den zu Verändernden Netzwerktrafic selbs und sendet diese mit den veränderten Attributen zum Empfänger.\\
+Covert Channels können in zwei Kategorien eingeteilt werden: In aktive und passive Covert Channels.\\ Die aktive Variante generiert den zu Verändernden Netzwerkverkehr selbst und sendet diese mit veränderten Attributen zum Empfänger.\\
 Bei passiven Kanälen schleust sich der Sender in eine bereits bestehende Kommunikation ein und manipuliert dort die Netzwerkattribute. Die Nachrichten werden nicht vom Sender erzeugt, sondern nur weitergeleitet. \cite{wendzel2012tunnel}
 
  
