@@ -19,7 +19,7 @@ Beim Ethernet-Protokoll werden die Daten in Pakete zerteilt. Diese können dann z
 
 
 
-\begin{figure}[ht]
+\begin{figure}[h]
 	\centering
 	\includegraphics*[height=2.7cm]{bilder/Ethernet.png}
 	\caption{Erweiterter Ethernet-Frame nach IEEE 802.1Q \cite{zisler2013computer}}
@@ -38,7 +38,7 @@ Zur Adressierung werden IPv4 Adressen verwendet, die 32 bit (4 Byte) lang sind. 
 
 Das Internet Protokoll wird wie in folgender Abbildung gezeigt in das Ethernet Paket eingebettet.
 
-\begin{figure}[ht]
+\begin{figure}[h]
 	\centering
 	\includegraphics*[height=6cm]{bilder/ipv4.png}
 	\caption{IPv4 Header \cite{zisler2013computer}}
@@ -47,28 +47,26 @@ Das Internet Protokoll wird wie in folgender Abbildung gezeigt in das Ethernet P
 
 
 
-\subsubsection{IPv6}
+\subsection{ Transportschicht/ Transport Layer (Schicht 4)}
+Diese Schicht beinhaltet Protokolle, die festlegt wie Nachrichten transportiert werden.
 
-Da die IPv4 Adressen langsam knapp werden, wurde das IPv6 Protokoll erstellt, welches über Adressen mit 6 Byte Länge verfügt. Dies bedeutet, dass deutlich mehr Adressen erstellt und vergeben werden können.
-Die Funktion ist aber mehr oder weniger die gleiche.
-
-Der Header des IPv6 Protokolls ist in folgender Abbildung gezeigt.
-
+\subsubsection{TCP}
+Bei TCP (Transmission Control Protocol) ist die Übertragung verbindungsorientiert. Mit Hilfe der Ports können auf TCP aufbauende Protokolle von Anwendungen adressiert werden. Damit keine Pakete verloren gehen oder falsch zusammengesetzte werden, arbeitet TCP mit Sequenz-Nummern die jedes Paket identifizieren. Hat der Empfänger ein Paket erhalten so sendet dieser ein Empfangsbestätigung, die gleichzeitig ein nächstes Paket anfordern kann. Hierzu wird die Acknowledgement Number verwendet. Kommt keine Bestätigung so wird von einem Verlust ausgegangen und erneut gesendet. \cite{wendzel2012tunnel}\\
+In Bild 2.3 ist der TCP Header gezeigt, der den Daten vorangestellt ist.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics*[height=5cm]{bilder/ipv6.png}
-	\caption{IPv6 Header \cite{zisler2013computer}}
-	\label{fig3}
+	\includegraphics*[height=5cm]{bilder/TCP.png}
+	\caption{TCP Header \cite{wendzel2012tunnel}}
+	\label{fig23}
 \end{figure}
 
 
+\subsection{ Anwendungsschicht/ Application Layer (Schicht 5)}
 
 
-\subsection{ Transportschicht/ Transport Layer (Schicht 4)}
 
 
-\subsection{ Kommunikationsschicht/Session Layer (Schicht 5)}
 
 
 
@@ -110,11 +108,10 @@ Damit dies nicht passiert haben die meisten Institute die mit personenbezogenen 
 
 \section{Kryptographie}
 Kryptographie bedeutet ,,wörtlich: Die Lehre vom Geheimen schreiben'' \cite{hellmann2018sicherheit} und beschäftigt sich mit der mathematischen Verschlüsselung von Informationen. Dabei gibt es zwei große Verschlüsselungsarten - die Symmetrischen und die Asymmetrischen Verschlüsselungen.//
-Eine der wichtigsten Grundprinzipien der Kryptographie wurde bereits im 19. Jahrhundert von A.Kerkhoffs aufgestellt. Eine der wichtigsten Ausagen hierbei ist, dass die Sicherheit einer Verschlüsselung nicht von dem Verschlüsselungsalgorithmus, sondern allein von dem Schlüssel abhängig sein soll. Das heißt, dass ein guter Verschlüsselungsalgorithmus öffentlich gemacht werden kann, ohne die Sicherheit zu gefährden.
+Eine der wichtigsten Grundprinzipien der Kryptographie wurde bereits im 19. Jahrhundert von A.Kerkhoffs aufgestellt. Eine der wichtigsten Ausagen hierbei ist, dass die Sicherheit einer Verschlüsselung nicht von dem Verschlüsselungsalgorithmus, sondern allein von dem Schlüssel abhängig sein soll.\cite{ertel2018angewandte} Das heißt, dass ein guter Verschlüsselungsalgorithmus öffentlich gemacht werden kann, ohne die Sicherheit zu gefährden.
 Ein Beispiel ist der RSA Algorithmus. Dies ist einer der heute verbreitetsten Algorithmen. Der Algorithmus ist für jeden öffentlich zugänglich, dies hat aber keine Auswirkung auf die Sicherheit, da die Sicherheit allein auf der Geheimhaltung des Passwortes basiert.\\
 Dies hat zum Beispiel auch den Vorteil, dass bei einem Personalwechsel nicht der ganze Algorithmus ausgetauscht werden muss, sondern nur das Password. 
 
-%TODO kerkhoff quelle
 
 \subsection{Symmetrische Verschlüsselung}
 
@@ -205,8 +202,6 @@ Methoden diese Daten zu manipulieren werden bei den Lösungsidee vorgestellt.
 
 %A covert channel is a communication channel that violates a security policy by using shared resources in ways for which they were not initially designed. In this article we address network covert channels in which the timing of packet arrivals encodes the message; an arrival within a certain in-terval indicates a high bit, and the absence of an arrival a low bit. To utilize this channel, Eve must be able to modify the transmission times of packets departing from th
 
-%TODO definition von tunel buch
-
 
 %\textit{,,Verdeckte Kanäle erzeugen einen in der Literatur meist nicht legitimen Kommunikationskanal (also etwa das Übertragen versteckter Informationen über HTTP) und nutzen dabei Kommunikationsattribute aus, die von Entwicklern gar nicht zur Kommunikation gedacht sind. Die Legitimität des verdeckten Kanals ist dabei von der Betrachtungsweise (Anwender des verdeckten Kanals beziehungsweise Gegenspieler) abhängig.''}\cite{wendzel2012tunnel}
 
@@ -239,13 +234,6 @@ Die Integrität der Daten müssen die Channels ebenfalls gewährleisten.
 \subsubsection{Aktive und Passive Covert Channels}
 Covert Channels können in zwei Kategorien eingeteilt werden. In aktive und passive Covert Channels.\\ Die aktive Variante generiert den zu Verändernden Netzwerktrafic selbs und sendet diese mit den veränderten Attributen zum Empfänger.\\
 Bei passiven Kanälen schleust sich der Sender in eine bereits bestehende Kommunikation ein und manipuliert dort die Netzwerkattribute. Die Nachrichten werden nicht vom Sender erzeugt, sondern nur weitergeleitet. \cite{wendzel2012tunnel}
-
-
-\subsubsection{Wozu sind Covert Channels nicht geeignet?}
-
-Hohe Datenübertragung
-Authenzität
-
 
  
 %%% Local Variables: 

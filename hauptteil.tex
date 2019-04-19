@@ -6,15 +6,11 @@
 Es soll eine Lösung gefunden werden, bei der mittels Methoden des Information-Hidding Daten übertragen werden können. Dabei sollen beliebige Formate versendet werden können. Zudem soll er unauffällig sein und mit höchst möglicher Übertragungsgeschwindigkeit funktionieren. Die Lösungsidee muss sich als Algorithmus umsetzen lassen und soll möglichst nicht von Netzwerkbedingungen abhängig sein. Die Lösung darf sich nicht von Netzwerk Normaliesierungen beeinflussen lassen.\\ 
 Eine Methode zur Sicherstellung der Integrität soll implementierbar sein und eine Umsetzung als passiven Covert Channel ist wünschenswert. 
 
-%TODO     
-
 
 \chapter{Lösungsansätze}
 \label{cha:Covert-Channel} %Label des Kapitelsne bereit
 
-%TODO       
 Im folgenden Kapitel werden verschiedene, bereits existierende steganografische Covert-Channel betrachtet, die für das Erreichen der Zielsetzung in Frage kommen.
-
 
 \section{Covert Channel}
 
@@ -117,7 +113,7 @@ Eine mögliche Kodierung könnte Folgende sein:
 HTTP -> 00 \tab
 DNS  -> 01\\
 ICMP -> 10\tab
-POP  -> 11\\
+POP3  -> 11\\
  \cite{wendzel2012tunnel}
 
 So ist man in der Lage binäre Daten mit vier Protokolle zu versenden. In Abbildung 4.3 ist dieses Prinzip veranschaulicht.
@@ -333,7 +329,8 @@ Dieser Datenstrom läuft über den Proxy, der nun die Möglichkeit hat den Datenstr
 
 
 \subsection{Bewertung des Aufbaus}
-Die passive Variante bietet die Möglichkeit, die Nachrichten jedes beliebigen Servers zu verwenden und auch das Ziel zu variieren. Dies spricht für die passive Durchführung. %TODO                                       
+Die aktive Variante bietet eine gute Grundlage, um die Methode eines zeitabhängigen Covert Channel zu beweisen und die Funktion zu testen. Außerdem hat man bei dieser Variante die volle Kontrolle über die versendeten Datenpakete und kann so wichtige Parameter genau bestimmen.\\
+Wird die passive Umsetzung Verwendet bekommt man als Ergebnis eine flexible Lösung die jede Webseite nutzen kann. Da große Teile des aktiven Lösungsansatzes beim passiven wiederverwendet werden können, soll in diesem Projekt zunächst der aktive Covert Channel und als Erweiterung der passive realisiert werden.
 
 \section{Kodierung und Dekodierung}
 
@@ -413,10 +410,7 @@ Ein weiterer Nachteil ist, dass Fehler oft nacheinander auftreten, da sie von de
 Bei einer Verwendung von großen Datenpaketen und sehr verstreut auftretenden Fehlern würde die Implementierung des Hamming-Codes Sinn machen, aber in dieser Arbeit wird aus den oben genannten Gründen darauf verzichtet.
 
 
-\section{Wahrung der Authenzität}
-
-
-\section{Wahrung der Integrität}
+\section{Integrität}
 
 Um die Integrität der gesendeten Daten zu gewährleisten, soll am Ende der Daten ein Hashwert mitgesendet werden.
 
@@ -436,6 +430,9 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 	Beide Algorithmen verändern sich maßgeblich, wenn ein Bit geändert wird. Der md5 ist auf Grund seiner Länge aber auch komplexeren Algorithmus erheblich sicherer. In dieser Arbeit soll die Sicherheit jedoch allein von der Unauffälligkeit des Covert Channel abhängen. Die Hashfunktion soll nur Sicherstellen, dass die Nachricht unverändert beim Empfänger angekommen ist.\\
 	Dazu ist der Pearson Hash ebenfalls in der Lage und hat den Vorteil, dass er nur ein sechzehntel an Datenmenge in Anspruch nimmt.\\ Aus diesen Gründen wird in dieser Arbeit mit dem Pearson Hash gearbeitet. 
 
+\section{Authentizität}
+	Die Authentizität wird durch den Pearson-Hash teilweise abgedeckt. Dies gilt aber nur solange die Mapping-Tabelle geheim bleibt. Ist ein Angreifer jedoch in besitzt einer kompletten dekodierten Nachricht, kann er selbst mit Brute-Force in kürzester Zeit die Tabelle nachkonstruieren.\\
+	Es könnte  ein Public-Key Verfahren eingesetzt werden mit dem zum Beispiel der Hash-Wert verschlüsselt wird. Jedoch würde so eine Methode nicht zu einem auf \textit{Security by obscurity} basierenden Verfahren passen. Auch steht es in Konfrontation mit der Anforderung eine alternative zu verschlüsselten Kommunikationen zu erstellen.
 
 \section{Netzwerkprotokoll}
 	\subsection{Anforderung an das Netzwerkprotokol}
@@ -724,7 +721,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 		Damit die Daten nicht codiert auf die Datei geschrieben werden, wird das Paket \textit{BitArray} verwendet, welche es möglich macht die binären Daten zu schreiben.\\
 		Die Datei oder Nachricht ist hiermit erfolgreich übertragen.
 		
-		\section{Optimales Einstellen des Covert Channel} 
+\chapter{Optimales Einstellen und Anwendung des Covert Channel} 
 		Es gilt nun den Covert Channel so optimal wie möglich einzustellen. Dazu muss die beste Kombination aus Übertragungsgeschwindigkeit und des Zeitfensters gefunden werden.\\
 		Gezielte Test-Datenübertragungen soll hier Aufschluss zu diesen Werten geben. Um reale Netzwerkbedingungen zu schaffen wird der Server auf einem 1\&1 Cloud Server in Karlsruhe gehosted. Das Ergebnis eines TCP-Pings ergibt eine Übertragungsdauer von 30 ms zum Server. Bei allen Tests wird einen Testdatei mit 12 Byte (Hallo Welt) verwendet.\\
 		
@@ -819,16 +816,6 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Mögli
 	Die Grafik in Bild 6.6 zeigt die Zeiten der eingesetzten Werte. Bei der Verwendung der Werte 30\%/0,08s (blau) lässt sich eine höhere Konstanz erkennen. Hier werden deutlich mehr Daten auf den ersten Versuch korrekt übertragen. Das ist bei 40\%/0,05s selten der Fall, jedoch ist hier die mögliche Übertragungsgeschwindigkeit auf Grund der kleineren Pausen größer. Jedoch ist trotz größerer Schwankungen die durchschnittliche Zeit von 40\%0,05s mit 8,327s kleiner als die 9,095s von 30\%/0,08s.\\
 	
 	Die Kombination aus einem Zeitfenster von 40\% und einer große Pause von 0,05 Sekunden ist die optimale Lösung für diesen Covert Channel.
-	
-\chapter{Evaluation}
-	Der Server und der Client sind in der Lage einen Covert Channel zu erstellen. Dieser ist in der Lage Daten zu übertragen. Die Kommunikation geschieht verdeckt, kommt aber ohne Verschlüsselung aus.\\
-	Das in der Motivation genannte Beispiel würde sich mit dieser Lösung umsetzten lassen. Es können Daten jeglicher Größe übertragen werden. Jedoch macht eine Größe über 200 Byte keinen Sinn, da hier die Chance auf falsch Interpretierte Bits sehr groß wird. Jedoch bietet dieses Projekt eine gute Basis um entsprechende Erweiterungen zu implementieren die das Senden von großen Dateien realistisch machen.\\
-	Mit einer durchschnittlichen Datenübertragungsrate von 11,53 Bits pro Sekunde ist der Covert Channel nicht sehr schnell, aber ausreichend um kleinere Datenmengen zu übertragen.\\
-	Wird der Covert Channel zur Kommunikation verwendet ist es für dritte nahezu unmöglich eine verdeckte Kommunikation zu erkennen. Wird der Server so getarnt, dass er nicht mit einem Sender, wie zum Beispiel der Polizei, in Verbindung gebracht werden kann, so stellt diese Lösung ein sehr sichere Variante dar, um kurze Nachrichten wie Treffpunkte, Anweisungen oder Telefonnummern auszutauschen.
-	
-
-
-
 
 
 \chapter{Umsetzung der passiven Variante}
@@ -876,8 +863,7 @@ while True:
 			Die Pausen werden äquivalent zu der aktiven Variante definiert.
 			
 	
-\chapter{Tests}
-			
+\chapter{Anwendung des passiven Covert Channel}
 	
 	\section{Probleme bei realen Webseite}
 	
@@ -934,16 +920,33 @@ while True:
 		\end{figure}
 			
 				
+\chapter{Evaluierung}	
+		Das Ergebnis dieser Arbeit benutzt einen Covert Channel als eine Methode des Information-Hidding um Daten zu übertragen. Dabei können die Daten jedes beliebige Format annehmen, da diese in ihrer binären Form übertragen werden. Die für diesen Covert Channel höchst mögliche Übertragungsgeschwindigkeit wurde ermittelt und kann auch Angewendet werden. Es gibt jedoch andere Covert Channels, wie beispielsweise den Storage Channel, die zu deutlich höheren Übertragungsgeschwindigkeiten fähig sind. Der Kanal ist als Algorithmus umsetzbar, was durch die Realisierung mittels eins Computerprogramm gezeigt ist. Dadurch, dass der Covert Channel unabhängig vom Paketinh alt ist, lässt er sich nicht von Netzwerk-Normalisierungen beeinflussen. Er ist jedoch stark von Netzwerkbedingungen abhängig, was als Folge der Codierung durch die Zeitabstände einhergeht.\\
+		Die Umsetzung als passive Variante ist ebenfalls möglich, was durch dessen erfolgreiche Implementierung gezeigt wird.
+			
+
+
+
+\chapter{Fazit und Ausblick}
+
+		\section{Aktiv}
+		Der Server und der Client sind in der Lage einen Covert Channel zu erstellen, der in der Lage Daten zu übertragen. Die Kommunikation geschieht verdeckt, kommt aber ohne Verschlüsselung aus.\\
+		Das in der Motivation genannte Beispiel lässt sich mit dieser Lösung umsetzten. Es können Daten jeglicher Größe übertragen werden. Jedoch macht eine Größe über 200 Byte keinen Sinn, da hier die Chance auf falsch interpretierte Bits sehr groß wird. Die entstandene Softwarelösung bietet eine gute Basis, um entsprechende Erweiterungen zu implementieren.\\
+		Mit einer durchschnittlichen Datenübertragungsrate von 11,53 Bits pro Sekunde ist der Covert Channel nicht sehr schnell, aber ausreichend um kleinere Datenmengen zu übertragen.\\
+		Wird der Covert Channel zur Kommunikation verwendet ist es für Dritte nahezu unmöglich eine verdeckte Kommunikation zu erkennen. Wird der Server so getarnt, dass er nicht mit einem Sender, wie zum Beispiel der Polizei, in Verbindung gebracht werden kann, so stellt diese Lösung ein sehr sichere Variante dar, um kurze Nachrichten wie Treffpunkte, Anweisungen oder Telefonnummern auszutauschen.
+
 		
-\chapter{Evaluierung}
+		\section{Pasiv}
 		Die passive Variante des Covert Channels ist eine \textit{Proof of Cocept} Implementierung und noch nicht geeignet um als reale Anwendung verwendet zu werden. Das Konzept eines passiven zeitlichen Cover Channel wurde bestätigt und dessen Funktion bewiesen.\\
-		Wie auch bei der aktiven Variante ist eine Datengröße über 200 Byte nicht sinnvoll. Es ist aber eine gute Basis entstanden die gut erweitert werden kann. Durch die Einschränkungen ist es nicht einfach eine geeignete Webseite für den Covert Channel zu finden. Bei einer realen Umsetzung sollte die Verwendung des ersten Lösungsansatzes in Betracht gezogen werden, da man hier auf einer funktionierenden Proxylösung aufbaut und alle Webseiten unterstützt werden.\\
-		Dennoch kann man mit der Kombination aus Proxy und Client Netzwerkpakete eines fremden Servers verwenden, um Informationen ohne Veränderung des Paketinhalts zu versenden.
+		Wie auch bei der aktiven Variante ist eine Datengröße über 200 Byte nicht sinnvoll. Es ist aber eine gute Basis entstanden die erweitert werden kann. Durch die Einschränkungen ist es nicht einfach eine geeignete Webseite für den Covert Channel zu finden. Bei einer realen Umsetzung sollte die Verwendung des ersten Lösungsansatzes in Betracht gezogen werden. Hier kann man auf einer funktionierenden Proxylösung aufbauen, bei der alle Webseiten unterstützt werden.\\
+		Dennoch kann man mit der Kombination aus Proxy und Client, Netzwerkpakete eines fremden Servers verwenden, um Informationen ohne Veränderung des Paketinhalts zu versenden.
 		
 
-\chapter{Mögliche Optimierung}
+\section{Ausblick}
+In diesem Kapitel werden einige mögliche Erweiterungen vorgestellt, die in Zukunft implementiert werden könnten.
 
-\subsubsection{Dateien aufeilen}
+
+\subsubsection{Dateien aufteilen}
 Um auch große Dateien zu verschicken, können diese in mehrere kleine aufgeteilt werden. Hier müsste dann auch eine Methode gefunden werden um die Datei Fragmente wieder zusammenzusetzen.
 
 
@@ -960,9 +963,6 @@ Die derzeitige Webseite zeigt die aktuelle Uhrzeit an. Um den Covert Channel noc
 \subsubsection{Verwendung von HTTPS}
 Um wirklich alle Webseiten verwenden zu können, muss der Proxy in der Lage sein HTTPS Pakete weiterzuleiten. Es macht ebefalls Sinn den Server mit einer verschlüsselten Verbindung auszustatten.
 
-
-
-\chapter{Fazit}
 
 
 
