@@ -71,11 +71,11 @@
 \contentsline {subsection}{\numberline {6.5.2}Bewertung der Hash-Funktionen}{40}{subsection.6.5.2}
 \contentsline {section}{\numberline {6.6}Authentizit\"at}{41}{section.6.6}
 \contentsline {section}{\numberline {6.7}Netzwerkprotokoll}{41}{section.6.7}
-\contentsline {subsection}{\numberline {6.7.1}Anforderung an das Netzwerkprotokol}{41}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.1}Anforderung an das Netzwerkprotokoll}{41}{subsection.6.7.1}
 \contentsline {subsection}{\numberline {6.7.2}HTTP}{41}{subsection.6.7.2}
 \contentsline {subsection}{\numberline {6.7.3}SMTP}{42}{subsection.6.7.3}
 \contentsline {subsection}{\numberline {6.7.4}FTP}{42}{subsection.6.7.4}
-\contentsline {subsection}{\numberline {6.7.5}Bewertung des Netztwerkprotokolls}{42}{subsection.6.7.5}
+\contentsline {subsection}{\numberline {6.7.5}Bewertung der Netztwerkprotokolle}{42}{subsection.6.7.5}
 \contentsline {section}{\numberline {6.8}Server}{43}{section.6.8}
 \contentsline {subsection}{\numberline {6.8.1}Anforderungen an den Server}{43}{subsection.6.8.1}
 \contentsline {subsection}{\numberline {6.8.2}Java HttpServer}{43}{subsection.6.8.2}

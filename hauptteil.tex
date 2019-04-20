@@ -433,54 +433,54 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 	Es könnte  ein Public-Key Verfahren eingesetzt werden mit dem zum Beispiel der Hash-Wert verschlüsselt wird. Jedoch würde so eine Methode nicht zu einem auf \textit{Security by obscurity} basierenden Verfahren passen. Auch steht es in Konfrontation mit der Anforderung eine alternative zu verschlüsselten Kommunikationen zu erstellen.
 
 \section{Netzwerkprotokoll}
-	\subsection{Anforderung an das Netzwerkprotokol}
-	Diese Anforderungen wurden bereits zum Großteil bei der Wahl des Trägerkanals formuliert. Hier wird die Nutzung eines TCP basierenden Protokolls festgelegt.\\
-	Zusätzlich kommt nun der Aspekt hinzu, dass sich mit diesem Protokoll legitim große Datenmengen verschicken lassen sollen ohne Aufmerksamkeit zu erregen. Um der Philosophie von Covert Channels und der Steganographie gerecht zu werden soll ebenfalls keine Verschlüsselung eingesetzt werden.
+	\subsection{Anforderung an das Netzwerkprotokoll}
+	Die Anforderungen hierfür wurden bereits zum Großteil bei der Wahl des Trägerkanals formuliert. Dabei wird die Nutzung eines TCP basierenden Protokolls festgelegt.\\
+	Zusätzlich kommt der Aspekt hinzu, dass sich mit diesem Protokoll legitim große Datenmengen verschicken lassen sollen, ohne Aufmerksamkeit zu erregen. Um der Philosophie von Covert Channels und der Steganographie gerecht zu werden, wird von einer Verschlüsselung abgesehen.
 	
 	\subsection{HTTP}
 	Das Hypertext Transfer Protocol (HTTP) ist ein Protokoll auf Anwendungsebene.
-	Es ist ein generisches, zustandsloses Protokoll, das für viele Aufgaben verwendet werden kann, die auch über die Verwendung für Hypertext hinausgehen.
+	Es ist ein generisches, zustandsloses Protokoll, das für viele Aufgaben verwendet werden kann.
 	HTTP wird zur Versendung von Webseiten und Informationen seit dem Jahr 1990 verwendet.\cite{fielding1999hypertext}\\
-	Auch heute stellt es zusammen mit der verschlüsselten Variante HTTPS einen elementaren Bestandteil des Internets dar. Dabei besteht die Hauptaufgabe darin Daten von Webservern in den Browser zu laden.
+	Auch heute stellt es, zusammen mit der verschlüsselten Variante HTTPS, einen elementaren Bestandteil des Internets dar. Dabei besteht die Hauptaufgabe darin, Daten von Webservern in den Browser zu laden.
 	\subsection{SMTP}
-	Das Simple Mail Transfer Protocol (SMTP) hat die Aufgabe Mail zuverlässig und effizient weiterzuleiten. SMTP Nachrichten, und die in ihnen enthaltenen Mails, werden von SMTP Servern entgegengenommen, um sie an den Empfänger weiterzuleiten. Auch die Kommunikation zwischen den SMTP Servern wird mit Hilfe dieses Protokolls realisiert.\cite{klensin2001rfc}
+	Das Simple Mail Transfer Protocol (SMTP) hat die Aufgabe Mail zuverlässig und effizient weiterzuleiten. SMTP Nachrichten und die in ihnen enthaltenen Mails, werden von SMTP Servern entgegengenommen, um sie an den Empfänger weiterzuleiten. Auch die Kommunikation zwischen den SMTP Servern wird mit Hilfe dieses Protokolls realisiert.\cite{klensin2001rfc}
 	\subsection{FTP}
-	Mit dem File Transfer Protocol (FTP) können Dateien über ein Netzwerk zu einem Server hoch- und heruntergeladen werden. Ebenfalls ist es möglich das Dateisystem auszulesen und auf entfernten Rechnern Dateien zu erstellen aber auch zu löschen.
+	Mit dem File Transfer Protocol (FTP) können Dateien über ein Netzwerk zu einem Server hoch- und heruntergeladen werden. Ebenfalls ist es möglich das Dateisystem auszulesen und auf entfernten Rechnern Dateien zu erstellen, aber auch zu löschen.
 	Die hierzu nötige Kommunikation, wird durch das FTP definiert.\cite{postel1985rfc}
 	
-	\subsection{Bewertung des Netztwerkprotokolls}
-	Alle Protokolle basieren auf TCP und verzichten auf eine Verschlüsselung. FTP wird heute in der Regeln aber nicht mehr angewendet, da es von Protokollen wie SFTP und SSH abgelöst wurde. Daher wäre eine Verwendung nicht geeignet.\\
-	Auch bei SMTP wird heute vermehrt auf die SSL verschlüsselte Variante zurückgegriffen. Ein weiteres Problem be SMTP ist, dass die Nachrichten bei großen Paketmengen als Spam interpretiert werden kann.\\
-	HTTP ist trotz der Einführung von HTTPS im Internet immer noch weit verbreitet und zieht sehr wenig Aufmerksamkeit auf sich. Zusätzlich lässt sich durch die Bereitstellung einer Webseite die wahre Aufgabe des Webservers verbergen.\\
+	\subsection{Bewertung der Netztwerkprotokolle}
+	Alle Protokolle basieren auf TCP und verzichten auf eine Verschlüsselung. FTP wird heute in der Regeln aber nicht mehr angewendet, da es von Protokollen wie SFTP und SSH abgelöst wurde. Daher wäre eine Verwendung in dieser Arbeit nicht geeignet.\\
+	Auch bei SMTP wird heute vermehrt auf die SSL verschlüsselte Variante zurückgegriffen. Ein weiteres Problem bei SMTP ist, dass die Nachrichten bei großen Paketmengen als Spam interpretiert werden können.\\
+	HTTP ist trotz der Einführung von HTTPS im Internet immer noch weit verbreitet und zieht sehr wenig Aufmerksamkeit auf sich. Zusätzlich lässt sich durch die Bereitstellung einer unauffälligen Webseite die wahre Aufgabe des Webservers - die geheime Datenübertragung - verbergen.\\
 	Aus diesen Gründen soll in dieser Arbeit ein HTTP Server realisiert werden, der als Sender der geheimen Daten dient.
 
 \section{Server}
 	\subsection{Anforderungen an den Server}
-	Der Server muss in der Lage sein, einen HTTP Request entgegenzunehmen und im Gegenzug eine Webseite ausliefern. Da die geheimen Daten vom Server an den Client übertragen werden sollen, muss der Server in der Lage sein aktiv ohne Requests HTTP Nachrichten an den Client zu senden.\\ Zusätzlich ist es für diese Anwendung essentiell, dass sich das Senden der Nachrichten verzögern lässt, um die nötigen zeitlichen Abstände für den Covert Channel zu realisieren. Aus diesem Grund soll der Server frei programmierbar sein und auch Daten verarbeiten können um beispielsweise binär Daten zu erstellen oder einen Hashwert zu generieren.\\
+	Der Server muss in der Lage sein, einen HTTP Request entgegenzunehmen und im Gegenzug eine Webseite auszuliefern. Da die geheimen Daten vom Server an den Client übertragen werden sollen, muss der Server in der Lage sein, aktiv, ohne Requests, HTTP Nachrichten an den Client zu senden.\\ Zusätzlich ist es für diese Anwendung essentiell, dass sich das Senden der Nachrichten verzögern lässt, um die nötigen zeitlichen Abstände für den Covert Channel zu realisieren. Aus diesem Grund soll der Server frei programmierbar sein und auch Daten verarbeiten können, um beispielsweise Binärdaten zu erstellen, oder einen Hashwert zu generieren.\\
 	Der Server soll leichtgewichtig, einfach zu bedienen und auf einem Linux Betriebssystem lauffähig sein.
 	
 	\subsection{Java HttpServer}
-	HttpServer ist eine Java Klasse, die es ermöglicht einen einfachen HTTP Server zu erstellen.
+	HttpServer ist eine Java Klasse, die es ermöglicht, einen einfachen HTTP Server zu erstellen.
 	Die von Oracle angebotene Klasse implementiert einen Webserver, der an eine IP-Adresse und an einen Port gebunden ist und dort auf eingehende TCP Verbindungen hört.\\
-	Um den Server nutzen zu können, müssen im ein oder mehrere HttpHandler hinzugefügt werden. Diese bearbeiten, die Anfragen auf verschiedene URL Pfade.\\
+	Um den Server nutzen zu können, müssen ihm ein oder mehrere HttpHandler hinzugefügt werden. Diese bearbeiten, die Anfragen auf verschiedene URL Pfade.\\
 	Der HttpServer kann bei der Verwendung der Unterklasse HttpsServer auch verschlüsselte Verbindungen realisieren.\cite{JAVA_HTTP}
 	
 		
 	\subsection{Node.js und Express}
 	Node.js ist eine Plattform, ausgerichtet um Netzwerkanwendungen zu erstellen. Dabei ist Node.js eine asynchrone und ereignisgesteuerte JavaScript Runtime. Node.js wird in JavaScript programmiert und kann mit Paketen von npm (Node Paket Manager) erweitert werden.\\
-	Als asynchrone Laufzeitumgebung arbeitet Node.js sehr viel mit Callback-Funktionen, die bei Erfüllen von Events ausgeführt werden. Durch die asynchrone Abarbeitung des Programmcodes entsteht eine sehr gut skalierbare Anwendung, die keine Deadlocks generieren kann.\cite{NODE}\\
-	Um mit Node.js ein Webserver zu erstellen kann das Web-Framework Express verwendet werden. Express lässt sich mit Hilfen von npm in das Projekt eingliedern. Das Express Objekt ist in der Lage auf einem Port auf TCP Verbindungen zu warten und entgegenzunehmen. Jedem Pfad ist eine Callback-Funktion zugeordnet, die bei dessen Aufrufen die Abarbeitung der Anfrage übernimmt.\cite{EXPRESS}
+	Als asynchrone Laufzeitumgebung arbeitet Node.js sehr viel mit Callback-Funktionen, die beim Erfüllen von Events ausgeführt werden. Durch die asynchrone Abarbeitung des Programmcodes entsteht eine sehr gut skalierbare Anwendung, die keine Deadlocks generieren kann.\cite{NODE}\\
+	Um mit Node.js einen Webserver zu erstellen, kann das Web-Framework Express verwendet werden. Express lässt sich mit Hilfe von npm in das Projekt eingliedern. Das Express Objekt ist in der Lage, auf einen Port auf TCP Verbindungen zu warten und diese entgegenzunehmen. Jedem Pfad ist eine Callback-Funktion zugeordnet, die bei dessen Aufrufen die Abarbeitung der Anfrage übernimmt.\cite{EXPRESS}
 	
 	
 	\subsection{Bewertung des Servers}
-	Da der Server in der Lage sein muss HTTP Nachrichten zeitlich verzögert abzuschicken, sind fertige und schwergewichtige Server wie der Apache oder NGINX ungeeignet.\\
-	Bei beiden, oben vorgestellten, Servern hat man die Möglichkeit den Datenfluss zu manipulieren und so auch zu verzögern. Da es sich um normalen Java oder JavaScript Code handelt, kann man beliebige Funktionen eigenhändig implementieren und auch von Dateien lesen. So ist der Java HttpServer und auch Express in der Lage den Covert Channel zu realisieren.\\
-	Der sehr simple Aufbau und das einfache Hinzufügen und Verwenden von Paketen sprechen jedoch für den Node.js Server, weshalb dieser hier verwendet wird. Ein weiterer Vorteil von Node.js ist das einfache Installieren auf einem Linux System und dass keine zusätzliche IDE benötigt wird.
+	Da der Server in der Lage sein muss HTTP Nachrichten zeitlich verzögert abzuschicken, sind fertige und schwergewichtige Server, wie der Apache oder NGINX ungeeignet.\\
+	Bei beiden oben vorgestellten Servern, hat man die Möglichkeit den Datenfluss zu manipulieren und zu verzögern. Da es sich um normalen Java oder JavaScript Code handelt, kann man beliebige Funktionen eigenhändig implementieren und auch aus Dateien lesen. So ist der Java HttpServer und auch Express in der Lage den gewünschten Covert Channel zu realisieren.\\
+	Der sehr simple Aufbau und das einfache Hinzufügen und Verwenden von Paketen sprechen für den Node.js Server, weshalb dieser hier verwendet wird. Ein weiterer Vorteil von Node.js ist das einfache Installieren auf einem Linux System. Zusätzlich wird keine IDE benötigt.
 	
 	\section{Back-End}
 		\subsection{Express Implementierung}
-			Das importierte Express Paket wird als \textit{app} Objekt in den Code eingebunden. Mit Hilfe dieses Objekts kann definiert werden, wie auf einen Request an eine definierte URL-Routen reagiert werden sollen.\\
-			 Eine Route wird wie in Listing 6.1 gezeigt hinzugefügt. Die mitgegebene Callback-Funktion wird ausgeführt, falls ein GET Request an die ,,Wurzel-Route'' erfolgt. Ist dies der Fall so wird hier die index.html Seite ausgeliefert.\\
+			Das importierte Express Paket wird als \textit{app} Objekt in den Code eingebunden. Mit Hilfe dieses Objekts kann definiert werden, wie auf einen Request an eine URL-Route reagiert werden soll.\\
+			 Eine Route wird wie in Listing 6.1 gezeigt hinzugefügt. Die mitgegebene Callback-Funktion wird ausgeführt, falls ein GET Request an die ,,Wurzel-Route'' erfolgt. Ist dies der Fall, so wird hier die index.html Seite ausgeliefert.\\
 				
 			\begin{lstlisting}[caption=Hinzufügen der Stamm-Route]
 				app.get('/', function(req, res){
@@ -505,26 +505,26 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 				Diese Methoden, auf die mit http zugegriffen wird, sehen nicht vor, dass ein Server selbständig und ohne danach gefragt zu werden Nachrichten an den Client sendet.
 
 				\subsubsection{Anforderung an die Kommunikation des Covert Channels}
-				Da die Hauptaufgabe des Server das Senden manipulierter Pakete an den Client sein wird, muss ein alternative Kommunikation gefunden werden, die nach dem Ausliefern der Webseite den Nachrichtentransport übernimmt. Dabei muss eine bidirektionale Kommunikation möglich sein. Auch eine einfache Anwendung soll angestrebt werden.
+				Da die Hauptaufgabe des Server das Senden manipulierter Pakete an den Client sein wird, muss eine alternative Kommunikation gefunden werden, die nach dem Ausliefern der Webseite den Nachrichtentransport übernimmt. Dabei muss eine bidirektionale Kommunikation möglich sein. Auch eine einfache Anwendung soll angestrebt werden.
 					
 				\subsubsection{Websockets}
 				
-				Das Websocket Protokol baut auf HTTP auf. Bei HTTP wird, nach dem der Client die Antwort vom Server erhalten hat, meistens die Verbindung geschlossen. Bei der Verwendung von Websockets wird die darunterliegende TCP/IP Verbindung weiterverwendet und kann wie ein normaler Netzwerksocket benutzt werden. Dies ermöglicht dem Client und dem Server jeder Zeit Daten zu senden.\cite{abts2015bidirektionale}
+				Das Websocket Protokol baut auf HTTP auf. Bei HTTP wird, nachdem der Client die Antwort vom Server erhalten hat, meistens die Verbindung geschlossen. Bei der Verwendung von Websockets wird die darunterliegende TCP/IP Verbindung weiterverwendet und kann wie ein normaler Netzwerksocket benutzt werden. Dies ermöglicht dem Client und dem Server jeder Zeit Daten zu senden.\cite{abts2015bidirektionale}
 					
 				\subsubsection{Socket.IO}
 				
 				Socket.IO ist eine JavaScript-Bibliothek, mit der sich eine bidirektionale Echtzeitkommunikation realisieren lässt. Die Funktion ähnelt einem WebSocket und lässt eine ereignisgesteuerte Kommunikation zwischen Browser und Server zu.\cite{SOCKET_IO}\\
-				Um die Verbindung zwischen Server und Client auf jeden Fall sicherzustellen und um so viele Browser wie möglich zu unterstützten, setzt Socket.io auf mehrere Technologien, wie Websockets, Flash-Sockets oder Comet.\cite{ullrich2012websockets}
+				Um die Verbindung zwischen Server und Client auf jeden Fall sicherzustellen und um so viele Browser wie möglich zu unterstützten, setzt Socket.IO auf mehrere Technologien, wie Websockets, Flash-Sockets oder Comet.\cite{ullrich2012websockets}
 				
 				
 				\subsubsection{Berwertung der Kommunikation des Covert Channels}
-				Beide Methoden sind in der Lage den Covert Channel zu realisieren, jedoch gibt es bei Websockets Probdenleme mit der Verwendung von Proxys.\\
-				Socket.IO stellt eine Erweiterung der WebSockets dar und verfügt über weitere Funktionen wie zum Beispiel Broadcasting. Aus diesen Gründen, und da eine sehr komfortable node.js Schnittstelle vorhanden ist, soll hier die Kommunikation mit Socket.IO realisiert werden.
+				Beide Methoden sind in der Lage den Covert Channel zu realisieren. Jedoch gibt es bei Websockets Probleme mit der Verwendung von Proxys.\\
+				Socket.IO stellt eine Erweiterung der WebSockets dar und verfügt über weitere Funktionen, wie zum Beispiel Broadcasting. Aus diesen Gründen und der Tatsache, dass eine sehr komfortable node.js Schnittstelle vorhanden ist, soll hier die Kommunikation mit Socket.IO realisiert werden.
 				
 			
 			\subsection{Socket.IO Implementierung}
-			Socket.IO wird in Form des \textit{io} Objekts in den Code eingebunden. Der Verbindungsaufbau ist wie in Listing 6.3 gezeigt aufgebaut. Den Events werden ihre jeweiligen Callback-Funktionen zugeordnet.\\
-			Wurde eine Verbindung aufgebaut so sendet der Server eine \textit{test} Nachricht an den Client. Hat der diese empfangen so antwortet dieser mit einem \textit{ClientHello}. Wird diese vom Server empfangen, so wird der jeweilige Socket in ein Array gespeichert und später zum Senden von weiteren Daten verwendet.\\
+			Socket.IO wird in Form des \textit{io} Objekts in den Code eingebunden. Der Verbindungsaufbau ist, wie in Listing 6.3 gezeigt, aufgebaut. Den Events werden ihre jeweiligen Callback-Funktionen zugeordnet.\\
+			Wurde eine Verbindung aufgebaut, so sendet der Server eine \textit{test} Nachricht an den Client. Hat der Client diese empfangen, so antwortet dieser mit einem \textit{ClientHello}. Wird diese vom Server empfangen, so wird der jeweilige Socket in ein Array gespeichert und später zum Senden von weiteren Daten verwendet.\\
 			
 			
 			\begin{lstlisting}[caption=Verbindungsaufbau mit Socket.IO]
@@ -547,9 +547,9 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 				
 		\subsection{Pearson Hash Implementierung}
 		Um die Pearson Hash-Funktion auf die Daten anzuwenden, muss eine Mapping-Tabelle mit den Werten von 0-255 in zufälliger Reihenfolge generiert werden. Diese lässt sich beispielsweise mit einem Python Script unter Verwendung der \textit{shuffel} Funktion erstellen.\\
-		Die hier generierte Tabelle muss beim Server sowie Client bekannt sein, um bei gleicher Hash-Funktion und gleichen Daten den identischen Hashwert zu generieren.\\
-		Den Algorithmus zur Berechnung des Hashes ist in Listing 6.4 gezeigt.
-		Hier wird am Anfang ein Hash-Wert \textit{h} generiert. Dieser wird bitweise XOR mit dem Datenwert verknüpft. Der entstandene Wert wird als Index in der Mapping-Tabelle verwendet. Der dortige Wert in der Mapping-Tabelle wird der neue Wert \textit{h}. Dies wird so lange wiederholt bis alle Datenwerte verwendet wurden. 
+		Die hier generierte Tabelle muss beim Server, sowie beim Client bekannt sein, um bei gleicher Hash-Funktion und gleichen Daten den identischen Hashwert zu generieren.\\
+		Den Algorithmus zur Berechnung des Hashs ist in Listing 6.4 gezeigt.
+		Hier wird am Anfang ein Hash-Wert \textit{h} generiert. Dieser wird bitweise XOR mit dem Datenwert verknüpft. Der entstandene Wert wird als Index in der Mapping-Tabelle verwendet. Der dortige Wert in der Mapping-Tabelle, wird der neue Wert \textit{h}. Dies wird so lange wiederholt, bis alle Datenwerte verwendet worden sind. 
 		
 		\begin{lstlisting}[caption=Erstellen der Mapping-Table]
 					
@@ -563,14 +563,14 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 		
 		\end{lstlisting}
 		
-		Da hier mit einer \textit{hashLength} von 1 gearbeitet wird, ist das Ergebnis ein 8 Bit Wert der nun an die Daten angehängt werden kann.
+		Da hier mit einer \textit{hashLength} von 1 gearbeitet wird, ist das Ergebnis ein 8 Bit-Wert, der nun an die Daten angehängt werden kann.
 		
 		\subsection{Covert Channel Implementierung}
 		
 		Um den Covert Channel zu implementieren, werden Nachrichten zeitlich verzögert an den Client gesendet. Grundsätzlich kann jede beliebige Nachricht an den Client gesendet werden. Hier wird zum Testen die aktuelle Uhrzeit verwendet.\\
-		Die Länge der Pause zwischen den Daten hängt davon ab, ob eine 1 oder 0 übertragen werden soll. Bei einer 1 wird eine lange Pause zwischen den Paketen gemacht, bei einer 0 eine kurze.\\
-		Zur Definition der Pausen wird die lange Pause in Millisekunden angegeben. Zusätzlich kommt ein Faktor, der das Verhältnis zwischen der langen und kurzen Pause angibt. Durch die Variation dieser beiden Werte kann der Covert Channel eingestellt und optimiert werden.
-		Ist eine komplette Datei übertragen, wird eine definierte Pause von einer Sekunde gemacht. Danach beginnt die Datenübertragung erneut.
+		Die Länge der Pause zwischen den Daten hängt davon ab, ob eine 1 oder eine 0 übertragen werden soll. Eine 1 wird durch eine lange, eine 0 durch eine kurze Pause festgelegt.\\
+		Zur Definition der Pausen wird die lange Pause in Millisekunden angegeben. Zusätzlich wird ein Faktor festgelegt, der das Verhältnis zwischen der langen und kurzen Pause angibt. Durch die Variation von Pausenlänge und Faktor kann der Covert Channel eingestellt und optimiert werden.
+		Ist eine komplette Datei übertragen, wird eine vorab definierte Pause von einer Sekunde eingelegt. Danach beginnt die Datenübertragung erneut.
 		
 		\begin{lstlisting}[caption=Covert Channel]
 		

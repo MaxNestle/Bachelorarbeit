@@ -60,11 +60,11 @@
 \BOOKMARK [2][-]{subsection.6.5.2}{Bewertung der Hash-Funktionen}{section.6.5}% 60
 \BOOKMARK [1][-]{section.6.6}{Authentizit\344t}{chapter.6}% 61
 \BOOKMARK [1][-]{section.6.7}{Netzwerkprotokoll}{chapter.6}% 62
-\BOOKMARK [2][-]{subsection.6.7.1}{Anforderung an das Netzwerkprotokol}{section.6.7}% 63
+\BOOKMARK [2][-]{subsection.6.7.1}{Anforderung an das Netzwerkprotokoll}{section.6.7}% 63
 \BOOKMARK [2][-]{subsection.6.7.2}{HTTP}{section.6.7}% 64
 \BOOKMARK [2][-]{subsection.6.7.3}{SMTP}{section.6.7}% 65
 \BOOKMARK [2][-]{subsection.6.7.4}{FTP}{section.6.7}% 66
-\BOOKMARK [2][-]{subsection.6.7.5}{Bewertung des Netztwerkprotokolls}{section.6.7}% 67
+\BOOKMARK [2][-]{subsection.6.7.5}{Bewertung der Netztwerkprotokolle}{section.6.7}% 67
 \BOOKMARK [1][-]{section.6.8}{Server}{chapter.6}% 68
 \BOOKMARK [2][-]{subsection.6.8.1}{Anforderungen an den Server}{section.6.8}% 69
 \BOOKMARK [2][-]{subsection.6.8.2}{Java HttpServer}{section.6.8}% 70
