@@ -10,41 +10,42 @@
 \contentsline {subsubsection}{\nonumberline Ethernet}{4}{section*.4}
 \contentsline {subsection}{\numberline {2.1.2}Vermittlungsschicht/Network Layer (Schicht 3)}{5}{subsection.2.1.2}
 \contentsline {subsubsection}{\nonumberline IPv4}{5}{section*.5}
-\contentsline {subsection}{\numberline {2.1.3}Transportschicht/ Transport Layer (Schicht 4)}{5}{subsection.2.1.3}
-\contentsline {subsubsection}{\nonumberline TCP}{5}{section*.6}
+\contentsline {subsubsection}{\nonumberline IPv6}{5}{section*.6}
+\contentsline {subsection}{\numberline {2.1.3}Transportschicht/ Transport Layer (Schicht 4)}{6}{subsection.2.1.3}
+\contentsline {subsubsection}{\nonumberline TCP}{6}{section*.7}
 \contentsline {subsection}{\numberline {2.1.4}Anwendungsschicht/ Application Layer (Schicht 5)}{7}{subsection.2.1.4}
 \contentsline {section}{\numberline {2.2}Datensicherheit}{7}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Vertraulichkeit}{7}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Integrit\"at}{7}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.2}Integrit\"at}{8}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Authentizit\"at}{8}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.2.4}Verf\"ugbarkeit}{8}{subsection.2.2.4}
-\contentsline {section}{\numberline {2.3}Datenschutz}{8}{section.2.3}
+\contentsline {section}{\numberline {2.3}Datenschutz}{9}{section.2.3}
 \contentsline {section}{\numberline {2.4}Kryptographie}{9}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Symmetrische Verschl\"usselung}{9}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.1}Symmetrische Verschl\"usselung}{10}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}Asymmetrische Verschl\"usselung}{10}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Verwendung von ,,Shamir's Secret Sharing'' Methode}{10}{subsection.2.4.3}
-\contentsline {section}{\numberline {2.5}Information Hiding}{11}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Steganographie}{11}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}Covert Channel}{13}{subsection.2.5.2}
-\contentsline {subsubsection}{\nonumberline Aktive und Passive Covert Channels}{14}{section*.7}
+\contentsline {subsection}{\numberline {2.4.3}Verwendung von ,,Shamir's Secret Sharing'' Methode}{11}{subsection.2.4.3}
+\contentsline {section}{\numberline {2.5}Information Hiding}{12}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Steganographie}{12}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Covert Channel}{14}{subsection.2.5.2}
+\contentsline {subsubsection}{\nonumberline Aktive und Passive Covert Channels}{15}{section*.8}
 \contentsline {chapter}{\numberline {3}Anforderung an die L\"osung}{16}{chapter.3}
 \contentsline {chapter}{\numberline {4}L\"osungsans\"atze}{17}{chapter.4}
 \contentsline {section}{\numberline {4.1}Covert Channel}{17}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Zeitabh\"angige Covert Channel}{17}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}Storage Channel}{19}{subsection.4.1.2}
-\contentsline {subsubsection}{\nonumberline IPv4}{20}{section*.8}
+\contentsline {subsubsection}{\nonumberline IPv4}{20}{section*.9}
 \contentsline {subsection}{\numberline {4.1.3}IPv6}{21}{subsection.4.1.3}
 \contentsline {subsection}{\numberline {4.1.4}TCP}{21}{subsection.4.1.4}
 \contentsline {subsection}{\numberline {4.1.5}Traffic Normalizers}{22}{subsection.4.1.5}
 \contentsline {subsection}{\numberline {4.1.6}Benutzung verschiedener Protokolle}{22}{subsection.4.1.6}
-\contentsline {subsubsection}{\nonumberline Protocol Channels}{22}{section*.9}
-\contentsline {subsubsection}{\nonumberline Protocol Hopping Covert Channel}{23}{section*.10}
+\contentsline {subsubsection}{\nonumberline Protocol Channels}{22}{section*.10}
+\contentsline {subsubsection}{\nonumberline Protocol Hopping Covert Channel}{23}{section*.11}
 \contentsline {subsection}{\numberline {4.1.7}Verwendung der Nutzdatengr\"o\IeC {\ss }e}{24}{subsection.4.1.7}
 \contentsline {section}{\numberline {4.2}Steganographie}{25}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Klassische textbasierende Verfahren}{25}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Basierend auf RGB Bilder}{25}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Bildformate mit Alpha Kanal}{27}{subsection.4.2.3}
-\contentsline {subsubsection}{\nonumberline Verwendung von ,,Shamir's Secret Sharing'' Methode}{27}{section*.11}
+\contentsline {subsubsection}{\nonumberline Verwendung von ,,Shamir's Secret Sharing'' Methode}{27}{section*.12}
 \contentsline {subsection}{\numberline {4.2.4}Verwendung von PDF Dateien}{28}{subsection.4.2.4}
 \contentsline {chapter}{\numberline {5}Bewertung der Covert Channel}{29}{chapter.5}
 \contentsline {chapter}{\numberline {6}Umsetzung des Projekts}{31}{chapter.6}
@@ -65,8 +66,8 @@
 \contentsline {subsection}{\numberline {6.4.2}Bewertung der Fehlerkorektur}{39}{subsection.6.4.2}
 \contentsline {section}{\numberline {6.5}Integrit\"at}{39}{section.6.5}
 \contentsline {subsection}{\numberline {6.5.1}Hash-Funktionen}{40}{subsection.6.5.1}
-\contentsline {subsubsection}{\nonumberline md5}{40}{section*.12}
-\contentsline {subsubsection}{\nonumberline Pearson}{40}{section*.13}
+\contentsline {subsubsection}{\nonumberline md5}{40}{section*.13}
+\contentsline {subsubsection}{\nonumberline Pearson}{40}{section*.14}
 \contentsline {subsection}{\numberline {6.5.2}Bewertung der Hash-Funktionen}{40}{subsection.6.5.2}
 \contentsline {section}{\numberline {6.6}Authentizit\"at}{41}{section.6.6}
 \contentsline {section}{\numberline {6.7}Netzwerkprotokoll}{41}{section.6.7}
@@ -83,10 +84,10 @@
 \contentsline {section}{\numberline {6.9}Back-End}{44}{section.6.9}
 \contentsline {subsection}{\numberline {6.9.1}Express Implementierung}{44}{subsection.6.9.1}
 \contentsline {subsection}{\numberline {6.9.2}Kommunikation des Covert Channel}{45}{subsection.6.9.2}
-\contentsline {subsubsection}{\nonumberline Anforderung an die Kommunikation des Covert Channels}{45}{section*.14}
-\contentsline {subsubsection}{\nonumberline Websockets}{46}{section*.15}
-\contentsline {subsubsection}{\nonumberline Socket.IO}{46}{section*.16}
-\contentsline {subsubsection}{\nonumberline Berwertung der Kommunikation des Covert Channels}{46}{section*.17}
+\contentsline {subsubsection}{\nonumberline Anforderung an die Kommunikation des Covert Channels}{45}{section*.15}
+\contentsline {subsubsection}{\nonumberline Websockets}{46}{section*.16}
+\contentsline {subsubsection}{\nonumberline Socket.IO}{46}{section*.17}
+\contentsline {subsubsection}{\nonumberline Berwertung der Kommunikation des Covert Channels}{46}{section*.18}
 \contentsline {subsection}{\numberline {6.9.3}Socket.IO Implementierung}{47}{subsection.6.9.3}
 \contentsline {subsection}{\numberline {6.9.4}Geheime Daten}{47}{subsection.6.9.4}
 \contentsline {subsection}{\numberline {6.9.5}Pearson Hash Implementierung}{47}{subsection.6.9.5}
@@ -102,33 +103,34 @@
 \contentsline {subsection}{\numberline {6.11.4}Bewertung der Covert Channel Auswertung}{51}{subsection.6.11.4}
 \contentsline {section}{\numberline {6.12}Client}{52}{section.6.12}
 \contentsline {subsection}{\numberline {6.12.1}Programmiersprache}{52}{subsection.6.12.1}
-\contentsline {subsubsection}{\nonumberline Anforderung an die Programmiersprache}{52}{section*.18}
-\contentsline {subsubsection}{\nonumberline Java}{52}{section*.19}
-\contentsline {subsubsection}{\nonumberline Python}{52}{section*.20}
-\contentsline {subsubsection}{\nonumberline Bewertung der Programmiersprache}{53}{section*.21}
+\contentsline {subsubsection}{\nonumberline Anforderung an die Programmiersprache}{52}{section*.19}
+\contentsline {subsubsection}{\nonumberline Java}{52}{section*.20}
+\contentsline {subsubsection}{\nonumberline Python}{52}{section*.21}
+\contentsline {subsubsection}{\nonumberline Bewertung der Programmiersprache}{53}{section*.22}
 \contentsline {subsection}{\numberline {6.12.2}Mitschneiden der Datenenpakete}{53}{subsection.6.12.2}
-\contentsline {subsubsection}{\nonumberline Anforderungen an den Paket-Sniffer}{53}{section*.22}
-\contentsline {subsubsection}{\nonumberline tcpdump}{54}{section*.23}
-\contentsline {subsubsection}{\nonumberline tshark}{54}{section*.24}
-\contentsline {subsubsection}{\nonumberline Bewertung der Paket-Sniffer}{54}{section*.25}
-\contentsline {subsubsection}{\nonumberline Implementierung}{54}{section*.26}
+\contentsline {subsubsection}{\nonumberline Anforderungen an den Paket-Sniffer}{53}{section*.23}
+\contentsline {subsubsection}{\nonumberline tcpdump}{54}{section*.24}
+\contentsline {subsubsection}{\nonumberline tshark}{54}{section*.25}
+\contentsline {subsubsection}{\nonumberline Bewertung der Paket-Sniffer}{54}{section*.26}
+\contentsline {subsubsection}{\nonumberline Implementierung}{54}{section*.27}
 \contentsline {subsection}{\numberline {6.12.3}Interpretieren der Zeitstempel}{55}{subsection.6.12.3}
-\contentsline {subsubsection}{\nonumberline Toleranz}{55}{section*.27}
+\contentsline {subsubsection}{\nonumberline Toleranz}{55}{section*.28}
 \contentsline {subsection}{\numberline {6.12.4}Verarbeiten der Erhaltenen Daten}{56}{subsection.6.12.4}
 \contentsline {chapter}{\numberline {7}Optimales Einstellen und Anwendung des Covert Channel}{57}{chapter.7}
 \contentsline {subsection}{\numberline {7.0.1}Verh\"atniss nicht interpretierbar/ interpretierbar}{57}{subsection.7.0.1}
 \contentsline {subsection}{\numberline {7.0.2}Anzahl korrekt \"ubertragener Dateien}{58}{subsection.7.0.2}
-\contentsline {subsection}{\numberline {7.0.3}Zeit bis zum ersten korrekten Eintreffen}{58}{subsection.7.0.3}
+\contentsline {subsection}{\numberline {7.0.3}Zeit bis zum ersten korrekten Eintreffen}{59}{subsection.7.0.3}
+\contentsline {subsection}{\numberline {7.0.4}Padding zum Synchronisieren}{61}{subsection.7.0.4}
 \contentsline {chapter}{\numberline {8}Umsetzung der passiven Variante}{62}{chapter.8}
 \contentsline {subsection}{\numberline {8.0.1}Anforderung an den Proxy}{62}{subsection.8.0.1}
 \contentsline {subsection}{\numberline {8.0.2}L\"osungsans\"atze}{62}{subsection.8.0.2}
-\contentsline {subsubsection}{\nonumberline Ver\"anderung eines Open-Source Proxys}{62}{section*.28}
-\contentsline {subsubsection}{\nonumberline Proxy selbst programmieren}{63}{section*.29}
+\contentsline {subsubsection}{\nonumberline Ver\"anderung eines Open-Source Proxys}{62}{section*.29}
+\contentsline {subsubsection}{\nonumberline Proxy selbst programmieren}{63}{section*.30}
 \contentsline {subsection}{\numberline {8.0.3}Bewertung des L\"osungsansatzes}{63}{subsection.8.0.3}
 \contentsline {subsection}{\numberline {8.0.4}Implementierung}{63}{subsection.8.0.4}
-\contentsline {subsubsection}{\nonumberline Sockets}{63}{section*.30}
-\contentsline {subsubsection}{\nonumberline Geheime Daten}{64}{section*.31}
-\contentsline {subsubsection}{\nonumberline Covert Channel}{64}{section*.32}
+\contentsline {subsubsection}{\nonumberline Sockets}{63}{section*.31}
+\contentsline {subsubsection}{\nonumberline Geheime Daten}{64}{section*.32}
+\contentsline {subsubsection}{\nonumberline Covert Channel}{64}{section*.33}
 \contentsline {chapter}{\numberline {9}Anwendung des passiven Covert Channel}{66}{chapter.9}
 \contentsline {section}{\numberline {9.1}Probleme bei realen Webseite}{66}{section.9.1}
 \contentsline {subsection}{\numberline {9.1.1}HTTPS}{66}{subsection.9.1.1}
@@ -140,10 +142,10 @@
 \contentsline {section}{\numberline {11.1}Aktiv}{71}{section.11.1}
 \contentsline {section}{\numberline {11.2}Pasiv}{71}{section.11.2}
 \contentsline {section}{\numberline {11.3}Ausblick}{72}{section.11.3}
-\contentsline {subsubsection}{\nonumberline Dateien aufteilen}{72}{section*.33}
-\contentsline {subsubsection}{\nonumberline Automatische Pausenerkennung}{72}{section*.34}
-\contentsline {subsubsection}{\nonumberline Beachtung der Sequence Number beim Client}{73}{section*.35}
-\contentsline {subsubsection}{\nonumberline Server mit realistischen Webseite}{73}{section*.36}
-\contentsline {subsubsection}{\nonumberline Verwendung von HTTPS}{73}{section*.37}
-\contentsline {chapter}{\nonumberline Danksagung}{74}{chapter*.38}
-\contentsline {chapter}{\nonumberline Literatur}{76}{chapter*.39}
+\contentsline {subsubsection}{\nonumberline Dateien aufteilen}{72}{section*.34}
+\contentsline {subsubsection}{\nonumberline Automatische Pausenerkennung}{72}{section*.35}
+\contentsline {subsubsection}{\nonumberline Beachtung der Sequence Number beim Client}{73}{section*.36}
+\contentsline {subsubsection}{\nonumberline Server mit realistischen Webseite}{73}{section*.37}
+\contentsline {subsubsection}{\nonumberline Verwendung von HTTPS}{73}{section*.38}
+\contentsline {chapter}{\nonumberline Danksagung}{74}{chapter*.39}
+\contentsline {chapter}{\nonumberline Literatur}{76}{chapter*.40}

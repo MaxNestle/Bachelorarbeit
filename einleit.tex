@@ -8,9 +8,9 @@
 
 In der heutigen Zeit wird die Datensicherheit immer wichtiger, da immer mehr Daten im Internet preisgegeben werden. Um die Datenübertragung zu sichern wird meistens ein asymmetrisches Verschlüsselungsverfahren verwendet.\\
 Dieses Verfahren bietet zwar ein hohes Maß an Sicherheit, hat aber auch Nachteile wie zum Beispiel eine Erhöhung der Rechenzeit, die Verwaltung eines Key-Managers und die Bedrohung durch einen ,,Man-in-the-Middle'' Angriff.\\ 
-Mögliche Alternativen sind die Steganographie oder Covert Channels. Beide Techniken nutzen legitimierte Datenkanäle, um darin Daten zu verstecken, ohne eine Verschlüsselung anzuwenden. Dabei verwendet die Steganographie Dateien wie zum Beispiel Bilder, Audios oder PDFs um Informationen zu verbergen. Covert Channels nutzen hingegen die Netzwerkattribute für die Datenübertragung.\\
+Mögliche Alternativen sind die Steganographie oder Covert Channels. Beide Techniken nutzen legitimierte Datenkanäle, um darin Daten zu verstecken, ohne eine Verschlüsselung anzuwenden. Dabei verwendet die Steganographie zum Beispiel Bild-, Audio- oder PDF-Dateien um Informationen zu verbergen. Covert Channels nutzen hingegen die Netzwerkattribute für die Datenübertragung.\\
 %Beide Methoden sind sehr unauffällig, da in unverschlüsselten Daten keine sensiblen Daten vermutet werden.\\
-So wäre beispielsweise eine Anwendung denkbar, bei der ein Polizeipräsidium mit ihren verdeckten Ermittlern kommunizieren will. Da die Polizei davon ausgehen muss, dass die Kommunikation abgehört wird, würde eine verschlüsselte Kommunikation zu viel Aufsehen erregen. Zudem kann es sein, dass die Verschlüsselung schon geknackt wurde. \\
+Eine konstruktive Anwendung könnte die Kommunikation zwischen einem Polizeipräsidium und ihren verdeckten  sein. Da die Fahnder davon ausgehen müssen, dass die Kommunikation abgehört wird, würde eine verschlüsselte Kommunikation zu viel Aufsehen erregen. Zudem kann es sein, dass die Verschlüsselung schon geknackt wurde. \\
 Hier kommt die Steganographie ins Spiel, die es möglich macht einen legitimen und unauffälligen Kanal für die Datenübertagung zu verwenden. So ein Kanal könnte der Stream beim Schauen eines Videos oder die Nachrichten einer Webseite sein.\\
 Die Steganographie, aber auch die Covert Channels, bieten gerade deswegen, da sie oft hinter den großen Verschlüsselungsverfahren in Vergessenheit geraten, eine sehr gut Möglichkeit um hoch sensible Daten zu versenden.
 
@@ -25,15 +25,17 @@ Ziel ist es außerdem, jedes Dateiformat übertragen zu können. \\
 In Kapitel 2 werden die thematischen Grundlagen erklärt und definiert. Kapitel 3 beschäftigt sich mit der Findung der Anforderungen an die Lösung. Hier werden alle Punkte definiert die bei der Umsetzung realisiert werden müssen.\\
 Danach beschäftigt sich die Arbeit in Kapitel 4 mit der Findung eines optimalen Verfahrens zum Information Hiding, mit dem die Daten übertragen werden sollen.
 In Kapitel 5 werden die gefundenen Methoden bewertet und die gewünschte Übertragungsart für die Umsetzung festgelegt.\\
-Danach wird sich mit der Umsetzung beschäftigt, die im 6. Kapitel dokumentiert ist.
-Im letzten und 8. Kapitel wird das Ergebnis des Projekts vorgestellt und ein Ausblick in die Zukunft gegeben.
-%TODO       
+Danach wird sich mit der Umsetzung der aktiven Variante beschäftigt, die im 6. Kapitel dokumentiert ist.
+Kapitel 7 thematisiert das optimale Einstellen der Covert Channel Parameter und zeigt wie dieser angewendet wird.
+Die Umsetzung der passiven Variante folgt in Kapitel 8 und dessen Anwendung und Test in Kapitel 9.
+Die entstandenen Ergebnisse werden im 10. Kapitel evaluiert.
+Im letzten und 10. Kapitel folgt das Fazit und ein Ausblick auf mögliche Verbesserungsmöglichkeiten.
+
 
 \section{Eigene Leistung}
 Es werden steganographische Verfahren und Covert Channels bewertet und das Optimum bestimmt. Aus dem gefundenen Ergebnis wird eine Anwendung als ,,Proof of Concept'' implementiert, die passend zur Zielsetzung die Datenkommunikation übernimmt.
-Das Programm wird danach evaluiert und auf mögliche Anwendungsgebiete getestet.
+Das Programm wird danach evaluiert und auf reale Anwendungen getestet.
 
-%TODO     
 
 %%% Local Variables: 
 %%% mode: latex

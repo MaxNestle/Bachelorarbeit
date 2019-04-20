@@ -95,21 +95,22 @@
 \BOOKMARK [1][-]{subsection.7.0.1}{Verh\344tniss nicht interpretierbar/ interpretierbar}{chapter.7}% 95
 \BOOKMARK [2][-]{subsection.7.0.2}{Anzahl korrekt \374bertragener Dateien}{subsection.7.0.1}% 96
 \BOOKMARK [2][-]{subsection.7.0.3}{Zeit bis zum ersten korrekten Eintreffen}{subsection.7.0.1}% 97
-\BOOKMARK [0][-]{chapter.8}{Umsetzung der passiven Variante}{}% 98
-\BOOKMARK [1][-]{subsection.8.0.1}{Anforderung an den Proxy}{chapter.8}% 99
-\BOOKMARK [2][-]{subsection.8.0.2}{L\366sungsans\344tze}{subsection.8.0.1}% 100
-\BOOKMARK [2][-]{subsection.8.0.3}{Bewertung des L\366sungsansatzes}{subsection.8.0.1}% 101
-\BOOKMARK [2][-]{subsection.8.0.4}{Implementierung}{subsection.8.0.1}% 102
-\BOOKMARK [0][-]{chapter.9}{Anwendung des passiven Covert Channel}{}% 103
-\BOOKMARK [1][-]{section.9.1}{Probleme bei realen Webseite}{chapter.9}% 104
-\BOOKMARK [2][-]{subsection.9.1.1}{HTTPS}{section.9.1}% 105
-\BOOKMARK [2][-]{subsection.9.1.2}{Generierung von gen\374gend Nachrichten}{section.9.1}% 106
-\BOOKMARK [2][-]{subsection.9.1.3}{Parallele Datenabfrage}{section.9.1}% 107
-\BOOKMARK [1][-]{section.9.2}{Test mit realen Servern}{chapter.9}% 108
-\BOOKMARK [0][-]{chapter.10}{Evaluierung}{}% 109
-\BOOKMARK [0][-]{chapter.11}{Fazit und Ausblick}{}% 110
-\BOOKMARK [1][-]{section.11.1}{Aktiv}{chapter.11}% 111
-\BOOKMARK [1][-]{section.11.2}{Pasiv}{chapter.11}% 112
-\BOOKMARK [1][-]{section.11.3}{Ausblick}{chapter.11}% 113
-\BOOKMARK [0][-]{chapter*.38}{Danksagung}{}% 114
-\BOOKMARK [0][-]{chapter*.39}{Literatur}{}% 115
+\BOOKMARK [2][-]{subsection.7.0.4}{Padding zum Synchronisieren}{subsection.7.0.1}% 98
+\BOOKMARK [0][-]{chapter.8}{Umsetzung der passiven Variante}{}% 99
+\BOOKMARK [1][-]{subsection.8.0.1}{Anforderung an den Proxy}{chapter.8}% 100
+\BOOKMARK [2][-]{subsection.8.0.2}{L\366sungsans\344tze}{subsection.8.0.1}% 101
+\BOOKMARK [2][-]{subsection.8.0.3}{Bewertung des L\366sungsansatzes}{subsection.8.0.1}% 102
+\BOOKMARK [2][-]{subsection.8.0.4}{Implementierung}{subsection.8.0.1}% 103
+\BOOKMARK [0][-]{chapter.9}{Anwendung des passiven Covert Channel}{}% 104
+\BOOKMARK [1][-]{section.9.1}{Probleme bei realen Webseite}{chapter.9}% 105
+\BOOKMARK [2][-]{subsection.9.1.1}{HTTPS}{section.9.1}% 106
+\BOOKMARK [2][-]{subsection.9.1.2}{Generierung von gen\374gend Nachrichten}{section.9.1}% 107
+\BOOKMARK [2][-]{subsection.9.1.3}{Parallele Datenabfrage}{section.9.1}% 108
+\BOOKMARK [1][-]{section.9.2}{Test mit realen Servern}{chapter.9}% 109
+\BOOKMARK [0][-]{chapter.10}{Evaluierung}{}% 110
+\BOOKMARK [0][-]{chapter.11}{Fazit und Ausblick}{}% 111
+\BOOKMARK [1][-]{section.11.1}{Aktiv}{chapter.11}% 112
+\BOOKMARK [1][-]{section.11.2}{Pasiv}{chapter.11}% 113
+\BOOKMARK [1][-]{section.11.3}{Ausblick}{chapter.11}% 114
+\BOOKMARK [0][-]{chapter*.39}{Danksagung}{}% 115
+\BOOKMARK [0][-]{chapter*.40}{Literatur}{}% 116

@@ -226,7 +226,7 @@ Die neu entstandenen Werte $q'_1$ bis $q'_4$ kann man nun in den Alpha Kanal ein
 
 
 Zum Entschlüsseln muss man nun wieder 245 von den Werten des Alpha Kanal subtrahieren. Durch das Erstellen und Lösen des Gleichungssystems, mit den oben gezeigten Formeln, können die Werte $m_1$ bis $m_4$ wieder berechnet werden.
-%TODO      
+
 \cite{lee2010new}
 
 
@@ -235,10 +235,6 @@ Zum Entschlüsseln muss man nun wieder 245 von den Werten des Alpha Kanal subtrah
 
 Auch in PDF Dateien können Daten versteckt eingebettet werden. Das PDF Format setzt sich aus einer Reihe von Befehlen zusammen, in der die Formatierung der Seite angegeben wird. So können Elemente zur Positionierung von Texten eingesetzt werden, um Informationen einzubetten.\cite{zhong2007data}
 Open Source Programme machen es für jeden möglich auf diese Weise Daten zu verstecken.
-
-%TODO
-pocgtfo -> beispiel
-
 
 \chapter{Bewertung der Covert Channel}
 In diesem Kapitel wird sich damit beschäftigt, welcher der im vorhergehenden Kapitel vorgestellten Covert Channel für die Problemstellung geeignet ist. Es soll nun der optimale Kanal gefunden werden, der das Problem der Kommunikation zwischen Polizeipräsidium und Informant lösen kann.
@@ -417,7 +413,7 @@ Bei einer Verwendung von großen Datenpaketen und sehr verstreut auftretenden Feh
 Um die Integrität der gesendeten Daten zu gewährleisten, soll am Ende der Daten ein Hashwert mitgesendet werden.
 
 Um die Integrität zu garantieren, bildet der Sender den Hash über die zu sendende Nachricht. Die Nachricht und der Hashwert werden nun versendet. Der Empfänger bildet nun ebenfalls den  Hash über die empfangene Nachricht. Stimmt dieser Hashwert mit dem überein, den er vom Sender bekommen hat, so ist die Nachricht unverändert versendet worden. Die Integrität ist sichergestellt.\\
-Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es ist auch möglich den Hash nicht erst am Ende der Datenübertragung zu senden, sondern nach einer festgelegten Datenmenge. Dies hätte den Vorteil, dass nicht die komplette Nachricht wiederholt werden muss.
+Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es ist auch möglich, den Hash nicht erst am Ende der Datenübertragung zu senden, sondern nach einer festgelegten Datenmenge. Dies hätte den Vorteil, dass nicht die komplette Nachricht wiederholt werden muss.
 
 \subsection{Hash-Funktionen}
 	\subsubsection{md5}
@@ -433,7 +429,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 	Dazu ist der Pearson Hash ebenfalls in der Lage und hat den Vorteil, dass er nur ein sechzehntel an Datenmenge in Anspruch nimmt.\\ Aus diesen Gründen wird in dieser Arbeit mit dem Pearson Hash gearbeitet. 
 
 \section{Authentizität}
-	Die Authentizität wird durch den Pearson-Hash teilweise abgedeckt. Dies gilt aber nur solange die Mapping-Tabelle geheim bleibt. Ist ein Angreifer jedoch in besitzt einer kompletten dekodierten Nachricht, kann er selbst mit Brute-Force in kürzester Zeit die Tabelle nachkonstruieren.\\
+	Die Authentizität wird durch den Pearson-Hash teilweise abgedeckt. Dies gilt aber nur solange die Mapping-Tabelle geheim bleibt. Ist ein Angreifer jedoch in besitzt einer kompletten dekodierten Nachricht, kann er selbst mit Brute-Force in kürzester Zeit die Tabelle rekonstruieren.\\
 	Es könnte  ein Public-Key Verfahren eingesetzt werden mit dem zum Beispiel der Hash-Wert verschlüsselt wird. Jedoch würde so eine Methode nicht zu einem auf \textit{Security by obscurity} basierenden Verfahren passen. Auch steht es in Konfrontation mit der Anforderung eine alternative zu verschlüsselten Kommunikationen zu erstellen.
 
 \section{Netzwerkprotokoll}
@@ -447,38 +443,38 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 	HTTP wird zur Versendung von Webseiten und Informationen seit dem Jahr 1990 verwendet.\cite{fielding1999hypertext}\\
 	Auch heute stellt es zusammen mit der verschlüsselten Variante HTTPS einen elementaren Bestandteil des Internets dar. Dabei besteht die Hauptaufgabe darin Daten von Webservern in den Browser zu laden.
 	\subsection{SMTP}
-	Das Simple Mail Transfer Protocol (SMTP) hat die Aufgabe Mail zuverlässig und effizient weiterzuleiten. SMTP Nachrichten, und die in ihnen enthaltenen Mails werden von SMTP Servern entgegengenommen um sie an den Empfänger weiterzuleiten. Auch die Kommunikation zwischen den SMTP Servern wird mit Hilfe dieses Protokolls realisiert.\cite{klensin2001rfc}
+	Das Simple Mail Transfer Protocol (SMTP) hat die Aufgabe Mail zuverlässig und effizient weiterzuleiten. SMTP Nachrichten, und die in ihnen enthaltenen Mails, werden von SMTP Servern entgegengenommen, um sie an den Empfänger weiterzuleiten. Auch die Kommunikation zwischen den SMTP Servern wird mit Hilfe dieses Protokolls realisiert.\cite{klensin2001rfc}
 	\subsection{FTP}
 	Mit dem File Transfer Protocol (FTP) können Dateien über ein Netzwerk zu einem Server hoch- und heruntergeladen werden. Ebenfalls ist es möglich das Dateisystem auszulesen und auf entfernten Rechnern Dateien zu erstellen aber auch zu löschen.
 	Die hierzu nötige Kommunikation, wird durch das FTP definiert.\cite{postel1985rfc}
 	
 	\subsection{Bewertung des Netztwerkprotokolls}
-	Alle Protokolle basieren auf TCP und verzichten auf eine Verschlüsselung. FTP wird heute in der Regeln aber nicht mehr angewendet, da es von Protokollen wie SFTP und SSH abgelöst wurde. Daher wäre eine Verwendung.\\
+	Alle Protokolle basieren auf TCP und verzichten auf eine Verschlüsselung. FTP wird heute in der Regeln aber nicht mehr angewendet, da es von Protokollen wie SFTP und SSH abgelöst wurde. Daher wäre eine Verwendung nicht geeignet.\\
 	Auch bei SMTP wird heute vermehrt auf die SSL verschlüsselte Variante zurückgegriffen. Ein weiteres Problem be SMTP ist, dass die Nachrichten bei großen Paketmengen als Spam interpretiert werden kann.\\
 	HTTP ist trotz der Einführung von HTTPS im Internet immer noch weit verbreitet und zieht sehr wenig Aufmerksamkeit auf sich. Zusätzlich lässt sich durch die Bereitstellung einer Webseite die wahre Aufgabe des Webservers verbergen.\\
 	Aus diesen Gründen soll in dieser Arbeit ein HTTP Server realisiert werden, der als Sender der geheimen Daten dient.
 
 \section{Server}
 	\subsection{Anforderungen an den Server}
-	Der Server muss in der Lage sein, einen HTTP Request entgegenzunehmen und im Gegenzug eine Webseite ausliefern. Da die geheimen Daten vom Server an den Client übertragen werden sollen, muss der Server in der Lage sein aktiv ohne Requests HTTP Nachrichten an den CLient zu senden.\\ Zusätzlich ist es für diese Anwendung essentiell, dass sich das Senden der Nachrichten verzögern lässt um die nötigen zeitlichen Abstände für den Covert Channel zu realisieren. Aus diesem Grund soll der Server frei programmierbar sein und auch Daten verarbeiten können um beispielsweise binär Daten zu erstellen oder einen Hashwert zu generieren.\\
+	Der Server muss in der Lage sein, einen HTTP Request entgegenzunehmen und im Gegenzug eine Webseite ausliefern. Da die geheimen Daten vom Server an den Client übertragen werden sollen, muss der Server in der Lage sein aktiv ohne Requests HTTP Nachrichten an den Client zu senden.\\ Zusätzlich ist es für diese Anwendung essentiell, dass sich das Senden der Nachrichten verzögern lässt, um die nötigen zeitlichen Abstände für den Covert Channel zu realisieren. Aus diesem Grund soll der Server frei programmierbar sein und auch Daten verarbeiten können um beispielsweise binär Daten zu erstellen oder einen Hashwert zu generieren.\\
 	Der Server soll leichtgewichtig, einfach zu bedienen und auf einem Linux Betriebssystem lauffähig sein.
 	
 	\subsection{Java HttpServer}
-	HttpServer ist eine Java Klasse die es ermöglicht einen einfachen HTTP Server zu erstellen.
-	Die von Oracle angebotene Klasse implementiert einen Webserver der an eine IP-Adresse und an einen Port gebunden ist und dort auf eingehende TCP Verbindungen lauscht.\\
-	Um den Server nutzen zu können müssen im ein oder mehrere HttpHandler hinzugefügt werden. Diese bearbeiten, die Anfragen auf verschiedene URL Pfade.\\
+	HttpServer ist eine Java Klasse, die es ermöglicht einen einfachen HTTP Server zu erstellen.
+	Die von Oracle angebotene Klasse implementiert einen Webserver, der an eine IP-Adresse und an einen Port gebunden ist und dort auf eingehende TCP Verbindungen hört.\\
+	Um den Server nutzen zu können, müssen im ein oder mehrere HttpHandler hinzugefügt werden. Diese bearbeiten, die Anfragen auf verschiedene URL Pfade.\\
 	Der HttpServer kann bei der Verwendung der Unterklasse HttpsServer auch verschlüsselte Verbindungen realisieren.\cite{JAVA_HTTP}
 	
 		
 	\subsection{Node.js und Express}
 	Node.js ist eine Plattform, ausgerichtet um Netzwerkanwendungen zu erstellen. Dabei ist Node.js eine asynchrone und ereignisgesteuerte JavaScript Runtime. Node.js wird in JavaScript programmiert und kann mit Paketen von npm (Node Paket Manager) erweitert werden.\\
-	Als asynchrone Laufzeitumgebung arbeitet Node.js sehr viel mit Callback-Funktionen, die bei Erfüllen von Events ausgeführt werden. Durch die asynchrone Abarbeitung des Programmcodes entsteht eine sehr gut skalierbare Anwendung die keine Deadlocks generieren kann.\cite{NODE}\\
+	Als asynchrone Laufzeitumgebung arbeitet Node.js sehr viel mit Callback-Funktionen, die bei Erfüllen von Events ausgeführt werden. Durch die asynchrone Abarbeitung des Programmcodes entsteht eine sehr gut skalierbare Anwendung, die keine Deadlocks generieren kann.\cite{NODE}\\
 	Um mit Node.js ein Webserver zu erstellen kann das Web-Framework Express verwendet werden. Express lässt sich mit Hilfen von npm in das Projekt eingliedern. Das Express Objekt ist in der Lage auf einem Port auf TCP Verbindungen zu warten und entgegenzunehmen. Jedem Pfad ist eine Callback-Funktion zugeordnet, die bei dessen Aufrufen die Abarbeitung der Anfrage übernimmt.\cite{EXPRESS}
 	
 	
 	\subsection{Bewertung des Servers}
 	Da der Server in der Lage sein muss HTTP Nachrichten zeitlich verzögert abzuschicken, sind fertige und schwergewichtige Server wie der Apache oder NGINX ungeeignet.\\
-	Bei beiden oben vorgestellten Servern hat man die Möglichkeit den Datenfluss zu manipulieren und so auch zu verzögern. Da es sich um normalen Java oder JavaScript Code handelt, kann man beliebige Funktionen eigenhändig implementieren und auch von Dateien lesen. So ist der Java HttpServer und auch Express in der Lage den Covert Channel zu realisieren.\\
+	Bei beiden, oben vorgestellten, Servern hat man die Möglichkeit den Datenfluss zu manipulieren und so auch zu verzögern. Da es sich um normalen Java oder JavaScript Code handelt, kann man beliebige Funktionen eigenhändig implementieren und auch von Dateien lesen. So ist der Java HttpServer und auch Express in der Lage den Covert Channel zu realisieren.\\
 	Der sehr simple Aufbau und das einfache Hinzufügen und Verwenden von Paketen sprechen jedoch für den Node.js Server, weshalb dieser hier verwendet wird. Ein weiterer Vorteil von Node.js ist das einfache Installieren auf einem Linux System und dass keine zusätzliche IDE benötigt wird.
 	
 	\section{Back-End}
@@ -513,7 +509,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 					
 				\subsubsection{Websockets}
 				
-				Das Websocket Protokol baut auf HTTP auf. Bei HTTP wird, nach dem der Client die Antwort vom Server erhalten, hat meistens die Verbindung geschlossen. Bei der Verwendung von websockets wird die darunterliegende TCP/IP Verbindung weiterverwendet und kann wie ein normaler Netzwerksocket benutzt werden. Dies ermöglicht dem Client und dem Server jeder Zeit Daten zu senden.\cite{abts2015bidirektionale}
+				Das Websocket Protokol baut auf HTTP auf. Bei HTTP wird, nach dem der Client die Antwort vom Server erhalten hat, meistens die Verbindung geschlossen. Bei der Verwendung von Websockets wird die darunterliegende TCP/IP Verbindung weiterverwendet und kann wie ein normaler Netzwerksocket benutzt werden. Dies ermöglicht dem Client und dem Server jeder Zeit Daten zu senden.\cite{abts2015bidirektionale}
 					
 				\subsubsection{Socket.IO}
 				
@@ -523,12 +519,12 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 				
 				\subsubsection{Berwertung der Kommunikation des Covert Channels}
 				Beide Methoden sind in der Lage den Covert Channel zu realisieren, jedoch gibt es bei Websockets Probdenleme mit der Verwendung von Proxys.\\
-				Socket.IO stellt eine Erweiterung der WebSockets dar und verfügt über weitere Funktionen wie zum Beispiel Broadcasting. Aus diesen Gründen, und da eine sehr komfortable node.js Schnittstelle vorhanden ist soll hier die Kommunikation mit Socket.IO realisiert werden.
+				Socket.IO stellt eine Erweiterung der WebSockets dar und verfügt über weitere Funktionen wie zum Beispiel Broadcasting. Aus diesen Gründen, und da eine sehr komfortable node.js Schnittstelle vorhanden ist, soll hier die Kommunikation mit Socket.IO realisiert werden.
 				
 			
 			\subsection{Socket.IO Implementierung}
 			Socket.IO wird in Form des \textit{io} Objekts in den Code eingebunden. Der Verbindungsaufbau ist wie in Listing 6.3 gezeigt aufgebaut. Den Events werden ihre jeweiligen Callback-Funktionen zugeordnet.\\
-			Wurde eine Verbindung aufgebaut so sendet der Server eine \textit{test} Nachricht an den Client. Hat der diese empfangen so antwortet dieser mit einem \textit{ClientHello}. Wird diese vom Server empfangen, so wird der jeweilige Socket in ein Array gespeichert, wo er später zum Senden von weiteren Daten verwendet werden kann.\\
+			Wurde eine Verbindung aufgebaut so sendet der Server eine \textit{test} Nachricht an den Client. Hat der diese empfangen so antwortet dieser mit einem \textit{ClientHello}. Wird diese vom Server empfangen, so wird der jeweilige Socket in ein Array gespeichert und später zum Senden von weiteren Daten verwendet.\\
 			
 			
 			\begin{lstlisting}[caption=Verbindungsaufbau mit Socket.IO]
@@ -553,7 +549,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 		Um die Pearson Hash-Funktion auf die Daten anzuwenden, muss eine Mapping-Tabelle mit den Werten von 0-255 in zufälliger Reihenfolge generiert werden. Diese lässt sich beispielsweise mit einem Python Script unter Verwendung der \textit{shuffel} Funktion erstellen.\\
 		Die hier generierte Tabelle muss beim Server sowie Client bekannt sein, um bei gleicher Hash-Funktion und gleichen Daten den identischen Hashwert zu generieren.\\
 		Den Algorithmus zur Berechnung des Hashes ist in Listing 6.4 gezeigt.
-		Hier wird am Anfang ein Hash-Wert \textit{h} generiert. Dieser wird bitweise XOR mit dem Datenwert verknüpft. Der entstandene Wert wird als Index in der Mapping-Tabelle verwendet. Der dortige Wert in der Mapping-Tabelle wird der neue Wert \textit{h}. Diese wird so lange wiederholt bis alle Datenwerte verwendet wurden. 
+		Hier wird am Anfang ein Hash-Wert \textit{h} generiert. Dieser wird bitweise XOR mit dem Datenwert verknüpft. Der entstandene Wert wird als Index in der Mapping-Tabelle verwendet. Der dortige Wert in der Mapping-Tabelle wird der neue Wert \textit{h}. Dies wird so lange wiederholt bis alle Datenwerte verwendet wurden. 
 		
 		\begin{lstlisting}[caption=Erstellen der Mapping-Table]
 					
@@ -571,10 +567,10 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 		
 		\subsection{Covert Channel Implementierung}
 		
-		Um den Covert Channel zu implementieren werden Nachrichten zeitlich verzögert an den Client gesendet. Grundsätzlich kann jede beliebige Nachricht an den Client gesendet werden. Hier wird zum Testen die aktuelle Uhrzeit versendet.\\
-		Die Länge der Pause zwischen den Daten hängt davon ab, ob eine 1 oder 0 übertragen werden soll. Bei einer 1 wird eine lange Pause zwischen den Paketen gemacht bei einer 0 eine kurze.\\
-		Zur Definition der Pausen wird die lange Pause in Millisekunden angegeben. Zusätzlich kommt ein Faktor der das Verhältnis zwischen der langen und kurzen Pause angibt. Durch die Variation dieser beiden Werte kann der Covert Channel eingestellt und optimiert werden.
-		Ist eine komplette Datei übertragen wird eine definierte Pause von einer Sekunde gemacht. Danach beginnt die Datenübertragung erneut.
+		Um den Covert Channel zu implementieren, werden Nachrichten zeitlich verzögert an den Client gesendet. Grundsätzlich kann jede beliebige Nachricht an den Client gesendet werden. Hier wird zum Testen die aktuelle Uhrzeit verwendet.\\
+		Die Länge der Pause zwischen den Daten hängt davon ab, ob eine 1 oder 0 übertragen werden soll. Bei einer 1 wird eine lange Pause zwischen den Paketen gemacht, bei einer 0 eine kurze.\\
+		Zur Definition der Pausen wird die lange Pause in Millisekunden angegeben. Zusätzlich kommt ein Faktor, der das Verhältnis zwischen der langen und kurzen Pause angibt. Durch die Variation dieser beiden Werte kann der Covert Channel eingestellt und optimiert werden.
+		Ist eine komplette Datei übertragen, wird eine definierte Pause von einer Sekunde gemacht. Danach beginnt die Datenübertragung erneut.
 		
 		\begin{lstlisting}[caption=Covert Channel]
 		
@@ -604,7 +600,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 	\section{Front-End}
 		\subsection{HTML}
 		
-		Das Front-End wird durch eine einfache HTML-Seite ausgeliefert. In diesem Proof-of-Concept Projekt wird als Funktion der Webseite das Anzeigen der aktuelle Uhrzeit umgesetzt. Diese Uhrzeit wird vom Server empfangen und danach im Browser angezeigt.\\
+		Das Front-End wird durch eine einfache HTML-Seite ausgeliefert. Die Funktion der Webseite ist vorerst das Anzeigen der aktuelle Uhrzeit. Diese Uhrzeit wird vom Server empfangen und danach im Browser angezeigt.\\
 		
 		\subsection{JQuery}
 		
@@ -613,8 +609,8 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 		
 		
 		\subsection{Socket.IO}
-		Der nötige Code wird für das Paket wird über ein Script Tag heruntergeladen und hinzugefügt. Wie auch serverseitig kann hier ein ServerIO Objekt generiert werden.
-		Diesem werden hier die Events zum Empfangen der Nachrichten zum Verbindungsaufbau und zum Empfangen der Zeitpakete hinzugefügt.\\
+		Der nötige Code wird für das Paket wird über ein Script Tag heruntergeladen und hinzugefügt. Wie auch serverseitig kann hier ein SocketIO Objekt generiert werden.
+		Diesem werden die Events zum Empfangen der Nachrichten, Verbindungsaufbau und Empfangen der Zeitpakete hinzugefügt.\\
 		
 		
 	\section{Clientseitige Auswertung des Covert Channel}
@@ -624,10 +620,10 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 		Für die Auswertung muss eine Anwendung geschrieben werden, die die eingehenden Nachrichten vom Server analysiert. Dazu muss der exakte Zeitpunk des Eintreffens der Pakete so genau wie möglich aufgezeichnet werden. Nach dem Rekonstruieren der geheimen Nachricht muss diese auf das Dateisystem abgespeichert werden. Ein weiterer wichtiger Aspekt ist, dass es für Dritte möglichst schwierig sein soll die Analyse des Covert Channels zu bemerken.
 		
 		\subsection{Auswertung im Front-End}
-		Bei der Auswertung im Front-End werden die Daten direkt nach dem Empfangen im Browser ausgewertet werden. Hier sind die nötigen Funktionen mit JavaScript geschrieben und direkt im Browser ausgeführt. Sobald die Nachricht beim Browser ankommt wird die Event Callback- Funktion ausgeführt wo dann der aktuelle Zeitstempel abgespeichert werden kann.
+		Bei der Auswertung im Front-End werden die Daten direkt nach dem Empfangen im Browser ausgewertet. Hier sind die nötigen Funktionen mit JavaScript geschrieben. Sobald die Nachricht beim Browser ankommt, wird die Event Callback-Funktion ausgeführt, die den aktuellen Zeitstempel abspeichert.
 		
 		\subsection{Auswertung mit externem Programm}
-		Bei einer Auswertung mit einem externen Programm hat eine zweite Anwendung, die unabhängig vom Browser ist, die Aufgabe die eingehenden Nachrichten zu interpretieren. Dazu muss die Anwendung in der Lage sein, den Netzwerkverkehr mitzulesen und den Zeitpunkt des Eintreffens abzuspeichern und zu interpretieren.
+		Bei einer Auswertung mit einem externen Programm hat eine zweite browserunabhängige Anwendung die Aufgabe, die eingehenden Nachrichten zu interpretieren. Dazu muss die Anwendung in der Lage sein, den Netzwerkverkehr mitzulesen und den Zeitpunkt des Eintreffens abzuspeichern und zu interpretieren.
 		
 		\subsection{Bewertung der Covert Channel Auswertung}
 		Die Auswertung direkt im Front-End hat den Vorteil, dass kein zweites Programm benötigt wird. So ist diese Variante ressourcenschonender und vereinfacht die tatsächliche Anwendung.\\
@@ -635,7 +631,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 		Aus diesen Gründen wird die Auswertung des Covert Channel durch ein externes Programm realisiert.
 	
 \section{Client}
-	Der Client stellt hier den Empfänger des Covert Channels dar. Wie im vorhergehenden Kapitel festgelegt, soll dieser als externes Programm realisiert werden, dass unabhängig vom Browser.
+	Der Client stellt hier den Empfänger des Covert Channels dar. Wie im vorhergehenden Kapitel festgelegt, soll dieser als externes Programm realisiert werden, dass unabhängig vom Browser ist.
 	
 	\subsection{Programmiersprache}
 		\subsubsection{Anforderung an die Programmiersprache}
@@ -644,14 +640,14 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 			
 		\subsubsection{Java}
 			Java ist eine objektorientierte Programmiersprache dessen Code auf mehr als 3 Milliarden Geräten ausgeführt wird. Der Java Code orientiert sich an C++ aber auch an anderen Skript Sprachen.\\
-			Der Java Code wird von einem Compiler in Bytecode umgewandelt. Dieser kann nun auf jedem Gerät das die Java Runtime besitzt ausgeführt werden. Dadurch muss der Code nicht mehr für jedes Gerät compiliert werden.\cite{ullenboom2004java}
+			Der Java Code wird von einem Compiler in Bytecode umgewandelt. Dieser kann auf jedem Gerät das die Java Runtime besitzt ausgeführt werden. Dadurch muss der Code nicht mehr für jedes Gerät compiliert werden.\cite{ullenboom2004java}
 			
 		\subsubsection{Python}
 			Python ist eine objektorientierte Skript Sprache. Der Code wird als lesbares Skript an den Anwender übergeben und von einem Python Interpreter ausgewertet. So wird kein Compiler und auch nicht unbedingt eine IDE benötigt.
 			Die Python Syntax ist so entworfen, dass die Skripte sehr gut lesbar und auch wiederverwendbar sind.\\
 			Trotzdem ist der Code sehr kompakt und hat in der Regel ein Drittel bis ein Fünftel der Codelänge von traditionellen Programmiersprachen wie Java oder C++.\cite{weigend2006objektorientierte}
 		\subsubsection{Bewertung der Programmiersprache}
-			Beide Programmiersprachen sind sind in der Lage das Clientprogramm zu realisieren. Java zeigt im direkten Vergleich mit Python eine bessere Performance. Python hingegen ist besser dafür geeignet um mit zusätzlichen Konsolenprogrammen zu arbeiten und bringt von Haus aus viele Funktionen mit die bei der Datenverarbeitung helfen. Da es sich hier nicht um ein komerzielles Projekt handelt, kann das Skript einfach verbreitet werden und nach Bedarf angepasst werden.
+			Beide Programmiersprachen sind in der Lage das Clientprogramm zu realisieren. Java zeigt im direkten Vergleich mit Python eine bessere Performance. Python hingegen ist besser dafür geeignet, um mit zusätzlichen Konsolenprogrammen zu arbeiten und bringt von Haus aus viele Funktionen mit, die bei der Datenverarbeitung helfen. Da es sich hier nicht um ein komerzielles Projekt handelt, kann das Skript einfach verbreitet werden und nach Bedarf angepasst werden.
 			Aus diesen Gründen wird in diesem Projekt Python als Programmiersprache verwendet.
 	
 	
@@ -690,16 +686,16 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 		\end{lstlisting}
 		
 	\subsection{Interpretieren der Zeitstempel}
-		Die Zeitstempel vom tcpdump Thread sollen nun ausgewertet. Dafür werden die als String abgespeicherten Zeitstempel in \textit{datetime} Objekte geparst, um mit ihnen Rechnen zu können.\\
-		Die hiermit berechneten zeitlichen Diverenzen werden entweder als eine eine binäre 1 oder 0 interpretiert. Wie auch schon serverseitig wird die Geschwindigkeit des Covert Channels durch die Angabe der langen Pause und dem Faktor, der den Unterschied zwischen der langen und der kurzen Pause beschreibt definiert.\\
-		So kann zum Beispiel eine lange Pause als 50 Millisekunden und der Faktor als 0.5 definiert werden. Daraus ergibt sich eine eine kurze Pause von 20 Millisekunden.
+		Die Zeitstempel vom tcpdump Thread sollen nun ausgewertet werden. Dafür werden die als String abgespeicherten Zeitstempel in \textit{datetime} Objekte geparst, um mit ihnen Rechnen zu können.\\
+		Die hiermit berechneten zeitlichen Diverenzen werden entweder als eine binäre 1 oder 0 interpretiert. Wie auch schon serverseitig wird die Geschwindigkeit des Covert Channels durch die Angabe der langen Pause und dem Faktor, der den Unterschied zwischen der langen und der kurzen Pause beschreibt definiert.\\
+		So kann zum Beispiel eine lange Pause als 50 Millisekunden und der Faktor als 0.5 definiert werden. Daraus ergibt sich eine eine kurze Pause von 25 Millisekunden.
 	
 	\subsubsection{Toleranz}
-		Da die Zeiten mit sechs Nachkommastellen angegeben werden ist es unmöglich, dass die Pausen exakt der Angabe entsprechen. Durch Verzögerungen durch Schwankungen in der Netzwerkgeschwindigkeit aber auch durch Prozess-Scheduling kann es zu Abweichungen kommen.\\
-		Deshalb muss die Pause nicht als festen Zeitpunkt, sondern als Zeitfenster definiert werden. Ist die Länge der Differenz zwischen den Paketen im jeweiligen Zeitfenster enthalten, kann sie entsprechend interpretiert werden. Falls nicht wird diese Paket ignoriert.\\
+		Da die Zeiten mit sechs Nachkommastellen angegeben werden ist es unmöglich, dass die Pausen exakt der Angabe entsprechen. Durch Verzögerungen, durch Schwankungen in der Netzwerkgeschwindigkeit aber auch durch Prozess-Scheduling kann es zu Abweichungen kommen.\\
+		Deshalb muss die Pause nicht als ein fester Zeitpunkt, sondern als Zeitfenster definiert werden. Ist die Länge der Differenz zwischen den Paketen im jeweiligen Zeitfenster enthalten, kann sie entsprechend interpretiert werden. Falls nicht wird diese Paket ignoriert.\\
 		Die Zeitfenster werden durch die prozentuale Angabe, bezüglich der Pausenlänge, in Positive und Negative Richtung angegeben.\\
 		Wird die Pause mit 50 Millisekunden, einer Positiven Toleranz von 30\% und einer Negativen Toleranz von 10\% angegeben, ergibt sich ein Zeitfenster zwischen 45 und 65 Millisekunden.\\
-		Da nur die Differenz der Nachrichten betrachtet wird können Nachrichten auch zu früh kommen, wenn die vorhergehende Nachricht erheblich zu spät ist. Aus diesem Grund muss dass Zeitfenster auch  in Negative Richtung erweitert werden.\\
+		Da nur die Differenz der Nachrichten betrachtet wird, können Nachrichten auch zu früh kommen, wenn die vorhergehende Nachricht erheblich zu spät ist. Aus diesem Grund muss dass Zeitfenster auch  in Negative Richtung erweitert werden.\\
 		Von der Einstellung dieser Toleranzfenstern hängt erheblich die Qualität der empfangenen Daten ab.\\
 		Der Code zeigt, wie eine Klassifizierung der Differenz, hier \textit{f1} genannt, in die Zeitfenster realisiert ist.
 	
@@ -719,18 +715,19 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 		
 		
 	\subsection{Verarbeiten der Erhaltenen Daten}
-		Von den erhaltenen Daten werden die letzten 8 Bit abgeschnitten. Dies ist der Hash-Wert vom Server. Um die Daten zu validieren wird auf diese die gleiche Hash-Funktion angewendet. Stimmt dieser Hash-Wert mit dem vom Server überein, so wird die Datei ins Dateisystem geschrieben.\\
-		Damit die Daten nicht codiert auf die Datei geschrieben werden, wird das Paket \textit{BitArray} verwendet, welche es möglich macht die binären Daten zu schreiben.\\
+		Von den erhaltenen Daten werden die letzten 8 Bit abgeschnitten. Dies ist der Hash-Wert vom Server. Um die Daten zu validieren wird auf diese die Hash-Funktion angewendet. Stimmt der Hash-Wert mit dem vom Server überein, so wird die Datei ins Dateisystem geschrieben.\\
+		Damit die Daten nicht UTF8-Codiert auf die Datei geschrieben werden, wird das Paket \textit{BitArray} verwendet, welche es möglich macht die binären Daten zu schreiben.\\
 		Die Datei oder Nachricht ist hiermit erfolgreich übertragen.
 		
 \chapter{Optimales Einstellen und Anwendung des Covert Channel} 
 		Es gilt nun den Covert Channel so optimal wie möglich einzustellen. Dazu muss die beste Kombination aus Übertragungsgeschwindigkeit und des Zeitfensters gefunden werden.\\
-		Gezielte Test-Datenübertragungen soll hier Aufschluss zu diesen Werten geben. Um reale Netzwerkbedingungen zu schaffen wird der Server auf einem 1\&1 Cloud Server in Karlsruhe gehosted. Das Ergebnis eines TCP-Pings ergibt eine Übertragungsdauer von 30 ms zum Server. Bei allen Tests wird einen Testdatei mit 12 Byte (Hallo Welt) verwendet.\\
+		Gezielte Test-Datenübertragungen sollen hier Aufschluss zu diesen Werten geben. Um reale Netzwerkbedingungen zu schaffen wird der Server auf einem 1\&1 Cloud Server in Karlsruhe gehosted. Das Ergebnis eines TCP-Pings ergibt eine Übertragungsdauer von 30 ms zum Server. Bei allen Tests wird einen Testdatei mit 12 Byte (Hallo Welt) verwendet.\\
+	
 		
 		
 		\subsection{Verhätniss nicht interpretierbar/ interpretierbar}
-		Der erste Test ist die Ermittlung des Verhältnisses zwischen interpretierbaren und nicht interpretierbaren Zeitstempeln. Interpretierbar ist ein Zeitstempel, wenn er sich entweder im Zeitfenster für Nullen oder Einsen befindet.\\
-		Die Ergebnisse dieses Test sind in Tabelle 6.1 zu sehen. Die Spalten zeigen jeweils die Länge einer langen Pause in Sekunden. Die Zeilen stehen für den prozentualen Anteil an der Pausenlänge, die das Zeitfenster definiert.\\
+		Der erste Test ist die Ermittlung des Verhältnisses zwischen interpretierbaren und nicht interpretierbaren Zeitstempeln. Interpretierbar ist ein Zeitstempel wenn er sich entweder im Zeitfenster für Nullen oder Einsen befindet.\\
+		Die Ergebnisse dieses Test sind in Tabelle 6.1 zu sehen. Die Spalten zeigen, jeweils die Länge einer langen Pause in Sekunden. Die Zeilen stehen für den prozentualen Anteil an der Pausenlänge, die das Zeitfenster definiert.\\
 		Die Ergebnisse sind in Prozent angegeben. Die Länge der kurzen Pausen beträgt die Hälfte der Langen.\\ Ein Wert von 0 spiegelt einen Übertragung wieder bei der keine Zeitstempel nicht interpretiert werden konnten. Liegt der Wert bei Hundert waren die Werte gleich.\\
 		Aus der Tabelle lässt sich interpretieren, dass ein Zeitfenster mit 20\% nicht zum Optimum führt, da hier die Werte für eine stabile Datenübertragung zu hoch sind. Auch die Übertragung mit einer Pausenlänge von 0,03 ms ist nicht geeignet.\\
 		
@@ -753,10 +750,10 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
  \end{table}
 		
 
-	
+	Diese Erkenntnisse decken sich auch mit dem auf Bild 4.2 gezeigten Ergebnissen von \cite{cabuk2004ip} 
 
 	\subsection{Anzahl korrekt übertragener Dateien}
-	Bei diesem Test soll die Korrektheit der Ankommenden Daten begutachtet werden. Dazu wird für jede mögliche Kombination 20 Datenübertragungen durchgeführt und die Anzahl der korrekt übertragenen Dateien gezählt. Dadurch ergibt sich folgende Tabelle:
+	Bei diesem Test soll die Korrektheit der ankommenden Daten begutachtet werden. Dazu wird für jede mögliche Kombination 20 Datenübertragungen durchgeführt und die Anzahl der korrekt übertragenen Dateien gezählt. Dadurch ergibt sich folgende Tabelle:
 	
 	
 		 \begin{table}[h!]
@@ -778,8 +775,8 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 	
 	\subsection{Zeit bis zum ersten korrekten Eintreffen}
 	Nach dem bei den ersten beiden Tests bereits Kombinationen ausgeschlossen werden konnten sind nun noch die Kombinationen 30\%/0,08s, 40\%/0,08s, 30\%/0,05s und 40\%/0,05s übrig.\\
-	Um nun hieraus das Optimum zu ermitteln wird ein Test durchgeführt der einer realen Anwendung am nächsten kommt:
-	Es wird die Zeit gemessen die es benötigt, bis die erste korrekte Datei zu empfangen.\\
+	Um hieraus das Optimum zu ermitteln, wird ein Test durchgeführt, der einer realen Anwendung am nächsten kommt:
+	Es wird die Zeit gemessen die es benötigt, bis die erste korrekte Datei empfangen.\\
 	Diese Messung wurde jeweils für alle Kombinationen 10 mal ausgeführt. Die Ergebnisse sind in Bild 6.5 zu sehen.
 	
 	
@@ -790,7 +787,7 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 		\label{fig19}
 	\end{figure}
 	
-	In Tabelle 6.3 sind die Durchschnittswerte gezeigt die sich aus den Zeiten ergeben.\\
+	In Tabelle 7.3 sind die Durchschnittswerte gezeigt die sich aus den Zeiten ergeben.\\
 	
 	\begin{table}[h!]
 		\centering
@@ -804,9 +801,9 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 	\end{table}
 	
 	
-	In dieser Graphik lässt sich erkennen, dass die Werte der Kombination aus 0,3\%/0,05s (gelb) enorme Schwankungen beinhalten. Auch der höchste Durchschnittswert mit 12,418 Sekunden spricht gegen die Verwendung dieser Kombination. Bei den Werten 30\%/0,08s sind die besten Durchschnittswerte aufgetreten, weshalb diese auf jeden Fall in Frage kommen. Ebenfalls sehr vielversprechend ist die Kombination aus 40\%/0,05s (grün). Hier zeigt die Grafik, bis auf einen Ausschlag bei der ersten Messung sehr niedrige Werte.\\
+	Aus der Graphik in Abbildung 7.1 lässt sich erkennen, dass die Werte der Kombination aus 0,3\%/0,05s (gelb) enorme Schwankungen beinhalten. Auch der höchste Durchschnittswert mit 12,418 Sekunden spricht gegen die Verwendung dieser Kombination. Bei den Werten 30\%/0,08s sind die besten Durchschnittswerte aufgetreten, weshalb diese auf jeden Fall in Frage kommen. Ebenfalls sehr vielversprechend ist die Kombination aus 40\%/0,05s (grün). Hier zeigt die Grafik, bis auf einen Ausschlag bei der ersten Messung sehr niedrige Werte.\\
 	
-	Um ein eindeutigeres Ergebnis zu schaffen, werden noch weitere Messungen mit den Kombinationen 30\%/0,08s und 40\%/0,05s.\\
+	Um ein eindeutigeres Ergebnis zu schaffen, werden noch weitere Messungen mit den Kombinationen 30\%/0,08s und 40\%/0,05s durchgeführt.\\
 	
 	\begin{figure}[h!]
 		\centering
@@ -815,17 +812,30 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 		\label{fig193}
 	\end{figure}
 	
-	Die Grafik in Bild 6.6 zeigt die Zeiten der eingesetzten Werte. Bei der Verwendung der Werte 30\%/0,08s (blau) lässt sich eine höhere Konstanz erkennen. Hier werden deutlich mehr Daten auf den ersten Versuch korrekt übertragen. Das ist bei 40\%/0,05s selten der Fall, jedoch ist hier die mögliche Übertragungsgeschwindigkeit auf Grund der kleineren Pausen größer. Jedoch ist trotz größerer Schwankungen die durchschnittliche Zeit von 40\%0,05s mit 8,327s kleiner als die 9,095s von 30\%/0,08s.\\
+	Die Grafik in Bild 7.2 zeigt die Zeiten der eingesetzten Werte. Bei der Verwendung der Werte 30\%/0,08s (blau) lässt sich eine höhere Konstanz erkennen. Hier werden deutlich mehr Daten auf den ersten Versuch korrekt übertragen. Das ist bei 40\%/0,05s selten der Fall, jedoch ist hier die mögliche Übertragungsgeschwindigkeit auf Grund der kleineren Pausen größer. Jedoch ist trotz größerer Schwankungen die durchschnittliche Zeit von 40\%/0,05s mit 8,327s kleiner als die 9,095s von 30\%/0,08s.\\
 	
 	Die Kombination aus einem Zeitfenster von 40\% und einer große Pause von 0,05 Sekunden ist die optimale Lösung für diesen Covert Channel.
 
 
+		\subsection{Padding zum Synchronisieren}
+
+Bei der Anwendung in einem realen Netzwerk treten am Anfang des Sendefortgangs erheblich Schwankungen in der Übertragungszeit auf. Der Grund dieser Abweichungen ist nicht klar, es könnte am allgemeinen Routing oder am Verbindungsaufbau von Socket.IO liegen.\\
+Um dieses Problem zu umgehen werden 2 Byte Padding, zum Synchronisieren, an den Anfang der Dateien angehängt. Der Abstand zwischen diesen Paketen ist auf 0.01 Sekunden festgelegt. In Abbildung 7.1 ist zu sehen, dass mindestens 6 Datenpakete gebraucht werden, bis sich der Korrekte Paketabstand einstellt
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics*[height=6cm]{bilder/sync.png}
+	\caption{Fehler in den ersten Paketen}
+	\label{fig34}
+\end{figure}
+
+
 \chapter{Umsetzung der passiven Variante}
 	Die in Abbildung 6.2 dargestellte passive Lösungsvariante des Covert Channels soll ebenfalls betrachtet werden. Dies hat den Vorteil, dass als Server jeder beliebige Webserver verwendet werden kann. Die Codierung wird nun von einem Proxy realisiert.\\
-	Für die Proof of Concept Implementierung wird hier der Server und der Client der aktiven Variante wiederverwendet. Im Browser des Clients muss die Verwendung eines Proxys eingetragen werden.
+	Für die Proof of Concept Implementierung wird hier der Client der aktiven Variante wiederverwendet. Im Browser des Clients muss die Verwendung eines Proxys eingetragen werden.
 
 	\subsection{Anforderung an den Proxy}
-		Der Proxy hat die Aufgabe TCP Nachrichten von einem Client an einen Server zu senden. Die Nachrichten sollen bidirektional durch den Proxy geschleust werden. Nachrichten vom Client werden an den Server weitergeleitet und Nachrichten vom Server an den Client. Dabei soll der Inhalt der Nachrichten nicht verändert werden. Wie bei der aktiven Variante soll der Proxy in der Lage sein die TCP Pakete zeitlich zu verzögern um so Daten zu übertragen.\\
+		Der Proxy hat die Aufgabe, TCP Nachrichten von einem Client an einen Server zu senden. Die Nachrichten sollen bidirektional durch den Proxy geschleust werden. Nachrichten vom Client werden an den Server weitergeleitet und Nachrichten vom Server an den Client. Dabei soll der Inhalt der Nachrichten nicht verändert werden. Wie bei der aktiven Variante soll der Proxy in der Lage sein die TCP Pakete zeitlich zu verzögern um so Daten zu übertragen.\\
 		Der Proxy soll auf einem Linux System laufen.
 	
 	\subsection{Lösungsansätze}
@@ -833,17 +843,17 @@ Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es is
 			Ein Lösungsansatz ist die Verwendung eines fertigen Proxys wie zum Beispiel Squid oder Tinyproxy. Für diese Open Source Programme ist der Code frei erhältlich. Hier gilt es die Funktion zum Senden der Nachrichten so zu verändern, dass die Nachrichten verzögert werden.
 		
 		\subsubsection{Proxy selbst programmieren}
-			Eine alternative Lösung ist die eigenständige Programmierung eines Proxys. Dazu soll ein Python-Skript geschrieben werden, das jeweils ein Netzwerksocket zum Client und einen zum Server verwaltet. Werden die TCP Pakete vom einen an den anderen Socket weitergegeben erhält man einen Proxy. Die Pakete können hier frei verändert werden.
+			Eine alternative Lösung ist die eigenständige Programmierung eines Proxys. Dazu soll ein Python-Skript geschrieben werden, das jeweils ein Netzwerksocket zum Client und einen zum Server verwaltet. Werden die TCP Pakete von einem an den anderen Socket weitergegeben erhält man einen Proxy. Die Pakete können hier frei verändert werden.
 	
 	\subsection{Bewertung des Lösungsansatzes}
-			Beide Lösungsansätze sind in der Lage die Anforderungen umzusetzen. Der selbst programmierte bietet jedoch die volle Kontrolle und bietet bei dieser Proof of Concept Implementierung mehr Spielraum. Zudem ist diese sehr leichtgewichtige Software Variante komfortabler zu Debuggen und optimieren. Aus diesen Gründen soll hier der Proxy eigenhändig erstellt werden.\\
-			Sollte sich der Proof of Concept als Erfolg herausstelle, ist die erste Lösung für eine reale Anwendung besser geeignet, da so eine große Funktionsumfang hinzukommt.
+			Beide Lösungsansätze sind in der Lage die Anforderungen umzusetzen. Der selbst programmierte Proxy bietet jedoch die volle Kontrolle und bietet bei dieser Proof of Concept Implementierung mehr Spielraum. Zudem ist diese sehr leichtgewichtige Software Variante komfortabler zu debuggen und optimieren. Aus diesen Gründen soll hier der Proxy eigenhändig erstellt werden.\\
+			Sollte sich der Proof of Concept als Erfolg herausstellen, ist die erste Lösung für eine reale Anwendung besser geeignet, da so eine großer Funktionsumfang hinzukommt.
 	
 	\subsection{Implementierung}
 		\subsubsection{Sockets}
-			Es wird ein Listen-Socket erstellt, der auf eingehende Nachrichten auf Port \textit{8080} hört. Dieser Port muss später in den Proxy-Einstellungen des Browsers hinterlegt werden.\\
+			Es wird ein Listen-Socket erstellt, der auf eingehende Nachrichten auf Port \textit{80} hört. Dieser Port muss später in den Proxy-Einstellungen des Browsers hinterlegt werden.\\
 			Sendet der Browser einen HTTP-Request an den Proxy, wird der Client-Socket erstellt. Der Proxy erstellt nun den Server-Socket indem er sich mit dem in dem HTTP-Request stehenden Webserver verbindet. Da oft externe Ressourcen verwendet werden und Verbindungen nach dem Senden einer Datei geschlossen werden, entstehen pro Webseite mehrere dieser Verbindungen.\\
-			Um die hierdurch entstehenden Sockets zu verwalten wird das Betriebssystemmodul \textit{select} verwendet. Bei der Verwendung von \textit{select} wird das Betriebssystem gefragt ob die angegebenen Sockets bereit zum Lesen oder zum Schreiben sind. Ist dies der Fall wird eine Liste mit beschreibbaren und eine mit lesbaren Sockets zurückgegeben. Dies hat den Vorteil, dass nicht alle Sockets mit Polling abgefragt werden müssen.\\
+			Um die hierdurch entstehenden Sockets zu verwalten wird das Betriebssystemmodul \textit{select} verwendet. Bei der Verwendung von \textit{select} wird das Betriebssystem gefragt, ob die angegebenen Sockets bereit zum Lesen oder zum Schreiben sind. Ist dies der Fall wird eine Liste mit beschreibbaren und eine mit lesbaren Sockets zurückgegeben. Dies hat den Vorteil, dass nicht alle Sockets mit Polling abgefragt werden müssen.\\
 			In Listing 7.1 ist der Code zu sehen, der die Handhabung der Sockets übernimmt. Die Liste aller Sockets wird zur Kontrolle an \textit{select} übergeben.
 			
 			\begin{lstlisting}[caption=Socket Handling]
@@ -854,13 +864,13 @@ while True:
 	self.send(writable)
 			\end{lstlisting}
 			 
-			 Anhand ihres Index in der Socket-Liste ,können die Sockets identifiziert werden. Dabei gehören immer ein Client- und ein Server-Socket zusammen. Die Nachrichten die zwischen diesen zwei augetauscht werden sollen, sind in einem Array gespeichert.\\
+			 Anhand ihres Index in der Socket-Liste, können die Sockets identifiziert werden. Dabei gehören immer ein Client- und ein Server-Socket zusammen. Die Nachrichten die zwischen diesen zwei augetauscht werden sollen, sind in einem Array gespeichert.\\
 			
 		\subsubsection{Geheime Daten}
 			Wie auch schon bei der aktiven Variante, werden die zu übertragenden Daten von einer angegebenen Datei gelesen und in eine binäre Liste umgewandelt. Hieraus wird ein 8 Bit Pearson-Hash berechnet und hinten angehängt.
 			
 		\subsubsection{Covert Channel}
-			Bei der Erstellung des Covert Channels müssen die Nachrichten an den Client nun zeitlich Verzögert werden. Dabei besteht allerdings das Problem, dass bei dieser Anwendung nur ein Thread verwendet wird, der gleichzeitig für das Senden und Empfangen zuständig ist.\\ So kann die Lösung der aktiven Variante, wobei der Thread für die benötigte Zeit in \textit{sleep} gesetzt wird nicht verwendet werden.\\
+			Bei der Erstellung des Covert Channels müssen die Nachrichten an den Client nun zeitlich Verzögert werden. Dabei besteht allerdings das Problem, dass bei dieser Anwendung nur ein Thread verwendet wird, der gleichzeitig für das Senden und Empfangen zuständig ist.\\ So kann die Lösung der aktiven Variante, wobei der Thread für die benötigte Zeit in \textit{sleep} gesetzt wird, nicht verwendet werden.\\
 			Aus diesem Grund wird nach jedem Senden an den Client der Zeitstempel abgespeichert. Bevor ein neues Paket gesendet wird, wird kontrolliert, ob die Differenz der aktuellen Zeit und dem letzten Sendezeitpunkt der gewünschten Pause entspricht.\\
 			Die Pausen werden äquivalent zu der aktiven Variante definiert.
 			
@@ -882,7 +892,7 @@ while True:
 				Wie vorhergehnd bereits beschrieben öffnet einen normale Webserver gleich mehrerer Sockets um parallel Daten zu empfangen. Diese Nachrichtenpakete, der einzelnen Sockets können nicht vom Client auseinander gehalten werden, da dieser nur den Source-Port betrachtet. Dieser ist jedoch bei allen gleich.\\
 				In Bild 7.1 ist ein Ausschnitt aus den Firefox Development Tool zu sehen. Hier wird die Übertragungsdauer der einzelnen Dateien gezeigt. Dabei fällt auf, dass bei der hier verwendeten Webseite der \textit{PH-Weingarten}, 5 CSS Dateien gleichzeitig übertragen werden.\\
 				Diese 5 daraus entstehenden Covert Channel überschneiden sich bei der Interpretation im Client und sind so nicht mehr auswertbar.\\
-				Der Covert Channel funktioniert nur, wenn genau eine Datei übertragen wird. Oft dauert die Übertragung großer Bilder jedoch länger als die es Quellcodes. Dies bietet die Chance, dass am Ende der Übertragung nur noch der einen Socket für die Bildübertragung übrig ist, welcher für die Datenübertragung genutzt werden kann.
+				Der Covert Channel funktioniert nur, wenn genau eine Datei übertragen wird. Oft dauert die Übertragung großer Bilder jedoch länger als die des Quellcodes. Dies bietet die Chance, dass am Ende der Übertragung nur noch der eine Socket für die Bildübertragung übrig ist, welcher für die Datenübertragung genutzt werden kann.
 				
 				\begin{figure}[h!]
 					\centering
@@ -891,16 +901,16 @@ while True:
 					\label{fig43}
 				\end{figure}
 				
-				Als mögliche Lösung kann der Client zur Berücksichtigung der Sequenznummer erweitert werden um die verschiedenen Covert Channel zu unterscheiden.
+				Als mögliche Lösung kann der Client zur Berücksichtigung der Sequenznummer erweitert werden, um die verschiedenen Covert Channel zu unterscheiden.
 	
 	
 		\section{Test mit realen Servern}
 		Um die Funktion des Proxys zu testen und reale Netzwerkbedingungen zu schaffen, wird er auf einem 1\&1 Cloud Server installiert. Die zu übertragende Datei ist eine Textdatei mit 12 Byte. Zur Datenübertragung werden die gleichen Einstellungen verwendet, die bereits bei den Tests mit dem Client evaluiert wurden. Das bedeutet, die Lange Pause hat eine Länge von 0,08 Sekunden und das Zeitfenster entspricht jeweils 30\%.
-		Als Client wird das Programm der aktiven Variante verwendet. Um genügend Netzwerkverkehr zu generieren, wird die maximale Paketgröße vom Server zum Client auf 256 Byte festgelegt\\
+		Als Client wird das Programm der aktiven Variante verwendet. Um genügend Netzwerkverkehr zu generieren, wird die maximale Paketgröße vom Server zum Client auf 256 Byte festgelegt.\\
 		Um den Proxy nutzen zu können, muss dieser im Browser eingetragen werden. Dadurch werden alle HTTP Nachrichten zuerst an den Proxy weitergeleitet.\\
-		Nun wird eine beliebige Webseite gewählt die als Paketquelle dient. Diese Seite muss jedoch über HTTP ausgeliefert werden. Hier wird die Webseite Pädagogischen-Hochschule Weingarten mit der Adresse \textit{http://www.ph-weingarten.de/} verwendet.
+		Nun wird eine beliebige Webseite gewählt, die als Paketquelle dient. Diese Seite muss jedoch über HTTP ausgeliefert werden. Hier wird die Webseite der Pädagogischen-Hochschule Weingarten mit der Adresse \textit{http://www.ph-weingarten.de/} verwendet.
 		Wird die Webseite geladen so sendet der Webserver der PH-Weingarten die Webseitendateien über den Proxy an den Client.\\
-		Jedoch besteht anfangs das im vorhergehenden Kapitel beschriebene Problem mit der parallelen Datenübertragung. Das Ergebnis ist in Bild 9.2 zu sehen. Bei einer optimalen Funktion werden den zeitlichen Differenzen links binäre Werte zugeordnet. Jedoch sind hier die meisten Werte nicht zuzuordnen.
+		Jedoch besteht anfangs, das im vorhergehenden Kapitel beschriebene, Problem mit der parallelen Datenübertragung. Das Ergebnis ist in Bild 9.2 zu sehen. Bei einer optimalen Funktion werden den zeitlichen Differenzen links binäre Werte zugeordnet. Jedoch sind hier die meisten Werte nicht zuzuordnen.
 		
 		
 		\begin{figure}[h!]
@@ -923,8 +933,8 @@ while True:
 			
 				
 \chapter{Evaluierung}	
-		Das Ergebnis dieser Arbeit benutzt einen Covert Channel als eine Methode des Information-Hidding um Daten zu übertragen. Dabei können die Daten jedes beliebige Format annehmen, da diese in ihrer binären Form übertragen werden. Die für diesen Covert Channel höchst mögliche Übertragungsgeschwindigkeit wurde ermittelt und kann auch Angewendet werden. Es gibt jedoch andere Covert Channels, wie beispielsweise den Storage Channel, die zu deutlich höheren Übertragungsgeschwindigkeiten fähig sind. Der Kanal ist als Algorithmus umsetzbar, was durch die Realisierung mittels eins Computerprogramm gezeigt ist. Dadurch, dass der Covert Channel unabhängig vom Paketinh alt ist, lässt er sich nicht von Netzwerk-Normalisierungen beeinflussen. Er ist jedoch stark von Netzwerkbedingungen abhängig, was als Folge der Codierung durch die Zeitabstände einhergeht.\\
-		Die Umsetzung als passive Variante ist ebenfalls möglich, was durch dessen erfolgreiche Implementierung gezeigt wird.
+		Das Ergebnis dieser Arbeit benutzt einen Covert Channel als eine Methode des Information-Hidding um Daten zu übertragen. Dabei können die Daten jedes beliebige Format annehmen, da diese in ihrer binären Form übertragen werden. Die für diesen Covert Channel höchst mögliche Übertragungsgeschwindigkeit wurde ermittelt und kann auch Angewendet werden. Es gibt jedoch andere Covert Channels, wie beispielsweise den Storage Channel, die zu deutlich höheren Übertragungsgeschwindigkeiten fähig sind. Der Kanal ist als Algorithmus umsetzbar, was durch die Realisierung mittels eins Computerprogramm gezeigt ist. Dadurch, dass der Covert Channel unabhängig vom Paketinhalt ist, lässt er sich nicht von Netzwerk-Normalisierungen beeinflussen. Er ist jedoch stark von Netzwerkbedingungen abhängig, was als Folge der Codierung durch die Zeitabstände einhergeht.\\
+		Die Umsetzung als passive Variante ist ebenfalls möglich, was durch dessen erfolgreiche Implementierung gezeigt wurde.
 			
 
 
@@ -932,31 +942,31 @@ while True:
 \chapter{Fazit und Ausblick}
 
 		\section{Aktiv}
-		Der Server und der Client sind in der Lage einen Covert Channel zu erstellen, der in der Lage Daten zu übertragen. Die Kommunikation geschieht verdeckt, kommt aber ohne Verschlüsselung aus.\\
-		Das in der Motivation genannte Beispiel lässt sich mit dieser Lösung umsetzten. Es können Daten jeglicher Größe übertragen werden. Jedoch macht eine Größe über 200 Byte keinen Sinn, da hier die Chance auf falsch interpretierte Bits sehr groß wird. Die entstandene Softwarelösung bietet eine gute Basis, um entsprechende Erweiterungen zu implementieren.\\
+		Der Server und der Client sind in der Lage einen Covert Channel zu erstellen, der in der Lage ist, Daten zu übertragen. Die Kommunikation geschieht verdeckt, kommt aber ohne Verschlüsselung aus.\\
+		Das in der Motivation genannte Beispiel lässt sich mit dieser Lösung umsetzten. Es können Daten jeglicher Größe übertragen werden. Jedoch macht eine Größe über 25 Byte keinen Sinn, da sonst die Chance auf falsch interpretierte Bits zu groß wird. Die entstandene Softwarelösung bietet jedoch eine gute Basis, um entsprechende Erweiterungen zu implementieren.\\
 		Mit einer durchschnittlichen Datenübertragungsrate von 11,53 Bits pro Sekunde ist der Covert Channel nicht sehr schnell, aber ausreichend um kleinere Datenmengen zu übertragen.\\
-		Wird der Covert Channel zur Kommunikation verwendet ist es für Dritte nahezu unmöglich eine verdeckte Kommunikation zu erkennen. Wird der Server so getarnt, dass er nicht mit einem Sender, wie zum Beispiel der Polizei, in Verbindung gebracht werden kann, so stellt diese Lösung ein sehr sichere Variante dar, um kurze Nachrichten wie Treffpunkte, Anweisungen oder Telefonnummern auszutauschen.
+		Wird der Covert Channel zur Kommunikation verwendet, ist es für Dritte nahezu unmöglich eine verdeckte Kommunikation zu erkennen. Wird der Server so getarnt, dass er nicht mit einem Sender, wie zum Beispiel der Polizei, in Verbindung gebracht werden kann, so stellt diese Lösung ein sehr sichere Variante dar, um kurze Nachrichten wie Treffpunkte, Anweisungen oder Telefonnummern auszutauschen.
 
 		
 		\section{Pasiv}
-		Die passive Variante des Covert Channels ist eine \textit{Proof of Cocept} Implementierung und noch nicht geeignet um als reale Anwendung verwendet zu werden. Das Konzept eines passiven zeitlichen Cover Channel wurde bestätigt und dessen Funktion bewiesen.\\
-		Wie auch bei der aktiven Variante ist eine Datengröße über 200 Byte nicht sinnvoll. Es ist aber eine gute Basis entstanden die erweitert werden kann. Durch die Einschränkungen ist es nicht einfach eine geeignete Webseite für den Covert Channel zu finden. Bei einer realen Umsetzung sollte die Verwendung des ersten Lösungsansatzes in Betracht gezogen werden. Hier kann man auf einer funktionierenden Proxylösung aufbauen, bei der alle Webseiten unterstützt werden.\\
+		Die passive Variante des Covert Channels ist eine \textit{Proof of Cocept} Implementierung und noch nicht geeignet, um als reale Anwendung verwendet zu werden. Das Konzept eines passiven zeitlichen Cover Channel wurde bestätigt und dessen Funktion bewiesen.\\
+		Wie auch bei der aktiven Variante ist eine Datengröße über 25 Byte nicht sinnvoll. Es ist aber eine gute Basis entstanden, die erweitert werden kann. Durch die Einschränkungen ist es nicht einfach eine geeignete Webseite für den Covert Channel zu finden. Bei einer realen Umsetzung sollte die Verwendung des ersten Lösungsansatzes in Betracht gezogen werden. Hier kann man auf einer funktionierenden Proxylösung aufbauen, bei der alle Webseiten unterstützt werden.\\
 		Dennoch kann man mit der Kombination aus Proxy und Client, Netzwerkpakete eines fremden Servers verwenden, um Informationen ohne Veränderung des Paketinhalts zu versenden.
 		
 
 \section{Ausblick}
-In diesem Kapitel werden einige mögliche Erweiterungen vorgestellt, die in Zukunft implementiert werden könnten.
+In diesem Kapitel werden einige mögliche Erweiterungen vorgestellt, die in Zukunft implementiert werden könnten beziehungsweise sollten um eine reale Anwendung zu schaffen.
 
 
 \subsubsection{Dateien aufteilen}
-Um auch große Dateien zu verschicken, können diese in mehrere kleine aufgeteilt werden. Hier müsste dann auch eine Methode gefunden werden um die Datei Fragmente wieder zusammenzusetzen.
+Um auch große Dateien zu verschicken, können diese in mehrere kleine aufgeteilt werden. Hier müsste dann auch eine Methode gefunden werden, um die Datei Fragmente wieder zusammenzusetzen.
 
 
 \subsubsection{Automatische Pausenerkennung}
 Um die Bedienung komfortabler zu machen, kann eine automatische Erkennung der Pausenlänge implementiert werden, so wird eine variable Anpassung der Pausenlänge möglich. Diese kann zum Beispiel vom Server oder Proxy als Reaktion auf eine Netzwerkanomalie veranlasst werden.
 
 \subsubsection{Beachtung der Sequence Number beim Client}
-Um das derzeitige Problem mit bei der parallelen Datenübertragung zu lösen. Kann zusätzlich zur Erkennung der Pakete die TCP Sequence Number beachtet werden. So könnten die unterschiedlichen Übertragungen der Daten unterschieden werden. Damit wäre sogar eine parallele Datenübertragung möglich.
+Um das derzeitige Problem bei der parallelen Datenübertragung zu lösen. Kann zusätzlich zur Erkennung der Pakete die TCP Sequence Number beachtet werden. So könnten die verschiedenen Übertragungen der Dateien unterschieden werden. Damit wäre sogar eine parallele Datenübertragung möglich.
 
 \subsubsection{Server mit realistischen Webseite}
 Die derzeitige Webseite zeigt die aktuelle Uhrzeit an. Um den Covert Channel noch sicherer und unauffälliger zu machen, kann hier eine Webseite implementiert werden, die einen plausiblen Einsatzzweck hat.
