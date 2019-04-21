@@ -84,7 +84,7 @@
 \BOOKMARK [1][-]{section.6.11}{Clientseitige Auswertung des Covert Channel}{chapter.6}% 84
 \BOOKMARK [2][-]{subsection.6.11.1}{Anforderung an die Auswertung}{section.6.11}% 85
 \BOOKMARK [2][-]{subsection.6.11.2}{Auswertung im Front-End}{section.6.11}% 86
-\BOOKMARK [2][-]{subsection.6.11.3}{Auswertung mit externem Programm}{section.6.11}% 87
+\BOOKMARK [2][-]{subsection.6.11.3}{Auswertung mit einem externen Programm}{section.6.11}% 87
 \BOOKMARK [2][-]{subsection.6.11.4}{Bewertung der Covert Channel Auswertung}{section.6.11}% 88
 \BOOKMARK [1][-]{section.6.12}{Client}{chapter.6}% 89
 \BOOKMARK [2][-]{subsection.6.12.1}{Programmiersprache}{section.6.12}% 90
@@ -92,9 +92,9 @@
 \BOOKMARK [2][-]{subsection.6.12.3}{Interpretieren der Zeitstempel}{section.6.12}% 92
 \BOOKMARK [2][-]{subsection.6.12.4}{Verarbeiten der Erhaltenen Daten}{section.6.12}% 93
 \BOOKMARK [0][-]{chapter.7}{Optimales Einstellen und Anwendung des Covert Channel}{}% 94
-\BOOKMARK [1][-]{subsection.7.0.1}{Verh\344tniss nicht interpretierbar/ interpretierbar}{chapter.7}% 95
+\BOOKMARK [1][-]{subsection.7.0.1}{Verh\344ltnis nicht interpretierbar/ interpretierbar}{chapter.7}% 95
 \BOOKMARK [2][-]{subsection.7.0.2}{Anzahl korrekt \374bertragener Dateien}{subsection.7.0.1}% 96
-\BOOKMARK [2][-]{subsection.7.0.3}{Zeit bis zum ersten korrekten Eintreffen}{subsection.7.0.1}% 97
+\BOOKMARK [2][-]{subsection.7.0.3}{Zeit bis zum ersten korrekten Eintreffen der Datei}{subsection.7.0.1}% 97
 \BOOKMARK [2][-]{subsection.7.0.4}{Padding zum Synchronisieren}{subsection.7.0.1}% 98
 \BOOKMARK [0][-]{chapter.8}{Umsetzung der passiven Variante}{}% 99
 \BOOKMARK [1][-]{subsection.8.0.1}{Anforderung an den Proxy}{chapter.8}% 100

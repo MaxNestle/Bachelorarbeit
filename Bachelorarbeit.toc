@@ -99,7 +99,7 @@
 \contentsline {section}{\numberline {6.11}Clientseitige Auswertung des Covert Channel}{50}{section.6.11}
 \contentsline {subsection}{\numberline {6.11.1}Anforderung an die Auswertung}{50}{subsection.6.11.1}
 \contentsline {subsection}{\numberline {6.11.2}Auswertung im Front-End}{51}{subsection.6.11.2}
-\contentsline {subsection}{\numberline {6.11.3}Auswertung mit externem Programm}{51}{subsection.6.11.3}
+\contentsline {subsection}{\numberline {6.11.3}Auswertung mit einem externen Programm}{51}{subsection.6.11.3}
 \contentsline {subsection}{\numberline {6.11.4}Bewertung der Covert Channel Auswertung}{51}{subsection.6.11.4}
 \contentsline {section}{\numberline {6.12}Client}{52}{section.6.12}
 \contentsline {subsection}{\numberline {6.12.1}Programmiersprache}{52}{subsection.6.12.1}
@@ -117,9 +117,9 @@
 \contentsline {subsubsection}{\nonumberline Toleranz}{55}{section*.28}
 \contentsline {subsection}{\numberline {6.12.4}Verarbeiten der Erhaltenen Daten}{56}{subsection.6.12.4}
 \contentsline {chapter}{\numberline {7}Optimales Einstellen und Anwendung des Covert Channel}{57}{chapter.7}
-\contentsline {subsection}{\numberline {7.0.1}Verh\"atniss nicht interpretierbar/ interpretierbar}{57}{subsection.7.0.1}
+\contentsline {subsection}{\numberline {7.0.1}Verh\"altnis nicht interpretierbar/ interpretierbar}{57}{subsection.7.0.1}
 \contentsline {subsection}{\numberline {7.0.2}Anzahl korrekt \"ubertragener Dateien}{58}{subsection.7.0.2}
-\contentsline {subsection}{\numberline {7.0.3}Zeit bis zum ersten korrekten Eintreffen}{59}{subsection.7.0.3}
+\contentsline {subsection}{\numberline {7.0.3}Zeit bis zum ersten korrekten Eintreffen der Datei}{59}{subsection.7.0.3}
 \contentsline {subsection}{\numberline {7.0.4}Padding zum Synchronisieren}{61}{subsection.7.0.4}
 \contentsline {chapter}{\numberline {8}Umsetzung der passiven Variante}{62}{chapter.8}
 \contentsline {subsection}{\numberline {8.0.1}Anforderung an den Proxy}{62}{subsection.8.0.1}
