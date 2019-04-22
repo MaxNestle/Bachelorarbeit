@@ -102,15 +102,15 @@
 \BOOKMARK [2][-]{subsection.8.0.3}{Bewertung des L\366sungsansatzes}{subsection.8.0.1}% 102
 \BOOKMARK [2][-]{subsection.8.0.4}{Implementierung}{subsection.8.0.1}% 103
 \BOOKMARK [0][-]{chapter.9}{Anwendung des passiven Covert Channel}{}% 104
-\BOOKMARK [1][-]{section.9.1}{Probleme bei realen Webseite}{chapter.9}% 105
+\BOOKMARK [1][-]{section.9.1}{Probleme bei realen Webseiten}{chapter.9}% 105
 \BOOKMARK [2][-]{subsection.9.1.1}{HTTPS}{section.9.1}% 106
-\BOOKMARK [2][-]{subsection.9.1.2}{Generierung von gen\374gend Nachrichten}{section.9.1}% 107
+\BOOKMARK [2][-]{subsection.9.1.2}{Generierung einer ausreichenden Anzahl von Netzwerkpaketen}{section.9.1}% 107
 \BOOKMARK [2][-]{subsection.9.1.3}{Parallele Datenabfrage}{section.9.1}% 108
 \BOOKMARK [1][-]{section.9.2}{Test mit realen Servern}{chapter.9}% 109
 \BOOKMARK [0][-]{chapter.10}{Evaluierung}{}% 110
 \BOOKMARK [0][-]{chapter.11}{Fazit und Ausblick}{}% 111
 \BOOKMARK [1][-]{section.11.1}{Aktiv}{chapter.11}% 112
-\BOOKMARK [1][-]{section.11.2}{Pasiv}{chapter.11}% 113
+\BOOKMARK [1][-]{section.11.2}{Passiv}{chapter.11}% 113
 \BOOKMARK [1][-]{section.11.3}{Ausblick}{chapter.11}% 114
 \BOOKMARK [0][-]{chapter*.39}{Danksagung}{}% 115
 \BOOKMARK [0][-]{chapter*.40}{Literatur}{}% 116

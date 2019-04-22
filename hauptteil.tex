@@ -843,18 +843,18 @@ Um dieses Problem zu umgehen, werden 2 Byte Padding, zum Synchronisieren, an den
 			Ein Lösungsansatz ist die Verwendung eines fertigen Proxys, wie zum Beispiel eines Squid oder Tinyproxy. Für diese Open Source Programme ist der Code frei erhältlich. Hier gilt es die Funktion zum Senden der Nachrichten so zu verändern, dass die Nachrichten gezielt verzögert werden können.
 		
 		\subsubsection{Proxy selbst programmieren}
-			Eine alternative Lösung ist die eigenständige Programmierung eines Proxys. Dazu soll ein Python-Skript geschrieben werden, das jeweils ein Netzwerksocket zum Client und einen zum Server verwaltet. Werden die TCP Pakete von einem an den anderen Socket weitergegeben erhält man einen Proxy. Die Pakete können hier frei verändert werden.
+			Eine alternative Lösung ist die eigenständige Programmierung eines Proxys. Dazu soll ein Python-Skript geschrieben werden, das jeweils ein Netzwerksocket zum Client und zum Server verwaltet. Werden die TCP Pakete von einem an den anderen Socket weitergegeben, erhält man einen Proxy. Die Pakete können hier frei verändert werden.
 	
 	\subsection{Bewertung des Lösungsansatzes}
-			Beide Lösungsansätze sind in der Lage die Anforderungen umzusetzen. Der selbst programmierte Proxy bietet jedoch die volle Kontrolle und bietet bei dieser Proof of Concept Implementierung mehr Spielraum. Zudem ist diese sehr leichtgewichtige Software Variante komfortabler zu debuggen und optimieren. Aus diesen Gründen soll hier der Proxy eigenhändig erstellt werden.\\
-			Sollte sich der Proof of Concept als Erfolg herausstellen, ist die erste Lösung für eine reale Anwendung besser geeignet, da so eine großer Funktionsumfang hinzukommt.
+			Beide Lösungsansätze sind in der Lage die Anforderungen umzusetzen. Der selbst programmierte Proxy bietet die volle Kontrolle, bei gleichzeitig mehr Spielraum für diese Proof of Concept Implementierung. Zudem ist diese sehr leichtgewichtige Software Variante komfortabler zu debuggen und zu optimieren. Aus diesen Gründen soll hier der Proxy eigenhändig erstellt werden.\\
+			Sollte sich der Proof of Concept als Erfolg herausstellen, ist die erste Lösung für eine reale Anwendung besser geeignet, da ein großer Funktionsumfang mitgenutzt werden kann.
 	
 	\subsection{Implementierung}
 		\subsubsection{Sockets}
 			Es wird ein Listen-Socket erstellt, der auf eingehende Nachrichten auf Port \textit{80} hört. Dieser Port muss später in den Proxy-Einstellungen des Browsers hinterlegt werden.\\
-			Sendet der Browser einen HTTP-Request an den Proxy, wird der Client-Socket erstellt. Der Proxy erstellt nun den Server-Socket indem er sich mit dem in dem HTTP-Request stehenden Webserver verbindet. Da oft externe Ressourcen verwendet werden und Verbindungen nach dem Senden einer Datei geschlossen werden, entstehen pro Webseite mehrere dieser Verbindungen.\\
-			Um die hierdurch entstehenden Sockets zu verwalten wird das Betriebssystemmodul \textit{select} verwendet. Bei der Verwendung von \textit{select} wird das Betriebssystem gefragt, ob die angegebenen Sockets bereit zum Lesen oder zum Schreiben sind. Ist dies der Fall wird eine Liste mit beschreibbaren und eine mit lesbaren Sockets zurückgegeben. Dies hat den Vorteil, dass nicht alle Sockets mit Polling abgefragt werden müssen.\\
-			In Listing 7.1 ist der Code zu sehen, der die Handhabung der Sockets übernimmt. Die Liste aller Sockets wird zur Kontrolle an \textit{select} übergeben.
+			Sendet der Browser einen HTTP-Request an den Proxy, wird ein Client-Socket erstellt. Der Proxy erstellt ebenfalls einen Server-Socket, indem er sich mit dem, im HTTP-Request stehenden Webserver verbindet. Da oft externe Ressourcen verwendet werden und Verbindungen nach dem Senden einer Datei geschlossen werden, entstehen pro Webseite mehrere solcher Verbindungen.\\
+			Um die hierdurch entstehenden Sockets zu verwalten, wird das Betriebssystemmodul \textit{select} verwendet. \textit{select} stellt fest, ob die angegebenen Sockets zum Lesen oder Schreiben bereit sind. Ist dies der Fall wird eine Liste mit beschreibbaren und eine mit lesbaren Sockets zurückgegeben. Dadurch müssen nicht alle Sockets dauerhaft mit Polling abgefragt werden müssen.\\
+			In Listing 7.1 ist der Code zu sehen, der die oben beschriebene Handhabung der Sockets übernimmt. Die Liste aller Sockets wird zur Kontrolle an \textit{select} übergeben.
 			
 			\begin{lstlisting}[caption=Socket Handling]
 while True:
@@ -864,35 +864,35 @@ while True:
 	self.send(writable)
 			\end{lstlisting}
 			 
-			 Anhand ihres Index in der Socket-Liste, können die Sockets identifiziert werden. Dabei gehören immer ein Client- und ein Server-Socket zusammen. Die Nachrichten die zwischen diesen zwei augetauscht werden sollen, sind in einem Array gespeichert.\\
+			 Anhand ihres Indexes in der Socket-Liste, können die Sockets identifiziert werden. Dabei gehören immer ein Client- und ein Server-Socket zusammen. Die Nachrichten die zwischen diesen zwei ausgetauscht werden sollen, werden in einem Array gespeichert.\\
 			
 		\subsubsection{Geheime Daten}
-			Wie auch schon bei der aktiven Variante, werden die zu übertragenden Daten von einer angegebenen Datei gelesen und in eine binäre Liste umgewandelt. Hieraus wird ein 8 Bit Pearson-Hash berechnet und hinten angehängt.
+			Vergleichbar mit der aktiven Variante, werden die zu übertragenden Daten von einer angegebenen Datei gelesen und in eine binäre Liste umgewandelt. Hieraus wird ein 8 Bit Pearson-Hash berechnet und an das Ende der binären Liste angehängt.
 			
 		\subsubsection{Covert Channel}
-			Bei der Erstellung des Covert Channels müssen die Nachrichten an den Client nun zeitlich Verzögert werden. Dabei besteht allerdings das Problem, dass bei dieser Anwendung nur ein Thread verwendet wird, der gleichzeitig für das Senden und Empfangen zuständig ist.\\ So kann die Lösung der aktiven Variante, wobei der Thread für die benötigte Zeit in \textit{sleep} gesetzt wird, nicht verwendet werden.\\
-			Aus diesem Grund wird nach jedem Senden an den Client der Zeitstempel abgespeichert. Bevor ein neues Paket gesendet wird, wird kontrolliert, ob die Differenz der aktuellen Zeit und dem letzten Sendezeitpunkt der gewünschten Pause entspricht.\\
+			Bei der Erstellung des Covert Channels müssen die Nachrichten an den Client zeitlich verzögert werden. Dabei besteht allerdings das Problem, dass bei dieser Anwendung nur ein Thread verwendet wird, der gleichzeitig für das Senden und Empfangen zuständig ist.\\ Auf Grund dessen kann der Lösungsansatz der aktiven Variante, wobei der Thread für die benötigte Zeit in \textit{sleep} gesetzt wird, nicht verwendet werden.\\
+			Daher wird nach jedem Senden an den Client der Zeitstempel abgespeichert. Bevor ein neues Paket gesendet wird, wird kontrolliert, ob die Differenz der aktuellen Zeit und dem letzten Sendezeitpunkt der gewünschten Pause entspricht.\\
 			Die Pausen werden äquivalent zu der aktiven Variante definiert.
 			
 	
 \chapter{Anwendung des passiven Covert Channel}
 	
-	\section{Probleme bei realen Webseite}
+	\section{Probleme bei realen Webseiten}
 	
 			\subsection{HTTPS}
-				Der Proxy ist nicht für die Verwendung von HTTPS ausgelegt, wodurch hier nur http Webseiten abgerufen werden können. 
+				Der Proxy ist nicht für die Verwendung von HTTPS ausgelegt, wodurch hier nur HTTP Webseiten abgerufen werden können. 
 	
-			\subsection{Generierung von genügend Nachrichten}
-				Für den Covert Channel wird ein kontinuierlicher Datenstrom benötigt. Durch den verbindungsorientierten Aufbau von TCP ist es schwierig die Daten zu puffern und später auf ein mal abzusenden, da auf die ACK Nachricht gewartet wird.\\
-				Um künstlich einen hohen Netzwerkverkehr zu generieren, kann beim Empfangen des Sockets eine geringe Datenmenge angegeben.\\
-				Hier wird die maximale Paketgröße auf 256 Byte eingegrenzt. Dadurch wird gerade beim Empfangen von Bildern ein enormer Netzwerkverkehr erzeugt, welcher für den Covert Channel genutzt werden kann.
+			\subsection{Generierung einer ausreichenden Anzahl von Netzwerkpaketen}
+				Für den Covert Channel wird ein kontinuierlicher Datenstrom benötigt. Durch den verbindungsorientierten Aufbau von TCP ist es schwierig, die Daten zu puffern und später auf einmal abzusenden, da auf das ACK-Flag gewartet wird.\\
+				Um künstlich einen hohen Netzwerkverkehr zu generieren, kann beim Empfangen der Daten eine geringe Paketgröße gesetzt werden.\\
+				In diesem Fall wird eine maximale Paketgröße von 256 Byte gewählt. Dadurch wird gerade beim Empfangen von Bildern ein enormer Netzwerkverkehr erzeugt, welcher für den Covert Channel genutzt werden kann.
 				
 	
 			\subsection{Parallele Datenabfrage}	
-				Wie vorhergehnd bereits beschrieben öffnet einen normale Webserver gleich mehrerer Sockets um parallel Daten zu empfangen. Diese Nachrichtenpakete, der einzelnen Sockets können nicht vom Client auseinander gehalten werden, da dieser nur den Source-Port betrachtet. Dieser ist jedoch bei allen gleich.\\
+				Wie vorhergehnd bereits beschrieben, öffnet ein Webserver gleich mehrerer Sockets, um parallel Daten zu empfangen. Diese Nachrichtenpakete, der einzelnen Sockets können nicht vom Client auseinander gehalten werden, da dieser nur den Source-Port betrachtet, der jedoch bei allen Paketen gleich.\\
 				In Bild 7.1 ist ein Ausschnitt aus den Firefox Development Tool zu sehen. Hier wird die Übertragungsdauer der einzelnen Dateien gezeigt. Dabei fällt auf, dass bei der hier verwendeten Webseite der \textit{PH-Weingarten}, 5 CSS Dateien gleichzeitig übertragen werden.\\
-				Diese 5 daraus entstehenden Covert Channel überschneiden sich bei der Interpretation im Client und sind so nicht mehr auswertbar.\\
-				Der Covert Channel funktioniert nur, wenn genau eine Datei übertragen wird. Oft dauert die Übertragung großer Bilder jedoch länger als die des Quellcodes. Dies bietet die Chance, dass am Ende der Übertragung nur noch der eine Socket für die Bildübertragung übrig ist, welcher für die Datenübertragung genutzt werden kann.
+				Diese 5 daraus entstehenden Covert Channels überschneiden sich bei der Interpretation im Client und sind so nicht mehr auswertbar.\\
+				Der Covert Channel funktioniert nur, wenn genau eine Datei übertragen wird. Oft dauert die Übertragung großer Bilder jedoch länger als die von Quellcode. Dies bietet die Chance, dass am Ende der Übertragung nur noch ein Socket für die Bildübertragung aktiv ist. Dieser kann für die Datenübertragung im Covert Channel genutzt werden kann.
 				
 				\begin{figure}[h!]
 					\centering
@@ -905,12 +905,12 @@ while True:
 	
 	
 		\section{Test mit realen Servern}
-		Um die Funktion des Proxys zu testen und reale Netzwerkbedingungen zu schaffen, wird er auf einem 1\&1 Cloud Server installiert. Die zu übertragende Datei ist eine Textdatei mit 12 Byte. Zur Datenübertragung werden die gleichen Einstellungen verwendet, die bereits bei den Tests mit dem Client evaluiert wurden. Das bedeutet, die Lange Pause hat eine Länge von 0,08 Sekunden und das Zeitfenster entspricht jeweils 30\%.
+		Um die Funktion des Proxys zu testen und reale Netzwerkbedingungen zu schaffen, wird er auf einem 1\&1 Cloud Server installiert. Die zu übertragende Datei ist eine Textdatei mit 12 Byte. Zur Datenübertragung werden die gleichen zeitlichen Einstellungen verwendet, die bereits im Kapitel 7 evaluiert wurden. Das bedeutet, die Lange Pause hat eine Länge von 0,08 Sekunden und das Zeitfenster entspricht jeweils 30\%.
 		Als Client wird das Programm der aktiven Variante verwendet. Um genügend Netzwerkverkehr zu generieren, wird die maximale Paketgröße vom Server zum Client auf 256 Byte festgelegt.\\
 		Um den Proxy nutzen zu können, muss dieser im Browser eingetragen werden. Dadurch werden alle HTTP Nachrichten zuerst an den Proxy weitergeleitet.\\
 		Nun wird eine beliebige Webseite gewählt, die als Paketquelle dient. Diese Seite muss jedoch über HTTP ausgeliefert werden. Hier wird die Webseite der Pädagogischen-Hochschule Weingarten mit der Adresse \textit{http://www.ph-weingarten.de/} verwendet.
-		Wird die Webseite geladen so sendet der Webserver der PH-Weingarten die Webseitendateien über den Proxy an den Client.\\
-		Jedoch besteht anfangs, das im vorhergehenden Kapitel beschriebene, Problem mit der parallelen Datenübertragung. Das Ergebnis ist in Bild 9.2 zu sehen. Bei einer optimalen Funktion werden den zeitlichen Differenzen links binäre Werte zugeordnet. Jedoch sind hier die meisten Werte nicht zuzuordnen.
+		Wird die Webseite geladen, so sendet der Webserver der PH-Weingarten die Webseitendateien über den Proxy an den Client.\\
+		Jedoch besteht anfangs, das im vorhergehenden Kapitel beschriebene, Problem mit der parallelen Datenübertragung. Das Ergebnis ist in Bild 9.2 zu sehen. Bei einer optimalen Funktion werden den zeitlichen Differenzen links binären Werte zugeordnet. Daher gelingt die Zuordnung in den meisten Fällen nicht.
 		
 		
 		\begin{figure}[h!]
@@ -920,8 +920,8 @@ while True:
 			\label{fig33}
 		\end{figure}
 	
-		Ist nur noch ein Socket aktiv, der für die Dateiübertragung eines größeren Bilds zuständig ist, so findet die Datenübertragung wie in Bild 9.3 gezeigt statt. Hier können die Daten nun ausgewertet werden. Fehler treten von diesem Zeitpunkt an nur noch aufgrund Netzwerk- oder Serveranomalien auf.\\
-		Die Datei kann so erfolgreich übertragen werden.
+		Ist nur noch ein Socket aktiv, der für die Dateiübertragung eines größeren Bilds zuständig ist, so findet die Datenübertragung wie in Bild 9.3 gezeigt statt. Dies ist der beste Zeitpunkt, die Datenübertragung via Covert Channel zu starten . Fehler treten von diesem Zeitpunkt an nur noch aufgrund von Netzwerk- oder Serveranomalien auf.\\
+		Die Datei kann erfolgreich übertragen werden.
 		
 		
 		\begin{figure}[h!]
@@ -933,8 +933,8 @@ while True:
 			
 				
 \chapter{Evaluierung}	
-		Das Ergebnis dieser Arbeit benutzt einen Covert Channel als eine Methode des Information-Hidding um Daten zu übertragen. Dabei können die Daten jedes beliebige Format annehmen, da diese in ihrer binären Form übertragen werden. Die für diesen Covert Channel höchst mögliche Übertragungsgeschwindigkeit wurde ermittelt und kann auch Angewendet werden. Es gibt jedoch andere Covert Channels, wie beispielsweise den Storage Channel, die zu deutlich höheren Übertragungsgeschwindigkeiten fähig sind. Der Kanal ist als Algorithmus umsetzbar, was durch die Realisierung mittels eins Computerprogramm gezeigt ist. Dadurch, dass der Covert Channel unabhängig vom Paketinhalt ist, lässt er sich nicht von Netzwerk-Normalisierungen beeinflussen. Er ist jedoch stark von Netzwerkbedingungen abhängig, was als Folge der Codierung durch die Zeitabstände einhergeht.\\
-		Die Umsetzung als passive Variante ist ebenfalls möglich, was durch dessen erfolgreiche Implementierung gezeigt wurde.
+		Das Ergebnis dieser Arbeit benutzt einen Covert Channel, als eine Methode des Information-Hiding, um Daten zu übertragen. Dabei können die Daten jedes beliebige Format annehmen, da diese in ihrer binären Form übertragen werden. Die für diesen Covert Channel höchst mögliche Übertragungsgeschwindigkeit wurde ermittelt und kann auch angewendet werden. Es gibt jedoch andere Covert Channels, wie beispielsweise Storage Channels, die zu deutlich höheren Übertragungsgeschwindigkeiten fähig sind. Der Kanal ist als Algorithmus umsetzbar, was durch die Realisierung mittels eins Computerprogramms gezeigt worden ist. Dadurch, dass der Covert Channel unabhängig vom Paketinhalt ist, lässt er sich nicht von Netzwerk-Normalisierungen beeinflussen. Er ist jedoch stark von Netzwerkbedingungen abhängig, was mit der Manipulation der Zeitabstände einhergeht.\\
+		Die Umsetzung des Covert Channels ist sowohl als aktive, als auch passive Variante möglich, was durch die erfolgreichen Implementierungen gezeigt worden ist.\\ Auf Probleme stößt man jedoch bei der passiven Lösung, wenn vom Webserver Dateien parallel übertragen werden. Für die aktive Variante stellte sich die Schwankungen beim Übertragungsstart als problematisch dar. Abhilfe konnte durch das Voranstellen von Synchronisationsbits geschafft werden.
 			
 
 
@@ -942,34 +942,34 @@ while True:
 \chapter{Fazit und Ausblick}
 
 		\section{Aktiv}
-		Der Server und der Client sind in der Lage einen Covert Channel zu erstellen, der in der Lage ist, Daten zu übertragen. Die Kommunikation geschieht verdeckt, kommt aber ohne Verschlüsselung aus.\\
+		Der Server und sowie Client sind in der Lage einen Covert Channel zu erstellen, der in der Lage ist, Daten zu übertragen. Die Kommunikation geschieht verdeckt, kommt aber ohne Verschlüsselung aus.\\
 		Das in der Motivation genannte Beispiel lässt sich mit dieser Lösung umsetzten. Es können Daten jeglicher Größe übertragen werden. Jedoch macht eine Größe über 25 Byte keinen Sinn, da sonst die Chance auf falsch interpretierte Bits zu groß wird. Die entstandene Softwarelösung bietet jedoch eine gute Basis, um entsprechende Erweiterungen zu implementieren.\\
-		Mit einer durchschnittlichen Datenübertragungsrate von 11,53 Bits pro Sekunde ist der Covert Channel nicht sehr schnell, aber ausreichend um kleinere Datenmengen zu übertragen.\\
-		Wird der Covert Channel zur Kommunikation verwendet, ist es für Dritte nahezu unmöglich eine verdeckte Kommunikation zu erkennen. Wird der Server so getarnt, dass er nicht mit einem Sender, wie zum Beispiel der Polizei, in Verbindung gebracht werden kann, so stellt diese Lösung ein sehr sichere Variante dar, um kurze Nachrichten wie Treffpunkte, Anweisungen oder Telefonnummern auszutauschen.
+		Mit einer durchschnittlichen Datenübertragungsrate von 11,53 Bits pro Sekunde ist der Covert Channel nicht sehr schnell, aber ausreichend, um kleinere Datenmengen zu übertragen.\\
+		Wird der Covert Channel zur Kommunikation verwendet, ist es für Dritte nahezu unmöglich eine verdeckte Kommunikation zu erkennen. Wird der Server so getarnt, dass er nicht mit einem Sender, wie zum Beispiel der Polizei, in Verbindung gebracht werden kann, so stellt diese Lösung eine sehr sichere Variante dar, um kurze Nachrichten wie Treffpunkte, Anweisungen oder Telefonnummern auszutauschen.
 
 		
-		\section{Pasiv}
-		Die passive Variante des Covert Channels ist eine \textit{Proof of Cocept} Implementierung und noch nicht geeignet, um als reale Anwendung verwendet zu werden. Das Konzept eines passiven zeitlichen Cover Channel wurde bestätigt und dessen Funktion bewiesen.\\
-		Wie auch bei der aktiven Variante ist eine Datengröße über 25 Byte nicht sinnvoll. Es ist aber eine gute Basis entstanden, die erweitert werden kann. Durch die Einschränkungen ist es nicht einfach eine geeignete Webseite für den Covert Channel zu finden. Bei einer realen Umsetzung sollte die Verwendung des ersten Lösungsansatzes in Betracht gezogen werden. Hier kann man auf einer funktionierenden Proxylösung aufbauen, bei der alle Webseiten unterstützt werden.\\
+		\section{Passiv}
+		Die passive Variante des Covert Channels ist eine \textit{Proof of Cocept} Implementierung und noch nicht geeignet, um als reale Anwendung verwendet zu werden. Das Konzept eines passiven, zeitlichen Cover Channel wurde bestätigt und dessen Funktion bewiesen.\\
+		Wie auch bei der aktiven Variante ist eine Datengröße über 25 Byte nicht sinnvoll. Es ist aber eine gute Basis entstanden, die erweitert werden kann. Durch die Einschränkungen ist es nicht einfach, eine geeignete Webseite für den Covert Channel zu finden. Bei einer realen Umsetzung sollte die Verwendung des ersten Lösungsansatzes in Betracht gezogen werden. Dabei kann man auf einer funktionierenden Proxylösung aufbauen, bei der alle Webseiten unterstützt werden.\\
 		Dennoch kann man mit der Kombination aus Proxy und Client, Netzwerkpakete eines fremden Servers verwenden, um Informationen ohne Veränderung des Paketinhalts zu versenden.
 		
 
 \section{Ausblick}
-In diesem Kapitel werden einige mögliche Erweiterungen vorgestellt, die in Zukunft implementiert werden könnten beziehungsweise sollten um eine reale Anwendung zu schaffen.
+In diesem Kapitel werden einige mögliche Erweiterungen vorgestellt, die in Zukunft implementiert werden könnten, beziehungsweise sollten, um eine reale Anwendung zu schaffen.
 
 
 \subsubsection{Dateien aufteilen}
-Um auch große Dateien zu verschicken, können diese in mehrere kleine aufgeteilt werden. Hier müsste dann auch eine Methode gefunden werden, um die Datei Fragmente wieder zusammenzusetzen.
+Um auch große Dateien zu verschicken, können diese in mehrere kleine aufgeteilt werden. Es müsste jedoch eine Methode gefunden werden, um die Datei Fragmente wieder zusammenzusetzen.
 
 
 \subsubsection{Automatische Pausenerkennung}
-Um die Bedienung komfortabler zu machen, kann eine automatische Erkennung der Pausenlänge implementiert werden, so wird eine variable Anpassung der Pausenlänge möglich. Diese kann zum Beispiel vom Server oder Proxy als Reaktion auf eine Netzwerkanomalie veranlasst werden.
+Um die Bedienung komfortabler zu machen, kann eine automatische Erkennung der Pausenlänge implementiert werden. So wird eine variable Anpassung der Pausenlänge möglich. Diese Anpassung kann vom Server oder Proxy als Reaktion auf eine Netzwerkanomalie veranlasst werden.
 
 \subsubsection{Beachtung der Sequence Number beim Client}
-Um das derzeitige Problem bei der parallelen Datenübertragung zu lösen. Kann zusätzlich zur Erkennung der Pakete die TCP Sequence Number beachtet werden. So könnten die verschiedenen Übertragungen der Dateien unterschieden werden. Damit wäre sogar eine parallele Datenübertragung möglich.
+Um das derzeitige Problem bei der parallelen Datenübertragung zu lösen, kann zusätzlich zur Erkennung der Pakete die TCP Sequence Number beachtet werden. So könnten die verschiedenen Übertragungen der Dateien unterschieden werden. Damit wäre sogar eine parallele Datenübertragung möglich.
 
-\subsubsection{Server mit realistischen Webseite}
-Die derzeitige Webseite zeigt die aktuelle Uhrzeit an. Um den Covert Channel noch sicherer und unauffälliger zu machen, kann hier eine Webseite implementiert werden, die einen plausiblen Einsatzzweck hat.
+\subsubsection{Server mit realistischer Webseite}
+Die derzeitige Webseite zeigt die aktuelle Uhrzeit an. Um den Covert Channel noch sicherer und unauffälliger zu machen, kann eine Webseite implementiert werden, die einen plausiblen Einsatzzweck hat.
 
 
 \subsubsection{Verwendung von HTTPS}

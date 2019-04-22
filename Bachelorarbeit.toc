@@ -132,20 +132,20 @@
 \contentsline {subsubsection}{\nonumberline Geheime Daten}{64}{section*.32}
 \contentsline {subsubsection}{\nonumberline Covert Channel}{64}{section*.33}
 \contentsline {chapter}{\numberline {9}Anwendung des passiven Covert Channel}{66}{chapter.9}
-\contentsline {section}{\numberline {9.1}Probleme bei realen Webseite}{66}{section.9.1}
+\contentsline {section}{\numberline {9.1}Probleme bei realen Webseiten}{66}{section.9.1}
 \contentsline {subsection}{\numberline {9.1.1}HTTPS}{66}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}Generierung von gen\"ugend Nachrichten}{66}{subsection.9.1.2}
+\contentsline {subsection}{\numberline {9.1.2}Generierung einer ausreichenden Anzahl von Netzwerkpaketen}{66}{subsection.9.1.2}
 \contentsline {subsection}{\numberline {9.1.3}Parallele Datenabfrage}{67}{subsection.9.1.3}
 \contentsline {section}{\numberline {9.2}Test mit realen Servern}{68}{section.9.2}
 \contentsline {chapter}{\numberline {10}Evaluierung}{70}{chapter.10}
 \contentsline {chapter}{\numberline {11}Fazit und Ausblick}{71}{chapter.11}
 \contentsline {section}{\numberline {11.1}Aktiv}{71}{section.11.1}
-\contentsline {section}{\numberline {11.2}Pasiv}{71}{section.11.2}
+\contentsline {section}{\numberline {11.2}Passiv}{71}{section.11.2}
 \contentsline {section}{\numberline {11.3}Ausblick}{72}{section.11.3}
 \contentsline {subsubsection}{\nonumberline Dateien aufteilen}{72}{section*.34}
 \contentsline {subsubsection}{\nonumberline Automatische Pausenerkennung}{72}{section*.35}
 \contentsline {subsubsection}{\nonumberline Beachtung der Sequence Number beim Client}{73}{section*.36}
-\contentsline {subsubsection}{\nonumberline Server mit realistischen Webseite}{73}{section*.37}
+\contentsline {subsubsection}{\nonumberline Server mit realistischer Webseite}{73}{section*.37}
 \contentsline {subsubsection}{\nonumberline Verwendung von HTTPS}{73}{section*.38}
 \contentsline {chapter}{\nonumberline Danksagung}{74}{chapter*.39}
 \contentsline {chapter}{\nonumberline Literatur}{76}{chapter*.40}
