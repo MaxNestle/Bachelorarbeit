@@ -61,43 +61,18 @@ def tcpdump():
     global buffer
     global data
     global mutex
-    portList = []
+
     pipe = os.popen("tcpdump -s 0 host "+host+" and src port "+port+" -q -i any -l")
     for line in pipe:
 
         if line.split()[6] != "0":                #looks if the massage contains data => in the other case its the ACK for the server
-            destPort = line.split()[4].split(".")[1][:-1]
+            buffer.append(line[0:15])           #saves only the time to buffer
 
-            try:
-                index = portList.index(destPort)
-            except ValueError:
-                portList.append(destPort)
-                buffer.append([])
-                try:
-                    index = portList.index(destPort)
-                except ValueError:
-                    print("ValueError")
-
-            buffer[index].append(line[0:15])           #saves only the time to buffer
-
-
-        mutex.acquire()
-
-
-        while True:
-            if len(buffer) > len(data):
-                data.append([])
-            else:
-                break
-
-
-        k = 0
-        for x in buffer:
-            if len(x) > bufferzize:
-                data[k] = data[k] + buffer[k]
-                buffer[k] = []
-            k += 1
-        mutex.release()
+        if len(buffer) > bufferzize:
+            mutex.acquire()
+            data = data + buffer
+            buffer = []
+            mutex.release()
 
     print("test")
     time.sleep(threadBreak)
@@ -127,63 +102,37 @@ def calc():
 
     global codedata
     global result
-    write = []
+    write = False
     index = 0
     totalError = 0
     partialError = 0
     totalData = 0
     count = 0
-    dataIndex = 0
-    dif = []
+    correctTransfert = 0
 
     while 1:
         mutex.acquire()
-
-        while True:
-            if len(data) > len(codedata):
-                codedata.append([])
-            else:
-                break
-
-
-        while True:
-            if len(data) > len(write):
-                write.append(False)
-            else:
-                break
-
-        if dataIndex == len(data)-1:
-            dataIndex  = -1
-
-        if dataIndex < len(data)-1:
-            dataIndex += 1
-
-        if len(data) == 0:
-            mutex.release()
-            time.sleep(threadBreak)
-            continue
-
-        if len(data[dataIndex]) != 0:
-            while len(data[dataIndex]) > 2:  # enouth to compare?
-                d1 = datetime.strptime(data[dataIndex][0], "%H:%M:%S.%f")
-                d2 = datetime.strptime(data[dataIndex][1], "%H:%M:%S.%f")
-                d1 = d2 - d1  # calculate the time between paket
-                dif.append(float(d1.total_seconds()))
-                data[dataIndex].pop(0)
-            #if len(dif) != 0:
-                #detectBreak(dif)
-
+        dif = list()
+        while len(data) > 2:  # enouth to compare?
+            d1 = datetime.strptime(data[0], "%H:%M:%S.%f")
+            d2 = datetime.strptime(data[1], "%H:%M:%S.%f")
+            d1 = d2 - d1  # calculate the time between paket
+            dif.append(float(d1.total_seconds()))
+            data.pop(0)
+        #if len(dif) != 0:
+            #detectBreak(dif)
         for f1 in dif:
             if sStartTolerance < f1 < bStartTolerance:  # searching the file start/end
                 index = 0
                 print(str(f1) + "  \t=> Start of File")
-                if codedata[dataIndex] != []:
-                    hashFromServer = codedata[dataIndex][-8:]      # get the Hash fom the end of the data
-                    del codedata[dataIndex][-8:]                   # remove hash from data
+                if codedata != []:
+
+                    hashFromServer = codedata[-8:]      # get the Hash fom the end of the data
+                    del codedata[-8:]                   # remove hash from data
                     hashFromServer = int(''.join(str(e) for e in hashFromServer),2)
                     print("Hash from serer: "+str(hashFromServer))
-                    dataString = ''.join(str(e) for e in codedata[dataIndex])  # data from List to String
-                    hashFromClient = hash8(codedata[dataIndex],table)[0]         # generating 8 bit Perason Hash
+                    dataString = ''.join(str(e) for e in codedata)  # data from List to String
+                    hashFromClient = hash8(codedata,table)[0]         # generating 8 bit Perason Hash
                     print("Hash from client: "+str(hashFromClient))
 
                     if hashFromServer != hashFromClient:
@@ -194,34 +143,50 @@ def calc():
                     print("Data Length: "+str(len(dataString)))
                     print("")
 
+                    totalData += len(dataString)
+                    totalError += partialError
+                    partialError = 0
+
+
+                    if totalData != 0:
+                        print("Fehlerrate gesamt: "+str((totalError/totalData)*100)+"%")
+
+                    count += 1
+
+
 
                     b = BitArray(bin = dataString)               # making bitArray without Char encoding
                     if hashFromClient == hashFromServer:
                         f = open('./' + filename, 'wb')  # open file
                         b.tofile(f)                         # write to file
                         f.flush()
+                        correctTransfert += 1
                         f.close()
                         return
 
 
-                codedata[dataIndex] = []
+                    if count == 20:
+                        print("Korrekt Übertragen: "+str(correctTransfert))
+                        return
 
-                if write[dataIndex] == False:                      # false at the beginning as long the file hasnt started
-                    write[dataIndex] = True
+
+                codedata = []
+                if write == False:                      # false at the beginning as long the file hasnt started
+                    write = True
             else:
-                if write[dataIndex] == True:
+                if write == True:
                     if sBigBreakTolerance < f1 < bBigBreakTolerance:    # time range for a 1
-                        codedata[dataIndex].append("1")
+                        codedata.append("1")
                         print(str(index)+"\t"+str(f1) + "  \t=> 1 ")     # print result and distance to the range borders
                     else:
                         if sSmallBreakTolerance < f1 < bSmallBreakTolerance: # time range for 0
-                                codedata[dataIndex].append("0")
+                                codedata.append("0")
                                 print(str(index)+"\t"+str(f1) + "  \t=> 0")
                         else:
                             partialError += 1
                             print(str(index)+"\t"+str(f1) + "  \t=> undefind: will be ignored")
                     index += 1
-        dif = []
+
         mutex.release()
         time.sleep(threadBreak)
 

@@ -23,7 +23,7 @@
 \contentsline {section}{\numberline {2.4}Kryptographie}{9}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Symmetrische Verschl\"usselung}{10}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}Asymmetrische Verschl\"usselung}{10}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Verwendung von ,,Shamir's Secret Sharing'' Methode}{11}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.3},,Shamir's Secret Sharing'' Methode}{11}{subsection.2.4.3}
 \contentsline {section}{\numberline {2.5}Information Hiding}{12}{section.2.5}
 \contentsline {subsection}{\numberline {2.5.1}Steganographie}{12}{subsection.2.5.1}
 \contentsline {subsection}{\numberline {2.5.2}Covert Channel}{14}{subsection.2.5.2}
@@ -144,7 +144,7 @@
 \contentsline {section}{\numberline {11.3}Ausblick}{72}{section.11.3}
 \contentsline {subsubsection}{\nonumberline Dateien aufteilen}{72}{section*.34}
 \contentsline {subsubsection}{\nonumberline Automatische Pausenerkennung}{72}{section*.35}
-\contentsline {subsubsection}{\nonumberline Beachtung der Sequence Number beim Client}{73}{section*.36}
+\contentsline {subsubsection}{\nonumberline Beachtung des Destination Ports beim Client}{73}{section*.36}
 \contentsline {subsubsection}{\nonumberline Server mit realistischer Webseite}{73}{section*.37}
 \contentsline {subsubsection}{\nonumberline Verwendung von HTTPS}{73}{section*.38}
 \contentsline {chapter}{\nonumberline Danksagung}{74}{chapter*.39}

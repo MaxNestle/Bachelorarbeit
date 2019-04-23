@@ -156,6 +156,7 @@ class Proxy:
         if len(self.msgToClient[int((sockIndex - 1) / 2)]) != 0:
 
             lastTime = self.lastSend[int((sockIndex - 1) / 2)]
+
             currenTime = time.time()
             div = currenTime - lastTime
 

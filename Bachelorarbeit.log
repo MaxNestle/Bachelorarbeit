@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  22 APR 2019 12:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  23 APR 2019 16:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3138,7 +3138,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 248.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 248.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 248.
 Package rerunfilecheck Info: File `Bachelorarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 3C3C9B24858FB040A89126016E938FF9;8428.
+(rerunfilecheck)             Checksum: 381EA2ABE13ABDFD8805A19241C6B5B1;8413.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -3169,7 +3169,7 @@ ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm
 -super/sfti1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhv
 r8a.pfb>
-Output written on Bachelorarbeit.pdf (86 pages, 1936971 bytes).
+Output written on Bachelorarbeit.pdf (86 pages, 1936805 bytes).
 PDF statistics:
  1422 PDF objects out of 1440 (max. 8388607)
  1266 compressed objects within 13 object streams

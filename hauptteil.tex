@@ -901,7 +901,7 @@ while True:
 					\label{fig43}
 				\end{figure}
 				
-				Als mögliche Lösung kann der Client zur Berücksichtigung der Sequenznummer erweitert werden, um die verschiedenen Covert Channel zu unterscheiden.
+				Als mögliche Lösung kann der Client zur Berücksichtigung des Destination Ports erweitert werden, um die verschiedenen Covert Channel zu unterscheiden.
 	
 	
 		\section{Test mit realen Servern}
@@ -965,8 +965,8 @@ Um auch große Dateien zu verschicken, können diese in mehrere kleine aufgeteilt 
 \subsubsection{Automatische Pausenerkennung}
 Um die Bedienung komfortabler zu machen, kann eine automatische Erkennung der Pausenlänge implementiert werden. So wird eine variable Anpassung der Pausenlänge möglich. Diese Anpassung kann vom Server oder Proxy als Reaktion auf eine Netzwerkanomalie veranlasst werden.
 
-\subsubsection{Beachtung der Sequence Number beim Client}
-Um das derzeitige Problem bei der parallelen Datenübertragung zu lösen, kann zusätzlich zur Erkennung der Pakete die TCP Sequence Number beachtet werden. So könnten die verschiedenen Übertragungen der Dateien unterschieden werden. Damit wäre sogar eine parallele Datenübertragung möglich.
+\subsubsection{Beachtung des Destination Ports beim Client}
+Um das derzeitige Problem bei der parallelen Datenübertragung zu lösen, kann zusätzlich zur Erkennung der Pakete der TCP Destination Port beachtet werden. So könnten die verschiedenen Übertragungen der Dateien unterschieden werden. Damit wäre sogar eine parallele Datenübertragung möglich.
 
 \subsubsection{Server mit realistischer Webseite}
 Die derzeitige Webseite zeigt die aktuelle Uhrzeit an. Um den Covert Channel noch sicherer und unauffälliger zu machen, kann eine Webseite implementiert werden, die einen plausiblen Einsatzzweck hat.
