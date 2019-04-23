@@ -299,8 +299,12 @@ So ist die Verwendung eines TCP Streams die beste Lösung, wobei sich die verbind
 
 \section{Aufbau des Systems}
 
-In diesem Kapitel sollen die einzelnen Bausteine, die im vorhergehenden Abschnitt beschriebenen wurden, zu einem kompletten System zusammengefügt werden. Der Aufbau dieses Systems dient dann später als Struktur bei der Programmierung.\\
+In diesem Kapitel sollen die einzelnen Bausteine, die im vorhergehenden Abschnitt beschriebenen wurden, zu einem kompletten System zusammengefügt werden. Der Aufbau dieses Systems dient später als Struktur bei der Programmierung.\\
 Im Allgemeinen können hier zwei Systeme entstehen, entweder ein System mit einem aktiven oder passiven Covert Channel.
+
+\subsection{Anforderungen an den Aufbau}
+Der Aufbau soll eine Grundlage bieten, um die Funktion eines zeitabhängigen Covert Channel zu beweisen. Es muss die volle Kontrolle über die Netzwerkpakete möglich sein. Die Benutzung von Netzwerkpaketen, von beliebigen Webservern, soll angestrebt werden.
+
 
 \subsection{Aktiv}
 Soll ein aktiver Covert Channel erstellt werden, so ist der Sender gleichzeitig als Server realisiert. Dieser sendet aktiv Datenpakete an den Empfänger. Durch die Codierung der geheimen Nachricht in die Zeitabstände zwischen den Paketen, gelangt die Information zum Empfänger. In \textit{Abbildung 6.1} wird dieses System vereinfacht dargestellt.\\
@@ -336,7 +340,11 @@ Der folgende Abschnitt beschäftigt sich damit, wie die Daten in den Trägerkanal 
 Folgend werden zwei Methoden vorgestellt, die zur Kodierung der Binärdaten in Frage kommen.
 
 
-\subsection{Mit festen Zeitrastern}
+\subsection{Anforderung an die Kodierung und Dekodierung}
+Die Kodierung muss binäre Dateien, in Abstände zwischen Netzwerkpaketen umwandeln. Dabei sollen so wenig Pakete wie möglich benötigt werden und der Synchronisierungsaufwand möglichst gering sein. Ebenfalls soll die Kodierung resistent gegenüber Netzwerkschwankungen sein. Bei der Datenübertragung muss eine Pause eingelegt werden können.
+
+
+\subsection{Kodierung mit festen Zeitrastern}
 
 Das in \cite{cabuk2004ip} vorgestellte Verfahren basiert auf einer Generierung von Zeitintervallen. Diese werden sowohl beim Sender und Empfänger erstellt. Dabei haben die Intervalle des Empfängers einen zeitlichen Offset, der ungefähr der Übertragungsdauer entspricht. Dies dient dazu, dass Pakete die vom Sender abgesendet werden, beim Empfänger im gleichen Intervall ankommen.
 Nachdem Sender und Empfänger synchronisiert sind, kann man mit der Datenübertragung starten.
@@ -352,7 +360,7 @@ Für diese Art der Codierung ist es unabdingbar, dass die Uhren von Sender und Em
 \end{figure}
 
 
-\subsection{Basierend auf den Paketabständen}
+\subsection{Kodierung basierend auf den Paketabständen}
 
 Zur Kodierung kann ebenso die Veränderung der Paketabstände benutzt werden. Hierzu wird zwischen einer kleinen oder großen Pause zwischen zwei Nachrichten unterschieden. Eine große Pause wird als binäre 1 interpretiert, eine kleine Pause als 0.\\
 Je nachdem, wie gut die Netzwerkbedingungen sind, kann hier durch eine gezielte Verkleinerung der Pausen eine Erhöhung der Übertragungsgeschwindigkeit generiert werden. Durch eine Verlängerung dieser Pausen sinkt jedoch die Fehleranfälligkeit.\\
@@ -376,7 +384,12 @@ Aufgrund der Vorteile durch die Codierung mit Hilfe der Paketabstände, soll dies
 
 \section{Fehlerkorrektur}
 
-\subsection{Paritätsbit}
+
+\subsection{Anforderung an die Fehlerkorrektur}
+Eine Fehlerkorrektur soll in der Lage sein in 8 oder 16 Bit Worten fehlerhafte Bits zu finden und diese zu korrigieren. Die extra Bits zur Fehlerkorrektur sollen direkt an die Datenworte angehängt werden, dürfen aber maximal 10\% des Datenwortes betragen.
+
+
+\subsection{Paritätsbits}
 Die Fehlerkorrektur kann mit einem Paritätsbit realisiert werden. Dieses Bit gibt an, ob die Anzahl der Einsen in einer binären Zahlenfolge eine gerade oder ungerade Zahl ist. Wird bei der Datenübertragung ein Bit verändert, so ändert sich auch die Anzahl der Einsen und stimmt nicht mehr mit dem Paritätsbit überein.
 
 Mit nur einem Paritätsbit lässt sich feststellen, dass ein Fehler aufgetreten ist. Der Fehlerort ist aber nicht bekannt. Um auch dies herauszufinden, kann der so genannte Hammingcode angewendet werden.\\

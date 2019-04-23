@@ -54,98 +54,101 @@
 \contentsline {subsection}{\numberline {6.1.2}Schl\"ussel}{31}{subsection.6.1.2}
 \contentsline {subsection}{\numberline {6.1.3}Tr\"agerkanal}{32}{subsection.6.1.3}
 \contentsline {section}{\numberline {6.2}Aufbau des Systems}{33}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Aktiv}{33}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Passiv}{33}{subsection.6.2.2}
-\contentsline {subsection}{\numberline {6.2.3}Bewertung des Aufbaus}{35}{subsection.6.2.3}
+\contentsline {subsection}{\numberline {6.2.1}Anforderungen an den Aufbau}{33}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Aktiv}{33}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Passiv}{34}{subsection.6.2.3}
+\contentsline {subsection}{\numberline {6.2.4}Bewertung des Aufbaus}{34}{subsection.6.2.4}
 \contentsline {section}{\numberline {6.3}Kodierung und Dekodierung}{35}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Mit festen Zeitrastern}{35}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Basierend auf den Paketabst\"anden}{36}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}Bewertung der Kodierung}{36}{subsection.6.3.3}
+\contentsline {subsection}{\numberline {6.3.1}Anforderung an die Kodierung und Dekodierung}{35}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Kodierung mit festen Zeitrastern}{36}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Kodierung basierend auf den Paketabst\"anden}{37}{subsection.6.3.3}
+\contentsline {subsection}{\numberline {6.3.4}Bewertung der Kodierung}{37}{subsection.6.3.4}
 \contentsline {section}{\numberline {6.4}Fehlerkorrektur}{38}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}Parit\"atsbit}{38}{subsection.6.4.1}
-\contentsline {subsection}{\numberline {6.4.2}Bewertung der Fehlerkorektur}{39}{subsection.6.4.2}
-\contentsline {section}{\numberline {6.5}Integrit\"at}{39}{section.6.5}
+\contentsline {subsection}{\numberline {6.4.1}Anforderung an die Fehlerkorrektur}{38}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Parit\"atsbits}{38}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Bewertung der Fehlerkorektur}{39}{subsection.6.4.3}
+\contentsline {section}{\numberline {6.5}Integrit\"at}{40}{section.6.5}
 \contentsline {subsection}{\numberline {6.5.1}Hash-Funktionen}{40}{subsection.6.5.1}
 \contentsline {subsubsection}{\nonumberline md5}{40}{section*.13}
 \contentsline {subsubsection}{\nonumberline Pearson}{40}{section*.14}
-\contentsline {subsection}{\numberline {6.5.2}Bewertung der Hash-Funktionen}{40}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.2}Bewertung der Hash-Funktionen}{41}{subsection.6.5.2}
 \contentsline {section}{\numberline {6.6}Authentizit\"at}{41}{section.6.6}
-\contentsline {section}{\numberline {6.7}Netzwerkprotokoll}{41}{section.6.7}
-\contentsline {subsection}{\numberline {6.7.1}Anforderung an das Netzwerkprotokoll}{41}{subsection.6.7.1}
-\contentsline {subsection}{\numberline {6.7.2}HTTP}{41}{subsection.6.7.2}
+\contentsline {section}{\numberline {6.7}Netzwerkprotokoll}{42}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Anforderung an das Netzwerkprotokoll}{42}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.2}HTTP}{42}{subsection.6.7.2}
 \contentsline {subsection}{\numberline {6.7.3}SMTP}{42}{subsection.6.7.3}
-\contentsline {subsection}{\numberline {6.7.4}FTP}{42}{subsection.6.7.4}
-\contentsline {subsection}{\numberline {6.7.5}Bewertung der Netztwerkprotokolle}{42}{subsection.6.7.5}
+\contentsline {subsection}{\numberline {6.7.4}FTP}{43}{subsection.6.7.4}
+\contentsline {subsection}{\numberline {6.7.5}Bewertung der Netztwerkprotokolle}{43}{subsection.6.7.5}
 \contentsline {section}{\numberline {6.8}Server}{43}{section.6.8}
 \contentsline {subsection}{\numberline {6.8.1}Anforderungen an den Server}{43}{subsection.6.8.1}
-\contentsline {subsection}{\numberline {6.8.2}Java HttpServer}{43}{subsection.6.8.2}
-\contentsline {subsection}{\numberline {6.8.3}Node.js und Express}{43}{subsection.6.8.3}
-\contentsline {subsection}{\numberline {6.8.4}Bewertung des Servers}{44}{subsection.6.8.4}
-\contentsline {section}{\numberline {6.9}Back-End}{44}{section.6.9}
-\contentsline {subsection}{\numberline {6.9.1}Express Implementierung}{44}{subsection.6.9.1}
-\contentsline {subsection}{\numberline {6.9.2}Kommunikation des Covert Channel}{45}{subsection.6.9.2}
-\contentsline {subsubsection}{\nonumberline Anforderung an die Kommunikation des Covert Channels}{45}{section*.15}
+\contentsline {subsection}{\numberline {6.8.2}Java HttpServer}{44}{subsection.6.8.2}
+\contentsline {subsection}{\numberline {6.8.3}Node.js und Express}{44}{subsection.6.8.3}
+\contentsline {subsection}{\numberline {6.8.4}Bewertung des Servers}{45}{subsection.6.8.4}
+\contentsline {section}{\numberline {6.9}Back-End}{45}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}Express Implementierung}{45}{subsection.6.9.1}
+\contentsline {subsection}{\numberline {6.9.2}Kommunikation des Covert Channel}{46}{subsection.6.9.2}
+\contentsline {subsubsection}{\nonumberline Anforderung an die Kommunikation des Covert Channels}{46}{section*.15}
 \contentsline {subsubsection}{\nonumberline Websockets}{46}{section*.16}
-\contentsline {subsubsection}{\nonumberline Socket.IO}{46}{section*.17}
-\contentsline {subsubsection}{\nonumberline Berwertung der Kommunikation des Covert Channels}{46}{section*.18}
+\contentsline {subsubsection}{\nonumberline Socket.IO}{47}{section*.17}
+\contentsline {subsubsection}{\nonumberline Berwertung der Kommunikation des Covert Channels}{47}{section*.18}
 \contentsline {subsection}{\numberline {6.9.3}Socket.IO Implementierung}{47}{subsection.6.9.3}
-\contentsline {subsection}{\numberline {6.9.4}Geheime Daten}{47}{subsection.6.9.4}
-\contentsline {subsection}{\numberline {6.9.5}Pearson Hash Implementierung}{47}{subsection.6.9.5}
-\contentsline {subsection}{\numberline {6.9.6}Covert Channel Implementierung}{48}{subsection.6.9.6}
-\contentsline {section}{\numberline {6.10}Front-End}{49}{section.6.10}
-\contentsline {subsection}{\numberline {6.10.1}HTML}{49}{subsection.6.10.1}
+\contentsline {subsection}{\numberline {6.9.4}Geheime Daten}{48}{subsection.6.9.4}
+\contentsline {subsection}{\numberline {6.9.5}Pearson Hash Implementierung}{48}{subsection.6.9.5}
+\contentsline {subsection}{\numberline {6.9.6}Covert Channel Implementierung}{49}{subsection.6.9.6}
+\contentsline {section}{\numberline {6.10}Front-End}{50}{section.6.10}
+\contentsline {subsection}{\numberline {6.10.1}HTML}{50}{subsection.6.10.1}
 \contentsline {subsection}{\numberline {6.10.2}JQuery}{50}{subsection.6.10.2}
 \contentsline {subsection}{\numberline {6.10.3}Socket.IO}{50}{subsection.6.10.3}
-\contentsline {section}{\numberline {6.11}Clientseitige Auswertung des Covert Channel}{50}{section.6.11}
-\contentsline {subsection}{\numberline {6.11.1}Anforderung an die Auswertung}{50}{subsection.6.11.1}
+\contentsline {section}{\numberline {6.11}Clientseitige Auswertung des Covert Channel}{51}{section.6.11}
+\contentsline {subsection}{\numberline {6.11.1}Anforderung an die Auswertung}{51}{subsection.6.11.1}
 \contentsline {subsection}{\numberline {6.11.2}Auswertung im Front-End}{51}{subsection.6.11.2}
 \contentsline {subsection}{\numberline {6.11.3}Auswertung mit einem externen Programm}{51}{subsection.6.11.3}
-\contentsline {subsection}{\numberline {6.11.4}Bewertung der Covert Channel Auswertung}{51}{subsection.6.11.4}
+\contentsline {subsection}{\numberline {6.11.4}Bewertung der Covert Channel Auswertung}{52}{subsection.6.11.4}
 \contentsline {section}{\numberline {6.12}Client}{52}{section.6.12}
 \contentsline {subsection}{\numberline {6.12.1}Programmiersprache}{52}{subsection.6.12.1}
 \contentsline {subsubsection}{\nonumberline Anforderung an die Programmiersprache}{52}{section*.19}
-\contentsline {subsubsection}{\nonumberline Java}{52}{section*.20}
-\contentsline {subsubsection}{\nonumberline Python}{52}{section*.21}
+\contentsline {subsubsection}{\nonumberline Java}{53}{section*.20}
+\contentsline {subsubsection}{\nonumberline Python}{53}{section*.21}
 \contentsline {subsubsection}{\nonumberline Bewertung der Programmiersprache}{53}{section*.22}
 \contentsline {subsection}{\numberline {6.12.2}Mitschneiden der Datenenpakete}{53}{subsection.6.12.2}
-\contentsline {subsubsection}{\nonumberline Anforderungen an den Paket-Sniffer}{53}{section*.23}
+\contentsline {subsubsection}{\nonumberline Anforderungen an den Paket-Sniffer}{54}{section*.23}
 \contentsline {subsubsection}{\nonumberline tcpdump}{54}{section*.24}
 \contentsline {subsubsection}{\nonumberline tshark}{54}{section*.25}
 \contentsline {subsubsection}{\nonumberline Bewertung der Paket-Sniffer}{54}{section*.26}
-\contentsline {subsubsection}{\nonumberline Implementierung}{54}{section*.27}
+\contentsline {subsubsection}{\nonumberline Implementierung}{55}{section*.27}
 \contentsline {subsection}{\numberline {6.12.3}Interpretieren der Zeitstempel}{55}{subsection.6.12.3}
-\contentsline {subsubsection}{\nonumberline Toleranz}{55}{section*.28}
-\contentsline {subsection}{\numberline {6.12.4}Verarbeiten der Erhaltenen Daten}{56}{subsection.6.12.4}
-\contentsline {chapter}{\numberline {7}Optimales Einstellen und Anwendung des Covert Channel}{57}{chapter.7}
-\contentsline {subsection}{\numberline {7.0.1}Verh\"altnis nicht interpretierbar/ interpretierbar}{57}{subsection.7.0.1}
-\contentsline {subsection}{\numberline {7.0.2}Anzahl korrekt \"ubertragener Dateien}{58}{subsection.7.0.2}
-\contentsline {subsection}{\numberline {7.0.3}Zeit bis zum ersten korrekten Eintreffen der Datei}{59}{subsection.7.0.3}
-\contentsline {subsection}{\numberline {7.0.4}Padding zum Synchronisieren}{61}{subsection.7.0.4}
-\contentsline {chapter}{\numberline {8}Umsetzung der passiven Variante}{62}{chapter.8}
-\contentsline {subsection}{\numberline {8.0.1}Anforderung an den Proxy}{62}{subsection.8.0.1}
-\contentsline {subsection}{\numberline {8.0.2}L\"osungsans\"atze}{62}{subsection.8.0.2}
-\contentsline {subsubsection}{\nonumberline Ver\"anderung eines Open-Source Proxys}{62}{section*.29}
-\contentsline {subsubsection}{\nonumberline Proxy selbst programmieren}{63}{section*.30}
-\contentsline {subsection}{\numberline {8.0.3}Bewertung des L\"osungsansatzes}{63}{subsection.8.0.3}
-\contentsline {subsection}{\numberline {8.0.4}Implementierung}{63}{subsection.8.0.4}
-\contentsline {subsubsection}{\nonumberline Sockets}{63}{section*.31}
-\contentsline {subsubsection}{\nonumberline Geheime Daten}{64}{section*.32}
-\contentsline {subsubsection}{\nonumberline Covert Channel}{64}{section*.33}
-\contentsline {chapter}{\numberline {9}Anwendung des passiven Covert Channel}{66}{chapter.9}
-\contentsline {section}{\numberline {9.1}Probleme bei realen Webseiten}{66}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}HTTPS}{66}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}Generierung einer ausreichenden Anzahl von Netzwerkpaketen}{66}{subsection.9.1.2}
-\contentsline {subsection}{\numberline {9.1.3}Parallele Datenabfrage}{67}{subsection.9.1.3}
-\contentsline {section}{\numberline {9.2}Test mit realen Servern}{68}{section.9.2}
-\contentsline {chapter}{\numberline {10}Evaluierung}{70}{chapter.10}
-\contentsline {chapter}{\numberline {11}Fazit und Ausblick}{71}{chapter.11}
-\contentsline {section}{\numberline {11.1}Aktiv}{71}{section.11.1}
-\contentsline {section}{\numberline {11.2}Passiv}{71}{section.11.2}
-\contentsline {section}{\numberline {11.3}Ausblick}{72}{section.11.3}
-\contentsline {subsubsection}{\nonumberline Dateien aufteilen}{72}{section*.34}
-\contentsline {subsubsection}{\nonumberline Automatische Pausenerkennung}{72}{section*.35}
-\contentsline {subsubsection}{\nonumberline Beachtung des Destination Ports beim Client}{73}{section*.36}
-\contentsline {subsubsection}{\nonumberline Server mit realistischer Webseite}{73}{section*.37}
-\contentsline {subsubsection}{\nonumberline Verwendung von HTTPS}{73}{section*.38}
-\contentsline {chapter}{\nonumberline Danksagung}{74}{chapter*.39}
-\contentsline {chapter}{\nonumberline Literatur}{76}{chapter*.40}
+\contentsline {subsubsection}{\nonumberline Toleranz}{56}{section*.28}
+\contentsline {subsection}{\numberline {6.12.4}Verarbeiten der Erhaltenen Daten}{57}{subsection.6.12.4}
+\contentsline {chapter}{\numberline {7}Optimales Einstellen und Anwendung des Covert Channel}{58}{chapter.7}
+\contentsline {subsection}{\numberline {7.0.1}Verh\"altnis nicht interpretierbar/ interpretierbar}{58}{subsection.7.0.1}
+\contentsline {subsection}{\numberline {7.0.2}Anzahl korrekt \"ubertragener Dateien}{59}{subsection.7.0.2}
+\contentsline {subsection}{\numberline {7.0.3}Zeit bis zum ersten korrekten Eintreffen der Datei}{60}{subsection.7.0.3}
+\contentsline {subsection}{\numberline {7.0.4}Padding zum Synchronisieren}{62}{subsection.7.0.4}
+\contentsline {chapter}{\numberline {8}Umsetzung der passiven Variante}{63}{chapter.8}
+\contentsline {subsection}{\numberline {8.0.1}Anforderung an den Proxy}{63}{subsection.8.0.1}
+\contentsline {subsection}{\numberline {8.0.2}L\"osungsans\"atze}{63}{subsection.8.0.2}
+\contentsline {subsubsection}{\nonumberline Ver\"anderung eines Open-Source Proxys}{63}{section*.29}
+\contentsline {subsubsection}{\nonumberline Proxy selbst programmieren}{64}{section*.30}
+\contentsline {subsection}{\numberline {8.0.3}Bewertung des L\"osungsansatzes}{64}{subsection.8.0.3}
+\contentsline {subsection}{\numberline {8.0.4}Implementierung}{64}{subsection.8.0.4}
+\contentsline {subsubsection}{\nonumberline Sockets}{64}{section*.31}
+\contentsline {subsubsection}{\nonumberline Geheime Daten}{65}{section*.32}
+\contentsline {subsubsection}{\nonumberline Covert Channel}{65}{section*.33}
+\contentsline {chapter}{\numberline {9}Anwendung des passiven Covert Channel}{67}{chapter.9}
+\contentsline {section}{\numberline {9.1}Probleme bei realen Webseiten}{67}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}HTTPS}{67}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}Generierung einer ausreichenden Anzahl von Netzwerkpaketen}{67}{subsection.9.1.2}
+\contentsline {subsection}{\numberline {9.1.3}Parallele Datenabfrage}{68}{subsection.9.1.3}
+\contentsline {section}{\numberline {9.2}Test mit realen Servern}{69}{section.9.2}
+\contentsline {chapter}{\numberline {10}Evaluierung}{71}{chapter.10}
+\contentsline {chapter}{\numberline {11}Fazit und Ausblick}{72}{chapter.11}
+\contentsline {section}{\numberline {11.1}Aktiv}{72}{section.11.1}
+\contentsline {section}{\numberline {11.2}Passiv}{72}{section.11.2}
+\contentsline {section}{\numberline {11.3}Ausblick}{73}{section.11.3}
+\contentsline {subsubsection}{\nonumberline Dateien aufteilen}{73}{section*.34}
+\contentsline {subsubsection}{\nonumberline Automatische Pausenerkennung}{73}{section*.35}
+\contentsline {subsubsection}{\nonumberline Beachtung des Destination Ports beim Client}{74}{section*.36}
+\contentsline {subsubsection}{\nonumberline Server mit realistischer Webseite}{74}{section*.37}
+\contentsline {subsubsection}{\nonumberline Verwendung von HTTPS}{74}{section*.38}
+\contentsline {chapter}{\nonumberline Danksagung}{75}{chapter*.39}
+\contentsline {chapter}{\nonumberline Literatur}{77}{chapter*.40}
