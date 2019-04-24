@@ -38,82 +38,89 @@
 \BOOKMARK [2][-]{subsection.4.2.2}{Basierend auf RGB Bilder}{section.4.2}% 38
 \BOOKMARK [2][-]{subsection.4.2.3}{Bildformate mit Alpha Kanal}{section.4.2}% 39
 \BOOKMARK [2][-]{subsection.4.2.4}{Verwendung von PDF Dateien}{section.4.2}% 40
-\BOOKMARK [0][-]{chapter.5}{Bewertung der Covert Channel}{}% 41
-\BOOKMARK [0][-]{chapter.6}{Umsetzung des Projekts}{}% 42
+\BOOKMARK [0][-]{chapter.5}{Bewertung der L\366sungsans\344tze}{}% 41
+\BOOKMARK [0][-]{chapter.6}{Konstruktion und Aufbau des Covert Channels}{}% 42
 \BOOKMARK [1][-]{section.6.1}{Konstruktion des Covert Channels}{chapter.6}% 43
 \BOOKMARK [2][-]{subsection.6.1.1}{Geheime Daten}{section.6.1}% 44
 \BOOKMARK [2][-]{subsection.6.1.2}{Schl\374ssel}{section.6.1}% 45
 \BOOKMARK [2][-]{subsection.6.1.3}{Tr\344gerkanal}{section.6.1}% 46
 \BOOKMARK [1][-]{section.6.2}{Aufbau des Systems}{chapter.6}% 47
 \BOOKMARK [2][-]{subsection.6.2.1}{Anforderungen an den Aufbau}{section.6.2}% 48
-\BOOKMARK [2][-]{subsection.6.2.2}{Aktiv}{section.6.2}% 49
-\BOOKMARK [2][-]{subsection.6.2.3}{Passiv}{section.6.2}% 50
+\BOOKMARK [2][-]{subsection.6.2.2}{L\366sungsansatz 1: Aktiver Aufbau}{section.6.2}% 49
+\BOOKMARK [2][-]{subsection.6.2.3}{L\366sungsansatz 2: Passiver Aufbau}{section.6.2}% 50
 \BOOKMARK [2][-]{subsection.6.2.4}{Bewertung des Aufbaus}{section.6.2}% 51
-\BOOKMARK [1][-]{section.6.3}{Kodierung und Dekodierung}{chapter.6}% 52
-\BOOKMARK [2][-]{subsection.6.3.1}{Anforderung an die Kodierung und Dekodierung}{section.6.3}% 53
-\BOOKMARK [2][-]{subsection.6.3.2}{Kodierung mit festen Zeitrastern}{section.6.3}% 54
-\BOOKMARK [2][-]{subsection.6.3.3}{Kodierung basierend auf den Paketabst\344nden}{section.6.3}% 55
-\BOOKMARK [2][-]{subsection.6.3.4}{Bewertung der Kodierung}{section.6.3}% 56
-\BOOKMARK [1][-]{section.6.4}{Fehlerkorrektur}{chapter.6}% 57
-\BOOKMARK [2][-]{subsection.6.4.1}{Anforderung an die Fehlerkorrektur}{section.6.4}% 58
-\BOOKMARK [2][-]{subsection.6.4.2}{Parit\344tsbits}{section.6.4}% 59
-\BOOKMARK [2][-]{subsection.6.4.3}{Bewertung der Fehlerkorektur}{section.6.4}% 60
-\BOOKMARK [1][-]{section.6.5}{Integrit\344t}{chapter.6}% 61
-\BOOKMARK [2][-]{subsection.6.5.1}{Hash-Funktionen}{section.6.5}% 62
-\BOOKMARK [2][-]{subsection.6.5.2}{Bewertung der Hash-Funktionen}{section.6.5}% 63
-\BOOKMARK [1][-]{section.6.6}{Authentizit\344t}{chapter.6}% 64
-\BOOKMARK [1][-]{section.6.7}{Netzwerkprotokoll}{chapter.6}% 65
-\BOOKMARK [2][-]{subsection.6.7.1}{Anforderung an das Netzwerkprotokoll}{section.6.7}% 66
-\BOOKMARK [2][-]{subsection.6.7.2}{HTTP}{section.6.7}% 67
-\BOOKMARK [2][-]{subsection.6.7.3}{SMTP}{section.6.7}% 68
-\BOOKMARK [2][-]{subsection.6.7.4}{FTP}{section.6.7}% 69
-\BOOKMARK [2][-]{subsection.6.7.5}{Bewertung der Netztwerkprotokolle}{section.6.7}% 70
-\BOOKMARK [1][-]{section.6.8}{Server}{chapter.6}% 71
-\BOOKMARK [2][-]{subsection.6.8.1}{Anforderungen an den Server}{section.6.8}% 72
-\BOOKMARK [2][-]{subsection.6.8.2}{Java HttpServer}{section.6.8}% 73
-\BOOKMARK [2][-]{subsection.6.8.3}{Node.js und Express}{section.6.8}% 74
-\BOOKMARK [2][-]{subsection.6.8.4}{Bewertung des Servers}{section.6.8}% 75
-\BOOKMARK [1][-]{section.6.9}{Back-End}{chapter.6}% 76
-\BOOKMARK [2][-]{subsection.6.9.1}{Express Implementierung}{section.6.9}% 77
-\BOOKMARK [2][-]{subsection.6.9.2}{Kommunikation des Covert Channel}{section.6.9}% 78
-\BOOKMARK [2][-]{subsection.6.9.3}{Socket.IO Implementierung}{section.6.9}% 79
-\BOOKMARK [2][-]{subsection.6.9.4}{Geheime Daten}{section.6.9}% 80
-\BOOKMARK [2][-]{subsection.6.9.5}{Pearson Hash Implementierung}{section.6.9}% 81
-\BOOKMARK [2][-]{subsection.6.9.6}{Covert Channel Implementierung}{section.6.9}% 82
-\BOOKMARK [1][-]{section.6.10}{Front-End}{chapter.6}% 83
-\BOOKMARK [2][-]{subsection.6.10.1}{HTML}{section.6.10}% 84
-\BOOKMARK [2][-]{subsection.6.10.2}{JQuery}{section.6.10}% 85
-\BOOKMARK [2][-]{subsection.6.10.3}{Socket.IO}{section.6.10}% 86
-\BOOKMARK [1][-]{section.6.11}{Clientseitige Auswertung des Covert Channel}{chapter.6}% 87
-\BOOKMARK [2][-]{subsection.6.11.1}{Anforderung an die Auswertung}{section.6.11}% 88
-\BOOKMARK [2][-]{subsection.6.11.2}{Auswertung im Front-End}{section.6.11}% 89
-\BOOKMARK [2][-]{subsection.6.11.3}{Auswertung mit einem externen Programm}{section.6.11}% 90
-\BOOKMARK [2][-]{subsection.6.11.4}{Bewertung der Covert Channel Auswertung}{section.6.11}% 91
-\BOOKMARK [1][-]{section.6.12}{Client}{chapter.6}% 92
-\BOOKMARK [2][-]{subsection.6.12.1}{Programmiersprache}{section.6.12}% 93
-\BOOKMARK [2][-]{subsection.6.12.2}{Mitschneiden der Datenenpakete}{section.6.12}% 94
-\BOOKMARK [2][-]{subsection.6.12.3}{Interpretieren der Zeitstempel}{section.6.12}% 95
-\BOOKMARK [2][-]{subsection.6.12.4}{Verarbeiten der Erhaltenen Daten}{section.6.12}% 96
-\BOOKMARK [0][-]{chapter.7}{Optimales Einstellen und Anwendung des Covert Channel}{}% 97
-\BOOKMARK [1][-]{subsection.7.0.1}{Verh\344ltnis nicht interpretierbar/ interpretierbar}{chapter.7}% 98
-\BOOKMARK [2][-]{subsection.7.0.2}{Anzahl korrekt \374bertragener Dateien}{subsection.7.0.1}% 99
-\BOOKMARK [2][-]{subsection.7.0.3}{Zeit bis zum ersten korrekten Eintreffen der Datei}{subsection.7.0.1}% 100
-\BOOKMARK [2][-]{subsection.7.0.4}{Padding zum Synchronisieren}{subsection.7.0.1}% 101
-\BOOKMARK [0][-]{chapter.8}{Umsetzung der passiven Variante}{}% 102
-\BOOKMARK [1][-]{subsection.8.0.1}{Anforderung an den Proxy}{chapter.8}% 103
-\BOOKMARK [2][-]{subsection.8.0.2}{L\366sungsans\344tze}{subsection.8.0.1}% 104
-\BOOKMARK [2][-]{subsection.8.0.3}{Bewertung des L\366sungsansatzes}{subsection.8.0.1}% 105
-\BOOKMARK [2][-]{subsection.8.0.4}{Implementierung}{subsection.8.0.1}% 106
-\BOOKMARK [0][-]{chapter.9}{Anwendung des passiven Covert Channel}{}% 107
-\BOOKMARK [1][-]{section.9.1}{Probleme bei realen Webseiten}{chapter.9}% 108
-\BOOKMARK [2][-]{subsection.9.1.1}{HTTPS}{section.9.1}% 109
-\BOOKMARK [2][-]{subsection.9.1.2}{Generierung einer ausreichenden Anzahl von Netzwerkpaketen}{section.9.1}% 110
-\BOOKMARK [2][-]{subsection.9.1.3}{Parallele Datenabfrage}{section.9.1}% 111
-\BOOKMARK [1][-]{section.9.2}{Test mit realen Servern}{chapter.9}% 112
-\BOOKMARK [0][-]{chapter.10}{Evaluierung}{}% 113
-\BOOKMARK [0][-]{chapter.11}{Fazit und Ausblick}{}% 114
-\BOOKMARK [1][-]{section.11.1}{Aktiv}{chapter.11}% 115
-\BOOKMARK [1][-]{section.11.2}{Passiv}{chapter.11}% 116
-\BOOKMARK [1][-]{section.11.3}{Ausblick}{chapter.11}% 117
-\BOOKMARK [0][-]{chapter*.39}{Danksagung}{}% 118
-\BOOKMARK [0][-]{chapter*.40}{Literatur}{}% 119
+\BOOKMARK [0][-]{chapter.7}{Umsetzung der aktiven Variante}{}% 52
+\BOOKMARK [1][-]{section.7.1}{Fehlerkorrektur}{chapter.7}% 53
+\BOOKMARK [2][-]{subsection.7.1.1}{Anforderung an die Fehlerkorrektur}{section.7.1}% 54
+\BOOKMARK [2][-]{subsection.7.1.2}{L\366sungsansatz 1: Parit\344tsbits}{section.7.1}% 55
+\BOOKMARK [2][-]{subsection.7.1.3}{Bewertung der Fehlerkorektur}{section.7.1}% 56
+\BOOKMARK [1][-]{section.7.2}{Integrit\344t}{chapter.7}% 57
+\BOOKMARK [2][-]{subsection.7.2.1}{Anfoderung an die Hashfunktion}{section.7.2}% 58
+\BOOKMARK [2][-]{subsection.7.2.2}{L\366sungsansatz 1: MD5-Hash}{section.7.2}% 59
+\BOOKMARK [2][-]{subsection.7.2.3}{L\366sungsansatz 2: Pearson-Hash}{section.7.2}% 60
+\BOOKMARK [2][-]{subsection.7.2.4}{Bewertung der Hash-Funktionen}{section.7.2}% 61
+\BOOKMARK [2][-]{subsection.7.2.5}{Pearson Hash Implementierung}{section.7.2}% 62
+\BOOKMARK [1][-]{section.7.3}{Authentizit\344t}{chapter.7}% 63
+\BOOKMARK [1][-]{section.7.4}{Netzwerkprotokoll}{chapter.7}% 64
+\BOOKMARK [2][-]{subsection.7.4.1}{Anforderung an das Netzwerkprotokoll}{section.7.4}% 65
+\BOOKMARK [2][-]{subsection.7.4.2}{L\366sungsansatz 1: HTTP}{section.7.4}% 66
+\BOOKMARK [2][-]{subsection.7.4.3}{L\366sungsansatz 2: SMTP}{section.7.4}% 67
+\BOOKMARK [2][-]{subsection.7.4.4}{L\366sungsansatz 3: FTP}{section.7.4}% 68
+\BOOKMARK [2][-]{subsection.7.4.5}{Bewertung der Netztwerkprotokolle}{section.7.4}% 69
+\BOOKMARK [1][-]{section.7.5}{Server}{chapter.7}% 70
+\BOOKMARK [2][-]{subsection.7.5.1}{Anforderungen an den Server}{section.7.5}% 71
+\BOOKMARK [2][-]{subsection.7.5.2}{L\366sungsansatz 1: Java HttpServer}{section.7.5}% 72
+\BOOKMARK [2][-]{subsection.7.5.3}{L\366sungsansatz 2: Node.js und Express}{section.7.5}% 73
+\BOOKMARK [2][-]{subsection.7.5.4}{Bewertung des Servers}{section.7.5}% 74
+\BOOKMARK [2][-]{subsection.7.5.5}{Express Implementierung}{section.7.5}% 75
+\BOOKMARK [1][-]{section.7.6}{Kommunikation des Covert Channel}{chapter.7}% 76
+\BOOKMARK [2][-]{subsection.7.6.1}{Anforderung an die Kommunikation des Covert Channels}{section.7.6}% 77
+\BOOKMARK [2][-]{subsection.7.6.2}{L\366sungsansatz 1: Websockets}{section.7.6}% 78
+\BOOKMARK [2][-]{subsection.7.6.3}{L\366sungsansatz 2: Socket.IO}{section.7.6}% 79
+\BOOKMARK [2][-]{subsection.7.6.4}{Berwertung der Kommunikation des Covert Channels}{section.7.6}% 80
+\BOOKMARK [2][-]{subsection.7.6.5}{Socket.IO Implementierung}{section.7.6}% 81
+\BOOKMARK [1][-]{section.7.7}{Kodierung und Dekodierung}{chapter.7}% 82
+\BOOKMARK [2][-]{subsection.7.7.1}{Anforderung an die Kodierung und Dekodierung}{section.7.7}% 83
+\BOOKMARK [2][-]{subsection.7.7.2}{L\366sungsansatz 1: Kodierung mit festen Zeitrastern}{section.7.7}% 84
+\BOOKMARK [2][-]{subsection.7.7.3}{L\366sungsansatz 2: Kodierung basierend auf den Paketabst\344nden}{section.7.7}% 85
+\BOOKMARK [2][-]{subsection.7.7.4}{Bewertung der Kodierung}{section.7.7}% 86
+\BOOKMARK [2][-]{subsection.7.7.5}{Implementierung der Kodierung}{section.7.7}% 87
+\BOOKMARK [1][-]{section.7.8}{Geheime Daten}{chapter.7}% 88
+\BOOKMARK [1][-]{section.7.9}{Front-End}{chapter.7}% 89
+\BOOKMARK [2][-]{subsection.7.9.1}{HTML}{section.7.9}% 90
+\BOOKMARK [2][-]{subsection.7.9.2}{JQuery}{section.7.9}% 91
+\BOOKMARK [2][-]{subsection.7.9.3}{Socket.IO}{section.7.9}% 92
+\BOOKMARK [1][-]{section.7.10}{Clientseitige Auswertung des Covert Channel}{chapter.7}% 93
+\BOOKMARK [2][-]{subsection.7.10.1}{Anforderung an die Auswertung}{section.7.10}% 94
+\BOOKMARK [2][-]{subsection.7.10.2}{L\366sungsansatz 1: Auswertung im Front-End}{section.7.10}% 95
+\BOOKMARK [2][-]{subsection.7.10.3}{L\366sungsansatz 2: Auswertung mit einem externen Programm}{section.7.10}% 96
+\BOOKMARK [2][-]{subsection.7.10.4}{Bewertung der Covert Channel Auswertung}{section.7.10}% 97
+\BOOKMARK [1][-]{section.7.11}{Client}{chapter.7}% 98
+\BOOKMARK [2][-]{subsection.7.11.1}{Programmiersprache}{section.7.11}% 99
+\BOOKMARK [2][-]{subsection.7.11.2}{Mitschneiden der Datenenpakete}{section.7.11}% 100
+\BOOKMARK [2][-]{subsection.7.11.3}{Interpretieren der Zeitstempel}{section.7.11}% 101
+\BOOKMARK [2][-]{subsection.7.11.4}{Verarbeiten der Erhaltenen Daten}{section.7.11}% 102
+\BOOKMARK [0][-]{chapter.8}{Optimales Einstellen und Anwendung des aktiven Covert Channel}{}% 103
+\BOOKMARK [1][-]{subsection.8.0.1}{Verh\344ltnis nicht interpretierbar/ interpretierbar}{chapter.8}% 104
+\BOOKMARK [2][-]{subsection.8.0.2}{Anzahl korrekt \374bertragener Dateien}{subsection.8.0.1}% 105
+\BOOKMARK [2][-]{subsection.8.0.3}{Zeit bis zum ersten korrekten Eintreffen der Datei}{subsection.8.0.1}% 106
+\BOOKMARK [2][-]{subsection.8.0.4}{Padding zum Synchronisieren}{subsection.8.0.1}% 107
+\BOOKMARK [0][-]{chapter.9}{Umsetzung der passiven Variante}{}% 108
+\BOOKMARK [1][-]{subsection.9.0.1}{Anforderung an den Proxy}{chapter.9}% 109
+\BOOKMARK [2][-]{subsection.9.0.2}{L\366sungsansatz 1: Ver\344nderung eines Open-Source Proxys}{subsection.9.0.1}% 110
+\BOOKMARK [2][-]{subsection.9.0.3}{L\366sungsansatz 2: Proxy selbst programmieren}{subsection.9.0.1}% 111
+\BOOKMARK [2][-]{subsection.9.0.4}{Bewertung des Proxys}{subsection.9.0.1}% 112
+\BOOKMARK [2][-]{subsection.9.0.5}{Implementierung}{subsection.9.0.1}% 113
+\BOOKMARK [0][-]{chapter.10}{Anwendung des passiven Covert Channel}{}% 114
+\BOOKMARK [1][-]{section.10.1}{Probleme bei realen Webseiten}{chapter.10}% 115
+\BOOKMARK [2][-]{subsection.10.1.1}{HTTPS}{section.10.1}% 116
+\BOOKMARK [2][-]{subsection.10.1.2}{Generierung einer ausreichenden Anzahl von Netzwerkpaketen}{section.10.1}% 117
+\BOOKMARK [2][-]{subsection.10.1.3}{Parallele Datenabfrage}{section.10.1}% 118
+\BOOKMARK [1][-]{section.10.2}{Test mit realen Servern}{chapter.10}% 119
+\BOOKMARK [0][-]{chapter.11}{Evaluierung}{}% 120
+\BOOKMARK [0][-]{chapter.12}{Fazit und Ausblick}{}% 121
+\BOOKMARK [1][-]{section.12.1}{Aktiv}{chapter.12}% 122
+\BOOKMARK [1][-]{section.12.2}{Passiv}{chapter.12}% 123
+\BOOKMARK [1][-]{section.12.3}{Ausblick}{chapter.12}% 124
+\BOOKMARK [0][-]{chapter*.31}{Danksagung}{}% 125
+\BOOKMARK [0][-]{chapter*.32}{Literatur}{}% 126
