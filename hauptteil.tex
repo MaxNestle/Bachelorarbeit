@@ -319,7 +319,7 @@ Soll ein aktiver Covert Channel erstellt werden, so ist der Sender gleichzeitig 
 
 \subsection{Lösungsansatz 2: Passiver Aufbau}
 
-Bei der passiven Alternative verbindet sich der Empfänger über einen Proxy mit einem beliebigen Webserver, der einen konstanten Datenstrom generiert. Dies könnte zum Beispiel ein Video- oder Audiostream sein.\\
+Bei der passiven Alternative (Abbildung 6.2) verbindet sich der Empfänger über einen Proxy mit einem beliebigen Webserver, der einen konstanten Datenstrom generiert. Dies könnte zum Beispiel ein Video- oder Audiostream sein.\\
 Dieser Datenstrom läuft über den Proxy, der nun die Möglichkeit hat, den Datenstrom zu manipulieren. Der Sender der geheimen Nachrichten nimmt in diesem System die Rolle des Proxys ein. Er muss die Daten nicht verändern, sondern nur verzögern.
 
 \begin{figure}[h!]
@@ -402,18 +402,18 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 			\subsection{Pearson Hash Implementierung}
 	Um die Pearson Hash-Funktion auf die Daten anzuwenden, muss eine Mapping-Tabelle mit den Werten von 0-255 in zufälliger Reihenfolge generiert werden. Diese lässt sich beispielsweise mit einem Python Script unter Verwendung der \textit{shuffel} Funktion erstellen.\\
 	Die hier generierte Tabelle muss beim Server, sowie beim Client bekannt sein, um bei gleicher Hash-Funktion und gleichen Daten den identischen Hashwert zu generieren.\\
-	Den Algorithmus zur Berechnung des Hashs ist in Listing 6.4 gezeigt.
+	Den Algorithmus zur Berechnung des Hashs ist in Listing 7.1 gezeigt.
 	Hier wird am Anfang ein Hash-Wert \textit{h} generiert. Dieser wird bitweise XOR mit dem Datenwert verknüpft. Der entstandene Wert wird als Index in der Mapping-Tabelle verwendet. Der dortige Wert in der Mapping-Tabelle, wird der neue Wert \textit{h}. Dies wird so lange wiederholt, bis alle Datenwerte verwendet worden sind. 
 	
 	\begin{lstlisting}[caption=Erstellen der Mapping-Table]
 	
-	for (var j = 0; j < hashLength; j++){  
-	var h = table[(parseInt(data.charAt(0)) + j) % 256];
-	for (var i = 1; i < data.length; i++){
-	h = tabel[(h ^ data[i])];          // XOR
-	}
-	hash[j] = h;
-	}
+			for (var j = 0; j < hashLength; j++){  
+				var h = table[(parseInt(data.charAt(0)) + j) % 256];
+				for (var i = 1; i < data.length; i++){
+					h = tabel[(h ^ data[i])];          // XOR
+				}
+				hash[j] = h;
+			}
 	
 	\end{lstlisting}
 	
@@ -472,23 +472,23 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	
 	\subsection{Express Implementierung}
 	Das importierte Express Paket wird als \textit{app} Objekt in den Code eingebunden. Mit Hilfe dieses Objekts kann definiert werden, wie auf einen Request an eine URL-Route reagiert werden soll.\\
-	Eine Route wird wie in Listing 6.1 gezeigt hinzugefügt. Die mitgegebene Callback-Funktion wird ausgeführt, falls ein GET Request an die ,,Wurzel-Route'' erfolgt. Ist dies der Fall, so wird hier die index.html Seite ausgeliefert.\\
+	Eine Route wird wie in Listing 7.2 gezeigt hinzugefügt. Die mitgegebene Callback-Funktion wird ausgeführt, falls ein GET Request an die ,,Wurzel-Route'' erfolgt. Ist dies der Fall, so wird hier die index.html Seite ausgeliefert.\\
 	
 	\begin{lstlisting}[caption=Hinzufügen der Stamm-Route]
-	app.get('/', function(req, res){
-	res.sendFile(__dirname + '/index.html');
-	});
+					app.get('/', function(req, res){
+							res.sendFile(__dirname + '/index.html');
+					});
 	
 	\end{lstlisting}
 	
 	
-	Ebenfalls von Express stammt das \textit{http} Objekt, welches den Http Server darstellt. Der Server Port kann wie in Listing 6.2 gewählt werden.\\
+	Ebenfalls von Express stammt das \textit{http} Objekt, welches den Http Server darstellt. Der Server Port kann wie in Listing 7.3 gewählt werden.\\
 	
 	
 	\begin{lstlisting}[caption=Wählen des Server Ports]
-	http.listen(80, function(){
-	console.log('listening on port:80');
-	});
+					http.listen(80, function(){
+							console.log('listening on port:80');
+					});
 	
 	\end{lstlisting}
 	
@@ -517,20 +517,21 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	
 	
 	\subsection{Socket.IO Implementierung}
-	Socket.IO wird in Form des \textit{io} Objekts in den Code eingebunden. Der Verbindungsaufbau ist, wie in Listing 6.3 gezeigt, aufgebaut. Den Events werden ihre jeweiligen Callback-Funktionen zugeordnet.\\
+	Socket.IO wird in Form des \textit{io} Objekts in den Code eingebunden. Der Verbindungsaufbau ist, wie in Listing 7.4 gezeigt, aufgebaut. Den Events werden ihre jeweiligen Callback-Funktionen zugeordnet.\\
 	Wurde eine Verbindung aufgebaut, so sendet der Server eine \textit{test} Nachricht an den Client. Hat der Client diese empfangen, so antwortet dieser mit einem \textit{ClientHello}. Wird diese vom Server empfangen, so wird der jeweilige Socket in ein Array gespeichert und später zum Senden von weiteren Daten verwendet.\\
 	
 	
 	\begin{lstlisting}[caption=Verbindungsaufbau mit Socket.IO]
 	io.on('connection', (socket) => {
-	var address = socket.handshake.address.replace(/^.*:/, '');
-	timestaps.push({ip: address ,time: getMinute()});
+		var address = socket.handshake.address.replace(/^.*:/, '');
+		timestaps.push({ip: address ,time: getMinute()});
 	
-	socket.emit('test', 'test');
+		socket.emit('test', 'test');
 	
-	socket.on('ClientHello', function (data) {
-	console.log("Client connected");
-	socken.push(socket);
+		socket.on('ClientHello', function (data) {
+			console.log("Client connected");
+			socken.push(socket);
+		});
 	});
 	
 	\end{lstlisting}
@@ -553,7 +554,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	Nachdem Sender und Empfänger synchronisiert sind, kann man mit der Datenübertragung starten.
 	Dabei wird ein Paket, dass in einem Zeitintervall ankommt als binäre 1 interpretiert. Kommt kein Paket so wird eine 0 geschrieben.
 	Durch die Wahl längerer Zeitintervalle kann die Fehleranfälligkeit verringert werden, wobei jedoch die Übertragungsgeschwindigkeit ebenfalls abnimmt.\\
-	Für diese Art der Codierung ist es unabdingbar, dass die Uhren von Sender und Empfänger möglichst genau übereinstimmen.\\ Zur Veranschaulichung ist die Kodierung in \textit{Abbildung 6.3} schematisch dargestellt.
+	Für diese Art der Codierung ist es unabdingbar, dass die Uhren von Sender und Empfänger möglichst genau übereinstimmen.\\ Zur Veranschaulichung ist die Kodierung in \textit{Abbildung 7.1} schematisch dargestellt.
 	
 	\begin{figure}[h!]
 		\centering
@@ -567,7 +568,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	
 	Zur Kodierung kann ebenso die Veränderung der Paketabstände benutzt werden. Hierzu wird zwischen einer kleinen oder großen Pause zwischen zwei Nachrichten unterschieden. Eine große Pause wird als binäre 1 interpretiert, eine kleine Pause als 0.\\
 	Je nachdem, wie gut die Netzwerkbedingungen sind, kann hier durch eine gezielte Verkleinerung der Pausen eine Erhöhung der Übertragungsgeschwindigkeit generiert werden. Durch eine Verlängerung dieser Pausen sinkt jedoch die Fehleranfälligkeit.\\
-	Zu sehen ist diese Art der Kodierung in \textit{Abbildung 6.4}
+	Zu sehen ist diese Art der Kodierung in \textit{Abbildung 7.2}
 	
 	\begin{figure}[h!]
 		\centering
@@ -590,31 +591,31 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	Um den Covert Channel zu implementieren, werden Nachrichten zeitlich verzögert an den Client gesendet. Grundsätzlich kann jede beliebige Nachricht an den Client gesendet werden. Hier wird zum Testen die aktuelle Uhrzeit verwendet.\\
 	Die Länge der Pause zwischen den Daten hängt davon ab, ob eine 1 oder eine 0 übertragen werden soll. Eine 1 wird durch eine lange, eine 0 durch eine kurze Pause festgelegt.\\
 	Zur Definition der Pausen wird die lange Pause in Millisekunden angegeben. Zusätzlich wird ein Faktor festgelegt, der das Verhältnis zwischen der langen und kurzen Pause angibt. Durch die Variation von Pausenlänge und Faktor kann der Covert Channel eingestellt und optimiert werden.
-	Ist eine komplette Datei übertragen, wird eine vorab definierte Pause von einer Sekunde eingelegt. Danach beginnt die Datenübertragung erneut.
+	Ist eine komplette Datei übertragen, wird eine vorab definierte Pause von einer Sekunde eingelegt. Danach beginnt die Datenübertragung erneut. In Listing 7.5 ist der Code gezeigt, der diese Kodierung umsetzt.
 	
 	\begin{lstlisting}[caption=Covert Channel]
 	
-	async function covertChannel(){
-	while (true) {
-	if (fileLoad == true) {
-	for(i = 0; i < dataBits.length; i++){
-	if(socken.length != 0){
-	socken[0].emit('time', getTimeString());
-	}
-	if(dataBits[i] == "1"){
-	await sleep(longBreak);
-	}
-	else {
-	await sleep(shortBreak);
-	}
-	}
-	if(socken.length != 0){
-	socken[0].emit('time', getTimeString());
-	}
-	}
-	await sleep(breakBetweenTransmit);
-	}
-	}
+				async function covertChannel(){
+					while (true) {
+						if (fileLoad == true) {
+							for(i = 0; i < dataBits.length; i++){
+								if(socken.length != 0){
+									socken[0].emit('time', getTimeString());
+								}
+								if(dataBits[i] == "1"){
+									await sleep(longBreak);
+								}
+								else {
+									await sleep(shortBreak);
+								}
+							}
+							if(socken.length != 0){
+								socken[0].emit('time', getTimeString());
+							}
+						}
+					await sleep(breakBetweenTransmit);
+				}
+			}
 	
 	\end{lstlisting}
 	
@@ -699,7 +700,8 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 		\subsubsection{Implementierung des Paket-Sniffer}
 		Für das Öffnen und anschließende Mitschneiden der Daten wird ein eigener Thread gestartet. Hier wird zuerst mit \textit{os.popen} ein neuer Prozess erstellt in dem tcpdump läuft. Die nötigen Parameter für die Einstellung des Filters werden ebenfalls übergeben. Der Rückgabewert ist hier ein \textit{open file object}, in welches die Pipe zu tcpdump die Ergebnisse schreibt.
 		Aus diesem \textit{open file object} kann die tcpdump Ausgabe gelesen und der Empfangszeitpunkt in einen Buffer gespeichert werden.\\
-		Die Zeitstempel werden dann kontinuierlich in ein globales Datenarray geschrieben. Um Kollisionen zu vermeiden, wird ein Mutex verwendet.
+		Die Zeitstempel werden dann kontinuierlich in ein globales Datenarray geschrieben. Um Kollisionen zu vermeiden, wird ein Mutex verwendet.\\
+		Der Programmcode, der den Paket-Sniffer handhabt, ist in Listing 7.6 gezeigt.
 		
 		\begin{lstlisting}[caption=Paket-Sniffing]
 			   	pipe = os.popen("tcpdump -s 0 host "+host+" and src port "+port+" -q -i any -l")
@@ -755,7 +757,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 		
 		\subsection{Verhältnis nicht interpretierbar/ interpretierbar}
 		Der erste Test ist die Ermittlung des Verhältnisses zwischen interpretierbaren und nicht interpretierbaren Zeitstempeln. Interpretierbar ist ein Zeitstempel, wenn er sich entweder im Zeitfenster für Nullen, oder Einsen befindet.\\
-		Die Ergebnisse dieses Tests sind in Tabelle 6.1 zu sehen. Die Spalten zeigen, jeweils die Länge einer langen Pause in Sekunden. Die Zeilen stehen für den prozentualen Anteil an der Pausenlänge, die das Zeitfenster definiert.\\
+		Die Ergebnisse dieses Tests sind in Tabelle 8.1 zu sehen. Die Spalten zeigen, jeweils die Länge einer langen Pause in Sekunden. Die Zeilen stehen für den prozentualen Anteil an der Pausenlänge, die das Zeitfenster definiert.\\
 		Die Ergebnisse sind in Prozent angegeben. Die Länge der kurzen Pausen beträgt die Hälfte der langen.\\ Ein Wert von 0 Prozent spiegelt eine Übertragung wieder, bei der alle Zeitstempel interpretiert werden konnten. Liegt der Wert bei 100 Prozent waren die Anzahl interpretierter und nicht interpretierter Zeitstempel gleich.\\
 		Aus der Tabelle lässt sich ableiten, dass ein Zeitfenster mit 20\% nicht zum Optimum führt, da hier die Werte für eine stabile Datenübertragung zu hoch sind. Auch die Übertragung mit einer Pausenlänge von 0,03 ms ist nicht geeignet.\\
 		
@@ -805,7 +807,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	Nachdem durch die ersten beiden Tests  Kombinationen ausgeschlossen werden konnten, sind nun noch die Kombinationen 30\%/0,08s, 40\%/0,08s, 30\%/0,05s und 40\%/0,05s übrig.\\
 	Um hieraus das Optimum zu ermitteln, wird ein Test durchgeführt, der einer realen Anwendung am nächsten kommt.
 	Es wird die Zeit bis zum ersten korrekten Eintreffen einer gesendeten Datei gemessen.\\
-	Diese Messung wird jeweils für alle Kombinationen 10 mal ausgeführt. Die Ergebnisse sind in Bild 6.5 zu sehen.
+	Diese Messung wird jeweils für alle Kombinationen 10 mal ausgeführt. Die Ergebnisse sind in Bild 8.1 zu sehen.
 	
 	
 	\begin{figure}[h!]
@@ -815,7 +817,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 		\label{fig19}
 	\end{figure}
 	
-	In Tabelle 7.3 sind die Durchschnittswerte gezeigt, die sich aus diesem Test ergeben.\\
+	In Tabelle 8.3 sind die Durchschnittswerte gezeigt, die sich aus diesem Test ergeben.\\
 	
 	\begin{table}[h!]
 		\centering
@@ -829,7 +831,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	\end{table}
 	
 	
-	Aus der Graphik in Abbildung 7.1 lässt sich erkennen, dass die Werte der Kombination aus 0,3\%/0,05s (gelb) enorme Schwankungen beinhalten. Auch der höchste Durchschnittswert mit 12,418 Sekunden spricht gegen die Verwendung dieser Kombination. Bei den Werten 30\%/0,08s sind die besten Durchschnittswerte aufgetreten, weshalb diese auf jeden Fall als Einstellungswerte zugelassen werden. Ebenfalls sehr vielversprechend ist die Kombination aus 40\%/0,05s (grün). Hier zeigt die Grafik, bis auf einen Ausschlag bei der ersten Messung, sehr niedrige Werte.\\
+	Aus der Graphik in Abbildung 8.1 lässt sich erkennen, dass die Werte der Kombination aus 0,3\%/0,05s (gelb) enorme Schwankungen beinhalten. Auch der höchste Durchschnittswert mit 12,418 Sekunden spricht gegen die Verwendung dieser Kombination. Bei den Werten 30\%/0,08s sind die besten Durchschnittswerte aufgetreten, weshalb diese auf jeden Fall als Einstellungswerte zugelassen werden. Ebenfalls sehr vielversprechend ist die Kombination aus 40\%/0,05s (grün). Hier zeigt die Grafik, bis auf einen Ausschlag bei der ersten Messung, sehr niedrige Werte.\\
 	
 	Um ein eindeutigeres Ergebnis zu schaffen, werden noch weitere Messungen mit den Kombinationen 30\%/0,08s und 40\%/0,05s durchgeführt.\\
 	
@@ -840,7 +842,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 		\label{fig193}
 	\end{figure}
 	
-	Die Grafik in Bild 7.2 zeigt die Zeiten der eingesetzten Werte. Bei der Verwendung der Werte 30\%/0,08s (blau) lässt sich eine höhere Konstanz erkennen. Hier werden deutlich mehr Daten auf den ersten Versuch korrekt übertragen. Das ist bei 40\%/0,05s seltener der Fall, jedoch ist hier die mögliche Übertragungsgeschwindigkeit auf Grund der kleineren Pausen größer. Trotz größerer Schwankungen, ist die durchschnittliche Zeit von 40\%/0,05s mit 8,327s kleiner als die von 30\%/0,08s mit 9,095s.\\
+	Die Grafik in Bild 8.2 zeigt die Zeiten der eingesetzten Werte. Bei der Verwendung der Werte 30\%/0,08s (blau) lässt sich eine höhere Konstanz erkennen. Hier werden deutlich mehr Daten auf den ersten Versuch korrekt übertragen. Das ist bei 40\%/0,05s seltener der Fall, jedoch ist hier die mögliche Übertragungsgeschwindigkeit auf Grund der kleineren Pausen größer. Trotz größerer Schwankungen, ist die durchschnittliche Zeit von 40\%/0,05s mit 8,327s kleiner als die von 30\%/0,08s mit 9,095s.\\
 	
 	Die Kombination aus einem Zeitfenster von 40\% und einer große Pause von 0,05 Sekunden ist die optimale Lösung für diesen Covert Channel.
 
@@ -848,7 +850,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 		\subsection{Padding zum Synchronisieren}
 
 Bei der Anwendung in einem realen Netzwerk treten am Anfang des Sendevorgangs erhebliche Schwankungen in der Übertragungszeit auf. Diese Abweichungen könnten dem allgemeinen Routing oder dem Verbindungsaufbau von Socket.IO entspringen.\\
-Um dieses Problem zu umgehen, werden 2 Byte Padding, zum Synchronisieren, an den Anfang der Dateien gestellt. Der Abstand zwischen diesen Paketen ist auf 0.01 Sekunden festgelegt. In Abbildung 7.1 ist zu sehen, dass mindestens 6 Datenpakete benötigt werden, bis sich der Korrekte Paketabstand einstellt.
+Um dieses Problem zu umgehen, werden 2 Byte Padding, zum Synchronisieren, an den Anfang der Dateien gestellt. Der Abstand zwischen diesen Paketen ist auf 0.01 Sekunden festgelegt. In Abbildung 8.3 ist zu sehen, dass mindestens 6 Datenpakete benötigt werden, bis sich der Korrekte Paketabstand einstellt.
 
 \begin{figure}[h!]
 	\centering
@@ -918,7 +920,7 @@ while True:
 	
 			\subsection{Parallele Datenabfrage}	
 				Wie vorhergehnd bereits beschrieben, öffnet ein Webserver gleich mehrerer Sockets, um parallel Daten zu empfangen. Diese Nachrichtenpakete, der einzelnen Sockets können nicht vom Client auseinander gehalten werden, da dieser nur den Source-Port betrachtet, der jedoch bei allen Paketen gleich.\\
-				In Bild 7.1 ist ein Ausschnitt aus den Firefox Development Tool zu sehen. Hier wird die Übertragungsdauer der einzelnen Dateien gezeigt. Dabei fällt auf, dass bei der hier verwendeten Webseite der \textit{PH-Weingarten}, 5 CSS Dateien gleichzeitig übertragen werden.\\
+				In Bild 10.1 ist ein Ausschnitt aus den Firefox Development Tool zu sehen. Hier wird die Übertragungsdauer der einzelnen Dateien gezeigt. Dabei fällt auf, dass bei der hier verwendeten Webseite der \textit{PH-Weingarten}, 5 CSS Dateien gleichzeitig übertragen werden.\\
 				Diese 5 daraus entstehenden Covert Channels überschneiden sich bei der Interpretation im Client und sind so nicht mehr auswertbar.\\
 				Der Covert Channel funktioniert nur, wenn genau eine Datei übertragen wird. Oft dauert die Übertragung großer Bilder jedoch länger als die von Quellcode. Dies bietet die Chance, dass am Ende der Übertragung nur noch ein Socket für die Bildübertragung aktiv ist. Dieser kann für die Datenübertragung im Covert Channel genutzt werden kann.
 				
@@ -938,7 +940,7 @@ while True:
 		Um den Proxy nutzen zu können, muss dieser im Browser eingetragen werden. Dadurch werden alle HTTP Nachrichten zuerst an den Proxy weitergeleitet.\\
 		Nun wird eine beliebige Webseite gewählt, die als Paketquelle dient. Diese Seite muss jedoch über HTTP ausgeliefert werden. Hier wird die Webseite der Pädagogischen-Hochschule Weingarten mit der Adresse \textit{http://www.ph-weingarten.de/} verwendet.
 		Wird die Webseite geladen, so sendet der Webserver der PH-Weingarten die Webseitendateien über den Proxy an den Client.\\
-		Jedoch besteht anfangs, das im vorhergehenden Kapitel beschriebene, Problem mit der parallelen Datenübertragung. Das Ergebnis ist in Bild 9.2 zu sehen. Bei einer optimalen Funktion werden den zeitlichen Differenzen links binären Werte zugeordnet. Daher gelingt die Zuordnung in den meisten Fällen nicht.
+		Jedoch besteht anfangs, das im vorhergehenden Kapitel beschriebene, Problem mit der parallelen Datenübertragung. Das Ergebnis ist in Bild 10.2 zu sehen. Bei einer optimalen Funktion werden den zeitlichen Differenzen links binären Werte zugeordnet. Daher gelingt die Zuordnung in den meisten Fällen nicht.
 		
 		
 		\begin{figure}[h!]
@@ -948,7 +950,7 @@ while True:
 			\label{fig33}
 		\end{figure}
 	
-		Ist nur noch ein Socket aktiv, der für die Dateiübertragung eines größeren Bilds zuständig ist, so findet die Datenübertragung wie in Bild 9.3 gezeigt statt. Dies ist der beste Zeitpunkt, die Datenübertragung via Covert Channel zu starten . Fehler treten von diesem Zeitpunkt an nur noch aufgrund von Netzwerk- oder Serveranomalien auf.\\
+		Ist nur noch ein Socket aktiv, der für die Dateiübertragung eines größeren Bilds zuständig ist, so findet die Datenübertragung wie in Bild 10.3 gezeigt statt. Dies ist der beste Zeitpunkt, die Datenübertragung via Covert Channel zu starten . Fehler treten von diesem Zeitpunkt an nur noch aufgrund von Netzwerk- oder Serveranomalien auf.\\
 		Die Datei kann erfolgreich übertragen werden.
 		
 		
