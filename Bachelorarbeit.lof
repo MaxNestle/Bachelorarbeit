@@ -1,20 +1,33 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Erweiterter Ethernet-Frame nach IEEE 802.1Q \cite {zisler2013computer}}}{5}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces IPv4 Header \cite {zisler2013computer}}}{6}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces IPv6 Header \cite {zisler2013computer}}}{6}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces TCP Header \cite {wendzel2012tunnel}}}{7}{figure.2.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Erweiterter Ethernet-Frame nach IEEE 802.1Q}}{8}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces IPv4 Header}}{9}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces IPv6 Header}}{10}{figure.2.3}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Kommunikation \"uber einen Zeitabh\"angigen Kanal \cite {cabuk2004ip}}}{18}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Zusammenhang zwischen Zeitintervall und Genauigkeit \cite {cabuk2004ip}}}{19}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Protokol Channel \cite {wendzel2012tunnel}}}{23}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Protokol Hoping Covert Channel \cite {wendzel2012tunnel}}}{24}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Codierung in den 2 letzten Bits \cite {Black2018Slash}}}{26}{figure.4.5}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Aufbau eines aktiven Systems}}{34}{figure.6.1}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Aufbau eines passiven Systems}}{35}{figure.6.2}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Kodierung mit festen Zeitrastern}}{48}{figure.7.1}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Kodierung anhand der Paketabst\"ande}}{48}{figure.7.2}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Zeit bis zum ersten korrekten Eintreffen}}{61}{figure.8.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Zeit bis zum ersten korrekten Eintreffen}}{62}{figure.8.2}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Fehler in den ersten Paketen}}{63}{figure.8.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Parallele Datenabfrage}}{68}{figure.10.1}
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Fehlinterpretation des Clients}}{70}{figure.10.2}
+\contentsline {figure}{\numberline {10.3}{\ignorespaces Korrekte Interpretation des Clients}}{70}{figure.10.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

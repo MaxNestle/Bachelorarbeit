@@ -24,12 +24,12 @@ Bei zeitabhängigen Covert Channel werden die Daten so versendet, dass der Absend
 	\label{fig5}
 \end{figure}
 
-Bei dem in Abbildung 4.1 dargestellten Covert Channel wird mit einem festen Zeitintervall gearbeitet. Dieses Zeitintervall muss sowohl dem Sender, sowie dem Empfänger bekannt sein. Wird ein Datenpaket innerhalb des Zeitintervalls gesendet, wird dies als 1 interpretiert, falls kein Paket gesendet wird als 0.
+Bei dem in Abbildung 4.1 dargestellten Covert Channel wird mit einem festen Zeitintervall gearbeitet. Dieses Zeitintervall muss sowohl dem Sender, sowie dem Empfänger bekannt sein. Wird ein Datenpaket innerhalb des Zeitintervalls gesendet, wird dies als binäre 1 interpretiert, falls kein Paket gesendet wird als 0.
 So lassen sich beliebige Daten übertragen.\cite{cabuk2004ip}
 
 Da die Datenübertragung sehr stark von der Netzwerkgeschwindigkeit abhängig ist, muss man zusätzlich ein Verfahren zur Sicherstellung der Integrität implementieren.\\ 
 Durch das Versenden des Hashwertes, der über einen bestimmten Anteil der Nachricht gebildet wird, kann die Integrität garantiert werden.\\
-Eine andere Methode, bei der die Integrität jedoch nicht vollständig garantiert, aber simpler umzusetzen ist, ist die Verwendung eines Paritätsbit.\cite{cabuk2004ip}
+Eine andere Methode, bei der die Integrität jedoch nicht vollständig garantiert, aber simpler umzusetzen ist, ist die Verwendung eines Paritätsbits.\cite{cabuk2004ip}
 
 \begin{figure}[ht]
 	\centering

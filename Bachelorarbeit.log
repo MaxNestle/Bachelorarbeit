@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  25 APR 2019 12:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.19)  25 APR 2019 16:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1074,7 +1074,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--13
 
  []
 
-<bilder/HSLogoWGd.jpg, id=510, 322.0833pt x 125.5089pt>
+<bilder/HSLogoWGd.jpg, id=506, 322.0833pt x 125.5089pt>
 File: bilder/HSLogoWGd.jpg Graphic file (type jpg)
 <use bilder/HSLogoWGd.jpg>
 Package pdftex.def Info: bilder/HSLogoWGd.jpg  used on input line 16.
@@ -1123,7 +1123,7 @@ Package tocbasic Info: character protrusion at toc deactivated on input line 18
 er (name{page.I}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.37 ...berline {4.1.3}IPv6}{21}{subsection.4.1.3}
+l.37 ...mberline {4.1.4}TCP}{21}{subsection.4.1.4}
                                                    [1
 
 
@@ -1131,7 +1131,7 @@ l.37 ...berline {4.1.3}IPv6}{21}{subsection.4.1.3}
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.78 ...Netztwerkprotokolle}{41}{subsection.7.4.5}
+l.78 ...{\numberline {7.5}Server}{42}{section.7.5}
                                                    [2] [3])
 \tf@toc=\write9
 \openout9 = `Bachelorarbeit.toc'.
@@ -1179,7 +1179,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--22
 
  (./grundl.tex
 chapter 2.
-<bilder/Ethernet.png, id=691, 1376.14125pt x 248.93pt>
+<bilder/Ethernet.png, id=686, 1376.14125pt x 248.93pt>
 File: bilder/Ethernet.png Graphic file (type png)
 <use bilder/Ethernet.png>
 Package pdftex.def Info: bilder/Ethernet.png  used on input line 24.
@@ -1196,7 +1196,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
-<bilder/ipv4.png, id=702, 1559.8275pt x 807.015pt>
+<bilder/ipv4.png, id=697, 1559.8275pt x 807.015pt>
 File: bilder/ipv4.png Graphic file (type png)
 <use bilder/ipv4.png>
 Package pdftex.def Info: bilder/ipv4.png  used on input line 43.
@@ -1204,7 +1204,7 @@ Package pdftex.def Info: bilder/ipv4.png  used on input line 43.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<bilder/ipv6.png, id=705, 1544.77126pt x 636.3775pt>
+<bilder/ipv6.png, id=700, 1544.77126pt x 636.3775pt>
 File: bilder/ipv6.png Graphic file (type png)
 <use bilder/ipv6.png>
 Package pdftex.def Info: bilder/ipv6.png  used on input line 59.
@@ -1214,43 +1214,38 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [5 <./bilder/Ethernet.png (PNG copy)>] [6 <./bilder/ipv4.png (PNG copy)> <./bil
 der/ipv6.png (PNG copy)>]
-<bilder/TCP.png, id=727, 1071.00125pt x 463.7325pt>
+<bilder/TCP.png, id=722, 1071.00125pt x 463.7325pt>
 File: bilder/TCP.png Graphic file (type png)
 <use bilder/TCP.png>
 Package pdftex.def Info: bilder/TCP.png  used on input line 75.
 (pdftex.def)             Requested size: 328.55876pt x 142.26378pt.
  [7 <./bilder/TCP.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 118--123
+Underfull \hbox (badness 10000) in paragraph at lines 111--116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--123
+Underfull \hbox (badness 10000) in paragraph at lines 111--116
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
+Underfull \hbox (badness 10000) in paragraph at lines 186--191
 
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 194--199
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 203--204
+[11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
@@ -1265,12 +1260,12 @@ chapter 3.
 
 ]
 chapter 4.
-<bilder/timing.png, id=801, 1198.4775pt x 823.075pt>
+<bilder/timing.png, id=796, 1198.4775pt x 823.075pt>
 File: bilder/timing.png Graphic file (type png)
 <use bilder/timing.png>
 Package pdftex.def Info: bilder/timing.png  used on input line 22.
 (pdftex.def)             Requested size: 414.29811pt x 284.52756pt.
-<bilder/Zeitacuracyzusammenhang.png, id=806, 1270.7475pt x 869.2475pt>
+<bilder/Zeitacuracyzusammenhang.png, id=801, 1270.7475pt x 869.2475pt>
 File: bilder/Zeitacuracyzusammenhang.png Graphic file (type png)
 <use bilder/Zeitacuracyzusammenhang.png>
 Package pdftex.def Info: bilder/Zeitacuracyzusammenhang.png  used on input line
@@ -1280,7 +1275,7 @@ Package pdftex.def Info: bilder/Zeitacuracyzusammenhang.png  used on input line
 
 ] [18 <./bilder/timing.png (PNG copy)>] [19 <./bilder/Zeitacuracyzusammenhang.p
 ng (PNG copy)>] [20] [21]
-<bilder/protoChannel.png, id=847, 1155.31625pt x 831.105pt>
+<bilder/protoChannel.png, id=842, 1155.31625pt x 831.105pt>
 File: bilder/protoChannel.png Graphic file (type png)
 <use bilder/protoChannel.png>
 Package pdftex.def Info: bilder/protoChannel.png  used on input line 123.
@@ -1291,13 +1286,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 128--130
  []
 
 [22] [23 <./bilder/protoChannel.png (PNG copy)>]
-<bilder/protoHopingChan.png, id=863, 1348.03625pt x 851.18pt>
+<bilder/protoHopingChan.png, id=858, 1348.03625pt x 851.18pt>
 File: bilder/protoHopingChan.png Graphic file (type png)
 <use bilder/protoHopingChan.png>
 Package pdftex.def Info: bilder/protoHopingChan.png  used on input line 143.
 (pdftex.def)             Requested size: 405.54532pt x 256.0748pt.
  [24 <./bilder/protoHopingChan.png (PNG copy)>] [25]
-<bilder/stgRGB.jpg, id=881, 994.71625pt x 597.23125pt>
+<bilder/stgRGB.jpg, id=876, 994.71625pt x 597.23125pt>
 File: bilder/stgRGB.jpg Graphic file (type jpg)
 <use bilder/stgRGB.jpg>
 Package pdftex.def Info: bilder/stgRGB.jpg  used on input line 184.
@@ -1335,7 +1330,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 310--311
 
  []
 
-<bilder/Activ.png, id=923, 1927.2pt x 1084.05pt>
+<bilder/Activ.png, id=918, 1927.2pt x 1084.05pt>
 File: bilder/Activ.png Graphic file (type png)
 <use bilder/Activ.png>
 Package pdftex.def Info: bilder/Activ.png  used on input line 314.
@@ -1344,7 +1339,7 @@ Package pdftex.def Info: bilder/Activ.png  used on input line 314.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [33]
-<bilder/Passiv.png, id=929, 1927.2pt x 1084.05pt>
+<bilder/Passiv.png, id=924, 1927.2pt x 1084.05pt>
 File: bilder/Passiv.png Graphic file (type png)
 <use bilder/Passiv.png>
 Package pdftex.def Info: bilder/Passiv.png  used on input line 327.
@@ -1390,7 +1385,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 520--522
  []
 
 [46]
-<bilder/Raster.png, id=1049, 1927.2pt x 1084.05pt>
+<bilder/Raster.png, id=1044, 1927.2pt x 1084.05pt>
 File: bilder/Raster.png Graphic file (type png)
 <use bilder/Raster.png>
 Package pdftex.def Info: bilder/Raster.png  used on input line 561.
@@ -1400,7 +1395,7 @@ Package pdftex.def Info: bilder/Raster.png  used on input line 561.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [47]
-<bilder/Morse.png, id=1055, 1725.44624pt x 716.6775pt>
+<bilder/Morse.png, id=1050, 1725.44624pt x 716.6775pt>
 File: bilder/Morse.png Graphic file (type png)
 <use bilder/Morse.png>
 Package pdftex.def Info: bilder/Morse.png  used on input line 575.
@@ -1434,7 +1429,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 759--763
 [59
 
 ] [60]
-<bilder/Test31.png, id=1182, 628.59843pt x 448.67625pt>
+<bilder/Test31.png, id=1177, 628.59843pt x 448.67625pt>
 File: bilder/Test31.png Graphic file (type png)
 <use bilder/Test31.png>
 Package pdftex.def Info: bilder/Test31.png  used on input line 815.
@@ -1457,7 +1452,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 836--837
 
  []
 
-<bilder/Test32.png, id=1190, 622.57594pt x 376.40625pt>
+<bilder/Test32.png, id=1185, 622.57594pt x 376.40625pt>
 File: bilder/Test32.png Graphic file (type png)
 <use bilder/Test32.png>
 Package pdftex.def Info: bilder/Test32.png  used on input line 840.
@@ -1473,7 +1468,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 845--846
  []
 
 [62 <./bilder/Test32.png (PNG copy)>]
-<bilder/sync.png, id=1199, 429.605pt x 376.40625pt>
+<bilder/sync.png, id=1194, 429.605pt x 376.40625pt>
 File: bilder/sync.png Graphic file (type png)
 <use bilder/sync.png>
 Package pdftex.def Info: bilder/sync.png  used on input line 857.
@@ -1496,13 +1491,13 @@ chapter 10.
 [67
 
 ]
-<bilder/ParallelProblem.png, id=1234, 1206.5075pt x 538.01pt>
+<bilder/ParallelProblem.png, id=1229, 1206.5075pt x 538.01pt>
 File: bilder/ParallelProblem.png Graphic file (type png)
 <use bilder/ParallelProblem.png>
 Package pdftex.def Info: bilder/ParallelProblem.png  used on input line 929.
 (pdftex.def)             Requested size: 446.64012pt x 199.16928pt.
  [68 <./bilder/ParallelProblem.png>]
-<bilder/ProxyFail.png, id=1242, 564.1075pt x 372.39125pt>
+<bilder/ProxyFail.png, id=1237, 564.1075pt x 372.39125pt>
 File: bilder/ProxyFail.png Graphic file (type png)
 <use bilder/ProxyFail.png>
 Package pdftex.def Info: bilder/ProxyFail.png  used on input line 948.
@@ -1511,7 +1506,7 @@ Package pdftex.def Info: bilder/ProxyFail.png  used on input line 948.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<bilder/SucProxy.png, id=1244, 543.02875pt x 497.86pt>
+<bilder/SucProxy.png, id=1239, 543.02875pt x 497.86pt>
 File: bilder/SucProxy.png Graphic file (type png)
 <use bilder/SucProxy.png>
 Package pdftex.def Info: bilder/SucProxy.png  used on input line 959.
@@ -3143,7 +3138,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 230.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 230.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 230.
 Package rerunfilecheck Info: File `Bachelorarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: CED4CA779D5F3C02FA1592BD350FF3A1;9694.
+(rerunfilecheck)             Checksum: 1ADB487D9D25841D179B64AC01886BD1;9589.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -3151,10 +3146,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 230.
  ) 
 Here is how much of TeX's memory you used:
- 21491 strings out of 492982
- 353326 string characters out of 6134895
+ 21489 strings out of 492982
+ 353292 string characters out of 6134895
  632022 words of memory out of 5000000
- 23665 multiletter control sequences out of 15000+600000
+ 23664 multiletter control sequences out of 15000+600000
  89184 words of font info for 552 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,11n,66p,8892b,1230s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3174,10 +3169,10 @@ ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm
 -super/sfti1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhv
 r8a.pfb>
-Output written on Bachelorarbeit.pdf (86 pages, 1940769 bytes).
+Output written on Bachelorarbeit.pdf (86 pages, 1940446 bytes).
 PDF statistics:
- 1467 PDF objects out of 1728 (max. 8388607)
- 1310 compressed objects within 14 object streams
- 381 named destinations out of 1000 (max. 500000)
- 43213 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 1462 PDF objects out of 1728 (max. 8388607)
+ 1305 compressed objects within 14 object streams
+ 380 named destinations out of 1000 (max. 500000)
+ 43205 words of extra memory for PDF output out of 51595 (max. 10000000)
 
