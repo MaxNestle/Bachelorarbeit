@@ -56,7 +56,7 @@ Bei Storage Channels benutzt man Speicherattribute\cite{wendzel2012tunnel} in Pr
 Der IPv4 Header bietet einige Möglichkeiten Daten in Speicherattribute (vergleiche Kapitel Grundlagen) zu verstecken. Folgend werden die Attribute begutachtet, die Potential zur Manipulation bietet.
 
 \textbf{Type of Service:} \\
-Die letzten beiden Bits dieses Feldes sind unbenutzt und können so zur Datenübertragung verwendet werden. (2 Bits)
+Die letzten beiden Bits dieses Feldes sind ungenutzt und können so zur Datenübertragung verwendet werden. (2 Bits)
 
 \textbf{Identification:} \\
 Bietet 16 Bits die theoretisch frei wählbar sind. (16 Bits)
@@ -95,7 +95,7 @@ Um diese Nummer zu verändern, muss eine Übersetzungsschicht eingebaut werden, di
 \subsection{Traffic Normalizers}
 Storage Channels haben einen großen Schwachpunkt: Traffic Normalizer schreiben die oben beschriebenen Headerattribute gezielt um, oder verwerfen diese, wenn auffällige Werte gesetzt sind. \\
 Ein Traffic Normalizer auf IP Ebene könnte zum Beispiel das TTL Feld manipulieren, die Flags ,,Don't Fragment'' und ,,Reserved'' auf 0 setzen, die Options löschen, oder Pakete bei denen das IHL Feld größer als 5 ist verwerfen. \cite{wendzel2012problem}\\
-Das Padding und die ungenutzten Bits des ,,Type of Service'' Feldes auf 0 können gesetzt werden.\\
+Das Padding und die ungenutzten Bits des ,,Type of Service'' Feldes können auf 0 gesetzt werden.\\
 Ein solches System, in ähnlicher Weise auf alle Netzwerkschichten angewendet, ist eine sehr effektive Methode um gegen Storage Channels vorzugehen. 
 
 
@@ -161,7 +161,7 @@ Botschaften in Texten teilweise einzubetten ist mit der Steganographie möglich.
 Gängig unter Textmanipulatoren ist die gezielte Wahl des ersten Buchstaben des Wortes, wobei die Aneinanderreihung dieser Buchstaben ein neues Wort ergibt.
 Bei einem wissenschaftlich erarbeiteten Rückblick treten einige, nicht zu unterschätzende, Sicherheitslücken auf, wenn diese Art der Verschlüsselung angewendet wird.
 
-(Im oberen Text ist zur Veranschaulichung eine Nachricht an einen potentiellen Prüfer eingebettet. Nach jedem sinnvollen deutschem Wort muss mit dem nächsten Satz begonnen werden)
+(Im oberen Text ist zur Veranschaulichung eine Nachricht an einen potentiellen Prüfer eingebettet. Nach jedem sinnvollen deutschem Wort muss mit dem nächsten Satz begonnen werden!)
 
 Eine weitere Methode ist, die Satzzeichen zu verwenden, um Informationen zu kodieren. So kann zum Beispiel ein Punkt 00, ein Komma 01, ein Fragezeichen 10 und ein Ausrufezeichen 11 bedeuten.\cite{lockwood2017text}
 
@@ -292,7 +292,7 @@ Es wird ein Trägerkanal benötigt in diesen die geheimen Nachrichten eingebettet 
 Für den gewählten Covert Channel kann prinzipiell jedes Netzwerkprotokoll verwendet werden. Da die Übertragung über Netzwerkgrenzen hinaus stattfinden soll muss jedoch mindestens das Internet Protokoll verwendet werden. 
 Die Verwendung von ICMP Paketen ist durch die Filterung von Firewalls nicht geeignet. Die verbleibenden und sinnvollen Möglichkeiten sind demnach entweder TCP oder UDP.\\ Da immer nur ein Bit durch ein Datenpaket übertragen wird, wird ein Datenstrom (Stream) mit vielen Datenpaketen benötigt.\\
 Die Entscheidung beschränkt sich nun auf einen UDP oder TCP Stream. UDP hat das Problem, dass es sich hierbei um ein verbindungsloses Protokoll handelt und man nicht sicher sein kann, dass die Daten in der richtigen Reihenfolge oder überhaupt ankommen. Durch die Verwendung eines zeitlichen Covert Channel, muss aber sowieso ein System zur Sicherstellung der Integrität implementiert werden.\\
-Auf der anderen Seite sind UDP Pakete selten geworden, da HTTP und somit die Webserver auf TCP aufbauen. Auch die Streams von Firmen wie Netflix oder YouTube basieren heute alle auf dem TCP/IP Stack.\\
+Auf der anderen Seite sind UDP Pakete selten geworden, da HTTP/HTTPS und somit die Webserver auf TCP aufbauen. Auch die Streams von Firmen wie Netflix oder YouTube basieren heute alle auf dem TCP/IP Stack.\\
 So ist die Verwendung eines TCP Streams die beste Lösung, wobei sich die verbindungsorientierte Datenübertragung von TCP zusätzlich positiv auf die Zuverlässigkeit des Datenkanals auswirkt wird.
 
 
@@ -319,7 +319,7 @@ Soll ein aktiver Covert Channel erstellt werden, so ist der Sender gleichzeitig 
 
 \subsection{Lösungsansatz 2: Passiver Aufbau}
 
-Bei der passiven Alternative (Abbildung 6.2) verbindet sich der Empfänger über einen Proxy mit einem beliebigen Webserver, der einen konstanten Datenstrom generiert. Dies könnte zum Beispiel ein Video- oder Audiostream sein.\\
+Bei der passiven Alternative (\textit{Abbildung 6.2}) verbindet sich der Empfänger über einen Proxy mit einem beliebigen Webserver, der einen konstanten Datenstrom generiert. Dies könnte zum Beispiel ein Video- oder Audiostream sein.\\
 Dieser Datenstrom läuft über den Proxy, der nun die Möglichkeit hat, den Datenstrom zu manipulieren. Der Sender der geheimen Nachrichten nimmt in diesem System die Rolle des Proxys ein. Er muss die Daten nicht verändern, sondern nur verzögern.
 
 \begin{figure}[h!]
@@ -340,7 +340,7 @@ Wird die passive Umsetzung realisiert, bekommt man als Ergebnis eine flexible Lö
 
 
 \subsection{Anforderung an die Fehlerkorrektur}
-Eine Fehlerkorrektur soll in der Lage sein in 8 oder 16 Bit Worten fehlerhafte Bits zu finden und diese zu korrigieren. Die extra Bits zur Fehlerkorrektur sollen direkt an die Datenworte angehängt werden, dürfen aber maximal 10\% des Datenwortes betragen.
+Eine Fehlerkorrektur soll in der Lage sein, in 8 oder 16 Bit Worten fehlerhafte Bits zu finden und diese zu korrigieren. Die extra Bits zur Fehlerkorrektur sollen direkt an die Datenworte angehängt werden, dürfen aber maximal 10\% des Datenwortes betragen.
 
 
 \subsection{Lösungsansatz 1: Paritätsbits}
@@ -379,19 +379,19 @@ Bei einer Verwendung von großen Datenpaketen und sehr verstreut auftretenden Feh
 
 Um die Integrität der gesendeten Daten zu gewährleisten, soll am Ende der Daten ein Hashwert mitgesendet werden.
 
-Um die Integrität zu garantieren, bildet der Sender den Hash über die zu sendende Nachricht. Die Nachricht und der Hashwert werden nun versendet. Der Empfänger bildet nun ebenfalls den  Hash über die empfangene Nachricht. Stimmt dieser Hashwert mit dem überein, den er vom Sender bekommen hat, so ist die Nachricht unverändert versendet worden. Die Integrität ist sichergestellt.\\
+Um die Integrität zu garantieren, bildet der Sender den Hash über die zu sendende Nachricht. Die Nachricht und der Hashwert werden versendet. Der Empfänger bildet nun ebenfalls den  Hash über die empfangene Nachricht. Stimmt dieser Hashwert mit dem überein, den er vom Sender bekommen hat, so ist die Nachricht unverändert versendet worden. Die Integrität ist sichergestellt.\\
 Stimmt der Hash nicht überein, so müssen die Daten erneut gesendet werden. Es ist auch möglich, den Hash nicht erst am Ende der Datenübertragung zu senden, sondern nach einer festgelegten Datenmenge. Dies hätte den Vorteil, dass nicht die komplette Nachricht wiederholt werden muss.
 
 \subsection{Anfoderung an die Hashfunktion}
-Die Hashfunktion soll eine Nachricht auf einen eindeutigen Hashwert abbilden. Er muss aber nicht zur Authentifizierung verwendet werden. Der Wert sollte so klein wie möglich sein, um die Datenmenge gering zu halten.
+Die Hashfunktion soll eine Nachricht auf einen eindeutigen Hashwert abbilden. Er muss nicht zur Authentifizierung verwendet werden. Der Wert sollte so klein wie möglich sein, um die Datenmenge gering zu halten.
 
 
 \subsection{Lösungsansatz 1: MD5-Hash}
 Die MD5 Hashfunktion wurde 1991 als Weiterentwicklung der MD4 Hashfunktion veröffentlicht. Diese bildet eine beliebige Nachricht auf einen 128-Bit-Hashwert ab. Zu erwähnen ist, dass der MD5 aus Sicherheitsgründen nicht mehr empfohlen wird.\cite{watjen2018hashfunktionen}
 
 \subsection{Lösungsansatz 2: Pearson-Hash}
-	%TODO                                                                           
-Der Pearson-Algorithmus verwendet eine zufällig initialisierte statische Mapping-Tabelle, um jedes Byte von jedem Hash-Wert auf einen neuen Hash-Wert abzubilden.\cite{davies2010traffic}\\
+
+Der Pearson-Algorithmus verwendet eine zufällig initialisierte statische Mapping-Tabelle, um jedes Byte von jedem Hash-Wert auf einen neuen Hash-Wert abzubilden.\cite{davies2010traffic}. Dafür wird jeweils der alte Hash-Wert mit einem Datenwort XOR verknüpft.
 Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem Byte erzeugen. Die Mapping-Taballe muss jedoch auf allen beteiligten Systemen gleich sein.
 	
 	\subsection{Bewertung der Hash-Funktionen}
@@ -405,7 +405,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	Den Algorithmus zur Berechnung des Hashs ist in Listing 7.1 gezeigt.
 	Hier wird am Anfang ein Hash-Wert \textit{h} generiert. Dieser wird bitweise XOR mit dem Datenwert verknüpft. Der entstandene Wert wird als Index in der Mapping-Tabelle verwendet. Der dortige Wert in der Mapping-Tabelle, wird der neue Wert \textit{h}. Dies wird so lange wiederholt, bis alle Datenwerte verwendet worden sind. 
 	
-	\begin{lstlisting}[caption=Erstellen der Mapping-Table]
+	\begin{lstlisting}[caption=Pearson Hash]
 	
 			for (var j = 0; j < hashLength; j++){  
 				var h = table[(parseInt(data.charAt(0)) + j) % 256];
@@ -455,7 +455,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	\subsection{Lösungsansatz 1: Java HttpServer}
 	HttpServer ist eine Java Klasse, die es ermöglicht, einen einfachen HTTP Server zu erstellen.
 	Die von Oracle angebotene Klasse implementiert einen Webserver, der an eine IP-Adresse und an einen Port gebunden ist und dort auf eingehende TCP Verbindungen hört.\\
-	Um den Server nutzen zu können, müssen ihm ein oder mehrere HttpHandler hinzugefügt werden. Diese bearbeiten, die Anfragen auf verschiedene URL Pfade.\\
+	Um den Server nutzen zu können, müssen ihm ein oder mehrere HttpHandler hinzugefügt werden. Diese bearbeiten, die Anfragen auf verschiedene URL Pfaden.\\
 	Der HttpServer kann bei der Verwendung der Unterklasse HttpsServer auch verschlüsselte Verbindungen realisieren.\cite{JAVA_HTTP}
 	
 		
@@ -496,7 +496,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 				
 	\section{Kommunikation des Covert Channel}
 	Bei der Express Implementierung wird die \textit{index.html} Datei mit Hilfe von REST (Representational State Transfer) ausgeliefert. REST ist ein Architekturstil, der die Kommunikation zwischen Server und Client regelt. Dieses System beruht darauf, dass ein Server eine beliebige Ressource, wie beispielsweise \textit{index.html}, anbietet. Die wichtigsten Methoden um mit diesen Ressourcen umzugehen sind  GET, PUT, POST und  DELETE.\cite{barton2010modellierung}\\
-	Diese Methoden, auf die mit http zugegriffen wird, sehen nicht vor, dass ein Server selbständig und ohne danach gefragt zu werden Nachrichten an den Client sendet.
+	Diese Methoden, auf die mit http zugegriffen werden, sehen nicht vor, dass ein Server selbständig und ohne danach gefragt zu werden Nachrichten an den Client sendet.
 	
 	\subsection{Anforderung an die Kommunikation des Covert Channels}
 	Da die Hauptaufgabe des Server das Senden manipulierter Pakete an den Client sein wird, muss eine alternative Kommunikation gefunden werden, die nach dem Ausliefern der Webseite den Nachrichtentransport übernimmt. Dabei muss eine bidirektionale Kommunikation möglich sein. Auch eine einfache Anwendung soll angestrebt werden.
@@ -591,7 +591,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	Um den Covert Channel zu implementieren, werden Nachrichten zeitlich verzögert an den Client gesendet. Grundsätzlich kann jede beliebige Nachricht an den Client gesendet werden. Hier wird zum Testen die aktuelle Uhrzeit verwendet.\\
 	Die Länge der Pause zwischen den Daten hängt davon ab, ob eine 1 oder eine 0 übertragen werden soll. Eine 1 wird durch eine lange, eine 0 durch eine kurze Pause festgelegt.\\
 	Zur Definition der Pausen wird die lange Pause in Millisekunden angegeben. Zusätzlich wird ein Faktor festgelegt, der das Verhältnis zwischen der langen und kurzen Pause angibt. Durch die Variation von Pausenlänge und Faktor kann der Covert Channel eingestellt und optimiert werden.
-	Ist eine komplette Datei übertragen, wird eine vorab definierte Pause von einer Sekunde eingelegt. Danach beginnt die Datenübertragung erneut. In Listing 7.5 ist der Code gezeigt, der diese Kodierung umsetzt.
+	Ist eine komplette Datei übertragen, wird eine vorab definierte Pause von einer Sekunde eingelegt. Danach beginnt die Datenübertragung erneut. In \textit{Listing 7.5} ist der Code gezeigt, der diese Kodierung umsetzt.
 	
 	\begin{lstlisting}[caption=Covert Channel]
 	
@@ -633,12 +633,12 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 		
 		\subsection{JQuery}
 		
-		JQuery ist eine JavaScript Bibliothek, die es wesentlich einfacher macht, das HTML-Dokument und den DOM-Baum zu manipulieren und zu verändern. In diesem wird es dazu verwendet, um jeweils die aktuelle Uhrzeit dynamisch auf der Seite anzuzeigen.\\
+		JQuery ist eine JavaScript Bibliothek, die es wesentlich einfacher macht, das HTML-Dokument und den DOM-Baum zu manipulieren und zu verändern. In diesem Kontext wird sie dazu verwendet, um jeweils die aktuelle Uhrzeit dynamisch auf der Seite anzuzeigen.\\
 		Zudem kommt es zum Einsatz, um die Eventhandler für Socket.IO einzubinden.
 		
 		
 		\subsection{Socket.IO}
-		Der nötige Code wird für das Paket  über ein Script Tag heruntergeladen und entsprechend hinzugefügt. Wie auch serverseitig, kann hier ein SocketIO Objekt generiert werden.
+		Der nötige Code wird über ein Script Tag heruntergeladen und entsprechend hinzugefügt. Wie auch serverseitig, kann hier ein SocketIO Objekt generiert werden.
 		Diesem werden die Events zum Empfangen der Nachrichten, dem Verbindungsaufbau und dem Empfangen der Zeitpakete hinzugefügt.\\
 		
 		
@@ -669,7 +669,8 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 			
 		\subsubsection{Lösungsansatz 1: Java}
 			Java ist eine objektorientierte Programmiersprache, dessen Code auf mehr als 3 Milliarden Geräten ausgeführt wird. Der Java Code orientiert sich an C++, aber auch an anderen Skript Sprachen.\\
-			Der Java Code wird von einem Compiler in Bytecode umgewandelt. Dieser kann auf jedem Gerät, das die Java Runtime besitzt, ausgeführt werden. Dadurch muss der Code nicht mehr für jedes Gerät compiliert werden.\cite{ullenboom2004java}
+			Der Java Code wird von einem Compiler in Bytecode umgewandelt. Dieser kann auf jedem Gerät, das die Java Runtime besitzt, ausgeführt werden. Dadurch muss der Code nicht für jedes Gerät compiliert werden.
+			\cite{ullenboom2004java}
 			
 		\subsubsection{Lösungsansatz 2: Python}
 			Python ist eine objektorientierte Skript Sprache. Der Code wird als lesbares Skript an den Anwender übergeben und von einem Python Interpreter ausgewertet. So wird kein Compiler und auch nicht unbedingt eine IDE benötigt.
@@ -701,7 +702,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 		Für das Öffnen und anschließende Mitschneiden der Daten wird ein eigener Thread gestartet. Hier wird zuerst mit \textit{os.popen} ein neuer Prozess erstellt in dem tcpdump läuft. Die nötigen Parameter für die Einstellung des Filters werden ebenfalls übergeben. Der Rückgabewert ist hier ein \textit{open file object}, in welches die Pipe zu tcpdump die Ergebnisse schreibt.
 		Aus diesem \textit{open file object} kann die tcpdump Ausgabe gelesen und der Empfangszeitpunkt in einen Buffer gespeichert werden.\\
 		Die Zeitstempel werden dann kontinuierlich in ein globales Datenarray geschrieben. Um Kollisionen zu vermeiden, wird ein Mutex verwendet.\\
-		Der Programmcode, der den Paket-Sniffer handhabt, ist in Listing 7.6 gezeigt.
+		Der Programmcode, der den Paket-Sniffer handhabt, ist in \textit{Listing 7.6} gezeigt.
 		
 		\begin{lstlisting}[caption=Paket-Sniffing]
 			   	pipe = os.popen("tcpdump -s 0 host "+host+" and src port "+port+" -q -i any -l")
@@ -757,11 +758,10 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 		
 		\subsection{Verhältnis nicht interpretierbar/ interpretierbar}
 		Der erste Test ist die Ermittlung des Verhältnisses zwischen interpretierbaren und nicht interpretierbaren Zeitstempeln. Interpretierbar ist ein Zeitstempel, wenn er sich entweder im Zeitfenster für Nullen, oder Einsen befindet.\\
-		Die Ergebnisse dieses Tests sind in Tabelle 8.1 zu sehen. Die Spalten zeigen, jeweils die Länge einer langen Pause in Sekunden. Die Zeilen stehen für den prozentualen Anteil an der Pausenlänge, die das Zeitfenster definiert.\\
+		Die Ergebnisse dieses Tests sind in \textit{Tabelle 8.1} zu sehen. Die Spalten zeigen, jeweils die Länge einer langen Pause in Sekunden. Die Zeilen stehen für den prozentualen Anteil an der Pausenlänge, die das Zeitfenster definiert.\\
 		Die Ergebnisse sind in Prozent angegeben. Die Länge der kurzen Pausen beträgt die Hälfte der langen.\\ Ein Wert von 0 Prozent spiegelt eine Übertragung wieder, bei der alle Zeitstempel interpretiert werden konnten. Liegt der Wert bei 100 Prozent waren die Anzahl interpretierter und nicht interpretierter Zeitstempel gleich.\\
 		Aus der Tabelle lässt sich ableiten, dass ein Zeitfenster mit 20\% nicht zum Optimum führt, da hier die Werte für eine stabile Datenübertragung zu hoch sind. Auch die Übertragung mit einer Pausenlänge von 0,03 ms ist nicht geeignet.\\
-		
-		Da dieser Test jedoch keine Fehlinterpretationen betrachtet, muss noch ein weiterer Test hinzugefügt werden.
+
 		
 	 \begin{table}[h!]
   \centering
@@ -780,7 +780,12 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
  \end{table}
 		
 
-	Diese Erkenntnisse decken sich auch mit dem auf Bild 4.2 gezeigten Ergebnissen von \cite{cabuk2004ip} 
+	Diese Erkenntnisse decken sich auch mit dem auf \textit{Bild 4.2} gezeigten Ergebnissen von \cite{cabuk2004ip}
+	
+	
+	
+			
+	Da dieser Test jedoch keine Fehlinterpretationen betrachtet, muss noch ein weiterer Test hinzugefügt werden.
 
 	\subsection{Anzahl korrekt übertragener Dateien}
 	Bei diesem Test soll die Korrektheit der ankommenden Daten begutachtet werden. Dazu werden für jede mögliche Kombination 20 Datenübertragungen durchgeführt und die Anzahl der korrekt übertragenen Dateien gezählt. Dadurch ergibt sich folgende Tabelle:
@@ -817,7 +822,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 		\label{fig19}
 	\end{figure}
 	
-	In Tabelle 8.3 sind die Durchschnittswerte gezeigt, die sich aus diesem Test ergeben.\\
+	In \textit{Tabelle 8.3} sind die Durchschnittswerte gezeigt, die sich aus diesem Test ergeben.\\
 	
 	\begin{table}[h!]
 		\centering
@@ -831,7 +836,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	\end{table}
 	
 	
-	Aus der Graphik in Abbildung 8.1 lässt sich erkennen, dass die Werte der Kombination aus 0,3\%/0,05s (gelb) enorme Schwankungen beinhalten. Auch der höchste Durchschnittswert mit 12,418 Sekunden spricht gegen die Verwendung dieser Kombination. Bei den Werten 30\%/0,08s sind die besten Durchschnittswerte aufgetreten, weshalb diese auf jeden Fall als Einstellungswerte zugelassen werden. Ebenfalls sehr vielversprechend ist die Kombination aus 40\%/0,05s (grün). Hier zeigt die Grafik, bis auf einen Ausschlag bei der ersten Messung, sehr niedrige Werte.\\
+	Aus der Graphik in \textit{Abbildung 8.1} lässt sich erkennen, dass die Werte der Kombination aus 0,3\%/0,05s (gelb) enorme Schwankungen beinhalten. Auch der höchste Durchschnittswert mit 12,418 Sekunden spricht gegen die Verwendung dieser Kombination. Bei den Werten 30\%/0,08s sind die besten Durchschnittswerte aufgetreten, weshalb diese auf jeden Fall als Einstellungswerte zugelassen werden. Ebenfalls sehr vielversprechend ist die Kombination aus 40\%/0,05s (grün). Hier zeigt die Grafik, bis auf einen Ausschlag bei der ersten Messung, sehr niedrige Werte.\\
 	
 	Um ein eindeutigeres Ergebnis zu schaffen, werden noch weitere Messungen mit den Kombinationen 30\%/0,08s und 40\%/0,05s durchgeführt.\\
 	
@@ -842,7 +847,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 		\label{fig193}
 	\end{figure}
 	
-	Die Grafik in Bild 8.2 zeigt die Zeiten der eingesetzten Werte. Bei der Verwendung der Werte 30\%/0,08s (blau) lässt sich eine höhere Konstanz erkennen. Hier werden deutlich mehr Daten auf den ersten Versuch korrekt übertragen. Das ist bei 40\%/0,05s seltener der Fall, jedoch ist hier die mögliche Übertragungsgeschwindigkeit auf Grund der kleineren Pausen größer. Trotz größerer Schwankungen, ist die durchschnittliche Zeit von 40\%/0,05s mit 8,327s kleiner als die von 30\%/0,08s mit 9,095s.\\
+	Die Grafik in \textit{Bild 8.2} zeigt die Zeiten der eingesetzten Werte. Bei der Verwendung der Werte 30\%/0,08s (blau) lässt sich eine höhere Konstanz erkennen. Hier werden deutlich mehr Daten auf den ersten Versuch korrekt übertragen. Das ist bei 40\%/0,05s seltener der Fall, jedoch ist hier die mögliche Übertragungsgeschwindigkeit auf Grund der kleineren Pausen größer. Trotz größerer Schwankungen, ist die durchschnittliche Zeit von 40\%/0,05s mit 8,327s kleiner als die von 30\%/0,08s mit 9,095s.\\
 	
 	Die Kombination aus einem Zeitfenster von 40\% und einer große Pause von 0,05 Sekunden ist die optimale Lösung für diesen Covert Channel.
 
@@ -850,7 +855,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 		\subsection{Padding zum Synchronisieren}
 
 Bei der Anwendung in einem realen Netzwerk treten am Anfang des Sendevorgangs erhebliche Schwankungen in der Übertragungszeit auf. Diese Abweichungen könnten dem allgemeinen Routing oder dem Verbindungsaufbau von Socket.IO entspringen.\\
-Um dieses Problem zu umgehen, werden 2 Byte Padding, zum Synchronisieren, an den Anfang der Dateien gestellt. Der Abstand zwischen diesen Paketen ist auf 0.01 Sekunden festgelegt. In Abbildung 8.3 ist zu sehen, dass mindestens 6 Datenpakete benötigt werden, bis sich der Korrekte Paketabstand einstellt.
+Um dieses Problem zu umgehen, werden 2 Byte Padding, zum Synchronisieren, an den Anfang der Dateien gestellt. Der Abstand zwischen diesen Paketen ist auf 0.01 Sekunden festgelegt. In \textit{Abbildung 8.3} ist zu sehen, dass mindestens 6 Datenpakete benötigt werden, bis sich der Korrekte Paketabstand einstellt.
 
 \begin{figure}[h!]
 	\centering
@@ -861,7 +866,7 @@ Um dieses Problem zu umgehen, werden 2 Byte Padding, zum Synchronisieren, an den
 
 
 \chapter{Umsetzung der passiven Variante}
-	Die in Abbildung 6.2 dargestellte passive Lösungsvariante des Covert Channels soll in diesem Kapitel betrachtet werden. Diese Variante hat den Vorteil, dass als Server jeder beliebige Webserver verwendet werden kann. Die Codierung wird von einem Proxy realisiert.\\
+	Die in \textit{Abbildung 6.2} dargestellte passive Lösungsvariante des Covert Channels soll in diesem Kapitel betrachtet werden. Diese Variante hat den Vorteil, dass als Server jeder beliebige Webserver verwendet werden kann. Die Codierung wird von einem Proxy realisiert.\\
 	Für die Proof of Concept Implementierung wird hier der Client der aktiven Variante wiederverwendet. Im Browser des Clients muss die Verwendung eines Proxys eingetragen werden.
 
 	\subsection{Anforderung an den Proxy}
