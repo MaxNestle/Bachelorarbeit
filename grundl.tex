@@ -36,7 +36,7 @@ Die Protokolle dieser Schicht werden verwendet, um über Netzwerkgrenzen hinaus N
 
 Zur Adressierung werden IPv4 Adressen verwendet, die 32 bit (4 Byte) lang sind. Vergeben werden die Adressen von der IANA (Internet Assigned Numbers Authority). Jeder, der aus dem Internet erreichbar sein will, muss sich bei der IANA, oder einer untergeordneten Organisation, eine IP-Adresse oder Adressbereich geben lassen.\\
 
-Das Internet Protokoll wird, wie in unten stehender Abbildung 2.2 gezeigt, in das Ethernet Paket eingebettet.
+Der Internet Protokoll Header wird, wie in unten stehender \textit{Abbildung 2.2} gezeigt, in das Ethernet Paket eingebettet.
 
 \begin{figure}[h]
 	\centering
@@ -51,7 +51,7 @@ Das Internet Protokoll wird, wie in unten stehender Abbildung 2.2 gezeigt, in da
 Da die IPv4 Adressen langsam knapp werden, wurde das IPv6 Protokoll erstellt, welches über Adressen mit 6 Byte Länge verfügt. Dies bedeutet, dass deutlich mehr Adressen erstellt und vergeben werden können.
 Die Funktion ist aber mehr oder weniger die gleiche.
 
-Der Header des IPv6 Protokolls ist in folgender Abbildung 2.3 gezeigt.
+Der Header des IPv6 Protokolls ist in folgender \textit{Abbildung 2.3} gezeigt.
 
 
 \begin{figure}[h!]
@@ -212,8 +212,7 @@ Methoden diese Daten zu manipulieren werden im Kapitel ,,Lösungsideen'' vorgeste
 
 %\textit{,,Verdeckte Kanäle erzeugen einen in der Literatur meist nicht legitimen Kommunikationskanal (also etwa das Übertragen versteckter Informationen über HTTP) und nutzen dabei Kommunikationsattribute aus, die von Entwicklern gar nicht zur Kommunikation gedacht sind. Die Legitimität des verdeckten Kanals ist dabei von der Betrachtungsweise (Anwender des verdeckten Kanals beziehungsweise Gegenspieler) abhängig.''}\cite{wendzel2012tunnel}
 
-Die Covert Channels (Verdeckte Kanäle) haben wie die Steganografie die Aufgabe, Daten in legitimen Kanälen zu verstecken. Der Unterschied zwischen der Steganographie und den Covert Channels, liegt allein in der Art, wie diese Daten versteckt werden.
-
+Die Covert Channels (Verdeckte Kanäle) haben wie die Steganografie die Aufgabe, Daten in legitimen Kanälen zu verstecken. Der Unterschied zwischen der Steganographie und den Covert Channels, liegt allein in der Art, wie diese Daten versteckt werden.\\
 \textbf{
 Covert Channels nutzen die Kommunikationsattribute der Netzwerkpakete, um die geheimen Informationen einzubetten.\cite{wendzel2012tunnel}}
 

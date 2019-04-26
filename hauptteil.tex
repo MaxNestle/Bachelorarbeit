@@ -888,8 +888,8 @@ Um dieses Problem zu umgehen, werden 2 Byte Padding, zum Synchronisieren, an den
 		\subsubsection{Sockets}
 			Es wird ein Listen-Socket erstellt, der auf eingehende Nachrichten auf Port \textit{80} hört. Dieser Port muss später in den Proxy-Einstellungen des Browsers hinterlegt werden.\\
 			Sendet der Browser einen HTTP-Request an den Proxy, wird ein Client-Socket erstellt. Der Proxy erstellt ebenfalls einen Server-Socket, indem er sich mit dem, im HTTP-Request stehenden Webserver verbindet. Da oft externe Ressourcen verwendet werden und Verbindungen nach dem Senden einer Datei geschlossen werden, entstehen pro Webseite mehrere solcher Verbindungen.\\
-			Um die hierdurch entstehenden Sockets zu verwalten, wird das Betriebssystemmodul \textit{select} verwendet. \textit{select} stellt fest, ob die angegebenen Sockets zum Lesen oder Schreiben bereit sind. Ist dies der Fall wird eine Liste mit beschreibbaren und eine mit lesbaren Sockets zurückgegeben. Dadurch müssen nicht alle Sockets dauerhaft mit Polling abgefragt werden müssen.\\
-			In Listing 7.1 ist der Code zu sehen, der die oben beschriebene Handhabung der Sockets übernimmt. Die Liste aller Sockets wird zur Kontrolle an \textit{select} übergeben.
+			Um die hierdurch entstehenden Sockets zu verwalten, wird das Betriebssystemmodul \textit{select} verwendet. \textit{select} stellt fest, ob die angegebenen Sockets zum Lesen oder Schreiben bereit sind. Ist dies der Fall wird eine Liste mit beschreibbaren und eine mit lesbaren Sockets zurückgegeben. Dadurch müssen nicht alle Sockets dauerhaft mit Polling abgefragt werden.\\
+			In \textit{Listing 7.1} ist der Code zu sehen, der die oben beschriebene Handhabung der Sockets übernimmt. Die Liste aller Sockets wird zur Kontrolle an \textit{select} übergeben.
 			
 			\begin{lstlisting}[caption=Socket Handling]
 while True:
@@ -924,7 +924,7 @@ while True:
 				
 	
 			\subsection{Parallele Datenabfrage}	
-				Wie vorhergehnd bereits beschrieben, öffnet ein Webserver gleich mehrerer Sockets, um parallel Daten zu empfangen. Diese Nachrichtenpakete, der einzelnen Sockets können nicht vom Client auseinander gehalten werden, da dieser nur den Source-Port betrachtet, der jedoch bei allen Paketen gleich.\\
+				Wie vorhergehnd bereits beschrieben, öffnet ein Webserver gleich mehrerer Sockets, um parallel Daten zu versenden. Diese Nachrichtenpakete, der einzelnen Sockets können nicht vom Client auseinander gehalten werden, da dieser nur den Source-Port betrachtet, der jedoch bei allen Paketen gleich.\\
 				In Bild 10.1 ist ein Ausschnitt aus den Firefox Development Tool zu sehen. Hier wird die Übertragungsdauer der einzelnen Dateien gezeigt. Dabei fällt auf, dass bei der hier verwendeten Webseite der \textit{PH-Weingarten}, 5 CSS Dateien gleichzeitig übertragen werden.\\
 				Diese 5 daraus entstehenden Covert Channels überschneiden sich bei der Interpretation im Client und sind so nicht mehr auswertbar.\\
 				Der Covert Channel funktioniert nur, wenn genau eine Datei übertragen wird. Oft dauert die Übertragung großer Bilder jedoch länger als die von Quellcode. Dies bietet die Chance, dass am Ende der Übertragung nur noch ein Socket für die Bildübertragung aktiv ist. Dieser kann für die Datenübertragung im Covert Channel genutzt werden kann.
@@ -945,7 +945,7 @@ while True:
 		Um den Proxy nutzen zu können, muss dieser im Browser eingetragen werden. Dadurch werden alle HTTP Nachrichten zuerst an den Proxy weitergeleitet.\\
 		Nun wird eine beliebige Webseite gewählt, die als Paketquelle dient. Diese Seite muss jedoch über HTTP ausgeliefert werden. Hier wird die Webseite der Pädagogischen-Hochschule Weingarten mit der Adresse \textit{http://www.ph-weingarten.de/} verwendet.
 		Wird die Webseite geladen, so sendet der Webserver der PH-Weingarten die Webseitendateien über den Proxy an den Client.\\
-		Jedoch besteht anfangs, das im vorhergehenden Kapitel beschriebene, Problem mit der parallelen Datenübertragung. Das Ergebnis ist in Bild 10.2 zu sehen. Bei einer optimalen Funktion werden den zeitlichen Differenzen links binären Werte zugeordnet. Daher gelingt die Zuordnung in den meisten Fällen nicht.
+		Jedoch besteht anfangs das, im vorhergehenden Kapitel beschriebene, Problem mit der parallelen Datenübertragung. Das Ergebnis ist in \textit{Bild 10.2} zu sehen. Bei einer optimalen Funktion werden den zeitlichen Differenzen links binären Werte zugeordnet. Dies ist hier in vielen Fällen nicht der Fall, was eine Datenübertragung nicht möglich macht.
 		
 		
 		\begin{figure}[h!]
@@ -955,7 +955,7 @@ while True:
 			\label{fig33}
 		\end{figure}
 	
-		Ist nur noch ein Socket aktiv, der für die Dateiübertragung eines größeren Bilds zuständig ist, so findet die Datenübertragung wie in Bild 10.3 gezeigt statt. Dies ist der beste Zeitpunkt, die Datenübertragung via Covert Channel zu starten . Fehler treten von diesem Zeitpunkt an nur noch aufgrund von Netzwerk- oder Serveranomalien auf.\\
+		Ist nur noch ein Socket aktiv, der für die Dateiübertragung eines größeren Bilds zuständig ist, so findet die Datenübertragung wie in \textit{Bild 10.3} gezeigt statt. Dies ist der beste Zeitpunkt, die Datenübertragung via Covert Channel zu starten . Fehler treten von diesem Zeitpunkt an nur noch aufgrund von Netzwerk- oder Serveranomalien auf.\\
 		Die Datei kann erfolgreich übertragen werden.
 		
 		
@@ -968,7 +968,7 @@ while True:
 			
 				
 \chapter{Evaluierung}	
-		Das Ergebnis dieser Arbeit benutzt einen Covert Channel, als eine Methode des Information-Hiding, um Daten zu übertragen. Dabei können die Daten jedes beliebige Format annehmen, da diese in ihrer binären Form übertragen werden. Die für diesen Covert Channel höchst mögliche Übertragungsgeschwindigkeit wurde ermittelt und kann auch angewendet werden. Es gibt jedoch andere Covert Channels, wie beispielsweise Storage Channels, die zu deutlich höheren Übertragungsgeschwindigkeiten fähig sind. Der Kanal ist als Algorithmus umsetzbar, was durch die Realisierung mittels eins Computerprogramms gezeigt worden ist. Dadurch, dass der Covert Channel unabhängig vom Paketinhalt ist, lässt er sich nicht von Netzwerk-Normalisierungen beeinflussen. Er ist jedoch stark von Netzwerkbedingungen abhängig, was mit der Manipulation der Zeitabstände einhergeht.\\
+		Das Ergebnis dieser Arbeit benutzt einen Covert Channel, als eine Methode des Information-Hiding, um Daten zu übertragen. Dabei können die Daten jedes beliebige Format annehmen, da diese in ihrer binären Form übertragen werden.\\ Die für diesen Covert Channel höchst mögliche Übertragungsgeschwindigkeit wurde ermittelt und kann auch angewendet werden. Es gibt jedoch andere Covert Channels, wie beispielsweise Storage Channels, die zu deutlich höheren Übertragungsgeschwindigkeiten fähig sind. Der Kanal ist als Algorithmus umsetzbar, was durch die Realisierung mittels eins Computerprogramms gezeigt worden ist. Dadurch, dass der Covert Channel unabhängig vom Paketinhalt ist, lässt er sich nicht von Netzwerk-Normalisierungen beeinflussen. Er ist jedoch stark von Netzwerkbedingungen abhängig, was mit der Manipulation der Zeitabstände einhergeht.\\
 		Die Umsetzung des Covert Channels ist sowohl als aktive, als auch passive Variante möglich, was durch die erfolgreichen Implementierungen gezeigt worden ist.\\ Auf Probleme stößt man jedoch bei der passiven Lösung, wenn vom Webserver Dateien parallel übertragen werden. Für die aktive Variante stellte sich die Schwankungen beim Übertragungsstart als problematisch dar. Abhilfe konnte durch das Voranstellen von Synchronisationsbits geschafft werden.
 			
 
