@@ -100,26 +100,29 @@
 \BOOKMARK [2][-]{subsection.7.11.3}{Interpretieren der Zeitstempel}{section.7.11}% 100
 \BOOKMARK [2][-]{subsection.7.11.4}{Verarbeiten der Erhaltenen Daten}{section.7.11}% 101
 \BOOKMARK [0][-]{chapter.8}{Optimales Einstellen und Anwendung des aktiven Covert Channel}{}% 102
-\BOOKMARK [1][-]{subsection.8.0.1}{Verh\344ltnis nicht interpretierbar/ interpretierbar}{chapter.8}% 103
-\BOOKMARK [2][-]{subsection.8.0.2}{Anzahl korrekt \374bertragener Dateien}{subsection.8.0.1}% 104
-\BOOKMARK [2][-]{subsection.8.0.3}{Zeit bis zum ersten korrekten Eintreffen der Datei}{subsection.8.0.1}% 105
-\BOOKMARK [2][-]{subsection.8.0.4}{Padding zum Synchronisieren}{subsection.8.0.1}% 106
+\BOOKMARK [1][-]{section.8.1}{Verh\344ltnis nicht interpretierbar/ interpretierbar}{chapter.8}% 103
+\BOOKMARK [1][-]{section.8.2}{Anzahl korrekt \374bertragener Dateien}{chapter.8}% 104
+\BOOKMARK [1][-]{section.8.3}{Zeit bis zum ersten korrekten Eintreffen der Datei}{chapter.8}% 105
+\BOOKMARK [1][-]{section.8.4}{Padding zum Synchronisieren}{chapter.8}% 106
 \BOOKMARK [0][-]{chapter.9}{Umsetzung der passiven Variante}{}% 107
-\BOOKMARK [1][-]{subsection.9.0.1}{Anforderung an den Proxy}{chapter.9}% 108
-\BOOKMARK [2][-]{subsection.9.0.2}{L\366sungsansatz 1: Ver\344nderung eines Open-Source Proxys}{subsection.9.0.1}% 109
-\BOOKMARK [2][-]{subsection.9.0.3}{L\366sungsansatz 2: Proxy selbst programmieren}{subsection.9.0.1}% 110
-\BOOKMARK [2][-]{subsection.9.0.4}{Bewertung des Proxys}{subsection.9.0.1}% 111
-\BOOKMARK [2][-]{subsection.9.0.5}{Implementierung}{subsection.9.0.1}% 112
-\BOOKMARK [0][-]{chapter.10}{Anwendung des passiven Covert Channel}{}% 113
-\BOOKMARK [1][-]{section.10.1}{Probleme bei realen Webseiten}{chapter.10}% 114
-\BOOKMARK [2][-]{subsection.10.1.1}{HTTPS}{section.10.1}% 115
-\BOOKMARK [2][-]{subsection.10.1.2}{Generierung einer ausreichenden Anzahl von Netzwerkpaketen}{section.10.1}% 116
-\BOOKMARK [2][-]{subsection.10.1.3}{Parallele Datenabfrage}{section.10.1}% 117
-\BOOKMARK [1][-]{section.10.2}{Test mit realen Servern}{chapter.10}% 118
-\BOOKMARK [0][-]{chapter.11}{Evaluierung}{}% 119
-\BOOKMARK [0][-]{chapter.12}{Fazit und Ausblick}{}% 120
-\BOOKMARK [1][-]{section.12.1}{Aktiv}{chapter.12}% 121
-\BOOKMARK [1][-]{section.12.2}{Passiv}{chapter.12}% 122
-\BOOKMARK [1][-]{section.12.3}{Ausblick}{chapter.12}% 123
-\BOOKMARK [0][-]{chapter*.31}{Danksagung}{}% 124
-\BOOKMARK [0][-]{chapter*.32}{Literatur}{}% 125
+\BOOKMARK [1][-]{section.9.1}{Anforderung an den Proxy}{chapter.9}% 108
+\BOOKMARK [1][-]{section.9.2}{L\366sungsansatz 1: Ver\344nderung eines Open-Source Proxys}{chapter.9}% 109
+\BOOKMARK [1][-]{section.9.3}{L\366sungsansatz 2: Proxy selbst programmieren}{chapter.9}% 110
+\BOOKMARK [1][-]{section.9.4}{Bewertung des Proxys}{chapter.9}% 111
+\BOOKMARK [1][-]{section.9.5}{Implementierung}{chapter.9}% 112
+\BOOKMARK [2][-]{subsection.9.5.1}{Sockets}{section.9.5}% 113
+\BOOKMARK [2][-]{subsection.9.5.2}{Geheime Daten}{section.9.5}% 114
+\BOOKMARK [2][-]{subsection.9.5.3}{Covert Channel}{section.9.5}% 115
+\BOOKMARK [0][-]{chapter.10}{Anwendung des passiven Covert Channel}{}% 116
+\BOOKMARK [1][-]{section.10.1}{Probleme bei realen Webseiten}{chapter.10}% 117
+\BOOKMARK [2][-]{subsection.10.1.1}{HTTPS}{section.10.1}% 118
+\BOOKMARK [2][-]{subsection.10.1.2}{Generierung einer ausreichenden Anzahl von Netzwerkpaketen}{section.10.1}% 119
+\BOOKMARK [2][-]{subsection.10.1.3}{Parallele Datenabfrage}{section.10.1}% 120
+\BOOKMARK [1][-]{section.10.2}{Test mit realen Servern}{chapter.10}% 121
+\BOOKMARK [0][-]{chapter.11}{Evaluierung}{}% 122
+\BOOKMARK [0][-]{chapter.12}{Fazit und Ausblick}{}% 123
+\BOOKMARK [1][-]{section.12.1}{Aktiv}{chapter.12}% 124
+\BOOKMARK [1][-]{section.12.2}{Passiv}{chapter.12}% 125
+\BOOKMARK [1][-]{section.12.3}{Ausblick}{chapter.12}% 126
+\BOOKMARK [0][-]{chapter*.28}{Danksagung}{}% 127
+\BOOKMARK [0][-]{chapter*.29}{Literatur}{}% 128

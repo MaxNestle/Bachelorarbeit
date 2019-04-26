@@ -119,34 +119,34 @@
 \contentsline {subsubsection}{\nonumberline Toleranz}{57}{section*.22}
 \contentsline {subsection}{\numberline {7.11.4}Verarbeiten der Erhaltenen Daten}{58}{subsection.7.11.4}
 \contentsline {chapter}{\numberline {8}Optimales Einstellen und Anwendung des aktiven Covert Channel}{59}{chapter.8}
-\contentsline {subsection}{\numberline {8.0.1}Verh\"altnis nicht interpretierbar/ interpretierbar}{59}{subsection.8.0.1}
-\contentsline {subsection}{\numberline {8.0.2}Anzahl korrekt \"ubertragener Dateien}{60}{subsection.8.0.2}
-\contentsline {subsection}{\numberline {8.0.3}Zeit bis zum ersten korrekten Eintreffen der Datei}{61}{subsection.8.0.3}
-\contentsline {subsection}{\numberline {8.0.4}Padding zum Synchronisieren}{63}{subsection.8.0.4}
+\contentsline {section}{\numberline {8.1}Verh\"altnis nicht interpretierbar/ interpretierbar}{59}{section.8.1}
+\contentsline {section}{\numberline {8.2}Anzahl korrekt \"ubertragener Dateien}{60}{section.8.2}
+\contentsline {section}{\numberline {8.3}Zeit bis zum ersten korrekten Eintreffen der Datei}{61}{section.8.3}
+\contentsline {section}{\numberline {8.4}Padding zum Synchronisieren}{63}{section.8.4}
 \contentsline {chapter}{\numberline {9}Umsetzung der passiven Variante}{64}{chapter.9}
-\contentsline {subsection}{\numberline {9.0.1}Anforderung an den Proxy}{64}{subsection.9.0.1}
-\contentsline {subsection}{\numberline {9.0.2}L\"osungsansatz 1: Ver\"anderung eines Open-Source Proxys}{64}{subsection.9.0.2}
-\contentsline {subsection}{\numberline {9.0.3}L\"osungsansatz 2: Proxy selbst programmieren}{65}{subsection.9.0.3}
-\contentsline {subsection}{\numberline {9.0.4}Bewertung des Proxys}{65}{subsection.9.0.4}
-\contentsline {subsection}{\numberline {9.0.5}Implementierung}{65}{subsection.9.0.5}
-\contentsline {subsubsection}{\nonumberline Sockets}{65}{section*.23}
-\contentsline {subsubsection}{\nonumberline Geheime Daten}{66}{section*.24}
-\contentsline {subsubsection}{\nonumberline Covert Channel}{66}{section*.25}
-\contentsline {chapter}{\numberline {10}Anwendung des passiven Covert Channel}{67}{chapter.10}
-\contentsline {section}{\numberline {10.1}Probleme bei realen Webseiten}{67}{section.10.1}
-\contentsline {subsection}{\numberline {10.1.1}HTTPS}{67}{subsection.10.1.1}
-\contentsline {subsection}{\numberline {10.1.2}Generierung einer ausreichenden Anzahl von Netzwerkpaketen}{67}{subsection.10.1.2}
-\contentsline {subsection}{\numberline {10.1.3}Parallele Datenabfrage}{68}{subsection.10.1.3}
-\contentsline {section}{\numberline {10.2}Test mit realen Servern}{69}{section.10.2}
-\contentsline {chapter}{\numberline {11}Evaluierung}{71}{chapter.11}
-\contentsline {chapter}{\numberline {12}Fazit und Ausblick}{72}{chapter.12}
-\contentsline {section}{\numberline {12.1}Aktiv}{72}{section.12.1}
-\contentsline {section}{\numberline {12.2}Passiv}{72}{section.12.2}
-\contentsline {section}{\numberline {12.3}Ausblick}{73}{section.12.3}
-\contentsline {subsubsection}{\nonumberline Dateien aufteilen}{73}{section*.26}
-\contentsline {subsubsection}{\nonumberline Automatische Pausenerkennung}{73}{section*.27}
-\contentsline {subsubsection}{\nonumberline Beachtung des Destination Ports beim Client}{74}{section*.28}
-\contentsline {subsubsection}{\nonumberline Server mit realistischer Webseite}{74}{section*.29}
-\contentsline {subsubsection}{\nonumberline Verwendung von HTTPS}{74}{section*.30}
-\contentsline {chapter}{\nonumberline Danksagung}{75}{chapter*.31}
-\contentsline {chapter}{\nonumberline Literatur}{76}{chapter*.32}
+\contentsline {section}{\numberline {9.1}Anforderung an den Proxy}{64}{section.9.1}
+\contentsline {section}{\numberline {9.2}L\"osungsansatz 1: Ver\"anderung eines Open-Source Proxys}{64}{section.9.2}
+\contentsline {section}{\numberline {9.3}L\"osungsansatz 2: Proxy selbst programmieren}{65}{section.9.3}
+\contentsline {section}{\numberline {9.4}Bewertung des Proxys}{65}{section.9.4}
+\contentsline {section}{\numberline {9.5}Implementierung}{65}{section.9.5}
+\contentsline {subsection}{\numberline {9.5.1}Sockets}{65}{subsection.9.5.1}
+\contentsline {subsection}{\numberline {9.5.2}Geheime Daten}{66}{subsection.9.5.2}
+\contentsline {subsection}{\numberline {9.5.3}Covert Channel}{66}{subsection.9.5.3}
+\contentsline {chapter}{\numberline {10}Anwendung des passiven Covert Channel}{68}{chapter.10}
+\contentsline {section}{\numberline {10.1}Probleme bei realen Webseiten}{68}{section.10.1}
+\contentsline {subsection}{\numberline {10.1.1}HTTPS}{68}{subsection.10.1.1}
+\contentsline {subsection}{\numberline {10.1.2}Generierung einer ausreichenden Anzahl von Netzwerkpaketen}{68}{subsection.10.1.2}
+\contentsline {subsection}{\numberline {10.1.3}Parallele Datenabfrage}{69}{subsection.10.1.3}
+\contentsline {section}{\numberline {10.2}Test mit realen Servern}{70}{section.10.2}
+\contentsline {chapter}{\numberline {11}Evaluierung}{72}{chapter.11}
+\contentsline {chapter}{\numberline {12}Fazit und Ausblick}{73}{chapter.12}
+\contentsline {section}{\numberline {12.1}Aktiv}{73}{section.12.1}
+\contentsline {section}{\numberline {12.2}Passiv}{73}{section.12.2}
+\contentsline {section}{\numberline {12.3}Ausblick}{74}{section.12.3}
+\contentsline {subsubsection}{\nonumberline Dateien aufteilen}{74}{section*.23}
+\contentsline {subsubsection}{\nonumberline Automatische Pausenerkennung}{74}{section*.24}
+\contentsline {subsubsection}{\nonumberline Beachtung des Destination Ports beim Client}{75}{section*.25}
+\contentsline {subsubsection}{\nonumberline Server mit realistischer Webseite}{75}{section*.26}
+\contentsline {subsubsection}{\nonumberline Verwendung von HTTPS}{75}{section*.27}
+\contentsline {chapter}{\nonumberline Danksagung}{76}{chapter*.28}
+\contentsline {chapter}{\nonumberline Literatur}{77}{chapter*.29}

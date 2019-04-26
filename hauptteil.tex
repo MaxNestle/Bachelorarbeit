@@ -756,7 +756,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	
 		
 		
-		\subsection{Verhältnis nicht interpretierbar/ interpretierbar}
+		\section{Verhältnis nicht interpretierbar/ interpretierbar}
 		Der erste Test ist die Ermittlung des Verhältnisses zwischen interpretierbaren und nicht interpretierbaren Zeitstempeln. Interpretierbar ist ein Zeitstempel, wenn er sich entweder im Zeitfenster für Nullen, oder Einsen befindet.\\
 		Die Ergebnisse dieses Tests sind in \textit{Tabelle 8.1} zu sehen. Die Spalten zeigen, jeweils die Länge einer langen Pause in Sekunden. Die Zeilen stehen für den prozentualen Anteil an der Pausenlänge, die das Zeitfenster definiert.\\
 		Die Ergebnisse sind in Prozent angegeben. Die Länge der kurzen Pausen beträgt die Hälfte der langen.\\ Ein Wert von 0 Prozent spiegelt eine Übertragung wieder, bei der alle Zeitstempel interpretiert werden konnten. Liegt der Wert bei 100 Prozent waren die Anzahl interpretierter und nicht interpretierter Zeitstempel gleich.\\
@@ -787,7 +787,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 			
 	Da dieser Test jedoch keine Fehlinterpretationen betrachtet, muss noch ein weiterer Test hinzugefügt werden.
 
-	\subsection{Anzahl korrekt übertragener Dateien}
+	\section{Anzahl korrekt übertragener Dateien}
 	Bei diesem Test soll die Korrektheit der ankommenden Daten begutachtet werden. Dazu werden für jede mögliche Kombination 20 Datenübertragungen durchgeführt und die Anzahl der korrekt übertragenen Dateien gezählt. Dadurch ergibt sich folgende Tabelle:
 	
 	
@@ -808,7 +808,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	
 	Zusätzlich zu den im ersten Test ausgeschlossenen Zeilen und Spalten, kann nun auch die Zeile mit einem 50\%igem Zeitfenster ausgeschlossen werden. Den guten Werten dieses Zeitfensters im ersten Test steht eine nahezu 100 \%-ige Fehlinterpretation gegenüber.
 	
-	\subsection{Zeit bis zum ersten korrekten Eintreffen der Datei}
+	\section{Zeit bis zum ersten korrekten Eintreffen der Datei}
 	Nachdem durch die ersten beiden Tests  Kombinationen ausgeschlossen werden konnten, sind nun noch die Kombinationen 30\%/0,08s, 40\%/0,08s, 30\%/0,05s und 40\%/0,05s übrig.\\
 	Um hieraus das Optimum zu ermitteln, wird ein Test durchgeführt, der einer realen Anwendung am nächsten kommt.
 	Es wird die Zeit bis zum ersten korrekten Eintreffen einer gesendeten Datei gemessen.\\
@@ -852,7 +852,7 @@ Mit diesem simplen Algorithmus lassen sich Hash-Werte mit der Länge von einem By
 	Die Kombination aus einem Zeitfenster von 40\% und einer große Pause von 0,05 Sekunden ist die optimale Lösung für diesen Covert Channel.
 
 
-		\subsection{Padding zum Synchronisieren}
+		\section{Padding zum Synchronisieren}
 
 Bei der Anwendung in einem realen Netzwerk treten am Anfang des Sendevorgangs erhebliche Schwankungen in der Übertragungszeit auf. Diese Abweichungen könnten dem allgemeinen Routing oder dem Verbindungsaufbau von Socket.IO entspringen.\\
 Um dieses Problem zu umgehen, werden 2 Byte Padding, zum Synchronisieren, an den Anfang der Dateien gestellt. Der Abstand zwischen diesen Paketen ist auf 0.01 Sekunden festgelegt. In \textit{Abbildung 8.3} ist zu sehen, dass mindestens 6 Datenpakete benötigt werden, bis sich der Korrekte Paketabstand einstellt.
@@ -869,23 +869,23 @@ Um dieses Problem zu umgehen, werden 2 Byte Padding, zum Synchronisieren, an den
 	Die in \textit{Abbildung 6.2} dargestellte passive Lösungsvariante des Covert Channels soll in diesem Kapitel betrachtet werden. Diese Variante hat den Vorteil, dass als Server jeder beliebige Webserver verwendet werden kann. Die Codierung wird von einem Proxy realisiert.\\
 	Für die Proof of Concept Implementierung wird hier der Client der aktiven Variante wiederverwendet. Im Browser des Clients muss die Verwendung eines Proxys eingetragen werden.
 
-	\subsection{Anforderung an den Proxy}
+	\section{Anforderung an den Proxy}
 		Der Proxy hat die Aufgabe, TCP Nachrichten von einem Client an einen Server zu senden. Die Nachrichten sollen bidirektional durch den Proxy geschleust werden. Nachrichten vom Client werden an den Server weitergeleitet, ebenso wie umgekehrt. Dabei soll der Inhalt der Nachrichten nicht verändert werden. Wie bei der aktiven Variante, soll der Proxy in der Lage sein, die TCP Pakete zeitlich zu verzögern, um so die geheimen Daten zu übertragen.\\
 		Der Proxy soll auf einem Linux System lauffähig sein.
 	
 
-		\subsection{Lösungsansatz 1: Veränderung eines Open-Source Proxys}
+		\section{Lösungsansatz 1: Veränderung eines Open-Source Proxys}
 			Ein Lösungsansatz ist die Verwendung eines fertigen Proxys, wie zum Beispiel eines Squid oder Tinyproxy. Für diese Open Source Programme ist der Code frei erhältlich. Hier gilt es die Funktion zum Senden der Nachrichten so zu verändern, dass die Nachrichten gezielt verzögert werden können.
 		
-		\subsection{Lösungsansatz 2: Proxy selbst programmieren}
+		\section{Lösungsansatz 2: Proxy selbst programmieren}
 			Eine alternative Lösung ist die eigenständige Programmierung eines Proxys. Dazu soll ein Python-Skript geschrieben werden, das jeweils ein Netzwerksocket zum Client und zum Server verwaltet. Werden die TCP Pakete von einem an den anderen Socket weitergegeben, erhält man einen Proxy. Die Pakete können hier frei verändert werden.
 	
-	\subsection{Bewertung des Proxys}
+	\section{Bewertung des Proxys}
 			Beide Lösungsansätze sind in der Lage die Anforderungen umzusetzen. Der selbst programmierte Proxy bietet die volle Kontrolle, bei gleichzeitig mehr Spielraum für diese Proof of Concept Implementierung. Zudem ist diese sehr leichtgewichtige Software Variante komfortabler zu debuggen und zu optimieren. Aus diesen Gründen soll hier der Proxy eigenhändig erstellt werden.\\
 			Sollte sich der Proof of Concept als Erfolg herausstellen, ist die erste Lösung für eine reale Anwendung besser geeignet, da ein großer Funktionsumfang mitgenutzt werden kann.
 	
-	\subsection{Implementierung}
-		\subsubsection{Sockets}
+	\section{Implementierung}
+		\subsection{Sockets}
 			Es wird ein Listen-Socket erstellt, der auf eingehende Nachrichten auf Port \textit{80} hört. Dieser Port muss später in den Proxy-Einstellungen des Browsers hinterlegt werden.\\
 			Sendet der Browser einen HTTP-Request an den Proxy, wird ein Client-Socket erstellt. Der Proxy erstellt ebenfalls einen Server-Socket, indem er sich mit dem, im HTTP-Request stehenden Webserver verbindet. Da oft externe Ressourcen verwendet werden und Verbindungen nach dem Senden einer Datei geschlossen werden, entstehen pro Webseite mehrere solcher Verbindungen.\\
 			Um die hierdurch entstehenden Sockets zu verwalten, wird das Betriebssystemmodul \textit{select} verwendet. \textit{select} stellt fest, ob die angegebenen Sockets zum Lesen oder Schreiben bereit sind. Ist dies der Fall wird eine Liste mit beschreibbaren und eine mit lesbaren Sockets zurückgegeben. Dadurch müssen nicht alle Sockets dauerhaft mit Polling abgefragt werden.\\
@@ -901,10 +901,10 @@ while True:
 			 
 			 Anhand ihres Indexes in der Socket-Liste, können die Sockets identifiziert werden. Dabei gehören immer ein Client- und ein Server-Socket zusammen. Die Nachrichten die zwischen diesen zwei ausgetauscht werden sollen, werden in einem Array gespeichert.\\
 			
-		\subsubsection{Geheime Daten}
+		\subsection{Geheime Daten}
 			Vergleichbar mit der aktiven Variante, werden die zu übertragenden Daten von einer angegebenen Datei gelesen und in eine binäre Liste umgewandelt. Hieraus wird ein 8 Bit Pearson-Hash berechnet und an das Ende der binären Liste angehängt.
 			
-		\subsubsection{Covert Channel}
+		\subsection{Covert Channel}
 			Bei der Erstellung des Covert Channels müssen die Nachrichten an den Client zeitlich verzögert werden. Dabei besteht allerdings das Problem, dass bei dieser Anwendung nur ein Thread verwendet wird, der gleichzeitig für das Senden und Empfangen zuständig ist.\\ Auf Grund dessen kann der Lösungsansatz der aktiven Variante, wobei der Thread für die benötigte Zeit in \textit{sleep} gesetzt wird, nicht verwendet werden.\\
 			Daher wird nach jedem Senden an den Client der Zeitstempel abgespeichert. Bevor ein neues Paket gesendet wird, wird kontrolliert, ob die Differenz der aktuellen Zeit und dem letzten Sendezeitpunkt der gewünschten Pause entspricht.\\
 			Die Pausen werden äquivalent zu der aktiven Variante definiert.
