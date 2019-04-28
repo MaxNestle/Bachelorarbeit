@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="660bd9bd-0f8f-42d8-a36a-fa4b6b2d8eb8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Shell-Skript/Server/indexProxy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client_Proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client_Proxy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client_Proxy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client_Proxy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client_Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client_Server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client_Server.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client_Server.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proxy/Proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxy/Proxy.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Client/Client_Server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="52" column="7" selection-start-line="50" selection-end-line="57" />
+            <state relative-caret-position="540">
+              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
               <folding>
                 <element signature="e#21#30#0" expanded="true" />
               </folding>
@@ -24,13 +28,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Proxy/Proxy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="75" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="75" />
+            <state relative-caret-position="611">
+              <caret line="276" column="44" lean-forward="true" selection-start-line="276" selection-start-column="44" selection-end-line="276" selection-end-column="44" />
               <folding>
                 <element signature="e#21#54#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Client/Client_Proxy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1316">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
+              <folding>
+                <element signature="e#21#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,6 +61,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Proxy/Proxy.py" />
+        <option value="$PROJECT_DIR$/Client/Client_Proxy.py" />
+        <option value="$PROJECT_DIR$/Client/Client_Server.py" />
       </list>
     </option>
   </component>
@@ -93,6 +111,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -133,7 +152,7 @@
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32925585" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -147,22 +166,35 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Proxy/Proxy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="276" column="44" lean-forward="true" selection-start-line="276" selection-start-column="44" selection-end-line="276" selection-end-column="44" />
+          <folding>
+            <element signature="e#21#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/Client_Proxy.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Client/Client_Server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="52" column="7" selection-start-line="50" selection-end-line="57" />
+        <state relative-caret-position="540">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
           <folding>
             <element signature="e#21#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Proxy/Proxy.py">
+    <entry file="file://$PROJECT_DIR$/Client/Client_Proxy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="75" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="75" />
+        <state relative-caret-position="1316">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
           <folding>
-            <element signature="e#21#54#0" expanded="true" />
+            <element signature="e#21#30#0" expanded="true" />
           </folding>
         </state>
       </provider>

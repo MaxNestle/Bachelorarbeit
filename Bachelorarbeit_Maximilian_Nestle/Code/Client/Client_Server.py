@@ -2,12 +2,10 @@
 
 import os
 import _thread
-from threading import Thread, Lock
+from threading import Lock
 import time
 from datetime import datetime
-from array import *
-from bitstring import BitArray,BitStream
-from random import shuffle
+from bitstring import BitArray
 import sys
 
 
@@ -28,6 +26,7 @@ sTolerance = 0.4
 bTolerance = 0.4
 breakArray = []
 times = ""
+# hash mapping tabel
 table = [129, 69, 229, 238, 16, 104, 178, 222, 95, 5, 171, 147, 231, 170, 105,
          61, 85, 217, 236, 223, 87, 221, 60, 38, 125, 151, 124, 86, 137, 143,
          230, 25, 228, 116, 62, 12, 150, 42, 177, 65, 207, 20, 122, 67, 109,
@@ -56,8 +55,6 @@ else:
     port = sys.argv[2]
     filename = sys.argv[3]
 
-
-
 def tcpdump():
     global buffer
     global data
@@ -78,28 +75,16 @@ def tcpdump():
     print("test")
     time.sleep(threadBreak)
 
-
-
-
 def calc():
-    d1 = []
-    d2 = []
-    dif = list()
+
     bStartTolerance = breakbetween + (breakbetween * bTolerance)
     sStartTolerance = breakbetween - (breakbetween * sTolerance)
     bBigBreakTolerance = longBreak + (longBreak * bTolerance)
     sBigBreakTolerance = longBreak - (longBreak * bTolerance)
     bSmallBreakTolerance = (longBreak * factor) + (longBreak * factor * bTolerance)
     sSmallBreakTolerance = (longBreak * factor) - (longBreak * factor * sTolerance)
-    bSyncTolerance = 0.01+(0.1*bTolerance)
-    sSyncTolerance = 0.01-(0.1*sTolerance)
-
-    print(str(bStartTolerance)+" - "+str(sStartTolerance))
-    print(str(bBigBreakTolerance)+" - "+str(sBigBreakTolerance))
-    print(str(bSmallBreakTolerance)+" - "+str(sSmallBreakTolerance))
-    print(str(bSyncTolerance)+" - "+str(sSyncTolerance))
-
-
+    #bSyncTolerance = 0.01+(0.1*bTolerance)
+    #sSyncTolerance = 0.01-(0.1*sTolerance)
 
     global codedata
     global result
@@ -123,18 +108,12 @@ def calc():
             d1 = d2 - d1  # calculate the time between paket
             dif.append(float(d1.total_seconds()))
             data.pop(0)
-        #if len(dif) != 0:
-            #detectBreak(dif)
+
         for f1 in dif:
             if sStartTolerance < f1 < bStartTolerance:  # searching the file start/end
                 index = 0
                 print(str(f1) + "  \t=> Start of File")
                 if codedata != []:
-
-
-
-
-
                     hashFromServer = codedata[-8:]      # get the Hash fom the end of the data
                     del codedata[-8:]                   # remove hash from data
                     hashFromServer = int(''.join(str(e) for e in hashFromServer),2)
@@ -158,8 +137,6 @@ def calc():
                     print("Fehlerrate gesamt: "+str((totalError/totalData)*100)+"%")
 
                     count += 1
-
-
 
                     b = BitArray(bin = dataString)               # making bitArray without Char encoding
                     if hashFromClient == hashFromServer:

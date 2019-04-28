@@ -2,12 +2,10 @@
 
 import os
 import _thread
-from threading import Thread, Lock
+from threading import Lock
 import time
 from datetime import datetime
-from array import *
-from bitstring import BitArray,BitStream
-from random import shuffle
+from bitstring import BitArray
 import sys
 
 
@@ -16,16 +14,16 @@ host = []
 port = []
 buffer = []
 filename = []
-data = []  # timestamps
+data = []               # timestamps
 result = []
-codedata = []  # binary hamming code
-longBreak = 0.08# sec
-factor = 0.5  # difference between long and short break
+codedata = []           # binary + hamming code
+longBreak = 0.08        # sec
+factor = 0.5            # difference between long and short break
 bufferzize = 10
-threadBreak = 0.005  # sec
-breakbetween = 1  # sec
-sTolerance = 0.3
-bTolerance = 0.3
+threadBreak = 0.005     # sec
+breakbetween = 1        # sec
+sTolerance = 0.3        #%
+bTolerance = 0.3        #%
 breakArray = []
 table = [129, 69, 229, 238, 16, 104, 178, 222, 95, 5, 171, 147, 231, 170, 105,
          61, 85, 217, 236, 223, 87, 221, 60, 38, 125, 151, 124, 86, 137, 143,
@@ -55,8 +53,6 @@ else:
     port = sys.argv[2]
     filename = sys.argv[3]
 
-
-
 def tcpdump():
     global buffer
     global data
@@ -66,8 +62,7 @@ def tcpdump():
     for line in pipe:
 
         if line.split()[6] != "0":                #looks if the massage contains data => in the other case its the ACK for the server
-            destPort = line.split()[4].split(".")[1][:-1]
-
+            destPort = line.split()[4].split(".")[1][:-1]   # gets dest port
             try:
                 index = portList.index(destPort)
             except ValueError:
@@ -79,8 +74,6 @@ def tcpdump():
                     print("ValueError")
 
             buffer[index].append(line[0:15])           #saves only the time to buffer
-
-
         mutex.acquire()
 
 
@@ -104,35 +97,20 @@ def tcpdump():
 
 
 
-
 def calc():
-    d1 = []
-    d2 = []
-    dif = list()
     bStartTolerance = breakbetween + (breakbetween * bTolerance)
     sStartTolerance = breakbetween - (breakbetween * sTolerance)
     bBigBreakTolerance = longBreak + (longBreak * bTolerance)
     sBigBreakTolerance = longBreak - (longBreak * bTolerance)
     bSmallBreakTolerance = (longBreak * factor) + (longBreak * factor * bTolerance)
     sSmallBreakTolerance = (longBreak * factor) - (longBreak * factor * sTolerance)
-    bSyncTolerance = 0.01+(0.1*bTolerance)
-    sSyncTolerance = 0.01-(0.1*sTolerance)
-
-    print(str(bStartTolerance)+" - "+str(sStartTolerance))
-    print(str(bBigBreakTolerance)+" - "+str(sBigBreakTolerance))
-    print(str(bSmallBreakTolerance)+" - "+str(sSmallBreakTolerance))
-    print(str(bSyncTolerance)+" - "+str(sSyncTolerance))
-
-
-
+    #bSyncTolerance = 0.01+(0.1*bTolerance)
+    #sSyncTolerance = 0.01-(0.1*sTolerance)
     global codedata
     global result
     write = []
     index = 0
-    totalError = 0
     partialError = 0
-    totalData = 0
-    count = 0
     dataIndex = 0
     dif = []
 
@@ -152,9 +130,11 @@ def calc():
             else:
                 break
 
+        # start new index circualation
         if dataIndex == len(data)-1:
             dataIndex  = -1
 
+        #
         if dataIndex < len(data)-1:
             dataIndex += 1
 
@@ -170,8 +150,6 @@ def calc():
                 d1 = d2 - d1  # calculate the time between paket
                 dif.append(float(d1.total_seconds()))
                 data[dataIndex].pop(0)
-            #if len(dif) != 0:
-                #detectBreak(dif)
 
         for f1 in dif:
             if sStartTolerance < f1 < bStartTolerance:  # searching the file start/end
@@ -196,13 +174,12 @@ def calc():
 
 
                     b = BitArray(bin = dataString)               # making bitArray without Char encoding
-                    if hashFromClient == hashFromServer:
-                        f = open('./' + filename, 'wb')  # open file
+                    if hashFromClient == hashFromServer:        # successfully transfered
+                        f = open('./' + filename, 'wb')     # open file
                         b.tofile(f)                         # write to file
                         f.flush()
                         f.close()
                         return
-
 
                 codedata[dataIndex] = []
 
@@ -226,6 +203,7 @@ def calc():
         time.sleep(threadBreak)
 
 
+# not used
 def detectBreak(dif):
     print(dif)
     if(len(dif)>= 100):
@@ -239,6 +217,7 @@ def detectBreak(dif):
     while i != len(tmp)-1:
         k = abs(tmp[i] - tmp[i+1])
 
+# calculate 8 Bit pearson Hash
 def hash8(data,s):
     result = []
     if len(data) == 0:

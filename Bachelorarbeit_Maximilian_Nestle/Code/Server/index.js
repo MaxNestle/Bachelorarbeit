@@ -135,9 +135,6 @@ async function channel(){
 async function covertChannel(){
   var sync = "xxxxxxxxxxxxxxxx"
   codeBits =  sync.concat(codeBits)
-  console.log(codeBits)
-  console.log(longBreak)
-  console.log(shortBreak)
 
   while (true) {
     if (fileLoad == true) {
@@ -167,7 +164,7 @@ async function covertChannel(){
   }
 }
 
-//checks every minute the timstaps for receiver
+//not used 'Port-Kocking' auth
 async function checkTimestamps(){
   var min = getMinute();
   	while(true){

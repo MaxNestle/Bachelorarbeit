@@ -6,8 +6,6 @@ import time
 import select
 import socket
 import sys
-import datetime
-
 
 class Proxy:
     def __init__(self):
@@ -31,7 +29,8 @@ class Proxy:
         self.breakBetweenTransmit = 1
         self.fileStart = True
 
-    def cutIpFromata(self, data):
+    # cuts the IP-address out of the http request (URL)
+    def cutIpFromData(self, data):
         data = data.decode('Latin-1')
         pos = data.find("http:/")
         if pos != -1:
@@ -44,6 +43,7 @@ class Proxy:
         data = data.encode('Latin-1')
         return data
 
+    # gets the IP-Address from the request
     def getAddress(self, request):
         requestStr = str(request)  # parse the first line
         first_line = requestStr.split(' ')
@@ -60,7 +60,7 @@ class Proxy:
         if urlObj.netloc == "":
             portStart = urlObj.path.find(":")
             if portStart == -1:
-                self.webserverPort = 443
+                self.webserverPort = 443    #default
                 self.webserver = urlObj.path
             else:
                 self.webserverPort = int(urlObj.path[(portStart + 1):])
@@ -69,7 +69,7 @@ class Proxy:
         else:
             portStart = urlObj.netloc.find(":")
             if portStart == -1:
-                self.webserverPort = 80
+                self.webserverPort = 80     #default
                 self.webserver = urlObj.netloc
             else:
                 self.webserverPort = int(urlObj.netloc[(portStart + 1):])
@@ -77,6 +77,7 @@ class Proxy:
 
         print(self.webserver + " " + str(self.webserverPort))
 
+    #is called when a new client connects, also builds a server socket
     def newClient(self, s):
         (self.clientSocket, self.client_address) = s.accept()  # Establish the connection
         print("client accepted")
@@ -95,7 +96,7 @@ class Proxy:
                 self.serverSocket.connect((self.webserver, self.webserverPort))
 
 
-                request = self.cutIpFromata(request)
+                request = self.cutIpFromData(request)
                 print(request)
                 self.serverSocket.sendall(request)
 
@@ -114,6 +115,7 @@ class Proxy:
                 e = sys.exc_info()[0]
                 print(e)
 
+    # searches a socket in the socket ist and returns its value
     def getSocketIndex(self, s):
         sockIndex = -1
         for sock in self.lsock:
@@ -124,6 +126,7 @@ class Proxy:
                 sockIndex += 1
         return sockIndex
 
+    # checks if the readable socket is from client or the server
     def read(self, readable):
         for s in readable:
             sockIndex = self.getSocketIndex(s)
@@ -135,6 +138,7 @@ class Proxy:
                 else:
                     self.readFromClient(s, sockIndex)
 
+    # checks if the writable socket is from client or the server
     def send(self, writable):
         for t in writable:
             sockIndex = self.getSocketIndex(t)
@@ -162,10 +166,12 @@ class Proxy:
     def sendToClient(self, t, sockIndex):
         if len(self.msgToClient[int((sockIndex-1)/2)]) != 0:
 
+            #calculates time diverence
             lastTime = self.lastSend[int((sockIndex - 1) / 2)]
             currenTime = time.time()
             div = currenTime - lastTime
 
+            # checks if it is not the file start and sets the break
             if self.pause != self.breakBetweenTransmit:
                 if self.secretData[self.fileCursor[int((sockIndex - 1) / 2)]] == '1':
                     self.pause = self.longBreak
@@ -175,13 +181,11 @@ class Proxy:
                     else:
                         self.pause = 0.01
 
+            # checks if the break is over
             if div > self.pause:
-
-
                 if self.pause == self.breakBetweenTransmit:
                     self.pause = 0
                     data = self.msgToClient[int((sockIndex - 1) / 2)].pop(0)
-                    #data = self.cutIpFromata(data)
                     try:
                         t.sendall(data)
                         self.lastSend[int((sockIndex - 1) / 2)] = time.time()
@@ -189,16 +193,13 @@ class Proxy:
                         print(sys.exc_info()[0])
                     return
 
-
                 self.pause = 0
                 data = self.msgToClient[int((sockIndex - 1) / 2)].pop(0)
-                #data = self.cutIpFromata(data)
                 print("\nTO CLIENT\n" + str(data))
                 try:
                     t.sendall(data)
                     self.lastSend[int((sockIndex - 1) / 2)] = time.time()
-
-
+                    # end of file
                     if len(self.secretData) - 1 == self.fileCursor[int((sockIndex - 1) / 2)]:
                         self.fileCursor[int((sockIndex - 1) / 2)] = 0
                         self.pause = self.breakBetweenTransmit
@@ -210,17 +211,17 @@ class Proxy:
 
     def sendToServer(self, t, sockIndex):
         if len(self.msgToServer[int((sockIndex / 2) - 1)]) != 0:
-
             data = self.msgToServer[int((sockIndex / 2) - 1)].pop(0);
-            data = self.cutIpFromata(data)
+            data = self.cutIpFromData(data)
             print("\nTO SERVER\n" + str(data))
             try:
                 t.sendall(data)
             except:
                 print(sys.exc_info()[0])
 
-
+    # generates 8 Bit Pearson Hash
     def hash8(self,data):
+        #mapping tabel
         s = [129, 69, 229, 238, 16, 104, 178, 222, 95, 5, 171, 147, 231, 170, 105,
                  61, 85, 217, 236, 223, 87, 221, 60, 38, 125, 151, 124, 86, 137, 143,
                  230, 25, 228, 116, 62, 12, 150, 42, 177, 65, 207, 20, 122, 67, 109,
@@ -248,6 +249,7 @@ class Proxy:
         return result
 
     def getSecreteData(self):
+        print("Secret Data:")
         f = open("Secret/secret", "rb")
         try:
             self.secretData = f.read()
@@ -256,15 +258,14 @@ class Proxy:
         self.secretData = BitArray(hex=self.secretData.hex()).bin
         hash = self.hash8(self.secretData)[0]
         hash = BitArray(hex=hex(hash)).bin
-        print(hash)
         self.secretData = list(self.secretData+hash)
 
+        # adding 2 Byte of sync
         sync = ["x","x","x","x","x","x","x","x","x","x","x","x"]
         self.secretData = sync+self.secretData
-
         print(self.secretData)
 
-
+    #main function
     def proxy(self):
 
         # Create a TCP socket
@@ -274,7 +275,6 @@ class Proxy:
         self.listenSocket.listen(10)  # become a server socket
 
         self.lsock.append(self.listenSocket)
-
         while True:
             readable, writable, exceptional = select.select(self.lsock, self.lsock, self.lsock)
             self.read(readable)
