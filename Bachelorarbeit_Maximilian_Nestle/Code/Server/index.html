@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Correct Time</title>
+  </head>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(function () {
+    var socket = io();
+
+    socket.on('test', function(msg){
+      socket.emit('ClientHello','ClientHello');
+    });
+
+    socket.on('time', function(msg){
+      $('#messages').html(msg);
+    });
+  });
+</script>
+  <body>
+    <h1>The correct time is:</h1>
+    <h1 id="messages"></h1>
+  </body>
+</html>
