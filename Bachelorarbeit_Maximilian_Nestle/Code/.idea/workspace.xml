@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="660bd9bd-0f8f-42d8-a36a-fa4b6b2d8eb8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Client/Client_Proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client_Proxy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client_Proxy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client_Proxy.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client_Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client_Server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client_Server.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client_Server.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proxy/Proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxy/Proxy.py" afterDir="false" />
-    </list>
+    <list default="true" id="660bd9bd-0f8f-42d8-a36a-fa4b6b2d8eb8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +68,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="151" />
     <option name="y" value="25" />
     <option name="width" value="1394" />
@@ -142,7 +136,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="-4" width="1865" height="1085" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24986242" />
